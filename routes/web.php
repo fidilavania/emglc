@@ -14,7 +14,7 @@
 Route::get('auth/login', 'AuthController@login');
 Route::post('auth/postlogin','AuthController@authenticate');
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['web','auth']], function () {
 		//Home
 	Route::get('/', 'HomeController@viewDashboard');
 	
@@ -271,4 +271,4 @@ Route::group(['middleware' => ['auth']], function () {
 
 });
 
-Auth::routes('auth/login');
+//Auth::routes();
