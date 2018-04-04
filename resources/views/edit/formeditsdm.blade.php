@@ -147,7 +147,7 @@
                                                 <option replace>{{trim($sdm->jabatan,' ')}}</option>
                                                 <option>-Ganti Jabatan-</option>
                                                     @foreach($jabatan as $jb)
-                                                        <option value="{{$jb->jabatan}}">{{$jb->jabatan}}</option>
+                                                        <option value="{{$jb->jabatankantor}}">{{$jb->jabatankantor}}</option>
                                                     @endforeach
                                             </select>
                                         </div>
