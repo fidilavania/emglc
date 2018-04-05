@@ -24,6 +24,8 @@ class AuthController extends Controller
     // }
     public function login()
     {
+        $user = User::all();
+        Log::info(json_encode($user));
         if (Auth::check()) {
             return redirect('/');
         }
