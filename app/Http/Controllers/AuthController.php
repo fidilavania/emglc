@@ -24,7 +24,6 @@ class AuthController extends Controller
     // }
     public function login()
     {
-        Log::info('masuk');
         if (Auth::check()) {
             return redirect('/');
         }
