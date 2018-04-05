@@ -43,7 +43,7 @@ return [
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', 'localhost'),
             'port'      => env('DB_PORT', '3306'),
-            'database'  => env('DB_DATABASE', 'abckasir_master'),
+            'database'  => env('DB_DATABASE', 'emg_center'),
             'username'  => env('DB_USERNAME', 'root'),
             'password'  => env('DB_PASSWORD', 'itbs3234'),
             'charset'   => 'utf8',
