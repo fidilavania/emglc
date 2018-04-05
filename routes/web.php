@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('auth/login', 'AuthController@login');
+Route::get('auth/login', 'AuthController@login')->name('login');;
 Route::post('auth/postlogin','AuthController@authenticate');
 
-Route::group(['middleware' => ['web','auth']], function () {
+Route::group(['middleware' => ['auth']], function () {
 		//Home
 	Route::get('/', 'HomeController@viewDashboard');
 	
