@@ -45,7 +45,7 @@ return [
             'port'      => env('DB_PORT', '3306'),
             'database'  => env('DB_DATABASE', 'emg_center'),
             'username'  => env('DB_USERNAME', 'root'),
-            'password'  => env('DB_PASSWORD', ''),
+            'password'  => env('DB_PASSWORD', 'itbs3234'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
