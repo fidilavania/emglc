@@ -23,6 +23,6 @@ class RedirectIfAuthenticated
             return redirect('/auth/login');
         }
 
-        //return $next($request);
+        return $next($request);
     }
 }
