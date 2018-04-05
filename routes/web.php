@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('auth/login', 'AuthController@login')->name('login');;
 Route::post('auth/postlogin','AuthController@authenticate');
 
@@ -271,4 +270,3 @@ Route::group(['middleware' => ['auth']], function () {
 
 });
 
-Auth::routes();
