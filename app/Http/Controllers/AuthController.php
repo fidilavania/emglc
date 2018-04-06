@@ -24,6 +24,11 @@ class AuthController extends Controller
     // }
     public function login()
     {
+        // try {
+        //     DB::connection()->getPdo();
+        // } catch (\Exception $e) {
+        //     die("Could not connect to the database.  Please check your configuration.");
+        // }
         $user = User::all();
         Log::info(json_encode($user));
         if (Auth::check()) {
