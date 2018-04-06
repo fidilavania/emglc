@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION'),
+    'default' => env('DB_CONNECTION','pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,11 +55,11 @@ return [
 
         'pgsql' => [
             'driver'    => 'pgsql',
-            'host'      => env('DB_HOST'),
-            'port'      => env('DB_PORT'),
-            'database'  => env('DB_DATABASE'),
-            'username'  => env('DB_USERNAME'),
-            'password'  => env('DB_PASSWORD'),
+            'host'      => env('DB_HOST','192.168.2.2'),
+            'port'      => env('DB_PORT','5432'),
+            'database'  => env('DB_DATABASE','pelatihan'),
+            'username'  => env('DB_USERNAME','postgres'),
+            'password'  => env('DB_PASSWORD','lampp'),
             'charset'   => 'utf8',
             'prefix'    => '',
             'schema'    => 'public',
