@@ -51,7 +51,7 @@
                                     foreach($jabatan as $j){
                                         echo '<tr>';
                                         echo '<td>'.$j->grade.'</td>';
-                                        echo '<td>'.$j->jabatan.'</td>';
+                                        echo '<td>'.$j->jabatankantor.'</td>';
                                         echo '</tr>';
                                     }
                                 ?>
