@@ -26,6 +26,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    //protected $connection = 'pgsql';
-    protected $table = 'users';
+    protected $connection = 'pgsql';
+    // protected $table = 'users';
 }

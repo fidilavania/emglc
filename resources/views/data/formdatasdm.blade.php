@@ -23,6 +23,21 @@
                                         <th></th>
                                     </thead>
                                     <div class="form-inline padding-bottom-15">
+                                        <!-- <div class="row">
+                                            <div class="col-sm-12 text-center">
+                                                <div class="form-group">
+                                                    <select id="searchcolumn" class="form-control">
+                                                      <option value="cif">No.SDM</option>
+                                                      <option value="nama">Nama</option>
+                                                      <option value="alamat">Alamat</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input id="searchkey" type="text" placeholder="Search" class="form-control"autocomplete="off">
+                                                </div>
+                                                <a href="{{url('/datasdm')}}" id="clear-filter" title="clear filter">[clear]</a>
+                                            </div> -->
+                                        <!-- </div> -->
                                         <div class="row">
                                             <div class="col-sm-12 text-center">     
                                                 <div class="form-group">
@@ -88,6 +103,25 @@
         $('[name="daftarnasabahtable"] tbody tr').click(function() {
             
         });
+
+        $("#searchkey").on('keyup',function(e){
+            //Search saat tekan Enter
+              if(e.keyCode==13){
+                if($("#searchkey").val() != ""){
+                    if($("#searchcolumn").val() == 'no_sdm'){
+                        var searchword = $("#searchkey").val().replace('/', '\/');
+                    } else {
+                        var searchword = $("#searchkey").val();
+                    }
+                    window.location = '{{url("/datasdm")}}'+'/'+$("#searchcolumn").val()+'/'+searchword;
+                } else {
+                    return false;
+                }
+              }
+              else {
+                e.preventDefault();
+              }
+          });
 
         $('[name="tambahbutton"]').click(function() {
             console.log($(this).parent().parent().find('td:nth-child(2)').text());

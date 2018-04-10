@@ -43,10 +43,10 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Ganti Foto</label>
+                                    <label class="col-sm-3 control-label">Foto</label>
                                     <div class="col-sm-9">
                                          <img src="{{url(trim($sdm->foto,' '))}}" height="170" width="150"/>
-                                         <input type="file" class="form-control-file" name="img_upload">
+                                         <!-- <input type="file" class="form-control-file" name="img_upload"> -->
                                     </div>
                                 </div>
                                 <div class="row form-group">

@@ -55,6 +55,12 @@
                                     </div>
                                 </div>
                                 <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Tanggal Pelaksanaan</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="tanggal_laksana" id='tanggal_laksana' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime(trim($materi->tanggal,' ')))}}" required>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
                                     <label class="col-sm-3 control-label">Fasilitator</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="input_fasilitator" autocomplete="off" value="{{trim($materi->fasilitator,' ')}}" style="text-transform:uppercase;" placeholder="Nama Fasilitator" required />
@@ -164,10 +170,7 @@ $('#sKecamatan').on('change', function(){
 
         $('.summernote').summernote();
 
-        $("#tanggalmohon").datepicker({ dateFormat: 'dd-mm-yy' });
-        $("#tanggalberlaku").datepicker({ dateFormat: 'dd-mm-yy' });
-        $("#tanggallahir").datepicker({ dateFormat: 'dd-mm-yy' });
-        $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
+        $("#tanggal_laksana").datepicker({ dateFormat: 'dd-mm-yy' });
         $('[name="input_pendapatan_nasabah"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
         $('[name="input_biaya_hidup_nasabah"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
         $('[name="biaya"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});

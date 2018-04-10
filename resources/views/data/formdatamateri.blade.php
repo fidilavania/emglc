@@ -16,6 +16,7 @@
                                         <th>Silabus</th>
                                         <th>Peserta</th>
                                         <th>Fasilitator</th>
+                                        <th>Tanggal</th>
                                         <th>Durasi</th>
                                         <th>Biaya Investasi</th>
                                         <th></th>
@@ -42,6 +43,7 @@
                                                 echo '<td>'.nl2br($nsb->peserta).'</td>';
                                                 ?>
                                                 <td>{{$nsb->fasilitator}}</td>
+                                                <td>{{date('d-m-Y',strtotime($nsb->tanggal))}}</td>
                                                 <td>{{$nsb->durasi}}</td>
                                                 <td>{{number_format($nsb->biaya,0,'','.')}}</td>
                                                 <!-- @if(strpos(Auth::user()->fungsi, '2525') !== false) -->
