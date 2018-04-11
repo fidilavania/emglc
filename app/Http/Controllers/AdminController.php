@@ -29,11 +29,11 @@ class AdminController extends Controller
     }
     public function postSaveUser(Request $request)
     {
-        $lastnonsb = User::max('id');
-        $nonsb = (int) $lastnonsb + 1;
+        // $lastnonsb = User::max('id');
+        // $nonsb = (int) $lastnonsb + 1;
 
     	$user = new User;
-        $user->id = $nonsb;
+        //$user->id = $nonsb;
     	$user->username = $request->input('input_username');
     	$user->nama_lengkap = $request->input('input_nama_lengkap');
     	$user->jabatan = $request->input('input_jabatan');
