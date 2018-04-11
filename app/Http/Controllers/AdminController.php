@@ -33,7 +33,7 @@ class AdminController extends Controller
         $nonsb = (int) $lastnonsb + 1;
 
     	$user = new User;
-        $user->id = str_pad($nonsb,STR_PAD_LEFT);
+        $user->id = $nonsb;
     	$user->username = $request->input('input_username');
     	$user->nama_lengkap = $request->input('input_nama_lengkap');
     	$user->jabatan = $request->input('input_jabatan');

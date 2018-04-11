@@ -7,7 +7,7 @@
             <div class="panel panel-primary" id="paneltranslain">
                 <div class="panel-heading"><h4 align="center">USER BARU</h4></div>
                     <div class="panel-body">
-                      <form class="form-horizontal" id="userbaruform" role="form" method="POST" action="{{ url('/admin/saveuser/$nonsb') }}">
+                      <form class="form-horizontal" id="userbaruform" role="form" method="POST" action="{{ url('/admin/saveuser') }}">
                       <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <div class="row">
                             <div class="col-sm-12">

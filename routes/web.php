@@ -46,7 +46,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 	//Admin
 	Route::get('/adduser', 'AdminController@getFormUser');
-	Route::post('admin/saveuser/{nonsb?}', 'AdminController@postSaveUser');
+	Route::post('admin/saveuser', 'AdminController@postSaveUser');
 	Route::match(['get', 'post'],'lihatuser/{kol?}/{key?}', 'AdminController@getDaftarUser');
 
 	// daftar materi
