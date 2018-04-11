@@ -46,7 +46,7 @@
                                                 <td>{{$nsb->durasi}}</td>
                                                 <td>{{number_format($nsb->biaya,0,'','.')}}</td>
                                                 <!-- @if(strpos(Auth::user()->fungsi, '2525') !== false) -->
-                                                <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
+                                                <td><input type="button" class="btn btn-danger" name="tambah" value="Edit" /></td>
                                                 <td><input type="button" class="btn btn-primary" name="tambahbutton" value="Detail" /></td>
                                                 <!-- @endif -->
                                             </tr>
@@ -93,7 +93,7 @@
         //       ['style', ['style' ,'examplePlugin']]
         //     ]
         // });
-        $('[name="tambahbutton"]').click(function() {
+        $('[name="tambah"]').click(function() {
             console.log($(this).parent().parent().find('td:nth-child(2)').text());
             console.log($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Edit');
             if($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Edit'){
@@ -105,8 +105,8 @@
 
         $('[name="tambahbutton"]').click(function() {
             console.log($(this).parent().parent().find('td:nth-child(2)').text());
-            console.log($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Tambah_Peserta');
-            if($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Tambah_Peserta'){
+            console.log($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Detail');
+            if($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Detail'){
                 window.location.href = '{{url("/daftar")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
             } else {
                 window.location.href ='{{url("/daftar")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
