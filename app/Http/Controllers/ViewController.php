@@ -75,9 +75,9 @@ class ViewController extends Controller
         $datakredit = array();
 
         if($key == null){
-            $nsblist = materi::select('kode_modul','tanggal','fasilitator','nama_modul','silabus','peserta','durasi','biaya')->paginate(20);
+            $nsblist = materi::select('kode_modul','fasilitator','nama_modul','silabus','peserta','durasi','biaya')->paginate(20);
         } else {
-            $nsblist = materi::select('kode_modul','tanggal','fasilitator','nama_modul','silabus','peserta','durasi','biaya')->whereRaw
+            $nsblist = materi::select('kode_modul','fasilitator','nama_modul','silabus','peserta','durasi','biaya')->whereRaw
             ("kode_modul LIKE '%".strtoupper($key)."%'OR nama_modul LIKE '%".strtoupper($key)."%' ")->paginate(20);
         }
 

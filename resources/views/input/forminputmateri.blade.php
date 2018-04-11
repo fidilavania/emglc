@@ -48,12 +48,12 @@
                                         <input type="text" class="form-control" name="namamodul" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="Nama Modul" required />
                                     </div>
                                 </div>
-                                <div class="row form-group">
+                               <!--  <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal Pelaksanaan</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="tanggal_laksana" id='tanggal_laksana' placeholder ="{{date('d-m-Y')}}"  required>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Fasilitator</label>
                                     <div class="col-sm-9">

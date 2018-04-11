@@ -26,6 +26,19 @@ use Input;
 class InputController extends Controller
 {
    
+    public function viewFormDaftar($nonsb)
+    {
+        $sdm = DB::connection('pgsql')->table('sdm')->get();
+        $materi = DB::connection('pgsql')->table('materi')->first();
+
+        return view('input.formdetail',compact('sdm','materi'));   
+    }
+
+    public function saveDaftar(Request $request,$nonsb)
+    {
+        return redirect('/');
+    }
+
     public function viewFormJabatan()
     {
         $jabatan = DB::connection('pgsql')->table('mst_jabatan')->get();
@@ -247,7 +260,7 @@ class InputController extends Controller
         $materi->kode_modul = 'EMG'.str_pad($nonsb, 3, '0',STR_PAD_LEFT);
         // $materi->kode_modul = $nonsb;
         $materi->tgl_input = date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon')));
-        $materi->tanggal = date('Y-m-d H:i:s',strtotime($request->input('tanggal_laksana')));
+        // $materi->tanggal = date('Y-m-d H:i:s',strtotime($request->input('tanggal_laksana')));
 		$materi->opr = strtoupper($request->input('opr'));
 		$materi->nama_modul = strtoupper($request->input('namamodul'));
         $materi->fasilitator = strtoupper($request->input('input_fasilitator'));
@@ -312,7 +325,7 @@ class InputController extends Controller
         'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
         'opr' => strtoupper($request->input('opr')),
         'nama_modul' => strtoupper($request->input('namamodul')),
-        'tanggal' => ($request->input('tanggal_laksana')),
+        // 'tanggal' => ($request->input('tanggal_laksana')),
         'fasilitator' => strtoupper($request->input('input_fasilitator')),
         'peserta' => strtoupper($request->input('peserta')),
         'silabus' => ($request->input('silabus')),

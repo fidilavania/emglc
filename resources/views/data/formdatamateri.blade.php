@@ -16,9 +16,9 @@
                                         <th>Silabus</th>
                                         <th>Peserta</th>
                                         <th>Fasilitator</th>
-                                        <th>Tanggal</th>
                                         <th>Durasi</th>
                                         <th>Biaya Investasi</th>
+                                        <th></th>
                                         <th></th>
                                     </thead>
                                     <div class="form-inline padding-bottom-15">
@@ -43,11 +43,11 @@
                                                 echo '<td>'.nl2br($nsb->peserta).'</td>';
                                                 ?>
                                                 <td>{{$nsb->fasilitator}}</td>
-                                                <td>{{date('d-m-Y',strtotime($nsb->tanggal))}}</td>
                                                 <td>{{$nsb->durasi}}</td>
                                                 <td>{{number_format($nsb->biaya,0,'','.')}}</td>
                                                 <!-- @if(strpos(Auth::user()->fungsi, '2525') !== false) -->
                                                 <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
+                                                <td><input type="button" class="btn btn-primary" name="tambahbutton" value="Detail" /></td>
                                                 <!-- @endif -->
                                             </tr>
                                          @endforeach
@@ -100,6 +100,16 @@
                 window.location.href = '{{url("/editmateri")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
             } else {
                 window.location.href ='{{url("/editmateri")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+            }
+        });
+
+        $('[name="tambahbutton"]').click(function() {
+            console.log($(this).parent().parent().find('td:nth-child(2)').text());
+            console.log($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Tambah_Peserta');
+            if($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Tambah_Peserta'){
+                window.location.href = '{{url("/daftar")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+            } else {
+                window.location.href ='{{url("/daftar")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
             }
         });
 

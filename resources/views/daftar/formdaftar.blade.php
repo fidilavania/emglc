@@ -10,10 +10,10 @@
                     </ul>
                 </div>
             </div>
-            <form class="form-horizontal" id="simpanform" role="form" method="POST" action="{{ url('/savemateriedit/$nonsb') }}" >
+            <form class="form-horizontal" id="simpanform" role="form" method="POST" action="{{ url('/savedaftar/$nonsb') }}" >
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="panel panel-primary" id="panelnasabah">
-                    <div class="panel-heading"><h4 align="center">EDIT DATA MATERI</h4></div>
+                    <div class="panel-heading"><h4 align="center">MASUKKAN DAFTAR PESERTA</h4></div>
                     <div class="row">
                         <div class="col-sm-3">
                             <?php
@@ -22,12 +22,12 @@
                         </div>
                     </div>
                     <div class="panel-body">
-                        <div class="row">
+                        <!-- <div class="row"> -->
                             <div class="col-sm-6">
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Tanggal</label>
+                                    <label class="col-sm-3 control-label">Tanggal*</label>
                                     <div class="col-sm-9">
-                                      <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y')}}" readonly>
+                                      <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y')}}" >
                                     </div>
                                 </div>
                             </div>
@@ -39,74 +39,29 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Kode Modul</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="kode_modul" autocomplete="off" value="{{trim($materi->kode_modul,' ')}}" style="text-transform:uppercase;" readonly />
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Nama Modul</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="namamodul" autocomplete="off" value="{{trim($materi->nama_modul,' ')}}" style="text-transform:uppercase;" placeholder="Nama Modul" required />
-                                    </div>
-                                </div>
-                                <!-- <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Tanggal Pelaksanaan</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="tanggal_laksana" id='tanggal_laksana' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime(trim($materi->tanggal,' ')))}}" required>
-                                    </div>
-                                </div> -->
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Fasilitator</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="input_fasilitator" autocomplete="off" value="{{trim($materi->fasilitator,' ')}}" style="text-transform:uppercase;" placeholder="Nama Fasilitator" required />
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Peserta</label>
-                                    <div class="col-sm-9">
-                                        <textarea rows="10" cols="135" name="peserta" placeholder="Isi Peserta" style="text-transform:uppercase;">{{trim($materi->peserta,' ')}}</textarea>
-                                    </div>
-                                </div>
-                                <!-- <div class="summernote">summernote 1</div> -->
-                                <div class="summernote">
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Silabus</label>
-                                    <div class="col-sm-9">
-                                        <textarea rows="20" cols="135" name="silabus" placeholder="Isi Silabus" style="text-transform:uppercase;" id="silabus">{{$materi->silabus}}</textarea>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Durasi</label>
-                                    <div class="col-sm-8">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" name="durasi" autocomplete="off" value="{{trim($materi->durasi,' ')}}" style="text-transform:uppercase;" placeholder="durasi"  />
-                                            <span class="input-group-addon">Sesi</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Biaya Investasi</label>
-                                    <div class="col-sm-8">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Rp.</span>
-                                            <input type="text" class="form-control" name="biaya" autocomplete="off" value="{{trim($materi->biaya,' ')}}" style="text-transform:uppercase;" placeholder="00000"  />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        <!-- </div> -->
                         
+                        <table class="table-bordered"  style="border-style: solid 1px #000000;" width=80% >
+                            <thead>
+                                <th>No. SDM</th>
+                                <th>Nama</th>
+                                <th>Jabatan</th>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    foreach($sdm as $j){
+                                        echo '<tr>';
+                                        echo '<td>'."<input name='peserta[]' type='checkbox'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;$j->no_sdm".'</td>'; 
+                                        echo '<td>'.$j->nama.'</td>';
+                                        echo '<td>'.$j->jabatan.'</td>';
+                                        echo '</tr>';
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
+                        <!-- <input type="button" class="btn btn-primary" value="Tambah Jabatan" id="addKantor" />
+                        <div class="KantorTambah"> -->
+                        </div>
                         <div class="row submitbtn1">
                             <!-- <div class="col-sm-12">
                                 <button type="submit" class="btn btn-primary" name="simpanbutton">KE KREDIT</button>
@@ -118,6 +73,26 @@
                     </div>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+<div id="kantorTambah" data-op ="kantor" hidden>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row form-group">
+                <label class="col-sm-3 control-label">Grade</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="input_grade" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="grade" required />
+                </div>
+            </div>
+            <div class="row form-group">
+                <label class="col-sm-3 control-label">Jabatan</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="input_jabatan" autocomplete="off" value=""  placeholder="jabatan" required />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
         </div>
     </div>
 </div>
@@ -153,27 +128,27 @@ $('#sKecamatan').on('change', function(){
             $('[name="'+nama+'"]').css("background-color", "#F9CECE");
         }
     }
-    (function (factory) {
-          /* Global define */
-          if (typeof define === 'function' && define.amd) {
-            // AMD. Register as an anonymous module.
-            define(['jquery'], factory);
-          } else if (typeof module === 'object' && module.exports) {
-            // Node/CommonJS
-            module.exports = factory(require('jquery'));
-          } else {
-            // Browser globals
-            factory(window.jQuery);
-          }
-    }
     $(document).ready(function() {
 
-        $('.summernote').summernote();
+        $('#addKantor').click(function(){
+            var $template = $('#kantorTambah'),
+                $clone    = $template
+                                .clone()
+                                .removeAttr('hidden')
+                                .removeAttr('id')
+                                //.attr('id','tanahBangunanForm'+$('[data-jaminan="tanahBangunan"]').length)
+                                //.attr('id','tanahBangunanForm'+INC_OP)
+                                //.insertBefore($template);
+                                .appendTo('.KantorTambah');
+            
+        });
 
-        $("#tanggal_laksana").datepicker({ dateFormat: 'dd-mm-yy' });
-        $('[name="input_pendapatan_nasabah"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-        $('[name="input_biaya_hidup_nasabah"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-        $('[name="biaya"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $("#tanggalmohon").datepicker({ dateFormat: 'dd-mm-yy' });
+        $("#tanggalberlaku").datepicker({ dateFormat: 'dd-mm-yy' });
+        $("#tanggallahir").datepicker({ dateFormat: 'dd-mm-yy' });
+        $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
+        $('[name="input_pendapatan"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="input_biaya_hidup"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
         
 
         $("#hp").keypress(function(data){

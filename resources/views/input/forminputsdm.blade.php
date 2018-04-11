@@ -28,7 +28,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal*</label>
                                     <div class="col-sm-9">
-                                      <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y')}}" >
+                                      <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y')}}" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -538,7 +538,7 @@ $('#sKecamatan').on('change', function(){
 
         });
 
-        $("#tanggalmohon").datepicker({ dateFormat: 'dd-mm-yy' });
+        // $("#tanggalmohon").datepicker({ dateFormat: 'dd-mm-yy' });
         $("#tanggalberlaku").datepicker({ dateFormat: 'dd-mm-yy' });
         $("#tanggallahir").datepicker({ dateFormat: 'dd-mm-yy' });
         $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });

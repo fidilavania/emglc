@@ -97,7 +97,7 @@
                 </li>
                   </ul>
 
-              @if(strpos(Auth::user()->fungsi, '2525') !== false)
+             <!--  @if(strpos(Auth::user()->fungsi, '2525') !== false) -->
                 <li class="">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data Klien<span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -105,13 +105,20 @@
                     <li><a href="{{ url('/dataklien') }}">Daftar Klien</a></li> 
                 </li>
                 </ul>
-              @endif
+              <!-- @endif -->
 
                 <li class="">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data SDM<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="{{ url('/addsdm') }}">Input SDM</a></li> 
                     <li><a href="{{ url('/datasdm') }}">Daftar SDM</a></li> 
+                </li>
+                  </ul>
+
+                 <li class="">
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Materi Pelatihan<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{{ url('#') }}">Materi</a></li> 
                 </li>
                   </ul>
 
