@@ -27,7 +27,7 @@ class AdminController extends Controller
     	$jabatan = DB::connection('pgsql')->table('mst_jabatan')->get();
 		return view('admin.formuser', compact('kantor','jabatan'));
     }
-    public function postSaveUser(Request $request,$nonsb)
+    public function postSaveUser(Request $request)
     {
         $lastnonsb = User::max('id');
         $nonsb = (int) $lastnonsb + 1;
