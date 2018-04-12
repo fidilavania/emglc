@@ -23,10 +23,10 @@ class AdminController extends Controller
 {
      public function getFormUser()
     {
-    	// $kantor = DB::connection('pgsql')->table('mst_kantor')->get();
-    	// $jabatan = DB::connection('pgsql')->table('mst_jabatan')->get();
-        $kantor = kantor_mst::all();
-        $jabatan = jabatan_mst::all();
+    	$kantor = DB::connection('pgsql')->table('mst_kantor')->get();
+    	$jabatan = DB::connection('pgsql')->table('mst_jabatan')->get();
+        // $kantor = kantor_mst::all();
+        // $jabatan = jabatan_mst::all();
 		return view('admin.formuser', compact('kantor','jabatan'));
     }
     public function postSaveUser(Request $request)
@@ -34,25 +34,25 @@ class AdminController extends Controller
         // $lastnonsb = User::max('id');
         // $nonsb = (int) $lastnonsb + 1;
 
-    	// $user = new User;
-     //    //$user->id = $nonsb;
-    	// $user->username = $request->input('input_username');
-    	// $user->nama_lengkap = $request->input('input_nama_lengkap');
-    	// $user->jabatan = $request->input('input_jabatan');
-    	// $user->kantor = $request->input('input_kantor');
-     //    $user->fungsi = 1111;
-    	// $user->status = 1;
-    	// $user->password = Hash::make($request->input('input_password'));
-    	// $user->save();
-        DB::table('users')->insert([
-            ['username' => $request->input('input_username'), 
-             'nama_lengkap' => $request->input('input_nama_lengkap'),
-             'jabatan' =>$request->input('input_jabatan'),
-             'kantor' =>$request->input('input_kantor'),
-             'fungsi' =>1111,
-             'status' =>1,
-             'password' =>Hash::make($request->input('input_password'))]
-        ]);
+    	$user = new User;
+        //$user->id = $nonsb;
+    	$user->username = $request->input('input_username');
+    	$user->nama_lengkap = $request->input('input_nama_lengkap');
+    	$user->jabatan = $request->input('input_jabatan');
+    	$user->kantor = $request->input('input_kantor');
+        $user->fungsi = 1111;
+    	$user->status = 1;
+    	$user->password = Hash::make($request->input('input_password'));
+    	$user->save();
+        // DB::table('users')->insert([
+        //     ['username' => $request->input('input_username'), 
+        //      'nama_lengkap' => $request->input('input_nama_lengkap'),
+        //      'jabatan' =>$request->input('input_jabatan'),
+        //      'kantor' =>$request->input('input_kantor'),
+        //      'fungsi' =>1111,
+        //      'status' =>1,
+        //      'password' =>Hash::make($request->input('input_password'))]
+        // ]);
 
     	return redirect('/lihatuser');
     	// return redirect('/');
