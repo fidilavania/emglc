@@ -27,7 +27,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal*</label>
                                     <div class="col-sm-9">
-                                      <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y')}}" >
+                                      <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y')}}" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -42,28 +42,54 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
+                                <div class="row form-group" hidden>
+                                    <label class="col-sm-3 control-label">Kode Modul</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="kode_modul" autocomplete="off" value="{{trim($materi->kode_modul,' ')}}" style="text-transform:uppercase;" readonly />
+                                    </div>
+                                </div>
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Nama Modul</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="namamodul" autocomplete="off" value="{{trim($materi->nama_modul,' ')}}" style="text-transform:uppercase;" placeholder="Nama Modul" readonly />
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-6">
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Durasi</label>
-                                    <div class="col-sm-8">
+                                    <label class="col-sm-3 control-label">Fasilitator</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="input_fasilitator" autocomplete="off" value="{{trim($materi->fasilitator,' ')}}" style="text-transform:uppercase;" placeholder="Nama Fasilitator" readonly />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Biaya Investasi</label>
+                                    <div class="col-sm-9">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" name="durasi" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="durasi"  />
-                                            <span class="input-group-addon">Sesi</span>
+                                            <span class="input-group-addon">Rp.</span>
+                                            <input type="text" class="form-control" name="biaya" autocomplete="off" value="{{number_format($materi->biaya,0,'','.')}}" style="text-transform:uppercase;" placeholder="00000" readonly />
                                         </div>
                                     </div>
                                 </div>
+                                <!-- <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Peserta</label>
+                                    <div class="col-sm-9">
+                                        <textarea rows="10" cols="54" name="peserta" placeholder="Isi Peserta" style="text-transform:uppercase;">.readonly {{trim($materi->peserta,' ')}}</textarea>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <div class="col-sm-6">
+                                
+                            </div>
+                            <div class="col-sm-6">
+                                
                             </div>
                         </div>
-                        <!-- <input type="button" class="btn btn-primary" value="Tambah Jabatan" id="addKantor" />
-                        <div class="KantorTambah"> -->
+                        <input type="button" class="btn btn-primary" value="Tambah Peserta" id="addKantor" />
+                        <br/>
+                        <br/>
+                        <div class="KantorTambah">
                         </div>
+                        <br/>
+                        <br/>
                         <div class="row submitbtn1">
                             <!-- <div class="col-sm-12">
                                 <button type="submit" class="btn btn-primary" name="simpanbutton">KE KREDIT</button>
@@ -81,23 +107,27 @@
 <div id="kantorTambah" data-op ="kantor" hidden>
     <div class="row">
         <div class="col-sm-6">
-            <div class="row form-group">
-                <label class="col-sm-3 control-label">Grade</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" name="input_grade" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="grade" required />
-                </div>
-            </div>
-            <div class="row form-group">
-                <label class="col-sm-3 control-label">Jabatan</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" name="input_jabatan" autocomplete="off" value=""  placeholder="jabatan" required />
-                </div>
-            </div>
+            <table class="table-bordered"  style="border-style: solid 1px #000000;" width=100% >
+                <thead>
+                    <th>No. SDM</th>
+                    <th>Nama</th>
+                    <th>Jabatan</th>
+                </thead>
+                <tbody>
+                    <?php
+                        foreach($sdm as $j){
+                        echo '<tr>';
+                        echo '<td>'."<input name='peserta[]' type='checkbox'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;$j->no_sdm".'</td>'; 
+                        echo '<td>'.$j->nama.'</td>';
+                        echo '<td>'.$j->jabatan.'</td>';
+                        echo '</tr>';
+                        }
+                    ?>
+                </tbody>
+            </table>
         </div>
-        <div class="col-sm-6">
-        </div>
-    </div>
 </div>
+
 @endsection
 
 @section('js')
@@ -145,7 +175,7 @@ $('#sKecamatan').on('change', function(){
             
         });
 
-        $("#tanggalmohon").datepicker({ dateFormat: 'dd-mm-yy' });
+        // $("#tanggalmohon").datepicker({ dateFormat: 'dd-mm-yy' });
         $("#tanggalberlaku").datepicker({ dateFormat: 'dd-mm-yy' });
         $("#tanggallahir").datepicker({ dateFormat: 'dd-mm-yy' });
         $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
