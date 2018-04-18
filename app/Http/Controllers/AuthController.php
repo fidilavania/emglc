@@ -30,7 +30,7 @@ class AuthController extends Controller
         //     die("Could not connect to the database.  Please check your configuration.");
         // }
         $user = User::all();
-        Log::info(json_encode($user));
+        //Log::info(json_encode($user));
         if (Auth::check()) {
             return redirect('/');
         }

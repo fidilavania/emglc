@@ -26,7 +26,7 @@
                             <div class="col-sm-6">
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal*</label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-8">
                                       <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y')}}" readonly>
                                     </div>
                                 </div>
@@ -42,33 +42,19 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                                <div class="row form-group" hidden>
+                                <div class="row form-group">
                                     <label class="col-sm-3 control-label">Kode Modul</label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-8">
                                         <input type="text" class="form-control" name="kode_modul" autocomplete="off" value="{{trim($materi->kode_modul,' ')}}" style="text-transform:uppercase;" readonly />
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Nama Modul</label>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-8">
                                         <input type="text" class="form-control" name="namamodul" autocomplete="off" value="{{trim($materi->nama_modul,' ')}}" style="text-transform:uppercase;" placeholder="Nama Modul" readonly />
                                     </div>
                                 </div>
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Fasilitator</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="input_fasilitator" autocomplete="off" value="{{trim($materi->fasilitator,' ')}}" style="text-transform:uppercase;" placeholder="Nama Fasilitator" readonly />
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Biaya Investasi</label>
-                                    <div class="col-sm-9">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">Rp.</span>
-                                            <input type="text" class="form-control" name="biaya" autocomplete="off" value="{{number_format($materi->biaya,0,'','.')}}" style="text-transform:uppercase;" placeholder="00000" readonly />
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <!-- <div class="row form-group">
                                     <label class="col-sm-3 control-label">Peserta</label>
                                     <div class="col-sm-9">
@@ -77,13 +63,75 @@
                                 </div> -->
                             </div>
                             <div class="col-sm-6">
-                                
-                            </div>
-                            <div class="col-sm-6">
-                                
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Fasilitator</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="input_fasilitator" autocomplete="off" value="{{trim($materi->fasilitator,' ')}}" style="text-transform:uppercase;" placeholder="Nama Fasilitator" readonly />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Biaya Investasi</label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Rp.</span>
+                                            <input type="text" class="form-control" name="biaya" autocomplete="off" value="{{number_format($materi->biaya,0,'','.')}}" style="text-transform:uppercase;" placeholder="00000" readonly />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <input type="button" class="btn btn-primary" value="Tambah Peserta" id="addKantor" />
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <!-- <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Sesi</label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" name="biaya" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="0"  />
+                                            <span class="input-group-addon">Kali</span>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Tanggal Pelaksanaan 1</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="tanggal_laksana1" id='tanggal_laksana1' placeholder ="{{date('d-m-Y')}}"  required>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Tanggal Pelaksanaan 2</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="tanggal_laksana2" id='tanggal_laksana2' placeholder ="{{date('d-m-Y')}}"  required>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Tanggal Pelaksanaan 3</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="tanggal_laksana3" id='tanggal_laksana3' placeholder ="{{date('d-m-Y')}}"  required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Lokasi Pelaksanaan 1</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="lokasi1" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="Lokasi" />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Lokasi Pelaksanaan 2</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="lokasi2" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="Lokasi" />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Lokasi Pelaksanaan 3</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="lokasi3" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="Lokasi" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <input type="button" class="btn btn-primary" value="Tambah Peserta" id="addKantor" /> -->
                         <br/>
                         <br/>
                         <div class="KantorTambah">
@@ -165,7 +213,7 @@ $('#sKecamatan').on('change', function(){
         $('#addKantor').click(function(){
             var $template = $('#kantorTambah'),
                 $clone    = $template
-                                .clone()
+                                // .clone()
                                 .removeAttr('hidden')
                                 .removeAttr('id')
                                 //.attr('id','tanahBangunanForm'+$('[data-jaminan="tanahBangunan"]').length)
@@ -176,109 +224,16 @@ $('#sKecamatan').on('change', function(){
         });
 
         // $("#tanggalmohon").datepicker({ dateFormat: 'dd-mm-yy' });
-        $("#tanggalberlaku").datepicker({ dateFormat: 'dd-mm-yy' });
+        $("#tanggal_laksana1").datepicker({ dateFormat: 'dd-mm-yy' });
+        $("#tanggal_laksana2").datepicker({ dateFormat: 'dd-mm-yy' });
+        $("#tanggal_laksana3").datepicker({ dateFormat: 'dd-mm-yy' });
         $("#tanggallahir").datepicker({ dateFormat: 'dd-mm-yy' });
         $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
         $('[name="input_pendapatan"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
         $('[name="input_biaya_hidup"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
         
 
-        $("#hp").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesan").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-         });
-        $("#hpku").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanku").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#ktp").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanktp").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#kodepos").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanpos").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#tanggungan").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesantang").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#pendapatan").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesandapat").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#biaya").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanbi").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-
-        //angular??
-
-
-        $("#ktpps").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanktps").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#rtps").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanrts").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#rt").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanrt").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#rw").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanrw").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#rwps").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanrws").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        
-        $("#posps").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanposs").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
+       
 });
 </script>
 @endsection

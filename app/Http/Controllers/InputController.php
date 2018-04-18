@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\klien;
 use App\materi;
+use App\materi_detail;
 use App\sdm;
 use App\mst_kantor;
 use App\mst_gelar;
@@ -36,6 +37,18 @@ class InputController extends Controller
 
     public function saveDaftar(Request $request,$nonsb)
     {
+        $detail = new materi_detail;
+        $detail->tgl_input = date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon')));
+        $detail->opr = strtoupper($request->input('opr'));
+        $detail->kode_modul = strtoupper($request->input('kode_modul'));
+        $detail->tgl_1 = date('Y-m-d H:i:s',strtotime($request->input('tanggal_laksana1')));
+        $detail->tgl_2 = date('Y-m-d H:i:s',strtotime($request->input('tanggal_laksana2')));
+        $detail->tgl_3 = date('Y-m-d H:i:s',strtotime($request->input('tanggal_laksana3')));
+        $detail->lokasi_1 = strtoupper($request->input('lokasi1'));
+        $detail->lokasi_2 = strtoupper($request->input('lokasi2'));
+        $detail->lokasi_3 = strtoupper($request->input('lokasi3'));
+        $detail->save();
+
         return redirect('/');
     }
 

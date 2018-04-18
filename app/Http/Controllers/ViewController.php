@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\klien;
 use App\materi;
 use App\sdm;
+use App\materi_detail;
 use App\mst_kantor;
 use App\mst_gelar;
 use App\mst_jabatan;
