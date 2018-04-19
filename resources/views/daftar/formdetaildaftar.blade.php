@@ -10,10 +10,10 @@
                     </ul>
                 </div>
             </div>
-            <form class="form-horizontal" id="simpanform" role="form" method="POST" action="{{ url('/savedaftar/$nonsb') }}" >
+            <form class="form-horizontal" id="simpanform" role="form" method="POST" action="{{ url('/savedetaildaftar/$nonsb') }}" >
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="panel panel-primary" id="panelnasabah">
-                    <div class="panel-heading"><h4 align="center">DETAIL</h4></div>
+                    <div class="panel-heading"><h4 align="center">TAMBAH PESERTA</h4></div>
                     <div class="row">
                         <div class="col-sm-3">
                             <?php
@@ -92,50 +92,42 @@
                                     </div>
                                 </div> -->
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Tanggal Pelaksanaan 1</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="tanggal_laksana1" id='tanggal_laksana1' placeholder ="{{date('d-m-Y')}}" >
+                                    <label class="col-sm-3 control-label">Tanggal & Lokasi 1</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="tanggal_laksana1" id='tanggal_laksana1' placeholder ="{{date('d-m-Y')}}"  value="{{date('d-m-Y',strtotime($detail->tgl_1))}}" readonly >
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="lokasi1" autocomplete="off" value="{{trim($detail->lokasi_1,' ')}}" style="text-transform:uppercase;" placeholder="Lokasi" readonly />
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Tanggal Pelaksanaan 2</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="tanggal_laksana2" id='tanggal_laksana2' placeholder ="{{date('d-m-Y')}}" >
+                                    <label class="col-sm-3 control-label">Tanggal & Lokasi 2</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="tanggal_laksana2" id='tanggal_laksana2' placeholder ="{{date('d-m-Y')}}"  value="{{date('d-m-Y',strtotime($detail->tgl_2))}}" readonly >
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="lokasi2" autocomplete="off" value="{{trim($detail->lokasi_2,' ')}}" style="text-transform:uppercase;" placeholder="Lokasi" readonly />
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Tanggal Pelaksanaan 3</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="tanggal_laksana3" id='tanggal_laksana3' placeholder ="{{date('d-m-Y')}}" >
+                                    <label class="col-sm-3 control-label">Tanggal & Lokasi 3</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="tanggal_laksana3" id='tanggal_laksana3' placeholder ="{{date('d-m-Y')}}"  value="{{date('d-m-Y',strtotime($detail->tgl_3))}}" readonly >
+                                    </div>
+                                    <div class="col-sm-4">
+                                         <input type="text" class="form-control" name="lokasi3" autocomplete="off" value="{{trim($detail->lokasi_3,' ')}}" style="text-transform:uppercase;" placeholder="Lokasi" readonly />
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Lokasi Pelaksanaan 1</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="lokasi1" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="Lokasi" />
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Lokasi Pelaksanaan 2</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="lokasi2" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="Lokasi" />
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Lokasi Pelaksanaan 3</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="lokasi3" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="Lokasi" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <input type="button" class="btn btn-primary" value="Tambah Peserta" id="addKantor" /> -->
+                                 <input type="button" class="btn btn-primary" value="Tambah Peserta" id="addKantor" />
                         <br/>
                         <br/>
                         <div class="KantorTambah">
                         </div>
+                            </div>
+                        </div>
+                       
                         <br/>
                         <br/>
                         <div class="row submitbtn1">
@@ -224,9 +216,9 @@ $('#sKecamatan').on('change', function(){
         });
 
         // $("#tanggalmohon").datepicker({ dateFormat: 'dd-mm-yy' });
-        $("#tanggal_laksana1").datepicker({ dateFormat: 'dd-mm-yy' });
-        $("#tanggal_laksana2").datepicker({ dateFormat: 'dd-mm-yy' });
-        $("#tanggal_laksana3").datepicker({ dateFormat: 'dd-mm-yy' });
+        // $("#tanggal_laksana1").datepicker({ dateFormat: 'dd-mm-yy' });
+        // $("#tanggal_laksana2").datepicker({ dateFormat: 'dd-mm-yy' });
+        // $("#tanggal_laksana3").datepicker({ dateFormat: 'dd-mm-yy' });
         $("#tanggallahir").datepicker({ dateFormat: 'dd-mm-yy' });
         $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
         $('[name="input_pendapatan"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});

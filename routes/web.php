@@ -52,6 +52,10 @@ Route::group(['middleware' => ['auth']], function () {
 	// daftar materi
 	Route::get('/daftar/{nonsb?}', 'InputController@viewFormDaftar');
 	Route::post('/savedaftar/{nonsb?}','InputController@saveDaftar');
+
+	// daftar detail
+	Route::get('/detaildaftar/{nonsb?}', 'ViewController@viewFormDetailDaftar');
+	Route::post('/savedetaildaftar/{nonsb?}','ViewController@saveFormDetailDaftar');
 	
 	
 

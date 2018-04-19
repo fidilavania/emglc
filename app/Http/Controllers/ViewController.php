@@ -25,6 +25,19 @@ use Input;
 
 class ViewController extends Controller
 {
+    public function viewFormDetailDaftar($nonsb)
+    {
+        $sdm = DB::connection('pgsql')->table('sdm')->get();
+        $materi = DB::connection('pgsql')->table('materi')->first();
+        $detail = DB::connection('pgsql')->table('materi_detail')->first();
+
+        return view('daftar.formdetaildaftar',compact('sdm','materi','detail'));   
+    }
+    public function saveFormDetailDaftar(Request $request,$nonsb)
+    {
+        return redirect('/');
+    }
+
     public function viewDataSdm($key=null)
     {
         // $kol=null,
