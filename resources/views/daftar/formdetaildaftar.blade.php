@@ -82,7 +82,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                                <!-- <div class="row form-group">
+                                {{-- <!-- <div class="row form-group">
                                     <label class="col-sm-3 control-label">Sesi</label>
                                     <div class="col-sm-8">
                                         <div class="input-group">
@@ -90,10 +90,14 @@
                                             <span class="input-group-addon">Kali</span>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div> --> --}}
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal & Lokasi 1</label>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-1">
+                                        <input id="cb_1" name="cb_name[]" type="checkbox" value="cb_value_1">
+                                        <!-- <input type="radio" class="form-radio" name="rd" id="rd1">  -->
+                                    </div>
+                                    <div class="col-sm-3">
                                         <input type="text" class="form-control" name="tanggal_laksana1" id='tanggal_laksana1' placeholder ="{{date('d-m-Y')}}"  value="{{date('d-m-Y',strtotime($detail->tgl_1))}}" readonly >
                                     </div>
                                     <div class="col-sm-4">
@@ -102,7 +106,11 @@
                                 </div>
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal & Lokasi 2</label>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-1">
+                                        <input id="cb_2" name="cb_name[]" type="checkbox" value="cb_value_2">
+                                        <!-- <input type="radio" class="form-radio" name="rd" id="rd1">  -->
+                                    </div>
+                                    <div class="col-sm-3">
                                         <input type="text" class="form-control" name="tanggal_laksana2" id='tanggal_laksana2' placeholder ="{{date('d-m-Y')}}"  value="{{date('d-m-Y',strtotime($detail->tgl_2))}}" readonly >
                                     </div>
                                     <div class="col-sm-4">
@@ -111,20 +119,35 @@
                                 </div>
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal & Lokasi 3</label>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-1">
+                                        <!-- <input type="radio" class="form-radio" name="rd" id="rd1">  -->
+                                        <input id="cb_3" name="cb_name[]" type="checkbox" value="cb_value_3">
+                                    </div>
+                                    <div class="col-sm-3">
                                         <input type="text" class="form-control" name="tanggal_laksana3" id='tanggal_laksana3' placeholder ="{{date('d-m-Y')}}"  value="{{date('d-m-Y',strtotime($detail->tgl_3))}}" readonly >
                                     </div>
                                     <div class="col-sm-4">
                                          <input type="text" class="form-control" name="lokasi3" autocomplete="off" value="{{trim($detail->lokasi_3,' ')}}" style="text-transform:uppercase;" placeholder="Lokasi" readonly />
                                     </div>
-                                </div>
+                                </div> 
+                                {{-- <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Nama Unit Bisnis*</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control" name="nama_ub" required>
+                                                <option>-Pilih Nama UB-</option>
+                                                    @foreach($detailmateri as $det)
+                                                        <option value="{{$det->kode_kantor}}">{{$det->nama}}</option>
+                                                    @endforeach
+                                            </select>
+                                        </div>
+                                </div> --}}
                             </div>
                             <div class="col-sm-6">
-                                 <input type="button" class="btn btn-primary" value="Tambah Peserta" id="addKantor" />
-                        <br/>
-                        <br/>
-                        <div class="KantorTambah">
-                        </div>
+                                <input type="button" class="btn btn-primary" value="Tambah Peserta" id="addKantor" />
+                                <br/>
+                                <br/>
+                                <div class="KantorTambah">
+                                </div>
                             </div>
                         </div>
                        
@@ -146,7 +169,7 @@
 </div>
 <div id="kantorTambah" data-op ="kantor" hidden>
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-10">
             <table class="table-bordered"  style="border-style: solid 1px #000000;" width=100% >
                 <thead>
                     <th>No. SDM</th>

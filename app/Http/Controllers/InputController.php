@@ -9,6 +9,7 @@ use App\klien;
 use App\materi;
 use App\materi_detail;
 use App\sdm;
+use App\peserta;
 use App\mst_kantor;
 use App\mst_gelar;
 use App\mst_jabatan;

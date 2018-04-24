@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\klien;
 use App\materi;
 use App\sdm;
+use App\peserta;
 use App\materi_detail;
 use App\mst_kantor;
 use App\mst_gelar;
@@ -30,11 +31,22 @@ class ViewController extends Controller
         $sdm = DB::connection('pgsql')->table('sdm')->get();
         $materi = DB::connection('pgsql')->table('materi')->first();
         $detail = DB::connection('pgsql')->table('materi_detail')->first();
+        $detailmateri = DB::connection('pgsql')->table('materi_detail')->get();
 
-        return view('daftar.formdetaildaftar',compact('sdm','materi','detail'));   
+
+        return view('daftar.formdetaildaftar',compact('sdm','materi','detail','detailmateri'));   
     }
     public function saveFormDetailDaftar(Request $request,$nonsb)
     {
+
+        $peserta = new peserta;
+        $peserta->opr = strtoupper($request->input('opr'));
+        $peserta->tgl_input = date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon')));
+        // $peserta->tgl = date('Y-m-d H:i:s',strtotime($request->input('')));
+        $peserta->no_sdm = strtoupper($request->input('peserta[]'));
+        $peserta->kode_modul = strtoupper($request->input('kode_modul'));
+        $peserta->save();
+
         return redirect('/');
     }
 
