@@ -179,11 +179,13 @@
                 <tbody>
                     <?php
                         foreach($sdm as $j){
-                        echo '<tr>';
-                        echo '<td>'."<input name='peserta[]' type='checkbox'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;$j->no_sdm".'</td>'; 
-                        echo '<td>'.$j->nama.'</td>';
-                        echo '<td>'.$j->jabatan.'</td>';
-                        echo '</tr>';
+                            if( trim($j->kantor,' ') == trim(Auth::user()->kantor,' ')){
+                            echo '<tr>';
+                            echo '<td>'."<input name='peserta[]' type='checkbox'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;$j->no_sdm".'</td>'; 
+                            echo '<td>'.$j->nama.'</td>';
+                            echo '<td>'.$j->jabatan.'</td>';
+                            echo '</tr>';
+                            }
                         }
                     ?>
                 </tbody>

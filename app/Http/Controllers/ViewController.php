@@ -29,12 +29,13 @@ class ViewController extends Controller
     public function viewFormDetailDaftar($nonsb)
     {
         $sdm = DB::connection('pgsql')->table('sdm')->get();
+        $sdm2 = DB::connection('pgsql')->table('sdm')->first();
         $materi = DB::connection('pgsql')->table('materi')->first();
         $detail = DB::connection('pgsql')->table('materi_detail')->first();
         $detailmateri = DB::connection('pgsql')->table('materi_detail')->get();
 
 
-        return view('daftar.formdetaildaftar',compact('sdm','materi','detail','detailmateri'));   
+        return view('daftar.formdetaildaftar',compact('sdm','materi','detail','detailmateri','sdm2'));   
     }
     public function saveFormDetailDaftar(Request $request,$nonsb)
     {
@@ -69,9 +70,9 @@ class ViewController extends Controller
         $datakredit = array();
 
         if($key == null){
-            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja')->paginate(20);
+            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor')->paginate(20);
         } else {
-            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja')->whereRaw
+            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor')->whereRaw
             ("nama LIKE '%".strtoupper($key)."%'OR alamat_ktp LIKE '%".strtoupper($key)."%' OR alamat_tinggal LIKE '%".strtoupper($key)."%'OR no_sdm LIKE '%".strtoupper($key)."%'")->paginate(20);
         }
 

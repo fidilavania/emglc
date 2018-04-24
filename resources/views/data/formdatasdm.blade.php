@@ -12,6 +12,7 @@
                                 <table class="table table-bordered" name="daftarnasabahtable">
                                     <thead>
                                         <th>No SDM</th>
+                                        <th>Kantor</th>
                                         <th>Nama</th>
                                         <th>Jenis Kelamin</th>
                                         <th>Tempat, Tanggal Lahir</th>
@@ -52,9 +53,10 @@
                                     <hr />
                                     <tbody>
                                         @foreach($nsblist as $nsb)
-                                        <!-- @if($nsb->kondisi != 'NON  ') -->
+                                        @if( trim($nsb->kantor,' ') == trim(Auth::user()->kantor,' '))
                                             <tr class="accordion-toggle" data-toggle="collapse" data-target="#{{$nsb->no_sdm}}">
                                                 <td data-id="{{$nsb->no_sdm}}">{{$nsb->no_sdm}}</td>
+                                                <td>{{$nsb->kantor}}</td>
                                                 <td>{{$nsb->nama}}</td>
                                                 <td>{{$nsb->jenis_kel}}</td>
                                                 <td>{{$nsb->tempat_lahir}}, {{date('d-m-Y',strtotime($nsb->tgl_lahir))}}</td>
@@ -66,9 +68,9 @@
                                                 <!-- @if(strpos(Auth::user()->fungsi, '2525') !== false) -->
                                                 <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
                                                 <!-- @endif -->
-                                        <!-- @endif -->
                                             </tr>
-                                         @endforeach
+                                        @endif
+                                        @endforeach
                                     
                                     </tbody>
                                 </table>

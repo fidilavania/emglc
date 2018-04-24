@@ -35,7 +35,7 @@
                                     <hr />
                                     <tbody>
                                         @foreach($nsblist as $nsb)
-                                        <!-- @if($nsb->kondisi != 'NON  ') -->
+                                        @if( trim($nsb->kantor,' ') == trim(Auth::user()->kantor,' '))
                                             <tr class="accordion-toggle" data-toggle="collapse" data-target="#{{$nsb->no_reg}}">
                                                 <td data-id="{{$nsb->no_reg}}">{{$nsb->kantor}}</td>
                                                 <td>{{$nsb->alamat}}</td>
@@ -48,9 +48,9 @@
                                                 <!-- @if(strpos(Auth::user()->fungsi, '2525') !== false) -->
                                                 <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
                                                 <!-- @endif -->
-                                        <!-- @endif -->
                                             </tr>
-                                         @endforeach
+                                        @endif
+                                        @endforeach
                                     
                                     </tbody>
                                 </table>
