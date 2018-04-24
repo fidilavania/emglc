@@ -57,6 +57,10 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/detaildaftar/{nonsb?}', 'ViewController@viewFormDetailDaftar');
 	Route::post('/savedetaildaftar/{nonsb?}','ViewController@saveFormDetailDaftar');
 	
+	// materi
+	Route::get('/materi', 'ViewController@formMateri');
+	Route::post('/savemateri/{nonsb?}','ViewController@simpanMateri');
+
 	
 
 	Route::get('auth/logout', 'AuthController@logout');

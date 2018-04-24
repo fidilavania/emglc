@@ -26,6 +26,23 @@ use Input;
 
 class ViewController extends Controller
 {
+
+    public function formMateri()
+    {
+        $sdm = DB::connection('pgsql')->table('sdm')->get();
+        $sdm2 = DB::connection('pgsql')->table('sdm')->first();
+        $materi = DB::connection('pgsql')->table('materi')->first();
+        $detail = DB::connection('pgsql')->table('materi_detail')->first();
+        $detailmateri = DB::connection('pgsql')->table('materi_detail')->get();
+
+
+        return view('data.formmateri',compact('sdm','materi','detail','detailmateri','sdm2'));   
+    }
+    public function simpanMateri(Request $request,$nonsb)
+    {
+        return redirect('/');
+    }
+
     public function viewFormDetailDaftar($nonsb)
     {
         $sdm = DB::connection('pgsql')->table('sdm')->get();

@@ -98,9 +98,9 @@
                   </ul>
 
                 <li class="">
-                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Materi Pelatihan<span class="caret"></span></a>
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Laporan Kegiatan<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="{{ url('/detaildaftar') }}">Materi</a></li> 
+                    <li><a href="{{ url('/materi') }}">Laporan Kegiatan</a></li> 
                 </li>
                   </ul>
 
