@@ -94,6 +94,7 @@
                   <ul class="dropdown-menu">
                     <li><a href="{{ url('/addmateri') }}">Input Materi</a></li> 
                     <li><a href="{{ url('/datamateri') }}">Daftar Materi</a></li> 
+                    <li><a href="{{ url('/pendaftaran') }}">Pendaftaran</a></li> 
                 </li>
                   </ul>
 

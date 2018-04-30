@@ -42,12 +42,23 @@
                         </div> --}}
                         <div class="row">
                             <div class="col-sm-6">
-                                <div class="row form-group">
+                                {{-- <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Kode Modul</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control" name="kode_modul" required>
+                                                <option>-Pilih Kode Modul-</option>
+                                                @foreach($materi as $k)
+                                                <option value="{{$k->kode_modul}}">{{$k->kode_modul}}</option>
+                                                 @endforeach
+                                             </select>
+                                        </div>
+                                </div>
+                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Kode Modul</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" name="kode_modul" autocomplete="off" value="{{trim($materi->kode_modul,' ')}}" style="text-transform:uppercase;" readonly />
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Nama Modul</label>
                                     <div class="col-sm-8">
@@ -57,7 +68,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Peserta</label>
                                     <div class="col-sm-9">
-                                        <textarea rows="10" cols="49" name="peserta" placeholder="Isi Peserta" style="text-transform:uppercase;" readonly>{{trim($materi->peserta,' ')}}</textarea>
+                                        <textarea rows="10" cols="" name="peserta" placeholder="Isi Peserta" style="text-transform:uppercase;" readonly>{{trim($materi->peserta,' ')}}</textarea>
                                     </div>
                                 </div>
                             </div>
