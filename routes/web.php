@@ -59,7 +59,7 @@ Route::group(['middleware' => ['auth']], function () {
 	
 	// materi
 	Route::get('/materi', 'ViewController@formMateri');
-	Route::post('/savemateri/{nonsb?}','ViewController@simpanMateri');
+	Route::post('/savematerisimpan/{nonsb?}','ViewController@simpanMateri');
 
 	// peserta
 	Route::match(['get', 'post'],'/pendaftaran/{key?}', 'PesertaController@formPendaftaran')->where('key', '(.*)');

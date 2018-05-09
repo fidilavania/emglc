@@ -8,7 +8,7 @@ class klien extends Model
 {
     //protected $connection = 'pgsql';
     protected $table = 'klien';
-    protected $primaryKey = null;
-    public $incrementing = false;
-    public $timestamps = false;
+    // protected $primaryKey = null;
+    // public $incrementing = false;
+    // public $timestamps = false;
 }

@@ -8,7 +8,7 @@ class posting extends Model
 {
     //protected $connection = 'pgsql';
     protected $table = 'posting';
-    protected $primaryKey = null;
-    public $incrementing = false;
-    public $timestamps = false;
+    // protected $primaryKey = null;
+    // public $incrementing = false;
+    // public $timestamps = false;
 }

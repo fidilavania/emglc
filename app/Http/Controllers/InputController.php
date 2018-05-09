@@ -30,8 +30,8 @@ class InputController extends Controller
    
     public function viewFormDaftar($nonsb)
     {
-        $sdm = DB::connection('pgsql')->table('sdm')->get();
-        $materi = DB::connection('pgsql')->table('materi')->first();
+        $sdm = DB::connection('mysql')->table('sdm')->get();
+        $materi = DB::connection('mysql')->table('materi')->first();
 
         return view('input.formdetail',compact('sdm','materi'));   
     }
@@ -55,7 +55,7 @@ class InputController extends Controller
 
     public function viewFormJabatan()
     {
-        $jabatan = DB::connection('pgsql')->table('mst_jabatan')->get();
+        $jabatan = DB::connection('mysql')->table('mst_jabatan')->get();
 
         return view('input.forminputjabatan',compact('jabatan'));   
     }
@@ -87,7 +87,7 @@ class InputController extends Controller
 
     public function viewFormKantor()
     {
-        $kantor = DB::connection('pgsql')->table('mst_kantor')->get();
+        $kantor = DB::connection('mysql')->table('mst_kantor')->get();
 
         return view('input.forminputkantor',compact('kantor'));   
     }
@@ -112,20 +112,20 @@ class InputController extends Controller
 
     public function viewFormSDM()
     {
-        $kodya = DB::connection('pgsql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
-        $gelar = DB::connection('pgsql')->table('mst_gelar')->orderBy('kode','asc')->orderBy('kode','asc')->get();
-        $kelurahan = DB::connection('pgsql')->table('mst_kelurahan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kecamatan = DB::connection('pgsql')->table('mst_kecamatan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kab = DB::connection('pgsql')->table('mst_kabupaten')->where('status','ada')->orderBy('nama','asc')->get();
-        $kantor = DB::connection('pgsql')->table('mst_kantor')->get();
-        $jabatan = DB::connection('pgsql')->table('mst_jabatan')->get();
-        $status = DB::connection('pgsql')->table('mst_statusrumah')->get();
+        $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
+        $gelar = DB::connection('mysql')->table('mst_gelar')->orderBy('kode','asc')->orderBy('kode','asc')->get();
+        $kelurahan = DB::connection('mysql')->table('mst_kelurahan')->where('status','ada')->orderBy('nama','asc')->get();
+        $kecamatan = DB::connection('mysql')->table('mst_kecamatan')->where('status','ada')->orderBy('nama','asc')->get();
+        $kab = DB::connection('mysql')->table('mst_kabupaten')->where('status','ada')->orderBy('nama','asc')->get();
+        $kantor = DB::connection('mysql')->table('mst_kantor')->get();
+        $jabatan = DB::connection('mysql')->table('mst_jabatan')->get();
+        $status = DB::connection('mysql')->table('mst_statusrumah')->get();
 
         $sql3 ="SELECT mst_jabatan.jabatankantor,sdm.jabatan,mst_jabatan.kode
             from mst_jabatan,sdm 
             where 
             sdm.jabatan=mst_jabatan.kode";
-        $lihat1 = DB::connection('pgsql')->select(DB::raw($sql3));
+        $lihat1 = DB::connection('mysql')->select(DB::raw($sql3));
 
         return view('input.forminputsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','lihat1'));   
     }
@@ -169,7 +169,7 @@ class InputController extends Controller
 		$sdm->status_rumah = strtoupper($request->input('status_rumah'));
 		$sdm->nikah = strtoupper($request->input('input_status_nikah'));
 		$sdm->nama_ps = strtoupper($request->input('input_nama_ps'));
-		$sdm->tempat_lahir_ps = date('Y-m-d H:i:s',strtotime($request->input('input_tempat_lahir_ps')));
+		$sdm->tempat_lahir_ps = strtoupper($request->input('input_tempat_lahir_ps'));
 		$sdm->lahir_ps = date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_lahir_ps')));
 		$sdm->gelar_ps = strtoupper($request->input('input_gelar_ps'));
 		$sdm->agama_ps = strtoupper($request->input('input_agama_ps'));
@@ -200,13 +200,101 @@ class InputController extends Controller
         return redirect('/datasdm');
     }
 
+    public function viewFormSDMEdit($nonsb)
+    {
+        $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
+        $gelar = DB::connection('mysql')->table('mst_gelar')->orderBy('kode','asc')->orderBy('kode','asc')->get();
+        $kelurahan = DB::connection('mysql')->table('mst_kelurahan')->where('status','ada')->orderBy('nama','asc')->get();
+        $kecamatan = DB::connection('mysql')->table('mst_kecamatan')->where('status','ada')->orderBy('nama','asc')->get();
+        $kab = DB::connection('mysql')->table('mst_kabupaten')->where('status','ada')->orderBy('nama','asc')->get();
+        $kantor = DB::connection('mysql')->table('mst_kantor')->get();
+        $jabatan = DB::connection('mysql')->table('mst_jabatan')->get();
+        $status = DB::connection('mysql')->table('mst_statusrumah')->get();
+        $sdm = sdm::where('no_sdm',$nonsb)->first();
+
+        // $imagePath = public_path('foto');
+        // $image = sdm::make(sdm::get($imagePath))->resize(320,240)->encode();
+        // Storage::put($imagePath,$image);
+
+        // $sdm->foto = $imagePath;
+
+        return view('edit.formeditsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','sdm'));   
+    }
+    public function saveDataSDMEdit(Request $request,$nonsb)
+    {               
+            if ($request->hasFile('img_upload')) {
+            $image = $request->file('img_upload');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('foto');
+            $image->move($destinationPath, $name);
+            DB::connection('mysql')->table('sdm')->where('foto',$request->input('img_upload'))->update([
+            'foto' => 'foto/'.$name
+        
+        ]);
+        }
+       
+        
+
+        DB::connection('mysql')->table('sdm')->where('no_sdm',$request->input('input_nosdm'))->update([
+        'no_sdm'            => ($request->input('input_nosdm')),
+        'tgl_input'             => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
+        'opr'                   => strtoupper($request->input('opr')),
+        'nama'                  => strtoupper($request->input('input_nama')),
+        'jenis_kel'             => strtoupper($request->input('input_jenis_kelamin')),
+        'tempat_lahir'          => strtoupper($request->input('input_lahir')),
+        'tgl_lahir'             => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_lahir'))),
+        'notlp'                 => strtoupper($request->input('input_telepon_rumah')),
+        'nohp'                  => strtoupper($request->input('input_hp')),
+        'ktp'                   => strtoupper($request->input('input_no_identitas')),
+        'npwp'                  => ($request->input('input_no_npwp')),
+        'alamat_tinggal'         => strtoupper($request->input('input_alamat')),
+        'rtrw_tinggal'       => $request->input('input_rt'),
+        'lurah_tinggal'      => strtoupper($request->input('input_kelurahan')),
+        'camat_tinggal'      => strtoupper($request->input('input_kecamatan')),
+        'kodya_tinggal'      => strtoupper($request->input('input_kodya')),
+        'kodepos_tinggal'        => strtoupper($request->input('input_kodepos')),
+        'alamat_ktp'         => strtoupper($request->input('input_alamatktp')),
+        'rtrw_ktp'       => $request->input('input_rtktp'),
+        'lurah_ktp'      => strtoupper($request->input('input_kelurahanktp')),
+        'camat_ktp'      => strtoupper($request->input('input_kecamatanktp')),
+        'kodya_ktp'      => strtoupper($request->input('input_kodyaktp')),
+        'kodepos_ktp'        => strtoupper($request->input('input_kodeposktp')),
+        'kantor'         => strtoupper($request->input('kantor')),
+        'jabatan'        => strtoupper($request->input('input_jabatan')),
+        'pendidikan'         => strtoupper($request->input('pendidikan')),
+        'email'      => ($request->input('input_email')),
+        'tgl_kerja'      => date('Y-m-d H:i:s',strtotime($request->input('input_tglkerja'))),
+        'agama'      => strtoupper($request->input('input_agama')),
+        'status_rumah'       => strtoupper($request->input('status_rumah')),
+        'nikah'      => strtoupper($request->input('input_status_nikah')),
+        'nama_ps'        => strtoupper($request->input('input_nama_ps')),
+        'tempat_lahir_ps'        => strtoupper($request->input('input_tempat_lahir_ps')),
+        'lahir_ps'       => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_lahir_ps'))),
+        'gelar_ps'       => strtoupper($request->input('input_gelar_ps')),
+        'agama_ps'       => strtoupper($request->input('input_agama_ps')),
+        'ktp_ps'         => ($request->input('input_ktp_ps')),
+        'tlp_ps'         => ($request->input('input_nom_ps')),
+        'alamat_ps'      => strtoupper($request->input('input_alamat_ps')),
+        'kodepos_ps'         => strtoupper($request->input('input_kodepos_ps')),
+        'rtrw_ps'        => $request->input('input_rt_ps'),
+        'lurah_ps'       => strtoupper($request->input('input_kelurahan_ps')),
+        'camat_ps'       => strtoupper($request->input('input_kecamatan_ps')),
+        'kodya_ps'       => strtoupper($request->input('input_kodya_ps')),
+        'opr'               => strtoupper($request->input('opr'))
+        
+        ]);
+         
+        
+        return redirect('/datasdm');
+    }
+
     public function viewFormKlien()
     {
-        $kodya = DB::connection('pgsql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
-        $kelurahan = DB::connection('pgsql')->table('mst_kelurahan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kecamatan = DB::connection('pgsql')->table('mst_kecamatan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kab = DB::connection('pgsql')->table('mst_kabupaten')->where('status','ada')->orderBy('nama','asc')->get();
-        $kantor = DB::connection('pgsql')->table('mst_kantor')->get();
+        $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
+        $kelurahan = DB::connection('mysql')->table('mst_kelurahan')->where('status','ada')->orderBy('nama','asc')->get();
+        $kecamatan = DB::connection('mysql')->table('mst_kecamatan')->where('status','ada')->orderBy('nama','asc')->get();
+        $kab = DB::connection('mysql')->table('mst_kabupaten')->where('status','ada')->orderBy('nama','asc')->get();
+        $kantor = DB::connection('mysql')->table('mst_kantor')->get();
 
         return view('input.forminputklien',compact('kodya','kelurahan','kecamatan','kab','kantor'));   
     }
@@ -244,7 +332,7 @@ class InputController extends Controller
 		$klien->camat = strtoupper($request->input('input_kecamatan'));
 		$klien->kodya = strtoupper($request->input('input_kodya'));
 		$klien->kodepos = strtoupper($request->input('input_kodepos'));
-		$klien->tgl_berdiri = strtoupper($request->input('input_tanggalberdiri'));
+		$klien->tgl_berdiri = date('Y-m-d H:i:s',strtotime($request->input('input_tanggalberdiri')));
 		$klien->no_tlp = ($request->input('tlp'));
 		$klien->web = ($request->input('web'));
 		$klien->fb = ($request->input('facebook'));
@@ -256,7 +344,7 @@ class InputController extends Controller
     
     public function viewFormMateri()
     {
-        $kodya = DB::connection('pgsql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
+        $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
         return view('input.forminputmateri',compact('kodya'));   
     }
 
@@ -291,11 +379,11 @@ class InputController extends Controller
 
     public function viewFormKlienEdit($nonsb)
     {
-        $kodya = DB::connection('pgsql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
-        $kelurahan = DB::connection('pgsql')->table('mst_kelurahan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kecamatan = DB::connection('pgsql')->table('mst_kecamatan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kab = DB::connection('pgsql')->table('mst_kabupaten')->where('status','ada')->orderBy('nama','asc')->get();
-        $kantor = DB::connection('pgsql')->table('mst_kantor')->get();
+        $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
+        $kelurahan = DB::connection('mysql')->table('mst_kelurahan')->where('status','ada')->orderBy('nama','asc')->get();
+        $kecamatan = DB::connection('mysql')->table('mst_kecamatan')->where('status','ada')->orderBy('nama','asc')->get();
+        $kab = DB::connection('mysql')->table('mst_kabupaten')->where('status','ada')->orderBy('nama','asc')->get();
+        $kantor = DB::connection('mysql')->table('mst_kantor')->get();
         $klien = klien::where('no_reg',$nonsb)->first();
 
         return view('edit.formeditklien',compact('kodya','kelurahan','kecamatan','kab','kantor','klien'));   
@@ -303,7 +391,7 @@ class InputController extends Controller
 
     public function saveDataKlienEdit(Request $request,$nonsb)
     {
-        DB::connection('pgsql')->table('klien')->where('no_reg',$request->input('no_reg'))->update([
+        DB::connection('mysql')->table('klien')->where('no_reg',$request->input('no_reg'))->update([
         'no_reg'    => ($request->input('no_reg')),
         'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
         'opr' => strtoupper($request->input('opr')),
@@ -314,7 +402,7 @@ class InputController extends Controller
         'camat' => strtoupper($request->input('input_kecamatan')),
         'kodya' => strtoupper($request->input('input_kodya')),
         'kodepos' => strtoupper($request->input('input_kodepos')),
-        'tgl_berdiri' => strtoupper($request->input('input_tanggalberdiri')),
+        'tgl_berdiri' => date('Y-m-d 00:00:00',strtotime($request->input('input_tanggalberdiri'))),
         'no_tlp' => ($request->input('tlp')),
         'web' => ($request->input('web')),
         'fb' => ($request->input('facebook')),
@@ -326,7 +414,7 @@ class InputController extends Controller
 
     public function viewFormMateriEdit($nonsb)
     {
-        $kodya = DB::connection('pgsql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
+        $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
         $materi = materi::where('kode_modul',$nonsb)->first();
         return view('edit.formeditmateri',compact('kodya','materi'));   
     }
@@ -334,7 +422,7 @@ class InputController extends Controller
     public function saveDataMateriEdit(Request $request,$nonsb)
     {
        
-        DB::connection('pgsql')->table('materi')->where('kode_modul',$request->input('kode_modul'))->update([
+        DB::connection('mysql')->table('materi')->where('kode_modul',$request->input('kode_modul'))->update([
         'kode_modul' => ($request->input('kode_modul')),
         'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
         'opr' => strtoupper($request->input('opr')),
@@ -352,96 +440,7 @@ class InputController extends Controller
         
     }
 
-    public function viewFormSDMEdit($nonsb)
-    {
-        $kodya = DB::connection('pgsql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
-        $gelar = DB::connection('pgsql')->table('mst_gelar')->orderBy('kode','asc')->orderBy('kode','asc')->get();
-        $kelurahan = DB::connection('pgsql')->table('mst_kelurahan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kecamatan = DB::connection('pgsql')->table('mst_kecamatan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kab = DB::connection('pgsql')->table('mst_kabupaten')->where('status','ada')->orderBy('nama','asc')->get();
-        $kantor = DB::connection('pgsql')->table('mst_kantor')->get();
-        $jabatan = DB::connection('pgsql')->table('mst_jabatan')->get();
-        $status = DB::connection('pgsql')->table('mst_statusrumah')->get();
-        $sdm = sdm::where('no_sdm',$nonsb)->first();
-
-        // $imagePath = public_path('foto');
-        // $image = sdm::make(sdm::get($imagePath))->resize(320,240)->encode();
-        // Storage::put($imagePath,$image);
-
-        // $sdm->foto = $imagePath;
-
-        return view('edit.formeditsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','sdm'));   
-    }
-    public function saveDataSDMEdit(Request $request,$nonsb)
-    {
-       
-        
-         
-            if ($request->hasFile('img_upload')) {
-            $image = $request->file('img_upload');
-            $name = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('foto');
-            $image->move($destinationPath, $name);
-            DB::connection('pgsql')->table('sdm')->where('foto',$request->input('img_upload'))->update([
-            'foto' => 'foto/'.$name
-        
-        ]);
-        }
-       
-        
-
-        DB::connection('pgsql')->table('sdm')->where('no_sdm',$request->input('input_nosdm'))->update([
-        'no_sdm'            => ($request->input('input_nosdm')),
-        'tgl_input'             => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
-        'opr'                   => strtoupper($request->input('opr')),
-        'nama'                  => strtoupper($request->input('input_nama')),
-        'jenis_kel'             => strtoupper($request->input('input_jenis_kelamin')),
-        'tempat_lahir'          => strtoupper($request->input('input_lahir')),
-        'tgl_lahir'             => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_lahir'))),
-        'notlp'                 => strtoupper($request->input('input_telepon_rumah')),
-        'nohp'                  => strtoupper($request->input('input_hp')),
-        'ktp'                   => strtoupper($request->input('input_no_identitas')),
-        'npwp'                  => ($request->input('input_no_npwp')),
-        'alamat_tinggal'         => strtoupper($request->input('input_alamat')),
-        'rtrw_tinggal'       => $request->input('input_rt'),
-        'lurah_tinggal'      => strtoupper($request->input('input_kelurahan')),
-        'camat_tinggal'      => strtoupper($request->input('input_kecamatan')),
-        'kodya_tinggal'      => strtoupper($request->input('input_kodya')),
-        'kodepos_tinggal'        => strtoupper($request->input('input_kodepos')),
-        'alamat_ktp'         => strtoupper($request->input('input_alamatktp')),
-        'rtrw_ktp'       => $request->input('input_rtktp'),
-        'lurah_ktp'      => strtoupper($request->input('input_kelurahanktp')),
-        'camat_ktp'      => strtoupper($request->input('input_kecamatanktp')),
-        'kodya_ktp'      => strtoupper($request->input('input_kodyaktp')),
-        'kodepos_ktp'        => strtoupper($request->input('input_kodeposktp')),
-        'kantor'         => strtoupper($request->input('kantor')),
-        'jabatan'        => strtoupper($request->input('input_jabatan')),
-        'pendidikan'         => strtoupper($request->input('pendidikan')),
-        'email'      => ($request->input('input_email')),
-        'tgl_kerja'      => date('Y-m-d H:i:s',strtotime($request->input('input_tglkerja'))),
-        'agama'      => strtoupper($request->input('input_agama')),
-        'status_rumah'       => strtoupper($request->input('status_rumah')),
-        'nikah'      => strtoupper($request->input('input_status_nikah')),
-        'nama_ps'        => strtoupper($request->input('input_nama_ps')),
-        'tempat_lahir_ps'        => strtoupper($request->input('input_tempat_lahir_ps')),
-        'lahir_ps'       => ($request->input('input_tanggal_lahir_ps')),
-        'gelar_ps'       => strtoupper($request->input('input_gelar_ps')),
-        'agama_ps'       => strtoupper($request->input('input_agama_ps')),
-        'ktp_ps'         => ($request->input('input_ktp_ps')),
-        'tlp_ps'         => ($request->input('input_nom_ps')),
-        'alamat_ps'      => strtoupper($request->input('input_alamat_ps')),
-        'kodepos_ps'         => strtoupper($request->input('input_kodepos_ps')),
-        'rtrw_ps'        => $request->input('input_rt_ps'),
-        'lurah_ps'       => strtoupper($request->input('input_kelurahan_ps')),
-        'camat_ps'       => strtoupper($request->input('input_kecamatan_ps')),
-        'kodya_ps'       => strtoupper($request->input('input_kodya_ps')),
-        'opr'               => strtoupper($request->input('opr'))
-        
-        ]);
-         
-        
-        return redirect('/datasdm');
-    }
+    
 
 }
 

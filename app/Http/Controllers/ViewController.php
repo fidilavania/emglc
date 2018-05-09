@@ -29,11 +29,11 @@ class ViewController extends Controller
 
     public function formMateri()
     {
-        $sdm = DB::connection('pgsql')->table('sdm')->get();
-        $sdm2 = DB::connection('pgsql')->table('sdm')->first();
-        $materi = DB::connection('pgsql')->table('materi')->first();
-        $detail = DB::connection('pgsql')->table('materi_detail')->first();
-        $detailmateri = DB::connection('pgsql')->table('materi_detail')->get();
+        $sdm = DB::connection('mysql')->table('sdm')->get();
+        $sdm2 = DB::connection('mysql')->table('sdm')->first();
+        $materi = DB::connection('mysql')->table('materi')->first();
+        $detail = DB::connection('mysql')->table('materi_detail')->first();
+        $detailmateri = DB::connection('mysql')->table('materi_detail')->get();
 
 
         return view('data.formmateri',compact('sdm','materi','detail','detailmateri','sdm2'));   
@@ -45,11 +45,11 @@ class ViewController extends Controller
 
     public function viewFormDetailDaftar($nonsb)
     {
-        $sdm = DB::connection('pgsql')->table('sdm')->get();
-        $sdm2 = DB::connection('pgsql')->table('sdm')->first();
-        $materi = DB::connection('pgsql')->table('materi')->first();
-        $detail = DB::connection('pgsql')->table('materi_detail')->first();
-        $detailmateri = DB::connection('pgsql')->table('materi_detail')->get();
+        $sdm = DB::connection('mysql')->table('sdm')->get();
+        $sdm2 = DB::connection('mysql')->table('sdm')->first();
+        $materi = DB::connection('mysql')->table('materi')->first();
+        $detail = DB::connection('mysql')->table('materi_detail')->first();
+        $detailmateri = DB::connection('mysql')->table('materi_detail')->get();
 
 
         return view('daftar.formdetaildaftar',compact('sdm','materi','detail','detailmateri','sdm2'));   
@@ -74,7 +74,7 @@ class ViewController extends Controller
             from mst_jabatan,sdm 
             where 
             sdm.jabatan=mst_jabatan.kode";
-        $lihat1 = DB::connection('pgsql')->select(DB::raw($sql3));  
+        $lihat1 = DB::connection('mysql')->select(DB::raw($sql3));  
 
         $datakredit = array();
 

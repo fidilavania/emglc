@@ -44,11 +44,9 @@
                                                 <td>{{$nsb->fasilitator}}</td>
                                                 <td>{{$nsb->durasi}}</td>
                                                 <td>{{number_format($nsb->biaya,0,'','.')}}</td>
-                                                <!-- @if(strpos(Auth::user()->fungsi, '2525') !== false) -->
                                                 <td><input type="button" class="btn btn-danger" name="tambah" value="Edit" /></td>
                                                 <td><input type="button" class="btn btn-primary" name="tambahbutton" value="Detail" /></td>
                                                 <td><input type="button" class="btn btn-primary" name="view" value="Peserta" /></td>
-                                                <!-- @endif -->
                                             </tr>
                                          @endforeach
                                     

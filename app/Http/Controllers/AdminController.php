@@ -13,6 +13,8 @@ use Log;
 use Input;
 use App\User;
 use App\jabatan_mst;
+use App\mst_kantor;
+use App\mst_jabatan;
 use App\kantor_mst;
 use App\ABCJabatan;
 use App\Http\Requests;
@@ -23,36 +25,36 @@ class AdminController extends Controller
 {
      public function getFormUser()
     {
-    	$kantor = DB::connection('pgsql')->table('mst_kantor')->get();
-    	$jabatan = DB::connection('pgsql')->table('mst_jabatan')->get();
-        // $kantor = kantor_mst::all();
-        // $jabatan = jabatan_mst::all();
+    	// $kantor = DB::connection('pgsql')->table('mst_kantor')->get();
+    	// $jabatan = DB::connection('pgsql')->table('mst_jabatan')->get();
+        $kantor = mst_kantor::all();
+        $jabatan = mst_jabatan::all();
 		return view('admin.formuser', compact('kantor','jabatan'));
     }
     public function postSaveUser(Request $request)
     {
-        // $lastnonsb = User::max('id');
-        // $nonsb = (int) $lastnonsb + 1;
+        $lastnonsb = User::max('id');
+        $nonsb = (int) $lastnonsb + 1;
 
-    	// $user = new User;
-     //    //$user->id = $nonsb;
-    	// $user->username = $request->input('input_username');
-    	// $user->nama_lengkap = $request->input('input_nama_lengkap');
-    	// $user->jabatan = $request->input('input_jabatan');
-    	// $user->kantor = $request->input('input_kantor');
-     //    $user->fungsi = 1111;
-    	// $user->status = 1;
-    	// $user->password = Hash::make($request->input('input_password'));
-    	// $user->save();
-        DB::table('users')->insert([
-            ['username' => $request->input('input_username'), 
-             'nama_lengkap' => $request->input('input_nama_lengkap'),
-             'jabatan' =>$request->input('input_jabatan'),
-             'kantor' =>$request->input('input_kantor'),
-             'fungsi' =>1111,
-             'status' =>1,
-             'password' =>Hash::make($request->input('input_password'))]
-        ]);
+    	$user = new User;
+        $user->id = $nonsb;
+    	$user->username = $request->input('input_username');
+    	$user->nama_lengkap = $request->input('input_nama_lengkap');
+    	$user->jabatan = $request->input('input_jabatan');
+    	$user->kantor = $request->input('input_kantor');
+        $user->fungsi = 1111;
+    	$user->status = 1;
+    	$user->password = Hash::make($request->input('input_password'));
+    	$user->save();
+        // DB::table('users')->insert([
+        //     ['username' => $request->input('input_username'), 
+        //      'nama_lengkap' => $request->input('input_nama_lengkap'),
+        //      'jabatan' =>$request->input('input_jabatan'),
+        //      'kantor' =>$request->input('input_kantor'),
+        //      'fungsi' =>1111,
+        //      'status' =>1,
+        //      'password' =>Hash::make($request->input('input_password'))]
+        // ]);
 
     	return redirect('/lihatuser');
     	// return redirect('/');
@@ -83,11 +85,11 @@ class AdminController extends Controller
         } else {
             $sql .= "kode_kantor=kantor AND mst_jabatan.kode=jabatan ORDER BY id";
         }
-        $user = DB::connection('pgsql')->select(DB::raw($sql.";"));
+        $user = DB::connection('mysql')->select(DB::raw($sql.";"));
 
-        $total = count(DB::connection('pgsql')->select(DB::raw($sql.";")));
+        $total = count(DB::connection('mysql')->select(DB::raw($sql.";")));
         
-        $nsblist = DB::connection('pgsql')->select(DB::raw($sql));
+        $nsblist = DB::connection('mysql')->select(DB::raw($sql));
 
         $url = url('/lihatuser');
 

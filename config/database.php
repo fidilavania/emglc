@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION','pgsql'),
+    'default' => env('DB_CONNECTION','mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -41,11 +41,11 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => env('DB_HOST','localhost'),
-            'port'      => env('DB_PORT','3306'),
-            'database'  => env('DB_DATABASE','forge'),
-            'username'  => env('DB_USERNAME','forge'),
-            'password'  => env('DB_PASSWORD',''),
+            'host'      => env('DB_HOST', 'localhost'),
+            'port'      => env('DB_PORT', '3306'),
+            'database'  => env('DB_DATABASE', 'emg_center'),
+            'username'  => env('DB_USERNAME', 'root'),
+            'password'  => env('DB_PASSWORD', ''),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
@@ -53,13 +53,28 @@ return [
             'engine'    => null,
         ],
 
+        // masukkan data ke atm28
+        // 'mysql' => [
+        //     'driver'    => 'mysql',
+        //     'host'      => env('DB_HOST', 'localhost'),
+        //     'port'      => env('DB_PORT', '3306'),
+        //     'database'  => env('DB_DATABASE', 'atm28net_'),
+        //     'username'  => env('DB_USERNAME', 'atm28net'),
+        //     'password'  => env('DB_PASSWORD', '20180430'),
+        //     'charset'   => 'utf8',
+        //     'collation' => 'utf8_unicode_ci',
+        //     'prefix'    => '',
+        //     'strict'    => true,
+        //     'engine'    => null,
+        // ],
+
         'pgsql' => [
             'driver'    => 'pgsql',
-            'host'      => env('DB_HOST','192.168.2.2'),
-            'port'      => env('DB_PORT','5432'),
-            'database'  => env('DB_DATABASE','pelatihan'),
-            'username'  => env('DB_USERNAME','postgres'),
-            'password'  => env('DB_PASSWORD','lampp'),
+            'host'      => env('DB_HOST', 'localhost'),
+            'port'      => env('DB_PORT', '5432'),
+            'database'  => env('DB_DATABASE', 'pelatihan'),
+            'username'  => env('DB_USERNAME', 'postgres'),
+            'password'  => env('DB_PASSWORD', 'lampp'),
             'charset'   => 'utf8',
             'prefix'    => '',
             'schema'    => 'public',

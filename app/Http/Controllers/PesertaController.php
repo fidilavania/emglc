@@ -28,11 +28,11 @@ class PesertaController extends Controller
 {
     public function formPendaftaran($key=null)
     {
-        $sdm = DB::connection('pgsql')->table('sdm')->get();
-        $sdm2 = DB::connection('pgsql')->table('sdm')->first();
-        $materi = DB::connection('pgsql')->table('materi')->first();
-        $detail = DB::connection('pgsql')->table('materi_detail')->first();
-        $detailmateri = DB::connection('pgsql')->table('materi_detail')->get();
+        $sdm = DB::connection('mysql')->table('sdm')->get();
+        $sdm2 = DB::connection('mysql')->table('sdm')->first();
+        $materi = DB::connection('mysql')->table('materi')->first();
+        $detail = DB::connection('mysql')->table('materi_detail')->first();
+        $detailmateri = DB::connection('mysql')->table('materi_detail')->get();
 
         $datakredit = array();
 

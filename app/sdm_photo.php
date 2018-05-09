@@ -8,7 +8,7 @@ class sdm_photo extends Model
 {
     //protected $connection = 'pgsql';
     protected $table = 'sdm_photo';
-    protected $primaryKey = null;
-    public $incrementing = false;
-    public $timestamps = false;
+    // protected $primaryKey = null;
+    // public $incrementing = false;
+    // public $timestamps = false;
 }

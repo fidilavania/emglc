@@ -8,7 +8,7 @@ class Kecamatan extends Model
 {
      //protected $connection = 'pgsql';
     protected $table = 'mst_kecamatan';
-    protected $primaryKey = null;
-    public $incrementing = false;
-    public $timestamps = false;
+    // protected $primaryKey = null;
+    // public $incrementing = false;
+    // public $timestamps = false;
 }

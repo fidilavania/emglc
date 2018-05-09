@@ -8,7 +8,7 @@ class Kelurahan extends Model
 {
      //protected $connection = 'pgsql';
     protected $table = 'mst_kelurahan';
-    protected $primaryKey = null;
-    public $incrementing = false;
-    public $timestamps = false;
+    // protected $primaryKey = null;
+    // public $incrementing = false;
+    // public $timestamps = false;
 }

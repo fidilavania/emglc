@@ -45,12 +45,13 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Nama Unit Bisnis*</label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" name="nama_ub" required>
+                                             <input type="text" class="form-control" name="nama_ub" autocomplete="off" value="{{ trim(Auth::user()->kantor,' ') }}" style="text-transform:uppercase;" readonly />
+                                            <!-- <select class="form-control" name="nama_ub" required>
                                                 <option>-Pilih Nama UB-</option>
                                                     @foreach($kantor as $kan)
                                                         <option value="{{$kan->kode_kantor}}">{{$kan->nama}}</option>
                                                     @endforeach
-                                            </select>
+                                            </select> -->
                                         </div>
                                 </div>
                                 <!-- <div class="row form-group">
