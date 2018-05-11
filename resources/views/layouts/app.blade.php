@@ -105,7 +105,6 @@
                 </li>
                   </ul>
 
-             <!--  @if(strpos(Auth::user()->fungsi, '2525') !== false) -->
                 <li class="">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data Klien<span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -113,7 +112,6 @@
                     <li><a href="{{ url('/dataklien') }}">Daftar Klien</a></li> 
                 </li>
                 </ul>
-              <!-- @endif -->
 
                 <li class="">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data SDM<span class="caret"></span></a>
