@@ -45,9 +45,7 @@
                                                 <td>{{$nsb->fb}}</td>
                                                 <td>{{$nsb->ig}}</td>
                                                 <td>{{date('d-m-Y',strtotime($nsb->tgl_berdiri))}}</td>
-                                                <!-- @if(strpos(Auth::user()->fungsi, '2525') !== false) -->
                                                 <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
-                                                <!-- @endif -->
                                             </tr>
                                         @endif
                                         @endforeach

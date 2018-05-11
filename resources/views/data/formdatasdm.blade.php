@@ -65,9 +65,7 @@
                                                 <td>{{$nsb->nohp}}</td>
                                                 <td>{{$nsb->notlp}}</td>
                                                 <td>{{date('d-m-Y',strtotime($nsb->tgl_kerja))}}</td>
-                                                <!-- @if(strpos(Auth::user()->fungsi, '2525') !== false) -->
                                                 <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
-                                                <!-- @endif -->
                                             </tr>
                                         @endif
                                         @endforeach
