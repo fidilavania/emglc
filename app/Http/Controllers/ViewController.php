@@ -43,30 +43,7 @@ class ViewController extends Controller
         return redirect('/');
     }
 
-    public function viewFormDetailDaftar($nonsb)
-    {
-        $sdm = DB::connection('mysql')->table('sdm')->get();
-        $sdm2 = DB::connection('mysql')->table('sdm')->first();
-        $materi = DB::connection('mysql')->table('materi')->first();
-        $detail = DB::connection('mysql')->table('materi_detail')->first();
-        $detailmateri = DB::connection('mysql')->table('materi_detail')->get();
-
-
-        return view('daftar.formdetaildaftar',compact('sdm','materi','detail','detailmateri','sdm2'));   
-    }
-    public function saveFormDetailDaftar(Request $request,$nonsb)
-    {
-
-        $peserta = new peserta;
-        $peserta->opr = strtoupper($request->input('opr'));
-        $peserta->tgl_input = date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon')));
-        // $peserta->tgl = date('Y-m-d H:i:s',strtotime($request->input('')));
-        $peserta->no_sdm = strtoupper($request->input('peserta[]'));
-        $peserta->kode_modul = strtoupper($request->input('kode_modul'));
-        $peserta->save();
-
-        return redirect('/');
-    }
+    
 
     public function viewDataSdm($key=null)
     {

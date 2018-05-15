@@ -81,67 +81,41 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6">
-                                {{-- <!-- <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Sesi</label>
-                                    <div class="col-sm-8">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" name="biaya" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="0"  />
-                                            <span class="input-group-addon">Kali</span>
-                                        </div>
-                                    </div>
-                                </div> --> --}}
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Tanggal & Lokasi 1</label>
-                                    <div class="col-sm-1">
-                                        <input id="cb_1" name="cb_name[]" type="checkbox" value="cb_value_1">
-                                        <!-- <input type="radio" class="form-radio" name="rd" id="rd1">  -->
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <input type="text" class="form-control" name="tanggal_laksana1" id='tanggal_laksana1' placeholder ="{{date('d-m-Y')}}"  value="{{date('d-m-Y',strtotime($detail->tgl_1))}}" readonly >
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="lokasi1" autocomplete="off" value="{{trim($detail->lokasi_1,' ')}}" style="text-transform:uppercase;" placeholder="Lokasi" readonly />
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Tanggal & Lokasi 2</label>
-                                    <div class="col-sm-1">
-                                        <input id="cb_2" name="cb_name[]" type="checkbox" value="cb_value_2">
-                                        <!-- <input type="radio" class="form-radio" name="rd" id="rd1">  -->
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <input type="text" class="form-control" name="tanggal_laksana2" id='tanggal_laksana2' placeholder ="{{date('d-m-Y')}}"  value="{{date('d-m-Y',strtotime($detail->tgl_2))}}" readonly >
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="lokasi2" autocomplete="off" value="{{trim($detail->lokasi_2,' ')}}" style="text-transform:uppercase;" placeholder="Lokasi" readonly />
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Tanggal & Lokasi 3</label>
-                                    <div class="col-sm-1">
-                                        <!-- <input type="radio" class="form-radio" name="rd" id="rd1">  -->
-                                        <input id="cb_3" name="cb_name[]" type="checkbox" value="cb_value_3">
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <input type="text" class="form-control" name="tanggal_laksana3" id='tanggal_laksana3' placeholder ="{{date('d-m-Y')}}"  value="{{date('d-m-Y',strtotime($detail->tgl_3))}}" readonly >
-                                    </div>
-                                    <div class="col-sm-4">
-                                         <input type="text" class="form-control" name="lokasi3" autocomplete="off" value="{{trim($detail->lokasi_3,' ')}}" style="text-transform:uppercase;" placeholder="Lokasi" readonly />
-                                    </div>
-                                </div> 
-                                {{-- <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Nama Unit Bisnis*</label>
-                                        <div class="col-sm-9">
-                                            <select class="form-control" name="nama_ub" required>
-                                                <option>-Pilih Nama UB-</option>
-                                                    @foreach($detailmateri as $det)
-                                                        <option value="{{$det->kode_kantor}}">{{$det->nama}}</option>
-                                                    @endforeach
-                                            </select>
-                                        </div>
-                                </div> --}}
+                            <div class="col-sm-12">
+                                @if(isset($peserta))
+                                <h4 align="center">DAFTAR PESERTA</h4>
+                                <table class="table table-bordered" name="datasdm">
+                                    <thead>
+                                        <th>No SDM</th>
+                                        <th>Kantor</th>
+                                        <th>Nama</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Jabatan</th>
+                                        <th>Alamat</th>
+                                        <th>No Tlp</th>
+                                        <th>No Hp</th>
+                                    </thead>
+                                    <tbody>
+                                        @if(isset($peserta))
+                                        @foreach($datasdm as $data)
+                                        <tr>
+                                            <td data-id="{{$data->no_sdm}}">{{$data->no_sdm}}</td>
+                                            <td>{{$data->kantor}}</td>
+                                            <td>{{$data->nama}}</td>
+                                            <td>{{$data->jenis_kel}}</td>
+                                            <td>{{$data->jabatan}}</td>
+                                            <td>{{$data->alamat_tinggal}}</td>
+                                            <td>{{$data->notlp}}</td>
+                                            <td>{{$data->nohp}}</td>
+                                        </tr>
+                                        @endforeach
+                                        @endif
+                                    </tbody>
+                                </table>
+                                @endif
+                                <br>
                             </div>
+                            @if(empty($peserta))
                             <div class="col-sm-6">
                                 <input type="button" class="btn btn-primary" value="Tambah Peserta" id="addKantor" />
                                 <br/>
@@ -149,18 +123,24 @@
                                 <div class="KantorTambah">
                                 </div>
                             </div>
+                            @endif
                         </div>
-                       
                         <br/>
                         <br/>
+                        @if(isset($peserta))
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a href="{{ url('/pendaftaran') }}" id="clear-filter" title="KEMBALI">[Kembali Ke Daftar]</a>
+                            </div>
+                        </div>
+                        @endif
+                        @if(empty($peserta))
                         <div class="row submitbtn1">
-                            <!-- <div class="col-sm-12">
-                                <button type="submit" class="btn btn-primary" name="simpanbutton">KE KREDIT</button>
-                            </div> -->
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-primary" name="simpanbutton" onclick="return confirm('Apakah anda yakin akan menyimpan data ini?')">SIMPAN</button>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
             </form>
@@ -168,8 +148,9 @@
     </div>
 </div>
 <div id="kantorTambah" data-op ="kantor" hidden>
+ <div class="panel-body">
     <div class="row">
-        <div class="col-sm-10">
+        <div class="col-sm-15">
             <table class="table-bordered"  style="border-style: solid 1px #000000;" width=100% >
                 <thead>
                     <th>No. SDM</th>
@@ -179,9 +160,10 @@
                 <tbody>
                     <?php
                         foreach($sdm as $j){
-                            if( trim($j->kantor,' ') == trim(Auth::user()->kantor,' ')){
+                            if( trim($j->kantor,' ') == trim(Auth::user()->kantor,' ')) {
                             echo '<tr>';
-                            echo '<td>'."<input name='peserta[]' type='checkbox'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;$j->no_sdm".'</td>'; 
+                            // <input type="text" class="form-control" name="lokasi3" autocomplete="off" value="{{trim($detail->lokasi_3,' ')}}" style="text-transform:uppercase;" placeholder="Lokasi" readonly />
+                            echo '<td>'."<input type='checkbox' name='peserta[]' id='peserta' value='".$j->no_sdm."'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;$j->no_sdm".'</td>'; 
                             echo '<td>'.$j->nama.'</td>';
                             echo '<td>'.$j->jabatan.'</td>';
                             echo '</tr>';
@@ -191,6 +173,7 @@
                 </tbody>
             </table>
         </div>
+    </div>
 </div>
 
 @endsection

@@ -10,7 +10,7 @@
                     </ul>
                 </div>
             </div>
-            <form class="form-horizontal" id="simpanform" role="form" method="POST" action="{{ url('/savedetaildaftar/$nonsb') }}" >
+            <form class="form-horizontal" id="simpanform" role="form" method="POST" action="{{ url('/savedetailtidakhadir/$nonsb') }}" >
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="panel panel-primary" id="panelnasabah">
                     <div class="panel-heading"><h4 align="center">PESERTA TIDAK HADIR</h4></div>
@@ -82,6 +82,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
+                                @if(isset($peserta))
                                 <h4 align="center">DAFTAR PESERTA TIDAK HADIR</h4>
                                 <table class="table table-bordered" name="datasdm">
                                     <thead>
@@ -93,6 +94,7 @@
                                         <th>Alamat</th>
                                         <th>No Tlp</th>
                                         <th>No Hp</th>
+                                        <th>Alasan</th>
                                     </thead>
                                     <tbody>
                                         @foreach($datasdm as $data)
@@ -106,11 +108,17 @@
                                             <td>{{$data->alamat_tinggal}}</td>
                                             <td>{{$data->notlp}}</td>
                                             <td>{{$data->nohp}}</td>
+                                            <td><input type="text"/></td>
                                         </tr>
                                         @endif
                                         @endforeach
                                     </tbody>
                                 </table>
+                                @endif
+                                <br>
+                                @if(empty($peserta))
+                                <h4 align="center">BELUM ADA INPUTAN</h4>
+                                @endif
                             </div>
                             <div class="col-sm-6">
                                 <!-- <input type="button" class="btn btn-primary" value="Tambah Peserta" id="addKantor" /> -->
@@ -122,16 +130,21 @@
                         </div>
                         <br/>
                         <br/>
+                        @if(empty($peserta))
                         <div class="row">
                             <div class="col-sm-12">
                                 <a href="{{ url('/pendaftaran') }}" id="clear-filter" title="KEMBALI">[Kembali Ke Daftar]</a>
                             </div>
                         </div>
-                        <!-- <div class="row submitbtn1"> -->
-                            <!-- <div class="col-sm-12">
-                                <button type="submit" class="btn btn-primary" name="simpanbutton" onclick="return confirm('Apakah anda yakin akan menyimpan data ini?')">KEMBALI</button>
-                            </div> -->
-                        <!-- </div> -->
+                        @endif
+                        @if(isset($peserta))
+                        <div class="row submitbtn1">
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-primary" name="simpanbutton" onclick="return confirm('Apakah anda yakin akan menyimpan data ini?')">SIMPAN</button>
+                                <a href="{{ url('/pendaftaran') }}" id="clear-filter" title="KEMBALI">[Kembali Ke Daftar]</a>
+                            </div>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </form>

@@ -44,7 +44,8 @@
                                                 <td>{{$nsb->fasilitator}}</td>
                                                 <td>{{$nsb->durasi}}</td>
                                                 <td>{{number_format($nsb->biaya,0,'','.')}}</td>
-                                                <td><input type="button" class="btn btn-primary" name="view" value="Daftar" /></td>
+                                                <td><input type="button" class="btn btn-primary" name="view" value="Daftar" />
+                                                <td><input type="button" class="btn btn-danger" name="tidak" value="Tidak_Hadir" /></td>
                                             </tr>
                                          @endforeach
                                     
@@ -89,12 +90,20 @@
         //       ['style', ['style' ,'examplePlugin']]
         //     ]
         // });
-        
+        $('[name="tidak"]').click(function() {
+            console.log($(this).parent().parent().find('td:nth-child(2)').text());
+            console.log($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Tidak_Hadir');
+            if($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Tidak_Hadir'){
+                window.location.href = '{{url("/detailtidakhadir")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+            } else {
+                window.location.href ='{{url("/detailtidakhadir")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+            }
+        });
 
         $('[name="view"]').click(function() {
             console.log($(this).parent().parent().find('td:nth-child(2)').text());
-            console.log($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Detail');
-            if($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Detail'){
+            console.log($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Daftar');
+            if($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Daftar'){
                 window.location.href = '{{url("/detaildaftar")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
             } else {
                 window.location.href ='{{url("/detaildaftar")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');

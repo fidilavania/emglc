@@ -31,8 +31,8 @@ class InputController extends Controller
     public function viewFormDaftar($nonsb)
     {
         $sdm = DB::connection('mysql')->table('sdm')->get();
-        $materi = DB::connection('mysql')->table('materi')->first();
-
+        $materi = DB::connection('mysql')->table('materi')->where('kode_modul',$nonsb)->first();
+        
         return view('input.formdetail',compact('sdm','materi'));   
     }
 

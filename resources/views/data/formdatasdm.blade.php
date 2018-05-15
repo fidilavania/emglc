@@ -12,7 +12,6 @@
                                 <table class="table table-bordered" name="daftarnasabahtable">
                                     <thead>
                                         <th>No SDM</th>
-                                        <th>Kantor</th>
                                         <th>Nama</th>
                                         <th>Jenis Kelamin</th>
                                         <th>Tempat, Tanggal Lahir</th>
@@ -21,6 +20,7 @@
                                         <th>No HP</th>
                                         <th>No Telpon</th>
                                         <th>Tanggal Mulai Bekerja</th>
+                                        <th>Pelatihan</th>
                                         <th></th>
                                     </thead>
                                     <div class="form-inline padding-bottom-15">
@@ -49,6 +49,18 @@
                                                 <a href="{{ url('/datasdm') }}" id="clear-filter" title="clear filter">[KEMBALI]</a>
                                             </div>
                                         </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-sm-12">   
+                                                <div class="form-group">
+                                                    <label class="col-sm-6 control-label">Kantor :</label>
+                                                    <div class="col-sm-6">
+                                                        <label class="col-sm-6 control-label">{{trim(Auth::user()->kantor,' ')}}</label>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <hr />
                                     <tbody>
@@ -56,7 +68,6 @@
                                         @if( trim($nsb->kantor,' ') == trim(Auth::user()->kantor,' '))
                                             <tr class="accordion-toggle" data-toggle="collapse" data-target="#{{$nsb->no_sdm}}">
                                                 <td data-id="{{$nsb->no_sdm}}">{{$nsb->no_sdm}}</td>
-                                                <td>{{$nsb->kantor}}</td>
                                                 <td>{{$nsb->nama}}</td>
                                                 <td>{{$nsb->jenis_kel}}</td>
                                                 <td>{{$nsb->tempat_lahir}}, {{date('d-m-Y',strtotime($nsb->tgl_lahir))}}</td>
@@ -65,6 +76,7 @@
                                                 <td>{{$nsb->nohp}}</td>
                                                 <td>{{$nsb->notlp}}</td>
                                                 <td>{{date('d-m-Y',strtotime($nsb->tgl_kerja))}}</td>
+                                                <td></td>
                                                 <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
                                             </tr>
                                         @endif
