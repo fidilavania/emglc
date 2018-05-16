@@ -88,7 +88,7 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-left"> 
-                
+              @if(strpos(Auth::user()->fungsi, '1111') !== false)
                 <li class="">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data Modul Pelatihan<span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -112,7 +112,7 @@
                     <li><a href="{{ url('/dataklien') }}">Daftar Klien</a></li> 
                 </li>
                 </ul>
-
+              @endif
                 <li class="">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data SDM<span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -129,7 +129,7 @@
               {{ Auth::user()->nama_lengkap }} <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li class=""><a href="{{ url('auth/logout') }}">Logout<span class="sr-only">(current)</span></a></li>    
-               @if(strpos(Auth::user()->fungsi, '1234') !== false)
+               @if(strpos(Auth::user()->fungsi, '1111') !== false)
                <li><a href="{{ url('/addkantor') }}">Input Master Kantor</a></li>
                <li><a href="{{ url('/addjabatan') }}">Input Master Jabatan</a></li>
                <li><a href="{{ url('/adduser') }}">Input User</a></li>

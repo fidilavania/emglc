@@ -16,6 +16,7 @@ use App\jabatan_mst;
 use App\mst_kantor;
 use App\mst_jabatan;
 use App\kantor_mst;
+use App\mst_akses;
 use App\ABCJabatan;
 use App\Http\Requests;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
@@ -29,7 +30,8 @@ class AdminController extends Controller
     	// $jabatan = DB::connection('pgsql')->table('mst_jabatan')->get();
         $kantor = mst_kantor::all();
         $jabatan = mst_jabatan::all();
-		return view('admin.formuser', compact('kantor','jabatan'));
+        $akses = mst_akses::all();
+		return view('admin.formuser', compact('kantor','jabatan','akses'));
     }
     public function postSaveUser(Request $request)
     {
@@ -42,7 +44,7 @@ class AdminController extends Controller
     	$user->nama_lengkap = $request->input('input_nama_lengkap');
     	$user->jabatan = $request->input('input_jabatan');
     	$user->kantor = $request->input('input_kantor');
-        $user->fungsi = 1111;
+        $user->fungsi = $request->input('input_akses');
     	$user->status = 1;
     	$user->password = Hash::make($request->input('input_password'));
     	$user->save();

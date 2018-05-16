@@ -62,12 +62,18 @@
                                         <input type="password" class="form-control" name="input_konfirmasi_password" autocomplete="off" value="" placeholder="ULANGI PASSWORD" required />
                                     </div>
                                 </div>
-                                <!-- <div class="row form-group">
-                                    <label class="col-sm-2 control-label">Fungsi</label>
+                                <div class="row form-group">
+                                    <label class="col-sm-2 control-label">Hak Akses*</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" name="input_fungsi_user" autocomplete="off" value="" placeholder="MASUKKAN FUNGSI"  />
+                                        <select class="form-control" name="input_akses" required>
+                                            <option value >Pilih Hak Akses</option>
+                                            @foreach($akses as $k)
+                                                <option value="{{$k->kode}}">{{$k->nama}}</option>
+                                            @endforeach
+                                        </select>
+                                        </select>
                                     </div>
-                                </div> -->
+                                </div>
                                 <div class="row form-group">
                                     <label class="col-sm-2 control-label">&nbsp;</label>
                                     <div class="col-sm-2">
