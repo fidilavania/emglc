@@ -16,31 +16,33 @@ Route::post('auth/postlogin','AuthController@authenticate');
 Route::group(['middleware' => ['auth']], function () {
 		//Home
 	Route::get('/', 'HomeController@viewDashboard');
-	
+
+	// SDM
+	Route::match(['get', 'post'],'/datasdm/{key?}', 'SdmController@viewDataSdm')->where('key', '(.*)');
+	Route::get('/addsdm', 'SdmController@viewFormSDM');
+	Route::post('/savesdm/{nonsb?}','SdmController@saveDataSDM');
+	Route::get('/editsdm/{nonsb?}', 'SdmController@viewFormSDMEdit');
+	Route::post('/savesdmedit/{nonsb?}','SdmController@saveDataSDMEdit');
+
 	//input
-	Route::get('/addsdm', 'InputController@viewFormSDM');
 	Route::get('/addmateri', 'InputController@viewFormMateri');
 	Route::get('/addklien', 'InputController@viewFormKlien');
 	Route::get('/addkantor', 'InputController@viewFormKantor');
 	Route::get('/addjabatan', 'InputController@viewFormJabatan');
 
-	Route::post('/savesdm/{nonsb?}','InputController@saveDataSDM');
 	Route::post('/savemateri/{nonsb?}','InputController@saveDataMateri');
 	Route::post('/saveklien/{nonsb?}','InputController@saveDataKlien');
 	Route::post('/savekantor/{nonsb?}','InputController@saveDataKantor');
 	Route::post('/savejabatan/{nonsb?}','InputController@saveDataJabatan');
 
 	//CARI
-	Route::match(['get', 'post'],'/datasdm/{key?}', 'ViewController@viewDataSdm')->where('key', '(.*)');
 	Route::match(['get', 'post'],'/datamateri/{key?}', 'ViewController@viewDataMateri')->where('key', '(.*)');
 	Route::match(['get', 'post'],'/dataklien/{key?}', 'ViewController@viewDataKlien')->where('key', '(.*)');
 	
 	//EDIT
-	Route::get('/editsdm/{nonsb?}', 'InputController@viewFormSDMEdit');
 	Route::get('/editmateri/{nonsb?}', 'InputController@viewFormMateriEdit');
 	Route::get('/editklien/{nonsb?}', 'InputController@viewFormKlienEdit');
-
-	Route::post('/savesdmedit/{nonsb?}','InputController@saveDataSDMEdit');
+	
 	Route::post('/savemateriedit/{nonsb?}','InputController@saveDataMateriEdit');
 	Route::post('/saveklienedit/{nonsb?}','InputController@saveDataKlienEdit');
 

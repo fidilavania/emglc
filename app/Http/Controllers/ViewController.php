@@ -43,28 +43,6 @@ class ViewController extends Controller
         return redirect('/');
     }
 
-    
-
-    public function viewDataSdm($key=null)
-    {
-        $sql3 ="SELECT mst_jabatan.jabatankantor,sdm.jabatan,mst_jabatan.kode
-            from mst_jabatan,sdm 
-            where 
-            sdm.jabatan=mst_jabatan.kode";
-        $lihat1 = DB::connection('mysql')->select(DB::raw($sql3));  
-
-        $datakredit = array();
-
-        if($key == null){
-            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor')->paginate(20);
-        } else {
-            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor')->whereRaw
-            ("nama LIKE '%".strtoupper($key)."%'OR alamat_ktp LIKE '%".strtoupper($key)."%' OR alamat_tinggal LIKE '%".strtoupper($key)."%'OR no_sdm LIKE '%".strtoupper($key)."%'")->paginate(20);
-        }
-
-        return view('data.formdatasdm',compact('nsblist','datakredit','lihat1'));   
-    }
-
     public function viewDataMateri($key=null)
     {
 
