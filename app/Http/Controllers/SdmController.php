@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use App\klien;
 use App\materi;
@@ -11,6 +13,7 @@ use App\peserta;
 use App\mst_kantor;
 use App\mst_gelar;
 use App\mst_jabatan;
+use App\mst_nikah;
 use App\Http\Controllers\Controller;
 use App\Kelurahan;
 use App\Kecamatan;
@@ -146,6 +149,7 @@ class SdmController extends Controller
         $kantor = DB::connection('mysql')->table('mst_kantor')->get();
         $jabatan = DB::connection('mysql')->table('mst_jabatan')->get();
         $status = DB::connection('mysql')->table('mst_statusrumah')->get();
+        $nikah = DB::connection('mysql')->table('mst_nikah')->get();
         $sdm = sdm::where('no_sdm',$nonsb)->first();
 
         // $imagePath = public_path('foto');
@@ -154,20 +158,20 @@ class SdmController extends Controller
 
         // $sdm->foto = $imagePath;
 
-        return view('edit.formeditsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','sdm'));   
+        return view('edit.formeditsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','sdm','nikah'));   
     }
     public function saveDataSDMEdit(Request $request,$nonsb)
     {               
-            if ($request->hasFile('img_upload')) {
-            $image = $request->file('img_upload');
-            $name = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('foto');
-            $image->move($destinationPath, $name);
-            DB::connection('mysql')->table('sdm')->where('foto',$request->input('img_upload'))->update([
-            'foto' => 'foto/'.$name
+        //     if ($request->hasFile('img_upload')) {
+        //     $image = $request->file('img_upload');
+        //     $name = time().'.'.$image->getClientOriginalExtension();
+        //     $destinationPath = public_path('foto');
+        //     $image->move($destinationPath, $name);
+        //     DB::connection('mysql')->table('sdm')->where('foto',$request->input('img_upload'))->update([
+        //     'foto' => 'foto/'.$name
         
-        ]);
-        }
+        // ]);
+        // }
        
         
 

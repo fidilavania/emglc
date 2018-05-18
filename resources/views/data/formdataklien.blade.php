@@ -35,6 +35,22 @@
                                     <hr />
                                     <tbody>
                                         @foreach($nsblist as $nsb)
+                                        @if( trim(Auth::user()->kantor,' ') == 'EMG')
+                                            <tr class="accordion-toggle" data-toggle="collapse" data-target="#{{$nsb->no_reg}}">
+                                                <td data-id="{{$nsb->no_reg}}">{{$nsb->kantor}}</td>
+                                                <td>{{$nsb->alamat}}</td>
+                                                <td>{{$nsb->kodya}}</td>
+                                                <td>{{$nsb->no_tlp}}</td>
+                                                <td>{{$nsb->web}}</td>
+                                                <td>{{$nsb->fb}}</td>
+                                                <td>{{$nsb->ig}}</td>
+                                                <td>{{date('d-m-Y',strtotime($nsb->tgl_berdiri))}}</td>
+                                                <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
+                                            </tr>
+                                        @endif
+                                        @endforeach
+
+                                        @foreach($nsblist as $nsb)
                                         @if( trim($nsb->kantor,' ') == trim(Auth::user()->kantor,' '))
                                             <tr class="accordion-toggle" data-toggle="collapse" data-target="#{{$nsb->no_reg}}">
                                                 <td data-id="{{$nsb->no_reg}}">{{$nsb->kantor}}</td>
