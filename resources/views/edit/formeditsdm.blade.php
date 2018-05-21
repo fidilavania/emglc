@@ -11,7 +11,7 @@
                 </div>
             </div>
 
-            <form class="form-horizontal" id="simpanform" role="form" method="POST" action="{{ url('/savesdmedit/$nonsb') }}" >
+            <form class="form-horizontal" id="simpanform" role="form" method="POST" action="{{ url('/savesdmedit/$nonsb') }}" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="panel panel-primary" id="panelnasabah">
                     <div class="panel-heading"><h4 align="center">EDIT DATA SDM</h4></div>
@@ -48,6 +48,12 @@
                                     <div class="col-sm-9">
                                          <img src="{{url(trim($sdm->foto,' '))}}" height="170" width="150"/>
                                          <!-- <input type="file" class="form-control-file" name="img_upload"> -->
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Upload Foto</label>
+                                    <div class="col-sm-9">
+                                        <input type="file" class="form-control-file" name="img_upload">
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -90,6 +96,21 @@
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="input_telepon_rumah" autocomplete="off" value="{{trim($sdm->notlp,' ')}}" placeholder="0321xxxxxx" id="hp" id="pesan" required />
                                     </div>
+                                </div>
+                                <div class="row form-group">
+                                        <label class="col-sm-3 control-label">Agama*</label>
+                                        <div class="col-sm-9">
+                                            <select class="form-control" name="input_agama" required>
+                                                <option replace>{{trim($sdm->agama,' ')}}</option>
+                                                <option>-Ganti Agama-</option>
+                                                <option value="ISLAM">Islam</option>
+                                                <option value="KATHOLIK">Katolik</option>
+                                                <option value="PROTESTAN">Protestan</option>
+                                                <option value="BUDDHA">Buddha</option>
+                                                <option value="HINDU">Hindu</option>
+                                                <option value="KHONGHUCU">Khonghucu</option>
+                                            </select>
+                                        </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -140,6 +161,19 @@
                                                     @endforeach
                                             </select>
                                         </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Status Kantor*</label>
+                                   <div class="col-sm-8">
+                                        <select class="form-control" name="input_status" required>
+                                            <option replace>{{trim($sdm->status_kantor,' ')}}</option>
+                                            <option value >-Pilih Status-</option>
+                                            <option value="PUSAT">PUSAT</option>
+                                            <option value="KAS PUSAT">KAS PUSAT</option>
+                                            <option value="CABANG">CABANG</option>
+                                            <option value="KAS CABANG">KAS CABANG</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Jabatan*</label>
@@ -194,21 +228,6 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                                <div class="row form-group">
-                                        <label class="col-sm-3 control-label">Agama*</label>
-                                        <div class="col-sm-9">
-                                            <select class="form-control" name="input_agama" required>
-                                                <option replace>{{trim($sdm->agama,' ')}}</option>
-                                                <option>-Ganti Agama-</option>
-                                                <option value="ISLAM">Islam</option>
-                                                <option value="KATHOLIK">Katolik</option>
-                                                <option value="PROTESTAN">Protestan</option>
-                                                <option value="BUDDHA">Buddha</option>
-                                                <option value="HINDU">Hindu</option>
-                                                <option value="KHONGHUCU">Khonghucu</option>
-                                            </select>
-                                        </div>
-                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <!-- ng-model="pernikahan" -->

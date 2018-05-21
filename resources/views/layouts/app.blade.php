@@ -88,16 +88,18 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-left"> 
-              @if(strpos(Auth::user()->fungsi, '1111') !== false)
+              
                 <li class="">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data Modul Pelatihan<span class="caret"></span></a>
                   <ul class="dropdown-menu">
+                  @if(strpos(Auth::user()->fungsi, '1111') !== false)
                     <li><a href="{{ url('/addmateri') }}">Input Materi</a></li> 
                     <li><a href="{{ url('/datamateri') }}">Daftar Materi</a></li> 
+                  @endif
                     <li><a href="{{ url('/pendaftaran') }}">Pendaftaran</a></li> 
                 </li>
                   </ul>
-
+              @if(strpos(Auth::user()->fungsi, '1111') !== false)
                 <li class="">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Laporan Kegiatan<span class="caret"></span></a>
                   <ul class="dropdown-menu">

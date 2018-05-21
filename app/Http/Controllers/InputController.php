@@ -123,30 +123,32 @@ class InputController extends Controller
     public function saveDataKlien(Request $request,$nonsb)
     {
     	$lastnonsb = klien::max('no_reg');
+        $nonsb = (int) $lastnonsb + 1;
 
 		// Log::info(json_encode($dati));
     	$klien = new klien;
 
-    	if($request->input('input_status') == '0000'){
-    		$klien->no_reg = trim($request->input('nama_ub'),' ').'0000';
-    	}else
-    	if($request->input('input_status') == '0001'){
-    		$nonsb = (int) substr($lastnonsb,-2,2) + 1;
-    		$klien->no_reg = trim($request->input('nama_ub'),' ').'00'.str_pad($nonsb, 2, '0',STR_PAD_LEFT);
-    	}else
-    	if($request->input('input_status') == '0100'){
-    		$nonsb = (int) substr($lastnonsb,-4,2) + 1;
-    		$klien->no_reg = trim($request->input('nama_ub'),' ').str_pad($nonsb, 2, '0',STR_PAD_LEFT).'00';
-    	}else
-    	if($request->input('input_status') == '0101'){
-    		$nonsb = (int) substr($lastnonsb,-2,2) + 1;
-    		$klien->no_reg = trim($request->input('nama_ub'),' ').'01'.str_pad($nonsb, 2, '0',STR_PAD_LEFT);
-    	}
+    	// if($request->input('input_status') == '0000'){
+    	// 	$klien->no_reg = trim($request->input('nama_ub'),' ').'0000';
+    	// }else
+    	// if($request->input('input_status') == '0001'){
+    	// 	$nonsb = (int) substr($lastnonsb,-2,2) + 1;
+    	// 	$klien->no_reg = trim($request->input('nama_ub'),' ').'00'.str_pad($nonsb, 2, '0',STR_PAD_LEFT);
+    	// }else
+    	// if($request->input('input_status') == '0100'){
+    	// 	$nonsb = (int) substr($lastnonsb,-4,2) + 1;
+    	// 	$klien->no_reg = trim($request->input('nama_ub'),' ').str_pad($nonsb, 2, '0',STR_PAD_LEFT).'00';
+    	// }else
+    	// if($request->input('input_status') == '0101'){
+    	// 	$nonsb = (int) substr($lastnonsb,-2,2) + 1;
+    	// 	$klien->no_reg = trim($request->input('nama_ub'),' ').'01'.str_pad($nonsb, 2, '0',STR_PAD_LEFT);
+    	// }
     	// Log::info($dati);
 
     	$klien->tgl_input = date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon')));
 		$klien->opr = strtoupper($request->input('opr'));
 		$klien->kantor = strtoupper($request->input('nama_ub'));
+        $klien->no_reg = trim($request->input('nama_ub'),' ').str_pad($nonsb, 4, '0',STR_PAD_LEFT);
 		$klien->alamat = strtoupper($request->input('input_alamat'));
 		$klien->rtrw = $request->input('input_rt').'/'.$request->input('input_rw');
 		$klien->lurah = strtoupper($request->input('input_kelurahan'));

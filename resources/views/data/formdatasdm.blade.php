@@ -21,7 +21,7 @@
                                         <th>No HP</th>
                                         <th>No Telpon</th>
                                         <th>Tanggal Mulai Bekerja</th>
-                                        <th>Pelatihan</th>
+                                        <!-- <th>Pelatihan</th> -->
                                         <th></th>
                                     </thead>
                                     <div class="form-inline padding-bottom-15">
@@ -67,7 +67,7 @@
                                                 <td>{{$nsb->nohp}}</td>
                                                 <td>{{$nsb->notlp}}</td>
                                                 <td>{{date('d-m-Y',strtotime($nsb->tgl_kerja))}}</td>
-                                                <td></td>
+                                                <!-- <td></td> -->
                                                 <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
                                             </tr>
                                         @endif
@@ -86,7 +86,7 @@
                                                 <td>{{$nsb->nohp}}</td>
                                                 <td>{{$nsb->notlp}}</td>
                                                 <td>{{date('d-m-Y',strtotime($nsb->tgl_kerja))}}</td>
-                                                <td></td>
+                                                <!-- <td></td> -->
                                                 <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
                                             </tr>
                                         @endif

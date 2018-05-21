@@ -100,6 +100,7 @@ class SdmController extends Controller
 		$sdm->kodya_ktp = strtoupper($request->input('input_kodyaktp'));
 		$sdm->kodepos_ktp = strtoupper($request->input('input_kodeposktp'));
 		$sdm->kantor = strtoupper($request->input('kantor'));
+        $sdm->status_kantor = strtoupper($request->input('input_status'));
 		$sdm->jabatan = strtoupper($request->input('input_jabatan'));
 		$sdm->pendidikan = strtoupper($request->input('pendidikan'));
 		$sdm->email = ($request->input('input_email'));
@@ -162,16 +163,18 @@ class SdmController extends Controller
     }
     public function saveDataSDMEdit(Request $request,$nonsb)
     {               
-        //     if ($request->hasFile('img_upload')) {
-        //     $image = $request->file('img_upload');
-        //     $name = time().'.'.$image->getClientOriginalExtension();
-        //     $destinationPath = public_path('foto');
-        //     $image->move($destinationPath, $name);
-        //     DB::connection('mysql')->table('sdm')->where('foto',$request->input('img_upload'))->update([
-        //     'foto' => 'foto/'.$name
+        Log::info($request->hasFile('img_upload'));
+        if ($request->hasFile('img_upload')) {
+            Log::info('masuk');
+            $image = $request->file('img_upload');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('foto');
+            $image->move($destinationPath, $name);
+            DB::connection('mysql')->table('sdm')->where('no_sdm',$request->input('input_nosdm'))->update([
+                'foto' => 'foto/'.$name
         
-        // ]);
-        // }
+            ]);
+        }
        
         
 
@@ -200,6 +203,7 @@ class SdmController extends Controller
         'kodya_ktp'      => strtoupper($request->input('input_kodyaktp')),
         'kodepos_ktp'        => strtoupper($request->input('input_kodeposktp')),
         'kantor'         => strtoupper($request->input('kantor')),
+        'status_kantor' => strtoupper($request->input('input_status')),
         'jabatan'        => strtoupper($request->input('input_jabatan')),
         'pendidikan'         => strtoupper($request->input('pendidikan')),
         'email'      => ($request->input('input_email')),
