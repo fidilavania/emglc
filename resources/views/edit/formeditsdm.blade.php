@@ -28,7 +28,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal*</label>
                                     <div class="col-sm-9">
-                                      <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y')}}" >
+                                      <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y')}}" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -153,13 +153,15 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Nama Kantor*</label>
                                         <div class="col-sm-8">
-                                            <select class="form-control" name="kantor" required>
+                                            <input type="text" class="form-control" name="kantor" value="{{trim($sdm->kantor,' ')}}" placeholder="npwp" style="text-transform:uppercase" readonly />
+
+                                            <!-- <select class="form-control" name="kantor" required>
                                                 <option replace>{{trim($sdm->kantor,' ')}}</option>
                                                 <option>-Ganti Nama UB-</option>
                                                     @foreach($kantor as $kan)
                                                         <option value="{{$kan->kode_kantor}}">{{$kan->nama}}</option>
                                                     @endforeach
-                                            </select>
+                                            </select> -->
                                         </div>
                                 </div>
                                 <div class="row form-group">
@@ -304,7 +306,7 @@
                                             <div class="row form-group">
                                             <!-- <label class="col-sm-3 control-label">Alamat KTP*</label> -->
                                             <div class="col-sm-8">
-                                                <input type='button' class="btn btn-warning" name="generatesample" style="text-transform:uppercase" value="Alamat tinggal sama dengan KTP"> <br>
+                                                <input type='button' class="btn btn-danger" name="generatesample" style="text-transform:uppercase" value="Alamat tinggal sama dengan KTP"> <br>
                                             </div>
                                             </div>  
                                         </div>
@@ -650,7 +652,6 @@ $('#sKecamatan').on('change', function(){
 
         });
 
-        $("#tanggalmohon").datepicker({ dateFormat: 'dd-mm-yy' });
         $("#tanggalberlaku").datepicker({ dateFormat: 'dd-mm-yy' });
         $("#tanggallahir").datepicker({ dateFormat: 'dd-mm-yy' });
         

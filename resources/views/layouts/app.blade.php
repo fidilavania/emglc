@@ -95,8 +95,9 @@
                   @if(strpos(Auth::user()->fungsi, '1111') !== false)
                     <li><a href="{{ url('/addmateri') }}">Input Materi</a></li> 
                     <li><a href="{{ url('/datamateri') }}">Daftar Materi</a></li> 
-                  @endif
                     <li><a href="{{ url('/pendaftaran') }}">Pendaftaran</a></li> 
+                  @endif
+                    <li><a>Pendaftaran</a></li> 
                 </li>
                   </ul>
               @if(strpos(Auth::user()->fungsi, '1111') !== false)
@@ -128,7 +129,7 @@
             <ul class="nav navbar-nav navbar-right">
             <li class="">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              {{ Auth::user()->nama_lengkap }} <span class="caret"></span></a>
+              {{ Auth::user()->nama_lengkap }} ({{ Auth::user()->kantor }}) <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li class=""><a href="{{ url('auth/logout') }}">Logout<span class="sr-only">(current)</span></a></li>    
                @if(strpos(Auth::user()->fungsi, '1111') !== false)

@@ -99,7 +99,7 @@
                                     <div class="col-sm-8">
                                         <div class="input-group">
                                             <span class="input-group-addon">Rp.</span>
-                                            <input type="text" class="form-control" name="biaya" autocomplete="off" value="{{trim($materi->biaya,' ')}}" style="text-transform:uppercase;" placeholder="00000"  />
+                                            <input type="text" class="form-control" name="biaya" autocomplete="off" value="{{number_format($materi->biaya,0,'','.')}}" style="text-transform:uppercase;" placeholder="00000"  />
                                         </div>
                                     </div>
                                 </div>
@@ -153,125 +153,15 @@ $('#sKecamatan').on('change', function(){
             $('[name="'+nama+'"]').css("background-color", "#F9CECE");
         }
     }
-    (function (factory) {
-          /* Global define */
-          if (typeof define === 'function' && define.amd) {
-            // AMD. Register as an anonymous module.
-            define(['jquery'], factory);
-          } else if (typeof module === 'object' && module.exports) {
-            // Node/CommonJS
-            module.exports = factory(require('jquery'));
-          } else {
-            // Browser globals
-            factory(window.jQuery);
-          }
-    }
+    
     $(document).ready(function() {
 
-        $('.summernote').summernote();
-
+        
         $("#tanggal_laksana").datepicker({ dateFormat: 'dd-mm-yy' });
-        $('[name="input_pendapatan_nasabah"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-        $('[name="input_biaya_hidup_nasabah"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
         $('[name="biaya"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
         
 
-        $("#hp").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesan").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-         });
-        $("#hpku").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanku").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#ktp").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanktp").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#kodepos").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanpos").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#tanggungan").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesantang").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#pendapatan").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesandapat").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#biaya").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanbi").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-
-        //angular??
-
-
-        $("#ktpps").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanktps").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#rtps").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanrts").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#rt").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanrt").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#rw").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanrw").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#rwps").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanrws").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        
-        $("#posps").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanposs").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
+       
 });
 </script>
 @endsection

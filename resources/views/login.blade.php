@@ -61,6 +61,7 @@
             </div>
             <form class="form-horizontal" id="loginform" role="form" method="POST" action="{{ url('/auth/postlogin') }}">
               <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+              <br><br><br>
                   <div class="row form-group">
                     <div class="col-sm-3">
                     </div>
