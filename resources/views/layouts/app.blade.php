@@ -19,7 +19,7 @@
       body {
          /*font-family: 'Lato';*/
             min-height: 500px;
-            background-image: url("/pic/image.jpg");
+            background-image: url("/pic/image.JPG");
             background-attachment:fixed;
             background-size: 100%;
             -webkit-background-size: cover;

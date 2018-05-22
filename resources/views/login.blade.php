@@ -61,20 +61,16 @@
             </div>
             <form class="form-horizontal" id="loginform" role="form" method="POST" action="{{ url('/auth/postlogin') }}">
               <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                <div style="border:3px">
                   <div class="row form-group">
-                    <!-- <label class="col-sm-4 control-label" style="border: red 1px solid;background: white"><b style="color:#FF6400;">Username  :</b></label> -->
                     <div class="col-sm-3">
                     </div>
                       <div class="col-sm-6">
-
                         <input type="text" class="form-control" name="inputusername" value="" placeholder="Username">
                       </div>
                       <div class="col-sm-3">
                     </div>
                   </div>
                   <div class="row form-group">
-                    <!-- <label class="col-sm-4 control-label"><h4><b style="color:green">Password   :</b></h4></label> -->
                     <div class="col-sm-3">
                     </div>
                       <div class="col-sm-6">
@@ -88,12 +84,10 @@
                     </div>
                     <div class="col-sm-6">
                       <button type="submit" class="btn btn-primary" name="loginbutton">LOGIN</button>
-                  </div>
-                  <div class="col-sm-3">
                     </div>
-                </div>
-              </div>
-              </div>
+                    <div class="col-sm-3">
+                    </div>
+                  </div>
             </form>
         </div>
   </div>
