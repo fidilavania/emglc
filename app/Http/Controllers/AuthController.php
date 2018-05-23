@@ -18,6 +18,11 @@ use Session;
 
 class AuthController extends Controller
 {
+    
+    public function viewAwal()
+    {
+        return view('awal');   
+    }
     // public function __construct()
     // {
     //     $this->middleware('guest')->except('logout');

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Sistem Informasi Karyawan dan Akademik Eddy Muljono Group</div>
+                <div class="panel-heading">Sistem Informasi Karyawan dan Akademik</div>
                 <div class="panel-body">
                 <b>Login Sukses</b>
                 </div>

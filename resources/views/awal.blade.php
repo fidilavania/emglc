@@ -47,6 +47,21 @@
     #transparan{
       background:#000;opacity:0.4;filter:alpha(opacity=40);
     }
+
+    .button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    }
+
+    .button2 {background-color: #e7e7e7; color: black;} /* Gray */ 
   
 </style>
 </head>
@@ -61,43 +76,23 @@
             </div>
             <form class="form-horizontal" id="loginform" role="form" method="POST" action="{{ url('/auth/postlogin') }}">
               <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-              <br><br><br>
-                  <div class="row form-group">
-                    <div class="col-sm-3">
+              <br><br><br><br><br>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div class="row form-group">
+                            <div>
+                              <button class="button" type="submit" class="btn btn-danger" name="loginbutton">PELATIHAN 1</button>
+                            </div>
+                        </div>
                     </div>
-                      <div class="col-sm-6">
-                        <input type="text" class="form-control" name="inputusername" value="" placeholder="Username">
-                      </div>
-                      <div class="col-sm-3">
+                    <div class="col-sm-5">
+                        <div class="row form-group">
+                            <div>
+                             <button class="button button2" type="submit" class="btn btn-danger" name=""><a href="{{ url('/welcome') }}">PELATIHAN 2</a></button>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col-sm-3">
-                    </div>
-                      <div class="col-sm-6">
-                        <input  type="password" class="form-control" name="inputpassword" placeholder="Password">
-                      </div>
-                      <div class="col-sm-3">
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col-sm-3">
-                    </div>
-                    <div class="col-sm-6">
-                      <button type="submit" class="btn btn-primary" name="loginbutton">LOGIN</button>
-                    </div>
-                    <div class="col-sm-3">
-                    </div>
-                  </div>
-                  <div class="row form-group">
-                    <div class="col-sm-3">
-                    </div>
-                    <div class="col-sm-6">
-                      <a href="{{ url('/welcome') }}" id="clear-filter" title="Welcome">[Kembali Ke Awal]</a>
-                    </div>
-                    <div class="col-sm-3">
-                    </div>
-                  </div>
+                </div>
             </form>
         </div>
   </div>
