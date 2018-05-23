@@ -14,7 +14,7 @@
 <style>
   body{
     min-height: 500px;
-    background-image: url("/pic/bg2.gif");
+    background-image: url("/pic/welcome.jpg");
     background-size: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -28,8 +28,8 @@
         position:absolute; 
         left:0; right:0;
         top:0; bottom:0;
-        max-width:500px;
-        max-height:320px;
+        max-width:700px;
+        max-height:300px;
         
         overflow:auto;
     }
@@ -59,9 +59,12 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+     width: 20em;  height: 5em;
     }
 
-    .button2 {background-color: #e7e7e7; color: black;} /* Gray */ 
+    .button1 {background-color: #CD5C5C;color: white;} 
+    .button2 {background-color: #4B0082;color: white;}
+    .button3 {background-color: #228B22;color: white;} 
   
 </style>
 </head>
@@ -74,26 +77,45 @@
         <div class="panel-body">
             <div class="alert alert-danger" name="errorpanel" hidden>
             </div>
-            <form class="form-horizontal" id="loginform" role="form" method="POST" action="{{ url('/auth/postlogin') }}">
+            <!-- <form class="form-horizontal" id="loginform" role="form" method="POST" action="{{ url('/auth/postlogin') }}"> -->
               <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-              <br><br><br><br><br>
                 <div class="row">
-                    <div class="col-sm-7">
+                  <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <div class="row form-group">
                             <div>
-                              <button class="button" type="submit" class="btn btn-danger" name="loginbutton">PELATIHAN 1</button>
+                              <button class="button" type="submit" class="btn btn-danger" name="emg" value="emg">EMG LEARNING CENTER</button>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-sm-6">
                         <div class="row form-group">
                             <div>
-                             <button class="button button2" type="submit" class="btn btn-danger" name=""><a href="{{ url('/welcome') }}">PELATIHAN 2</a></button>
+                             <button class="button button1" type="submit" class="btn btn-danger" name="graha" value="graha">GRAHA EMG</button>
                             </div>
                         </div>
                     </div>
+                  </div>
                 </div>
-            </form>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="col-sm-6">
+                        <div class="row form-group">
+                            <div>
+                             <button class="button button2" type="submit" class="btn btn-danger" name="cafe" value="cafe">CAFETARIA</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row form-group">
+                            <div>
+                              <button class="button button3" type="submit" class="btn btn-danger" name="digital" value="digital">DIGITAL FINANCIAL SERVICE</button>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            <!-- </form> -->
         </div>
   </div>
   <!-- End Page -->
@@ -105,15 +127,33 @@
 
   <script type="text/javascript">
     $(document).ready(function() {
-      $("#loginform").submit(function(){
-        if(($('[name="inputusername"]').val() == "") || ($('[name="inputpassword"]').val() == "")){
-          var content = '<p class="text-danger">Username atau Password tidak boleh kosong</p>';
-          $('[name="errorpanel"]').empty();
-          $('[name="errorpanel"]').append('<p class="text-danger">Username atau Password tidak boleh kosong</p>');
-          $('[name="errorpanel"]').show();
-          return false;
-        }
-      });
+
+      $('[name="emg"]').click(function() {
+            //window.location.href ='{{url("auth/postlogin")}}';
+            window.location.href ='{{url("auth/login")}}';
+        });
+
+      $('[name="graha"]').click(function() {
+            window.location.href ='{{url("/welcome")}}';
+        });
+
+      $('[name="cafe"]').click(function() {
+            window.location.href ='{{url("/welcome")}}';
+        });
+
+      $('[name="digital"]').click(function() {
+            window.location.href ='{{url("/welcome")}}';
+        });
+
+      // $("#loginform").submit(function(){
+      //   if(($('[name="inputusername"]').val() == "") || ($('[name="inputpassword"]').val() == "")){
+      //     var content = '<p class="text-danger">Username atau Password tidak boleh kosong</p>';
+      //     $('[name="errorpanel"]').empty();
+      //     $('[name="errorpanel"]').append('<p class="text-danger">Username atau Password tidak boleh kosong</p>');
+      //     $('[name="errorpanel"]').show();
+      //     return false;
+      //   }
+      // });
       
     });
   </script>
