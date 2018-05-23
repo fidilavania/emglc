@@ -10,6 +10,7 @@ use Log;
 use App\User;
 use App\ABCJabatan;
 use App\ABCKantor;
+use App\master_kantor;
 use App\LKH;
 use Hash;
 use Validator;

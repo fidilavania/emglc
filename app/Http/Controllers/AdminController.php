@@ -18,6 +18,7 @@ use App\mst_jabatan;
 use App\kantor_mst;
 use App\mst_akses;
 use App\ABCJabatan;
+use App\master_kantor;
 use App\Http\Requests;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 

@@ -21,6 +21,7 @@ use App\kab;
 use App\sdm_photo;
 use App\jabatan_mst;
 use App\kantor_mst;
+use App\master_kantor;
 use DB;
 use Auth;
 use Log;
