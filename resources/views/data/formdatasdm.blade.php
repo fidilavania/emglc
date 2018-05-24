@@ -55,6 +55,24 @@
                                     <hr />
                                     <tbody>
                                         @foreach($nsblist as $nsb)
+                                        @if( trim($nsb->induk_kantor,' ') == trim(Auth::user()->kantor,' ') && trim(Auth::user()->kantor,' ') != 'EMG' )  
+                                            <tr class="accordion-toggle" data-toggle="collapse" data-target="#{{$nsb->no_sdm}}">
+                                                <td data-id="{{$nsb->no_sdm}}">{{$nsb->no_sdm}}</td>
+                                                <td>{{$nsb->kantor}}</td>
+                                                <td>{{$nsb->nama}}</td>
+                                                <td>{{$nsb->jenis_kel}}</td>
+                                                <td>{{$nsb->tempat_lahir}}, {{date('d-m-Y',strtotime($nsb->tgl_lahir))}}</td>
+                                                <td>{{$nsb->alamat_tinggal}}</td>
+                                                <td>{{$nsb->jabatan}}</td>
+                                                <td>{{$nsb->nohp}}</td>
+                                                <td>{{$nsb->notlp}}</td>
+                                                <td>{{date('d-m-Y',strtotime($nsb->tgl_kerja))}}</td>
+                                                <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
+                                            </tr>
+                                        @endif
+                                        @endforeach
+
+                                        @foreach($nsblist as $nsb)
                                         @if( trim(Auth::user()->kantor,' ') == 'EMG')
                                             <tr class="accordion-toggle" data-toggle="collapse" data-target="#{{$nsb->no_sdm}}">
                                                 <td data-id="{{$nsb->no_sdm}}">{{$nsb->no_sdm}}</td>
@@ -67,26 +85,6 @@
                                                 <td>{{$nsb->nohp}}</td>
                                                 <td>{{$nsb->notlp}}</td>
                                                 <td>{{date('d-m-Y',strtotime($nsb->tgl_kerja))}}</td>
-                                                <!-- <td></td> -->
-                                                <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
-                                            </tr>
-                                        @endif
-                                        @endforeach
-
-                                        @foreach($nsblist as $nsb)
-                                        @if( trim($nsb->kantor,' ') == trim(Auth::user()->kantor,' '))
-                                            <tr class="accordion-toggle" data-toggle="collapse" data-target="#{{$nsb->no_sdm}}">
-                                                <td data-id="{{$nsb->no_sdm}}">{{$nsb->no_sdm}}</td>
-                                                <td>{{$nsb->kantor}}</td>
-                                                <td>{{$nsb->nama}}</td>
-                                                <td>{{$nsb->jenis_kel}}</td>
-                                                <td>{{$nsb->tempat_lahir}}, {{date('d-m-Y',strtotime($nsb->tgl_lahir))}}</td>
-                                                <td>{{$nsb->alamat_tinggal}}</td>
-                                                <td>{{$nsb->jabatan}}</td>
-                                                <td>{{$nsb->nohp}}</td>
-                                                <td>{{$nsb->notlp}}</td>
-                                                <td>{{date('d-m-Y',strtotime($nsb->tgl_kerja))}}</td>
-                                                <!-- <td></td> -->
                                                 <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
                                             </tr>
                                         @endif

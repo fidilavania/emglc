@@ -143,15 +143,22 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Nama Kantor*</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="kantor" value="{{ trim(Auth::user()->kantor,' ') }}" placeholder="npwp" style="text-transform:uppercase" readonly />
-                                            <!-- 
+                                           <!--  <input type="text" class="form-control" name="kantor" value="{{ trim(Auth::user()->kantor,' ') }}" placeholder="npwp" style="text-transform:uppercase" readonly /> -->
                                             <select class="form-control" name="kantor" required>
                                                 <option>-Pilih Nama UB-</option>
-                                                    @foreach($kantor as $kan)
-                                                        <option value="{{$kan->kode_kantor}}">{{$kan->nama}}</option>
+                                                    @foreach($mkantor as $kan)
+                                                    @if( trim($kan->kode_induk,' ') == trim(Auth::user()->kantor,' '))    
+                                                        <option value="{{$kan->kode_induk}}-{{$kan->kode_kantor}}">{{$kan->nama}}</option>
+                                                    @endif
                                                     @endforeach
-                                            </select> -->
+                                            </select>
                                         </div>
+                                </div>
+                                <div class="row form-group" hidden="" >
+                                    <label class="col-sm-3 control-label">Kantor Induk</label>
+                                    <div class="col-sm-8">
+                                      <input type="text" class="form-control" name="induk_kantor" value="" style="text-transform:uppercase" placeholder=""  />
+                                    </div>
                                 </div>
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Status Kantor*</label>
@@ -502,18 +509,6 @@
 @section('js')
 <script type="text/javascript">
 
-$('#sKota').on('change', function(){
-    $.post('{{ URL::to('site/data') }}', {type: 'kecamatan', id: $('#sKota').val()}, function(e){
-        $('#sKecamatan').html(e);
-    });
-    $('#sDesa').html('');
-});
-$('#sKecamatan').on('change', function(){
-    $.post('{{ URL::to('site/data') }}', {type: 'desa', id: $('#sKecamatan').val()}, function(e){
-        $('#sDesa').html(e);
-    });
-});
-// 
     var SUBM = 0;
     function isNumber(nama,pesan) {
         var val = $('[name="'+nama+'"]').val().replace(/[\s-()]+/g, "");

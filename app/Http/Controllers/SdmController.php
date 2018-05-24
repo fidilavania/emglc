@@ -41,9 +41,9 @@ class SdmController extends Controller
         $datakredit = array();
 
         if($key == null){
-            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor')->paginate(20);
+            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor')->paginate(20);
         } else {
-            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor')->whereRaw
+            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor')->whereRaw
             ("nama LIKE '%".strtoupper($key)."%'OR alamat_ktp LIKE '%".strtoupper($key)."%' OR alamat_tinggal LIKE '%".strtoupper($key)."%'OR no_sdm LIKE '%".strtoupper($key)."%'")->paginate(20);
         }
 
@@ -60,6 +60,7 @@ class SdmController extends Controller
         $kantor = DB::connection('mysql')->table('mst_kantor')->get();
         $jabatan = DB::connection('mysql')->table('mst_jabatan')->get();
         $status = DB::connection('mysql')->table('mst_statusrumah')->get();
+        $mkantor = DB::connection('mysql')->table('master_kantor')->get();
 
         $sql3 ="SELECT mst_jabatan.jabatankantor,sdm.jabatan,mst_jabatan.kode
             from mst_jabatan,sdm 
@@ -67,7 +68,7 @@ class SdmController extends Controller
             sdm.jabatan=mst_jabatan.kode";
         $lihat1 = DB::connection('mysql')->select(DB::raw($sql3));
 
-        return view('input.forminputsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','lihat1'));   
+        return view('input.forminputsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','lihat1','mkantor'));   
     }
     public function saveDataSDM(Request $request,$nonsb)
     {
@@ -75,6 +76,7 @@ class SdmController extends Controller
         $lastnonsb = sdm::max('no_sdm');
         $nonsb = (int) $lastnonsb + 1;
 
+        $mkantor = explode('-', $request->input('kantor'));
         // Log::info(json_encode($dati));
         $sdm = new sdm;
         $sdm->no_sdm = str_pad($nonsb, 6, '0',STR_PAD_LEFT);
@@ -100,7 +102,8 @@ class SdmController extends Controller
 		$sdm->camat_ktp = strtoupper($request->input('input_kecamatanktp'));
 		$sdm->kodya_ktp = strtoupper($request->input('input_kodyaktp'));
 		$sdm->kodepos_ktp = strtoupper($request->input('input_kodeposktp'));
-		$sdm->kantor = strtoupper($request->input('kantor'));
+		$sdm->kantor = $mkantor[1];
+        $sdm->induk_kantor = $mkantor[0];
         $sdm->status_kantor = strtoupper($request->input('input_status'));
 		$sdm->jabatan = strtoupper($request->input('input_jabatan'));
 		$sdm->pendidikan = strtoupper($request->input('pendidikan'));
@@ -153,6 +156,7 @@ class SdmController extends Controller
         $status = DB::connection('mysql')->table('mst_statusrumah')->get();
         $nikah = DB::connection('mysql')->table('mst_nikah')->get();
         $sdm = sdm::where('no_sdm',$nonsb)->first();
+        $mkantor = DB::connection('mysql')->table('master_kantor')->get();
 
         // $imagePath = public_path('foto');
         // $image = sdm::make(sdm::get($imagePath))->resize(320,240)->encode();
@@ -160,7 +164,7 @@ class SdmController extends Controller
 
         // $sdm->foto = $imagePath;
 
-        return view('edit.formeditsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','sdm','nikah'));   
+        return view('edit.formeditsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','sdm','nikah','mkantor'));   
     }
     public function saveDataSDMEdit(Request $request,$nonsb)
     {               

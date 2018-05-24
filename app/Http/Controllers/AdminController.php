@@ -30,9 +30,10 @@ class AdminController extends Controller
     	// $kantor = DB::connection('pgsql')->table('mst_kantor')->get();
     	// $jabatan = DB::connection('pgsql')->table('mst_jabatan')->get();
         $kantor = mst_kantor::all();
+        $mkantor = DB::connection('mysql')->table('master_kantor')->where('induk','1')->where('status','AKTIF')->get();
         $jabatan = mst_jabatan::all();
         $akses = mst_akses::all();
-		return view('admin.formuser', compact('kantor','jabatan','akses'));
+		return view('admin.formuser', compact('kantor','jabatan','akses','mkantor'));
     }
     public function postSaveUser(Request $request)
     {

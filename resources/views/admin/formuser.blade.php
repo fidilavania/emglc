@@ -32,7 +32,7 @@
                                     <div class="col-sm-4">
                                         <select class="form-control" name="input_kantor" required>
                                             <option value >Pilih Kantor</option>
-                                            @foreach($kantor as $k)
+                                            @foreach($mkantor as $k)
                                                 <option value="{{$k->kode_kantor}}">{{$k->nama}}</option>
                                             @endforeach
                                         </select>

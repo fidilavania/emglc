@@ -154,19 +154,20 @@
                                     <label class="col-sm-3 control-label">Nama Kantor*</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="kantor" value="{{trim($sdm->kantor,' ')}}" placeholder="npwp" style="text-transform:uppercase" readonly />
-
-                                            <!-- <select class="form-control" name="kantor" required>
+                                           <!--  <select class="form-control" name="kantor" required>
                                                 <option replace>{{trim($sdm->kantor,' ')}}</option>
-                                                <option>-Ganti Nama UB-</option>
-                                                    @foreach($kantor as $kan)
-                                                        <option value="{{$kan->kode_kantor}}">{{$kan->nama}}</option>
+                                                <option>-Pilih Nama UB-</option>
+                                                    @foreach($mkantor as $kan)
+                                                    @if( trim($kan->kode_induk,' ') == trim(Auth::user()->kantor,' '))    
+                                                        <option value="{{$kan->kode_induk}}-{{$kan->kode_kantor}}">{{$kan->nama}}</option>
+                                                    @endif
                                                     @endforeach
                                             </select> -->
                                         </div>
                                 </div>
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Status Kantor*</label>
-                                   <div class="col-sm-8">
+                                    <div class="col-sm-8">
                                         <select class="form-control" name="input_status" required>
                                             <option replace>{{trim($sdm->status_kantor,' ')}}</option>
                                             <option value >-Pilih Status-</option>
