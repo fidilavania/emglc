@@ -133,7 +133,7 @@
               <ul class="dropdown-menu">
                 <li class=""><a href="{{ url('auth/logout') }}">Logout<span class="sr-only">(current)</span></a></li>    
                @if(strpos(Auth::user()->fungsi, '1111') !== false)
-               <li><a href="{{ url('/addkantor') }}">Input Master Kantor</a></li>
+               <li><a href="{{ url('/addkantor') }}">Daftar Kantor</a></li>
                <li><a href="{{ url('/addjabatan') }}">Input Master Jabatan</a></li>
                <li><a href="{{ url('/adduser') }}">Input User</a></li>
                <li><a href="{{ url('/lihatuser') }}">Daftar User</a></li>

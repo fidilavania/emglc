@@ -13,11 +13,11 @@
             <form class="form-horizontal" id="simpanform" role="form" method="POST" action="{{ url('/savekantor/$nonsb') }}" >
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="panel panel-primary" id="panelnasabah">
-                    <div class="panel-heading"><h4 align="center">MASUKKAN DATA KANTOR</h4></div>
+                    <div class="panel-heading"><h4 align="center">DATA KANTOR</h4></div>
                     <div class="row">
                         <div class="col-sm-3">
                             <?php
-                                echo "<font color='#ff0000'>wajib diisi*</font><br>";
+                                // echo "<font color='#ff0000'>wajib diisi*</font><br>";
                             ?>
                         </div>
                     </div>
@@ -41,10 +41,12 @@
                             </div> -->
                         <!-- </div> -->
                         
-                        <table class="table-bordered"  style="border-style: solid 1px #000000;" width=80% >
+                        <table class="table-bordered"  style="border-style: solid 1px #000000;" width=100% >
                             <thead>
                                 <th>Kode Kantor</th>
                                 <th>Nama Kantor</th>
+                                <th>Status</th>
+                                <th>Pusat</th>
                             </thead>
                             <tbody>
                                 <?php
@@ -52,12 +54,18 @@
                                         echo '<tr>';
                                         echo '<td>'.$j->kode_kantor.'</td>';
                                         echo '<td>'.$j->nama.'</td>';
+                                        echo '<td>'.$j->status.'</td>';
+                                        if ($j->induk == '1'){
+                                            echo '<td>'.'PUSAT'.'</td>';
+                                        }else{
+                                            echo '<td>'.'CABANG'.' '.$j->kode_induk.'</td>';
+                                        }
                                         echo '</tr>';
                                     }
                                 ?>
                             </tbody>
                         </table>
-                        <input type="button" class="btn btn-primary" value="Tambah Kantor" id="addKantor" />
+                        <!-- <input type="button" class="btn btn-primary" value="Tambah Kantor" id="addKantor" /> -->
                         <div class="KantorTambah">
                         </div>
                         <div class="row submitbtn1">
@@ -65,7 +73,7 @@
                                 <button type="submit" class="btn btn-primary" name="simpanbutton">KE KREDIT</button>
                             </div> -->
                             <div class="col-sm-12">
-                                <button type="submit" class="btn btn-primary" name="simpanbutton" onclick="return confirm('Apakah anda yakin akan menyimpan data ini?')">SIMPAN</button>
+                                <!-- <button type="submit" class="btn btn-primary" name="simpanbutton" onclick="return confirm('Apakah anda yakin akan menyimpan data ini?')">SIMPAN</button> -->
                             </div>
                         </div>
                     </div>

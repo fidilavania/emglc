@@ -88,7 +88,8 @@ class InputController extends Controller
 
     public function viewFormKantor()
     {
-        $kantor = DB::connection('mysql')->table('mst_kantor')->get();
+        // $kantor = DB::connection('mysql')->table('mst_kantor')->get();
+        $kantor = DB::connection('mysql')->table('master_kantor')->get();
 
         return view('input.forminputkantor',compact('kantor'));   
     }
