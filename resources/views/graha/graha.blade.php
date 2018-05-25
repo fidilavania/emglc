@@ -661,12 +661,12 @@
         <div class="owl-carousel clients-carousel">
           <p>PT ADVISTA MULTIARTHA</p>
           <p>CV ANUGRAH GIANT ABADI</p>
-          <p>PT ANUGERAH BUANA CENTRAL MULTIFINANCE</p>
+          <p>PT ANUGERAH <br>BUANA CENTRAL MULTIFINANCE</p>
           <p>PT BPR TRIKARYA WARANUGRAHA</p>
           <p>PT HANSON INTERNATIONAL Tbk.</p>
           <p>PT ASURANSI JIWA INDOSURYA SUKSES </p>
           <p>PT MALACCA TRUST WUWUNGAN INSURANCE Tbk</p>
-          <p>KRESNA YURISDIKA LAW OFFICE</p>
+          <p>KRESNA YURISDIKA <br>LAW OFFICE</p>
           <!-- <img src="/BizPage/img/clients/client-1.png" alt="">
           <img src="/BizPage/img/clients/client-2.png" alt="">
           <img src="/BizPage/img/clients/client-3.png" alt="">
@@ -861,7 +861,7 @@
             <div class="contact-address">
               <i class="ion-ios-location-outline"></i>
               <h3>Address</h3>
-              <address>Jl. Raden Tumenggung Suryo No.32-34 Kota Malang</address>
+              <address>Jl. Raden Tumenggung Suryo No.32-34 <br>Kota Malang</address>
             </div>
           </div>
 
