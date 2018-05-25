@@ -11,6 +11,9 @@
 |
 */
 Route::get('/welcome', 'AuthController@viewAwal');
+// GRAHA EMG
+Route::get('/graha', 'GrahaController@formgraha');
+
 Route::get('auth/login', 'AuthController@login')->name('login');
 Route::post('auth/postlogin','AuthController@authenticate');
 
@@ -70,6 +73,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 	// peserta
 	Route::match(['get', 'post'],'/pendaftaran/{key?}', 'PesertaController@formPendaftaran')->where('key', '(.*)');
+
+
 
 	Route::get('auth/logout', 'AuthController@logout');
 });

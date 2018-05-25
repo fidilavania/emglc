@@ -134,7 +134,7 @@
         });
 
       $('[name="graha"]').click(function() {
-            window.location.href ='{{url("/welcome")}}';
+            window.location.href ='{{url("/graha")}}';
         });
 
       $('[name="cafe"]').click(function() {
