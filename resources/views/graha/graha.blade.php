@@ -936,7 +936,7 @@
               <li><i class="ion-ios-arrow-right"></i> <a href="#about">Office Room</a></li>
               <li><i class="ion-ios-arrow-right"></i> <a href="#services">Virtual Office</a></li>
               <li><i class="ion-ios-arrow-right"></i> <a href="#portfolio">Portfolio</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#team">Team</a></li>
+              <!-- <li><i class="ion-ios-arrow-right"></i> <a href="#team">Team</a></li> -->
               <li><i class="ion-ios-arrow-right"></i> <a href="#contact">Contact</a></li>
               <li><i class="ion-ios-arrow-right"></i> <a href="/welcome">Back to Menu</a></li>
             </ul>
