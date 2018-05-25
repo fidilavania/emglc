@@ -210,32 +210,42 @@
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
             <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
             <h4 class="title"><a href="">Tujuan</a></h4>
-            <p class="description">Kantor Virtual timbul sebagai upaya untuk mewujudkan efisiensi kerja yang berujung pada penekanan biaya (cost reduction) yang salah satunya adalah pengurangan penggunaan lingkungan kantor secara fisik. Sebuah kantor virtual dapat memberikan penghematan yang signifikan dan fleksibilitas dibandingkan dengan menyewa ruang kantor tradisional. Kantor virtual merupakan implementasi dari upaya otomasi perkantoran (office automation) yang bertujuan membantu pemilik atau karyawan perusahaan untuk meningkatkan produktifitas kerja. Keberadaan kantor virtual seorang pemilik atau karyawan persahaan dapat “datang” ke kantor secara cepat yang sebetulnya, kedatangan dan kepergian tersebut berlangsung secara virtual yang tidak secara fisik datang dan hadir di lingkungan kantor.</p>
+            <p class="description">Kantor Virtual timbul sebagai upaya untuk mewujudkan efisiensi kerja yang berujung pada penekanan biaya (cost reduction) yang salah satunya adalah pengurangan penggunaan lingkungan kantor secara fisik. Sebuah kantor virtual dapat memberikan penghematan yang signifikan dan fleksibilitas dibandingkan dengan menyewa ruang kantor tradisional. Kantor virtual merupakan implementasi dari upaya otomasi perkantoran (office automation) yang bertujuan membantu pemilik atau karyawan perusahaan untuk meningkatkan produktifitas kerja. 
+            <br><br>
+            Keberadaan kantor virtual seorang pemilik atau karyawan persahaan dapat “datang” ke kantor secara cepat yang sebetulnya, kedatangan dan kepergian tersebut berlangsung secara virtual yang tidak secara fisik datang dan hadir di lingkungan kantor.</p>
           </div>
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
             <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
             <h4 class="title"><a href="">Infrastruktur</a></h4>
-            <p class="description">Mewujudkan suatu kantor virtual berarti mempersiapkan infrastruktur otomasi perkantoran, melakukan definisi ulang (redefine) proses kerja kantor, serta mempersiapkan kondisi karyawan untuk bekerja melalui konsep kantor virtual. Definisi ulang proses kerja dan persiapan kondisi karyawan tentunya akan melibatkan proses manajemen yang cukup kompleks, terlebih bagi perusahaan yang selama ini beroperasi dengan cara tradisional. Sedangkan infrastruktur otomasi perkantoran, meskipun tetap melibatkan proses manajemen, lebih sering dipandang dari segi teknis integrasinya. Infrastruktur otomasi perkantoran dapat tersusun atas tiga jenis aplikasi berikut ini</p>
+            <p class="description">Mewujudkan suatu kantor virtual berarti mempersiapkan infrastruktur otomasi perkantoran, melakukan definisi ulang (redefine) proses kerja kantor, serta mempersiapkan kondisi karyawan untuk bekerja melalui konsep kantor virtual. Definisi ulang proses kerja dan persiapan kondisi karyawan tentunya akan melibatkan proses manajemen yang cukup kompleks, terlebih bagi perusahaan yang selama ini beroperasi dengan cara tradisional. 
+            <br><br>
+            Sedangkan infrastruktur otomasi perkantoran, meskipun tetap melibatkan proses manajemen, lebih sering dipandang dari segi teknis integrasinya. Infrastruktur otomasi perkantoran dapat tersusun atas tiga jenis aplikasi berikut ini :<br><br>
+            1. Aplikasi perkantoran, meliputi pengolah kata, pengolah tabel, pengolah slide presentasi.
+              <br>
+            2.  Aplikasi komunikasi, termasuk e-mail, messaging, voice-mail, telefon, fax, address book, dll.<br>
+            3.  Aplikasi kolaborasi, yang berisi aplikasi manajemen proyek, kalender elektronik, forum diskusi, aplikasi konferensi dll.
+            </p>
           </div>
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
             <div class="icon"><i class="ion-ios-paper-outline"></i></div>
             <h4 class="title"><a href="">Perkembangan</a></h4>
-            <p class="description">Keberadaan bisnis co-working space atau kantor virtual ini karena adanya kebutuhan tempat untuk bekerja tetapi penyewa tidak ingin modal terikat ke properti, biaya persiapan yang tinggi, serta biaya layanan dan fasilitas ruang kantor. Kantor bersama seperti ini cocok untuk pekerja “freelance”, UKM, usaha kecil micro atau para pekerja industri kreatif dan IT. Adanya komunitas informal di kantor bersama ini bertujuan untuk berbagi biaya sekaligus berkolaborasi dan berkomunitas, selain interaksi untuk berbagi ide.</p>
+            <p class="description">
+              Aplikasi komersial pertama dari kantor virtual terjadi pada tahun 1994, ketika Ralph Gregory mendirikan "Virtual Office, Inc", di Boulder, Colorado. Perusahaan ini diperluas di seluruh Amerika Utara dan sekarang dikenal sebagai "Intelligent Office".<br><br>
+              Kantor virtual saat ini bukan hanya sebagai pemanfaatan ”ruang kerja” di dunia maya, tetapi juga merupakan aplikasi lengkap termasuk komunikasi profesional. Konsep kantor bersama ini pun sesuai dengan program Kemenkop Bidik 49 Kampung Digital di 2017 atau secara informal bisa menjadi tempat berkumpul para blogger, pekerja IT serta inkubator bisnis UKM.
+              <br><br>
+              Kantor bersama seperti ini cocok untuk pekerja “freelance”, UKM, usaha kecil micro atau para pekerja industri kreatif dan IT. Adanya komunitas informal di kantor bersama ini bertujuan untuk berbagi biaya sekaligus berkolaborasi dan berkomunitas, selain interaksi untuk berbagi ide.</p>
           </div>
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
             <!-- <div class="icon"><i class="ion-ios-speedometer-outline"></i></div> -->
             <h4 class="title"><a href=""></a></h4>
             <p class="description"></p>
           </div>
-          <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+          <!-- <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
             <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
             <h4 class="title"><a href=""></a></h4>
-            <p class="description">1. Aplikasi perkantoran, meliputi pengolah kata, pengolah tabel, pengolah slide presentasi.
-              <br>
-            2.  Aplikasi komunikasi, termasuk e-mail, messaging, voice-mail, telefon, fax, address book, dll.<br>
-            3.  Aplikasi kolaborasi, yang berisi aplikasi manajemen proyek, kalender elektronik, forum diskusi, aplikasi konferensi dll.
+            <p class="description">
             </p>
-          </div>
+          </div> -->
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
             <!-- <div class="icon"><i class="ion-ios-people-outline"></i></div> -->
             <h4 class="title"><a href=""></a></h4>
@@ -594,12 +604,14 @@
         </header>
 
         <div class="owl-carousel clients-carousel">
-          <p>PT BPR Trikarya Waranugrah</p>
-          <p>PT Anugerah Buana Central Multifinance</p>
-          <p>Anugrah Giant Abadi</p>
-          <p>Hanson Properti</p>
-          <p>Krisna Yuristika</p>
-          <p>Advista</p>
+          <p>PT ADVISTA MULTIARTHA</p>
+          <p>CV ANUGRAH GIANT ABADI</p>
+          <p>PT ANUGERAH BUANA CENTRAL MULTIFINANCE</p>
+          <p>PT BPR TRIKARYA WARANUGRAHA</p>
+          <p>PT HANSON INTERNATIONAL Tbk.</p>
+          <p>PT ASURANSI JIWA INDOSURYA SUKSES </p>
+          <p>PT MALACCA TRUST WUWUNGAN INSURANCE Tbk</p>
+          <p>KRESNA YURISDIKA LAW OFFICE</p>
           <!-- <img src="/BizPage/img/clients/client-1.png" alt="">
           <img src="/BizPage/img/clients/client-2.png" alt="">
           <img src="/BizPage/img/clients/client-3.png" alt="">
