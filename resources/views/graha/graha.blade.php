@@ -57,7 +57,7 @@
           <li><a href="#services">Virtual Office</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#clients">Client</a></li>
-          <li><a href="#team">Team</a></li>
+          <!-- <li><a href="#team">Team</a></li> -->
           <li><a href="#contact">Contact</a></li>
           <li><a href="/welcome">Back to Menu</a></li>
         </ul>
@@ -210,7 +210,8 @@
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
             <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
             <h4 class="title"><a href="">Tujuan</a></h4>
-            <p class="description">Kantor Virtual timbul sebagai upaya untuk mewujudkan efisiensi kerja yang berujung pada penekanan biaya (cost reduction) yang salah satunya adalah pengurangan penggunaan lingkungan kantor secara fisik. Sebuah kantor virtual dapat memberikan penghematan yang signifikan dan fleksibilitas dibandingkan dengan menyewa ruang kantor tradisional. Kantor virtual merupakan implementasi dari upaya otomasi perkantoran (office automation) yang bertujuan membantu pemilik atau karyawan perusahaan untuk meningkatkan produktifitas kerja. 
+            <p class="description">Kantor Virtual timbul sebagai upaya untuk mewujudkan efisiensi kerja yang berujung pada penekanan biaya (cost reduction) yang salah satunya adalah pengurangan penggunaan lingkungan kantor secara fisik. 
+            <br><br>Sebuah kantor virtual dapat memberikan penghematan yang signifikan dan fleksibilitas dibandingkan dengan menyewa ruang kantor tradisional. Kantor virtual merupakan implementasi dari upaya otomasi perkantoran (office automation) yang bertujuan membantu pemilik atau karyawan perusahaan untuk meningkatkan produktifitas kerja. 
             <br><br>
             Keberadaan kantor virtual seorang pemilik atau karyawan persahaan dapat “datang” ke kantor secara cepat yang sebetulnya, kedatangan dan kepergian tersebut berlangsung secara virtual yang tidak secara fisik datang dan hadir di lingkungan kantor.</p>
           </div>
@@ -231,8 +232,10 @@
             <h4 class="title"><a href="">Perkembangan</a></h4>
             <p class="description">
               Aplikasi komersial pertama dari kantor virtual terjadi pada tahun 1994, ketika Ralph Gregory mendirikan "Virtual Office, Inc", di Boulder, Colorado. Perusahaan ini diperluas di seluruh Amerika Utara dan sekarang dikenal sebagai "Intelligent Office".<br><br>
+              Kini dengan semakin banyaknya perusahaan yang menyediakan layanan Kantor Virtual, memudahkan individu untuk mengembangkan usahanya tanpa harus memikirkan infrastruktur otomasi perkantoran. Beberapa perusahaan kantor virtual telah menyediakan layanan dan bantuan yang terkait dengan kantor fisik, seperti alamat kantor yang bergengsi, layanan menjawab telepon profesional dan menyewakan ruang kantor dan ruang pertemuan, dan lain-lain.<br><br>
               Kantor virtual saat ini bukan hanya sebagai pemanfaatan ”ruang kerja” di dunia maya, tetapi juga merupakan aplikasi lengkap termasuk komunikasi profesional. Konsep kantor bersama ini pun sesuai dengan program Kemenkop Bidik 49 Kampung Digital di 2017 atau secara informal bisa menjadi tempat berkumpul para blogger, pekerja IT serta inkubator bisnis UKM.
               <br><br>
+              Di Jakarta sudah banyak bertebaran kantor-kantor bersama atau proyek co-working space seperti “Jakarta Digital Valley” di Gedung Telkom lantai 6, Jakarta, bahkan ada yang menyediakan di beberapa area lokasi di Jakarta. Untuk kota-kota besar lain seperti Surabaya, Bali dan Jogja juga sudah bermunculan ruang kantor – ruang kantor virtual ini.<br><br>
               Kantor bersama seperti ini cocok untuk pekerja “freelance”, UKM, usaha kecil micro atau para pekerja industri kreatif dan IT. Adanya komunitas informal di kantor bersama ini bertujuan untuk berbagi biaya sekaligus berkolaborasi dan berkomunitas, selain interaksi untuk berbagi ide.</p>
           </div>
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
@@ -376,6 +379,58 @@
               <h2 class="title"><a href="#">Our Vision</a></h2>
               <p>
                 Mengalokasikan waktu berharga Anda untuk aktivitas vital perusahaan tanpa mengurangi waktu santai Anda bersama keluarga dan orang-orang yang Anda cintai.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="about-col">
+              <div class="img">
+                <img src="/BizPage/img/elegan.jpg" alt="" class="img-fluid">
+                <div class="icon"><i class="ion-ios-eye-outline"></i></div>
+              </div>
+              <h2 class="title"><a href="#">Elegant</a></h2>
+              <p>
+                Anda akan tetap memiliki kantor yang elegan didukung dengan alamat domisili yang sah, resepsionis, ruang meeting, dan nomor telepon khusus tanpa membayar biaya lebih untuk menambah staff baru.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="about-col">
+              <div class="img">
+                <img src="/BizPage/img/flexibel.jpg" alt="" class="img-fluid">
+                <div class="icon"><i class="ion-ios-eye-outline"></i></div>
+              </div>
+              <h2 class="title"><a href="#">Flexible</a></h2>
+              <p>
+                Memberikan Anda fleksibilitas untuk bekerja dari mana saja - dari rumah, luar negeri atau lokasi lainnya.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="about-col">
+              <div class="img">
+                <img src="/BizPage/img/stess.jpg" alt="" class="img-fluid">
+                <div class="icon"><i class="ion-ios-eye-outline"></i></div>
+              </div>
+              <h2 class="title"><a href="#">Reduce Stress</a></h2>
+              <p>
+                Mengurangi stres dan tekanan karena masalah lalu lintas.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+            <div class="about-col">
+              <div class="img">
+                <img src="/BizPage/img/sah.jpg" alt="" class="img-fluid">
+                <div class="icon"><i class="ion-ios-eye-outline"></i></div>
+              </div>
+              <h2 class="title"><a href="#">Firm Address</a></h2>
+              <p>
+                Domisili perusahaan untuk berbagai kebutuhan, mulai dari mengurus izin hingga syarat mendirikan perusahaan. 
               </p>
             </div>
           </div>
@@ -702,7 +757,7 @@
     <!--==========================
       Team Section
     ============================-->
-    <section id="team">
+    <!-- <section id="team">
       <div class="container">
         <div class="section-header wow fadeInUp">
           <h3>Team</h3>
@@ -786,7 +841,8 @@
         </div>
 
       </div>
-    </section><!-- #team -->
+    </section> -->
+    <!-- #team -->
 
     <!--==========================
       Contact Section
@@ -868,7 +924,9 @@
 
           <div class="col-lg-3 col-md-6 footer-info">
             <h3>GRAHA EMG</h3>
-            <p>Kantor yang elegan didukung dengan alamat domisili yang sah, resepsionis, ruang meeting, dan nomor telepon khusus tanpa membayar biaya lebih untuk menambah staff baru.</p>
+            <p>Jam Kerja :<br> Senin – Jumat ( 08.00 – 17.00 )<br><br>
+               Virtual Office bagus & cocok untuk kantor representatif perusahaan, tetapi manajemen PT EMG Bisa menolak digunakan oleh perusahaan bermasalah, funding, arisan, MLM, Fiktif, penipuan, dll.<br>
+            </p>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
@@ -887,7 +945,7 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contact Us</h4>
             <p>
-             Jl. Raden Tumenggung Suryo<br>
+              Jl. Raden Tumenggung Suryo<br>
               No.32-34<br>
               Kota Malang<br>
               <strong>Telp/Fax: </strong> (0341) 404433<br>
@@ -905,8 +963,8 @@
           </div>
 
           <div class="col-lg-3 col-md-6 footer-newsletter">
-            <h4>Our Goal</h4>
-            <p>Memberikan Anda fleksibilitas untuk bekerja dari mana saja - dari rumah, luar negeri atau lokasi lainnya.</p>
+            <h4>Our Rule</h4>
+            <p>Setiap penyewa wajib mematuhi semua peraturan yang ditetapkan oleh PT EMG.</p>
             <!-- <form action="" method="post"> -->
               <!-- <input type="email" name="email"><input type="submit"  value="Subscribe"> -->
             <!-- </form> -->
