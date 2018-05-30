@@ -74,7 +74,10 @@ Route::group(['middleware' => ['auth']], function () {
 	// peserta
 	Route::match(['get', 'post'],'/pendaftaran/{key?}', 'PesertaController@formPendaftaran')->where('key', '(.*)');
 
-
+	// usulan
+	Route::get('/usul', 'SdmController@viewusulan');
+	Route::post('/saveusulsaran','SdmController@saveUsulan');
+	Route::match(['get', 'post'],'/usullihat/{key?}', 'SdmController@viewLihatUsulan')->where('key', '(.*)');
 
 	Route::get('auth/logout', 'AuthController@logout');
 });

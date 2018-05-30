@@ -138,6 +138,8 @@
                <li><a href="{{ url('/adduser') }}">Input User</a></li>
                <li><a href="{{ url('/lihatuser') }}">Daftar User</a></li>
                @endif
+               <li><a href="{{ url('/usul') }}">Usulan</a></li>
+               <li><a href="{{ url('/usullihat') }}">Lihat Usulan</a></li>
                 
             </li> 
             </ul>          

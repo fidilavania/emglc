@@ -22,6 +22,7 @@ use App\sdm_photo;
 use App\jabatan_mst;
 use App\kantor_mst;
 use App\master_kantor;
+use App\usulan;
 use DB;
 use Auth;
 use Log;
@@ -29,6 +30,39 @@ use Input;
 
 class SdmController extends Controller
 {
+
+    public function viewusulan()
+    {
+        
+        return view('usulan.forminputusulan');   
+    }
+
+    public function saveUsulan(Request $request)
+    {
+        
+        $usul = new usulan;
+        $usul->tanggal = date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon')));
+        $usul->nama = strtoupper($request->input('nama'));
+        $usul->kantor = strtoupper($request->input('kantor'));
+        $usul->usulan = ($request->input('usulan'));
+        $usul->save();
+        
+        return redirect('/lihatusulan');
+    }
+
+    public function viewLihatUsulan($key=null)
+    {
+        $datakredit = array();
+
+        if($key == null){
+            $lihatusulan = usulan::select('tanggal','nama','kantor','usulan')->paginate(20);
+        } else {
+            $lihatusulan = usulan::select('tanggal','nama','kantor','usulan')->whereRaw
+            ("nama LIKE '%".strtoupper($key)."%'OR kantor LIKE '%".strtoupper($key)."%'")->paginate(20);
+        }
+
+        return view('usulan.formdatausulan',compact('lihatusulan'));   
+    }
 
 	public function viewDataSdm($key=null)
     {
