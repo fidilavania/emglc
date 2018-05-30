@@ -27,6 +27,7 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/savesdm/{nonsb?}','SdmController@saveDataSDM');
 	Route::get('/editsdm/{nonsb?}', 'SdmController@viewFormSDMEdit');
 	Route::post('/savesdmedit/{nonsb?}','SdmController@saveDataSDMEdit');
+	Route::get('/viewsdm/{nonsb?}', 'SdmController@viewFormSDMview');
 
 	//input
 	Route::get('/addmateri', 'InputController@viewFormMateri');

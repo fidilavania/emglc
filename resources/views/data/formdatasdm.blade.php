@@ -22,7 +22,7 @@
                                         <th>No Telpon</th>
                                         <th>Tanggal Mulai Bekerja</th>
                                         <!-- <th>Pelatihan</th> -->
-                                        <th></th>
+                                        <th colspan="2"></th>
                                     </thead>
                                     <div class="form-inline padding-bottom-15">
                                         <!-- <div class="row">
@@ -68,6 +68,7 @@
                                                 <td>{{$nsb->notlp}}</td>
                                                 <td>{{date('d-m-Y',strtotime($nsb->tgl_kerja))}}</td>
                                                 <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
+                                                <td><input type="button" class="btn btn-primary" name="viewbutton" value="View" /></td>
                                             </tr>
                                         @endif
                                         @endforeach
@@ -86,6 +87,7 @@
                                                 <td>{{$nsb->notlp}}</td>
                                                 <td>{{date('d-m-Y',strtotime($nsb->tgl_kerja))}}</td>
                                                 <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
+                                                <td><input type="button" class="btn btn-primary" name="viewbutton" value="View" /></td>
                                             </tr>
                                         @endif
                                         @endforeach
@@ -150,6 +152,16 @@
                 window.location.href = '{{url("/editsdm")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
             } else {
                 window.location.href = '{{url("/editsdm")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+            }
+        });
+
+         $('[name="viewbutton"]').click(function() {
+            console.log($(this).parent().parent().find('td:nth-child(2)').text());
+            console.log($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'View');
+            if($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'View'){
+                window.location.href = '{{url("/viewsdm")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+            } else {
+                window.location.href = '{{url("/viewsdm")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
             }
         });
 

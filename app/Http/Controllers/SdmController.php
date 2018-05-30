@@ -23,6 +23,7 @@ use App\jabatan_mst;
 use App\kantor_mst;
 use App\master_kantor;
 use App\usulan;
+use App\mst_statusrumah;
 use DB;
 use Auth;
 use Log;
@@ -47,7 +48,7 @@ class SdmController extends Controller
         $usul->usulan = ($request->input('usulan'));
         $usul->save();
         
-        return redirect('/lihatusulan');
+        return redirect('/usullihat');
     }
 
     public function viewLihatUsulan($key=null)
@@ -178,6 +179,64 @@ class SdmController extends Controller
         return redirect('/datasdm');
     }
 
+    public function viewFormSDMview($nonsb)
+    {
+        $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
+        $gelar = DB::connection('mysql')->table('mst_gelar')->orderBy('kode','asc')->orderBy('kode','asc')->get();
+        $kelurahan = DB::connection('mysql')->table('mst_kelurahan')->where('status','ada')->orderBy('nama','asc')->get();
+        $kecamatan = DB::connection('mysql')->table('mst_kecamatan')->where('status','ada')->orderBy('nama','asc')->get();
+        $kab = DB::connection('mysql')->table('mst_kabupaten')->where('status','ada')->orderBy('nama','asc')->get();
+        $kantor = DB::connection('mysql')->table('mst_kantor')->get();
+        $jabatan = DB::connection('mysql')->table('mst_jabatan')->get();
+        $status = DB::connection('mysql')->table('mst_statusrumah')->get();
+        $nikah = DB::connection('mysql')->table('mst_nikah')->get();
+        $sdm = sdm::where('no_sdm',$nonsb)->first();
+        $mkantor = DB::connection('mysql')->table('master_kantor')->get();
+
+        // $imagePath = public_path('foto');
+        // $image = sdm::make(sdm::get($imagePath))->resize(320,240)->encode();
+        // Storage::put($imagePath,$image);
+
+        // $sdm->foto = $imagePath;
+
+        // $sql2 ="SELECT mst_krd.nama,mst_krd.sandi,kredit.jns_krd
+        //         from mst_krd,kredit 
+        //         where kredit.no_kredit='".$nokredit."' 
+        //         AND 
+        //         kredit.jns_krd=mst_krd.sandi";
+        //         $lihat2 = DB::connection('pgsql')->select(DB::raw($sql2)); 
+
+       $sql1 ="SELECT mst_statusrumah.kode_status,mst_statusrumah.status,sdm.status_rumah 
+            from mst_statusrumah,sdm 
+            where sdm.no_sdm='".$nonsb."' 
+            AND
+            sdm.status_rumah=mst_statusrumah.kode_status";
+        $lihat1 = DB::connection('mysql')->select(DB::raw($sql1));  
+
+        $sql1 ="SELECT mst_jabatan.kode,mst_jabatan.jabatankantor,sdm.jabatan 
+            from mst_jabatan,sdm 
+            where sdm.no_sdm='".$nonsb."' 
+            AND
+            sdm.jabatan=mst_jabatan.kode";
+        $lihat2 = DB::connection('mysql')->select(DB::raw($sql1));  
+
+        $sql1 ="SELECT mst_gelar.kode,mst_gelar.gelar,sdm.pendidikan 
+            from mst_gelar,sdm 
+            where sdm.no_sdm='".$nonsb."' 
+            AND
+            sdm.pendidikan=mst_gelar.kode";
+        $lihat3 = DB::connection('mysql')->select(DB::raw($sql1));  
+
+        $sql1 ="SELECT mst_nikah.kode,mst_nikah.nama,sdm.nikah 
+            from mst_nikah,sdm 
+            where sdm.no_sdm='".$nonsb."' 
+            AND
+            sdm.nikah=mst_nikah.kode";
+        $lihat4 = DB::connection('mysql')->select(DB::raw($sql1));  
+
+        return view('edit.formviewsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','sdm','nikah','mkantor','lihat1','lihat2','lihat3','lihat4'));   
+    }
+
     public function viewFormSDMEdit($nonsb)
     {
         $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
@@ -198,7 +257,35 @@ class SdmController extends Controller
 
         // $sdm->foto = $imagePath;
 
-        return view('edit.formeditsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','sdm','nikah','mkantor'));   
+        $sql1 ="SELECT mst_statusrumah.kode_status,mst_statusrumah.status,sdm.status_rumah 
+            from mst_statusrumah,sdm 
+            where sdm.no_sdm='".$nonsb."' 
+            AND
+            sdm.status_rumah=mst_statusrumah.kode_status";
+        $lihat1 = DB::connection('mysql')->select(DB::raw($sql1));  
+
+        $sql1 ="SELECT mst_jabatan.kode,mst_jabatan.jabatankantor,sdm.jabatan 
+            from mst_jabatan,sdm 
+            where sdm.no_sdm='".$nonsb."' 
+            AND
+            sdm.jabatan=mst_jabatan.kode";
+        $lihat2 = DB::connection('mysql')->select(DB::raw($sql1));  
+
+        $sql1 ="SELECT mst_gelar.kode,mst_gelar.gelar,sdm.pendidikan 
+            from mst_gelar,sdm 
+            where sdm.no_sdm='".$nonsb."' 
+            AND
+            sdm.pendidikan=mst_gelar.kode";
+        $lihat3 = DB::connection('mysql')->select(DB::raw($sql1));  
+
+        $sql1 ="SELECT mst_nikah.kode,mst_nikah.nama,sdm.nikah 
+            from mst_nikah,sdm 
+            where sdm.no_sdm='".$nonsb."' 
+            AND
+            sdm.nikah=mst_nikah.kode";
+        $lihat4 = DB::connection('mysql')->select(DB::raw($sql1));  
+
+        return view('edit.formeditsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','sdm','nikah','mkantor','lihat1','lihat2','lihat3','lihat4'));   
     }
     public function saveDataSDMEdit(Request $request,$nonsb)
     {               

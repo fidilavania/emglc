@@ -26,7 +26,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Tanggal*</label>
+                                    <label class="col-sm-3 control-label">Tanggal</label>
                                     <div class="col-sm-9">
                                       <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y')}}" readonly>
                                     </div>
@@ -72,15 +72,15 @@
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Nomor Telepon*</label>
+                                    <label class="col-sm-3 control-label">Nomor Telepon Rumah</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="input_telepon_rumah" autocomplete="off" value="" placeholder="0321xxxxxx" id="hp" id="pesan" required />
+                                        <input type="text" class="form-control" name="input_telepon_rumah" autocomplete="off" value="" placeholder="0321xxxxxx" id="hp" id="pesan"  />
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Nomor Telepon Seluler</label>
+                                    <label class="col-sm-3 control-label">Nomor Telepon Seluler*</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="input_hp" autocomplete="off" value="" placeholder="081xxxxxxxx" id="hpku" id="pesanku" />
+                                        <input type="text" class="form-control" name="input_hp" autocomplete="off" value="" placeholder="081xxxxxxxx" id="hpku" id="pesanku" required/>
                                     </div>
                                 </div>
                                 
@@ -178,7 +178,7 @@
                                             <select class="form-control" name="input_jabatan" required>
                                                 <option>-Pilih Jabatan-</option>
                                                     @foreach($jabatan as $jb)
-                                                        <option value="{{$jb->jabatankantor}}">{{$jb->jabatankantor}}</option>
+                                                        <option value="{{$jb->kode}}">{{$jb->jabatankantor}}</option>
                                                     @endforeach
                                             </select>
                                         </div>
@@ -280,7 +280,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
-                                                    <label class="col-sm-3 control-label">Agama</label>
+                                                    <label class="col-sm-3 control-label">Agama*</label>
                                                     <div class="col-sm-9">
                                                         <select class="form-control" name="input_agama_ps">
                                                             <option value >-Pilih Agama-</option>
@@ -300,7 +300,7 @@
                                                         </div>
                                                 </div>
                                                  <div class="row form-group">
-                                                    <label class="col-sm-3 control-label">Nomor Telp</label>
+                                                    <label class="col-sm-3 control-label">Nomor Telp*</label>
                                                         <div class="col-sm-9">
                                                           <input type="text" class="form-control" name="input_nom_ps" autocomplete="off" value="" style="text-transform:uppercase" id="tlpps" id="pesantlps" placeholder="081222323232" />
                                                         </div>
@@ -496,6 +496,7 @@
                             </div> -->
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-primary" name="simpanbutton" onclick="return confirm('Apakah anda yakin akan menyimpan data ini?')">SIMPAN</button>
+                                <a href="{{ url('/datasdm') }}" id="clear-filter" title="Input SDM Baru">[Kembali Ke Daftar]</a>
                             </div>
                         </div>
                     </div>
