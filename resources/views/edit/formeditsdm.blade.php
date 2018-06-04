@@ -88,7 +88,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal Lahir*</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="input_tanggal_lahir" id="tanggallahir" placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime(trim($sdm->tgl_lahir,' ')))}}" required>
+                                        <input type="date" class="form-control" name="input_tanggal_lahir" id="tanggallahir" placeholder ="{{date('d-m-Y')}}" value="{{$sdm->tgl_lahir}}" required>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -231,7 +231,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal Kerja*</label>
                                     <div class="col-sm-8">
-                                      <input type="text" class="form-control" name="input_tglkerja" value="{{date('d-m-Y',strtotime(trim($sdm->tgl_kerja,' ')))}}" style="text-transform:uppercase" placeholder="{{date('d-m-Y')}}" id="input_tglkerja" required />
+                                      <input type="date" class="form-control" name="input_tglkerja" value="{{$sdm->tgl_kerja}}" style="text-transform:uppercase" placeholder="{{date('d-m-Y')}}" id="input_tglkerja" required />
                                     </div>
                                 </div>
                             </div>
@@ -390,7 +390,7 @@
      <div class="row">
         <div class="col-sm-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading" align="center">DATA PASANGAN</div>
+                    <div class="panel-heading" align="center">DATA PASANGAN SESUAI KTP</div>
                         <div class="panel-body">
                             <!-- <div class="row"> -->
                                             <div class="col-sm-6">
@@ -406,7 +406,7 @@
                                                       <input type="text" class="form-control" name="input_tempat_lahir_ps" autocomplete="off" value="{{trim($sdm->tempat_lahir_ps,' ')}}" style="text-transform:uppercase" placeholder="tempat" />
                                                     </div>
                                                     <div class="col-sm-9">
-                                                      <input type="text" class="form-control" name="input_tanggal_lahir_ps" id="tanggallahirps" value="{{date('d-m-Y',strtotime(trim($sdm->lahir_ps,' ')))}}" required placeholder = "{{date('d-m-Y')}}"" >
+                                                      <input type="date" class="form-control" name="input_tanggal_lahir_ps" id="tanggallahirps" value="{{$sdm->lahir_ps}}" required placeholder = "{{date('d-m-Y')}}"" >
                                                     </div>
                                                 </div> 
                                                 <div class="row form-group">
@@ -509,18 +509,18 @@
 @section('js')
 <script type="text/javascript">
 
-$('#sKota').on('change', function(){
-    $.post('{{ URL::to('site/data') }}', {type: 'kecamatan', id: $('#sKota').val()}, function(e){
-        $('#sKecamatan').html(e);
+    $('#sKota').on('change', function(){
+        $.post('{{ URL::to('site/data') }}', {type: 'kecamatan', id: $('#sKota').val()}, function(e){
+            $('#sKecamatan').html(e);
+        });
+        $('#sDesa').html('');
     });
-    $('#sDesa').html('');
-});
-$('#sKecamatan').on('change', function(){
-    $.post('{{ URL::to('site/data') }}', {type: 'desa', id: $('#sKecamatan').val()}, function(e){
-        $('#sDesa').html(e);
+    $('#sKecamatan').on('change', function(){
+        $.post('{{ URL::to('site/data') }}', {type: 'desa', id: $('#sKecamatan').val()}, function(e){
+            $('#sDesa').html(e);
+        });
     });
-});
-// 
+    // 
     var SUBM = 0;
     function isNumber(nama,pesan) {
         var val = $('[name="'+nama+'"]').val().replace(/[\s-()]+/g, "");
@@ -539,7 +539,7 @@ $('#sKecamatan').on('change', function(){
     $(document).ready(function() {
 
         var nikah = ($('[name="input_status_nikah"]').val());
-        if(nikah == "Kawin"){
+        if(nikah == "0"){
              var $template = $('#kantorTambah'),
                 $clone    = $template
                                 .clone()
@@ -549,8 +549,8 @@ $('#sKecamatan').on('change', function(){
                                 //.attr('id','tanahBangunanForm'+INC_OP)
                                 //.insertBefore($template);
                                 .appendTo('.KantorTambah');
-            $('[name="input_tanggal_lahir_ps"]').datepicker({ format: 'dd-mm-yyyy', autoclose: true });
-            // $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
+            // $('[name="input_tanggal_lahir_ps"]').datepicker({ format: 'dd-mm-yyyy', autoclose: true });
+            // // $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
             $('[name="input_ktp_ps"]').keypress(function(data){
                 if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
                 {
@@ -581,68 +581,6 @@ $('#sKecamatan').on('change', function(){
                 // $(this).parent().parent().parent().remove();
             });
         }
-
-        $('#option').change(function(){
-            if (this.value == "0") {
-            var $template = $('#kantorTambah'),
-                $clone    = $template
-                                .clone()
-                                .removeAttr('hidden')
-                                .removeAttr('id')
-                                //.attr('id','tanahBangunanForm'+$('[data-jaminan="tanahBangunan"]').length)
-                                //.attr('id','tanahBangunanForm'+INC_OP)
-                                //.insertBefore($template);
-                                .appendTo('.KantorTambah');
-            $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
-            $('[name="input_ktp_ps"]').keypress(function(data){
-                if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-                {
-                    $("#pesanktps").html("isikan angka").show().fadeOut("slow");
-                    return false;
-                }
-            });
-            
-            $('[name="input_nom_ps"]').keypress(function(data){
-                if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-                {
-                    $("#pesanrws").html("isikan angka").show().fadeOut("slow");
-                    return false;
-                }
-            });
-            
-            $('[name="input_kodepos_ps"]').keypress(function(data){
-                if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-                {
-                    $("#pesanposs").html("isikan angka").show().fadeOut("slow");
-                    return false;
-                }
-            });
-
-            // $("#rtps").keypress(function(data){
-            //     if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            //     {
-            //         $("#pesanrts").html("isikan angka").show().fadeOut("slow");
-            //         return false;
-            //     }
-            // });
-
-            // $("#rwps").keypress(function(data){
-            //     if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            //     {
-            //         $("#pesanrws").html("isikan angka").show().fadeOut("slow");
-            //         return false;
-            //     }
-            // });
-
-
-            $('[name="hapusalat"]').on('click',function(){
-                $(this).closest("div.row").remove();
-                    e.preventDefault();
-                // $(this).parent().parent().parent().remove();
-            });
-        }
-        });
-            
 
         $('[name="generatesample"]').click(function(){
 
@@ -664,10 +602,31 @@ $('#sKecamatan').on('change', function(){
 
         });
 
-        $("#tanggalberlaku").datepicker({ dateFormat: 'dd-mm-yy' });
-        $("#tanggallahir").datepicker({ dateFormat: 'dd-mm-yy' });
+        $('[name="generatesample"]').click(function(){
+
+        var alamatktp = ($('[name="input_alamatktp"]').val());
+        var rtktp = ($('[name="input_rtktp"]').val());
+        var rwktp = ($('[name="input_rwktp"]').val());
+        var kelurahanktp = ($('[name="input_kelurahanktp"]').val());
+        var kecamatanktp = ($('[name="input_kecamatanktp"]').val());
+        var kodyaktp = ($('[name="input_kodyaktp"]').val());
+        var kodeposktp = ($('[name="input_kodeposktp"]').val());
+
+        $('[name="input_alamat"]').val(alamatktp);
+        $('[name="input_rt"]').val(rtktp);
+        $('[name="input_rw"]').val(rwktp);
+        $('[name="input_kelurahan"]').val(kelurahanktp);
+        $('[name="input_kecamatan"]').val(kecamatanktp);
+        $('[name="input_kodya"]').val(kodyaktp);
+        $('[name="input_kodepos"]').val(kodeposktp);
+
+        });
+            
+
+        // $("#tanggalberlaku").datepicker({ dateFormat: 'dd-mm-yy' });
+        // $("#tanggallahir").datepicker({ format: 'dd-mm-yyyy', autoclose: true });
         
-        $("#input_tglkerja").datepicker({ dateFormat: 'dd-mm-yy' });
+        // $("#input_tglkerja").datepicker({ dateFormat: 'dd-mm-yy' });
         $('[name="input_pendapatan"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
         $('[name="input_biaya_hidup"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
         

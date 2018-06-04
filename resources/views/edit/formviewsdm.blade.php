@@ -383,7 +383,7 @@
      <div class="row">
         <div class="col-sm-12">
                 <div class="panel panel-primary">
-                    <div class="panel-heading" align="center">DATA PASANGAN</div>
+                    <div class="panel-heading" align="center">DATA PASANGAN SESUAI KTP</div>
                         <div class="panel-body">
                             <!-- <div class="row"> -->
                                             <div class="col-sm-6">
@@ -532,7 +532,7 @@ $('#sKecamatan').on('change', function(){
     $(document).ready(function() {
 
         var nikah = ($('[name="input_status_nikah"]').val());
-        if(nikah == "Kawin"){
+        if(nikah == "0"){
              var $template = $('#kantorTambah'),
                 $clone    = $template
                                 .clone()

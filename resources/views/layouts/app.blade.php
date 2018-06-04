@@ -176,38 +176,24 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     
-    <!-- <link rel="stylesheet" href="/summernote.css" type="text/css" rel="stylesheet"/> -->
     <script src="/summernote.css"></script>
     <script src="/summernote.js"></script>
     <script src="/offline/jquery.min.js"></script>
-     <script src="/offline/jquery2.min.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
-
+    <script src="/offline/jquery2.min.js"></script>
     <script src="{{asset('/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular/modul.js"></script>
-
-    <!-- <link type="text/css" href="offline/tanggal/jquery-ui-1.7.2.custom.css" rel="stylesheet" /> -->
     <link rel="stylesheet" href="/offline/jquery-ui.css" type="text/css" rel="stylesheet"/>
-    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css"> -->
-    <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
     <script src="/offline/jquery-1.12.4.js"></script>
-    <!-- <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script> -->
     <script src="/offline/jquery-ui.js"></script>
     <script src="{{asset('/jquery_mask/jquery.mask.min.js')}}"></script>
- <!--    <script>
-      $( function() {
-      $( "#datepicker" ).datepicker();
-      } );
-    </script> -->
+ 
 
     <link rel="stylesheet" href="/offline/development-bundle/themes/base/jquery.ui.all.css">
     <script src="/offline/js/jquery-1.7.1.min.js"></script>
     <script src="/offline/development-bundle/ui/jquery.ui.core.js"></script>
     <script src="/offline/development-bundle/ui/jquery.ui.widget.js"></script>
     <script src="/offline/development-bundle/ui/jquery.ui.datepicker.js"></script>
-    <!-- <script src="{{asset('/datepicker/js/bootstrap-datepicker.js')}}"></script> -->
     <script src="{{asset('/select2/dist/js/select2.full.min.js')}}"></script>
     <link rel="stylesheet" href="/offline/development-bundle/demos/demos.css">
     <script>
@@ -217,10 +203,14 @@
     });
     </script>
 
-    <!-- <script src="folder/library/jquery.min.js" type="text/javascript"></script>
-    <script src="path/to/zebra_datepicker.js" type="text/javascript"></script>
-    <link href="path/to/default.css" rel="stylesheet" type="text/css"></link>
- -->
+    <!-- dropdown -->
+    <script src="/dropdown/jquery-1.10.2.min.js"></script>
+        <script src="/dropdown/jquery.chained.min.js"></script>
+        <script>
+            $("#kota").chained("#provinsi");
+            $("#kecamatan").chained("#kota");
+    </script>
+
     <!-- untuk membuat back to top (gak jadi)-->
     <link rel="stylesheet" href="{{asset('/elev/src/jquery.elevator.css')}}">
     <script src="{{asset('/elev/src/jquery.elevator.js')}}"></script>

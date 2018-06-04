@@ -68,7 +68,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal Lahir*</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="input_tanggal_lahir" id="tanggallahir" placeholder ="{{date('d-m-Y')}}"  required>
+                                        <input type="date" class="form-control" name="input_tanggal_lahir" id="tanggallahir" placeholder ="{{date('d-m-Y')}}"  required>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -216,7 +216,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal Kerja*</label>
                                     <div class="col-sm-8">
-                                      <input type="text" class="form-control" name="input_tglkerja" value="" style="text-transform:uppercase" placeholder="{{date('d-m-Y')}}" id="input_tglkerja" required />
+                                      <input type="date" class="form-control" name="input_tglkerja" value=""  placeholder="{{date('d-m-Y')}}" id="input_tglkerja" required />
                                     </div>
                                 </div>
                             </div>
@@ -250,7 +250,7 @@
                         <div ng-if="pernikahan == 0">
                                         <div class="col-sm-12">                                        
                                             <div class="panel panel-primary">
-                                              <div class="panel-heading" align="center">DATA PASANGAN</div>
+                                              <div class="panel-heading" align="center">DATA PASANGAN SESUAI KTP</div>
                                               <div class="panel-body">
                                               <div class="col-sm-6">
                                                 <div class="row form-group">
@@ -265,7 +265,7 @@
                                                       <input type="text" class="form-control" name="input_tempat_lahir_ps" autocomplete="off" value="" style="text-transform:uppercase" placeholder="tempat" />
                                                     </div>
                                                     <div class="col-sm-9">
-                                                      <input type="text" class="form-control" name="input_tanggal_lahir_ps" id="tanggallahirps" value="" required placeholder = "{{date('d-m-Y')}}"" >
+                                                      <input type="date" class="form-control" name="input_tanggal_lahir_ps" id="tanggallahirps" value="" required placeholder = "{{date('d-m-Y')}}"" >
                                                     </div>
                                                 </div> 
                                                 <div class="row form-group">
@@ -332,7 +332,7 @@
                                                         <!-- <select class="form-control" name="input_kelurahan_ps" >
                                                             <option value >-Pilih Kelurahan-</option>
                                                             @foreach($kelurahan as $k)
-                                                                <option value="{{$k->nama}}">{{$k->nama}}</option>
+                                                                <option value=""></option>
                                                             @endforeach
                                                         </select> -->
                                                     </div>
@@ -344,7 +344,7 @@
                                                         <!-- <select class="form-control" name="input_kecamatan_ps" >
                                                             <option value >-Pilih Kecamatan-</option>
                                                             @foreach($kecamatan as $k)
-                                                                <option value="{{$k->nama}}">{{$k->nama}}</option>
+                                                                <option value="></option>
                                                             @endforeach
                                                         </select> -->
                                                     </div>
@@ -444,24 +444,12 @@
                                                 <label class="col-sm-3 control-label">Kelurahan*</label>
                                                     <div class="col-sm-8">
                                                         <input type="text" class="form-control" name="input_kelurahan" autocomplete="off" value="" style="text-transform:uppercase" placeholder="KELURAHAN" required />
-                                                               <!--  <select class="form-control" name="input_kelurahan" required>
-                                                                    <option value >-Pilih Kelurahan-</option>
-                                                                    @foreach($kelurahan as $k)
-                                                                        <option value="{{$k->nama}}">{{$k->nama}}</option>
-                                                                    @endforeach
-                                                                </select> -->
                                                     </div>
                                             </div>
                                             <div class="row form-group">
                                                 <label class="col-sm-3 control-label">Kecamatan*</label>
                                                     <div class="col-sm-8">
                                                         <input type="text" class="form-control" name="input_kecamatan" autocomplete="off" value="" style="text-transform:uppercase" placeholder="KECAMATAN" required />
-                                                                <!-- <select class="form-control" name="input_kecamatan" required>
-                                                                    <option value >-Pilih Kecamatan-</option>
-                                                                    @foreach($kecamatan as $k)
-                                                                        <option value="{{$k->nama}}">{{$k->nama}}</option>
-                                                                    @endforeach
-                                                                </select> -->
                                                     </div>
                                             </div>
                                              <div class="row form-group">
@@ -548,10 +536,10 @@
         });
 
         // $("#tanggalmohon").datepicker({ dateFormat: 'dd-mm-yy' });
-        $("#tanggalberlaku").datepicker({ dateFormat: 'dd-mm-yy' });
-        $("#tanggallahir").datepicker({ dateFormat: 'dd-mm-yy' });
-        $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
-        $("#input_tglkerja").datepicker({ dateFormat: 'dd-mm-yy' });
+        // $("#tanggalberlaku").datepicker({ dateFormat: 'dd-mm-yy' });
+        // $("#tanggallahir").datepicker({ dateFormat: 'dd-mm-yy' });
+        // $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
+        // $("#input_tglkerja").datepicker({ dateFormat: 'dd-mm-yy' });
         $('[name="input_pendapatan"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
         $('[name="input_biaya_hidup"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
         
