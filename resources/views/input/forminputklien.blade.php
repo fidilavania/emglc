@@ -96,24 +96,14 @@
                                     <label class="col-sm-3 control-label">Kelurahan*</label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" name="input_kelurahan" autocomplete="off" value="" style="text-transform:uppercase" placeholder="KELURAHAN" required />
-                                                   <!--  <select class="form-control" name="input_kelurahan" required>
-                                                        <option value >-Pilih Kelurahan-</option>
-                                                        @foreach($kelurahan as $k)
-                                                            <option value="{{$k->nama}}">{{$k->nama}}</option>
-                                                        @endforeach
-                                                    </select> -->
+                                                   
                                         </div>
                                 </div>
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Kecamatan*</label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" name="input_kecamatan" autocomplete="off" value="" style="text-transform:uppercase" placeholder="KECAMATAN" required />
-                                                    <!-- <select class="form-control" name="input_kecamatan" required>
-                                                        <option value >-Pilih Kecamatan-</option>
-                                                        @foreach($kecamatan as $k)
-                                                            <option value="{{$k->nama}}">{{$k->nama}}</option>
-                                                        @endforeach
-                                                    </select> -->
+                                                  
                                         </div>
                                 </div>
                                  <div class="row form-group">
@@ -214,6 +204,9 @@ $('#sKecamatan').on('change', function(){
         }
     }
     $(document).ready(function() {
+
+        $('[name="nama_ub"]').select2({ width: '100%' });
+        $('[name="input_kodya"]').select2({ width: '100%' });
 
          // $("#tanggalmohon").datepicker({ dateFormat: 'dd-mm-yy' });
          $("#tanggalberlaku").datepicker({ dateFormat: 'dd-mm-yy' });

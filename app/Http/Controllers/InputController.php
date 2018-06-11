@@ -14,8 +14,7 @@ use App\mst_kantor;
 use App\mst_gelar;
 use App\mst_jabatan;
 use App\Http\Controllers\Controller;
-use App\Kelurahan;
-use App\Kecamatan;
+use App\mst_camat;
 use App\kab;
 use App\sdm_photo;
 use App\jabatan_mst;
@@ -114,10 +113,10 @@ class InputController extends Controller
     public function viewFormKlien()
     {
         $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
-        $kelurahan = DB::connection('mysql')->table('mst_kelurahan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kecamatan = DB::connection('mysql')->table('mst_kecamatan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kab = DB::connection('mysql')->table('mst_kabupaten')->where('status','ada')->orderBy('nama','asc')->get();
-        $kantor = DB::connection('mysql')->table('mst_kantor')->get();
+        // $kelurahan = DB::connection('mysql')->table('mst_kelurahan')->where('status','ada')->orderBy('nama','asc')->get();
+        // $kecamatan = DB::connection('mysql')->table('mst_kecamatan')->where('status','ada')->orderBy('nama','asc')->get();
+        // $kab = DB::connection('mysql')->table('mst_kabupaten')->where('status','ada')->orderBy('nama','asc')->get();
+        $kantor = DB::connection('mysql')->table('master_kantor')->get();
 
         return view('input.forminputklien',compact('kodya','kelurahan','kecamatan','kab','kantor'));   
     }
@@ -205,13 +204,10 @@ class InputController extends Controller
     public function viewFormKlienEdit($nonsb)
     {
         $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
-        $kelurahan = DB::connection('mysql')->table('mst_kelurahan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kecamatan = DB::connection('mysql')->table('mst_kecamatan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kab = DB::connection('mysql')->table('mst_kabupaten')->where('status','ada')->orderBy('nama','asc')->get();
-        $kantor = DB::connection('mysql')->table('mst_kantor')->get();
+        $kantor = DB::connection('mysql')->table('master_kantor')->get();
         $klien = klien::where('no_reg',$nonsb)->first();
 
-        return view('edit.formeditklien',compact('kodya','kelurahan','kecamatan','kab','kantor','klien'));   
+        return view('edit.formeditklien',compact('kodya','kantor','klien'));   
     }
 
     public function saveDataKlienEdit(Request $request,$nonsb)
