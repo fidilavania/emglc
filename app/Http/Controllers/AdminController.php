@@ -44,6 +44,7 @@ class AdminController extends Controller
         $user->id = $nonsb;
     	$user->username = $request->input('input_username');
     	$user->nama_lengkap = $request->input('input_nama_lengkap');
+        $user->email = $request->input('input_email');
     	$user->jabatan = $request->input('input_jabatan');
     	$user->kantor = $request->input('input_kantor');
         $user->fungsi = $request->input('input_akses');
@@ -83,7 +84,7 @@ class AdminController extends Controller
 
         // $url = url('/lihatuser');
 
-        $sql = "SELECT id,username,nama_lengkap,jabatan,mst_kantor.nama,status,mst_jabatan.jabatankantor FROM users,mst_kantor,mst_jabatan WHERE ";
+        $sql = "SELECT id,email,username,nama_lengkap,jabatan,mst_kantor.nama,status,mst_jabatan.jabatankantor FROM users,mst_kantor,mst_jabatan WHERE ";
         if(($kolom <> null) && ($key <> null)){
             $sql .= $kolom." LIKE '%".$kunci."%' AND kode_kantor=kantor AND mst_jabatan.kode=jabatan ORDER BY id";
         } else {

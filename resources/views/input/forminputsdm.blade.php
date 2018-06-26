@@ -68,7 +68,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal Lahir*</label>
                                     <div class="col-sm-9">
-                                        <input type="date" class="form-control" name="input_tanggal_lahir" id="tanggallahir" placeholder ="{{date('d-m-Y')}}"  required>
+                                        <input type="text" class="form-control" name="input_tanggal_lahir" id="tanggallahir" placeholder ="{{date('d-m-Y')}}"  required>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -216,7 +216,9 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal Kerja*</label>
                                     <div class="col-sm-8">
-                                      <input type="date" class="form-control" name="input_tglkerja" value=""  placeholder="{{date('d-m-Y')}}" id="input_tglkerja" required />
+                                      <input type="text" class="form-control" name="input_tglkerja" value=""  placeholder="{{date('d-m-Y')}}" id="input_tglkerja" required />
+
+                                     
                                     </div>
                                 </div>
                             </div>
@@ -265,7 +267,7 @@
                                                       <input type="text" class="form-control" name="input_tempat_lahir_ps" autocomplete="off" value="" style="text-transform:uppercase" placeholder="tempat" />
                                                     </div>
                                                     <div class="col-sm-9">
-                                                      <input type="date" class="form-control" name="input_tanggal_lahir_ps" id="tanggallahirps" value="" required placeholder = "{{date('d-m-Y')}}"" >
+                                                      <input type="text" class="form-control" name="input_tanggal_lahir_ps" id="tanggallahirps" value="" required placeholder = "{{date('d-m-Y')}}"" >
                                                     </div>
                                                 </div> 
                                                 <div class="row form-group">
@@ -329,24 +331,14 @@
                                                     <label class="col-sm-3 control-label">Kelurahan</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" name="input_kelurahan_ps" autocomplete="off" value="" style="text-transform:uppercase" placeholder="kelurahan" />
-                                                        <!-- <select class="form-control" name="input_kelurahan_ps" >
-                                                            <option value >-Pilih Kelurahan-</option>
-                                                            @foreach($kelurahan as $k)
-                                                                <option value=""></option>
-                                                            @endforeach
-                                                        </select> -->
+                                                       
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
                                                     <label class="col-sm-3 control-label">Kecamatan</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" name="input_kecamatan_ps" autocomplete="off" value="" style="text-transform:uppercase" placeholder="kecamatan" />
-                                                        <!-- <select class="form-control" name="input_kecamatan_ps" >
-                                                            <option value >-Pilih Kecamatan-</option>
-                                                            @foreach($kecamatan as $k)
-                                                                <option value="></option>
-                                                            @endforeach
-                                                        </select> -->
+                                                     
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
@@ -355,7 +347,7 @@
                                                         <select class="form-control" name="input_kodya_ps">
                                                             <!-- <option value="1293" >1293 - Malang,Kota</option> -->
                                                             <option>-Pilih Kodya-</option>
-                                                            @foreach($kodya as $k)
+                                                            @foreach($kodyaa as $k)
                                                                 <option value="{{$k->desc2}}">{{$k->desc2}}</option>
                                                             @endforeach
                                                         </select>
@@ -404,7 +396,7 @@
                                                         <select class="form-control" name="input_kodyaktp" required>
                                                                     <!-- <option value="1293" >1293 - Malang,Kota</option> -->
                                                                     <option>-Pilih Kodya-</option>
-                                                                    @foreach($kodya as $k)
+                                                                    @foreach($kodyaa as $k)
                                                                         <option value="{{$k->desc2}}">{{$k->desc2}}</option>
                                                                     @endforeach
                                                                 </select>
@@ -458,7 +450,7 @@
                                                         <select class="form-control" name="input_kodya" required>
                                                             <!-- <option value="1293" >1293 - Malang,Kota</option> -->
                                                              <option>-Pilih Kodya-</option>
-                                                            @foreach($kodya as $k)
+                                                            @foreach($kodyaa as $k)
                                                             <option value="{{$k->desc2}}">{{$k->desc2}}</option>
                                                              @endforeach
                                                          </select>
@@ -513,7 +505,10 @@
             $('[name="'+nama+'"]').css("background-color", "#F9CECE");
         }
     }
+
     $(document).ready(function() {
+
+        
 
         $('[name="generatesample"]').click(function(){
 
@@ -534,7 +529,7 @@
         $('[name="input_kodepos"]').val(kodeposktp);
 
         });
-
+        // $('[name="input_tanggal_lahir"]').datepicker({ format: 'dd-mm-yyyy', autoclose: true });
         // $("#tanggalmohon").datepicker({ dateFormat: 'dd-mm-yy' });
         // $("#tanggalberlaku").datepicker({ dateFormat: 'dd-mm-yy' });
         // $("#tanggallahir").datepicker({ dateFormat: 'dd-mm-yy' });
@@ -542,6 +537,9 @@
         // $("#input_tglkerja").datepicker({ dateFormat: 'dd-mm-yy' });
         $('[name="input_pendapatan"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
         $('[name="input_biaya_hidup"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('#input_tglkerja').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
+        $('#tanggallahir').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
+        $('#tanggallahirps').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
         
 
         $("#hp").keypress(function(data){

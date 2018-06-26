@@ -16,6 +16,7 @@
                                         <th>username</th>
                                         <th>Kantor</th>
                                         <th>Jabatan</th>
+                                        <th>Email</th>
                                         <th>Status</th>
                                     </thead>
                                     <div class="form-inline padding-bottom-15">
@@ -44,6 +45,7 @@
                                                 <td>{{$u->username}}</td>
                                                 <td>{{$u->nama}}</td>
                                                 <td>{{$u->jabatankantor}}</td>
+                                                <td>{{$u->email}}</td>
                                                 @if($u->status == 0)
                                                     <td><span class="label label-table label-danger">Tidak Aktif</span></td>
                                                 @elseif($u->status == 1)

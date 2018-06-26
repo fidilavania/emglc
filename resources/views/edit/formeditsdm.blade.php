@@ -88,7 +88,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal Lahir*</label>
                                     <div class="col-sm-9">
-                                        <input type="date" class="form-control" name="input_tanggal_lahir" id="tanggallahir" placeholder ="{{date('d-m-Y')}}" value="{{$sdm->tgl_lahir}}" required>
+                                        <input type="text" class="form-control" name="input_tanggal_lahir" id="tanggallahir" placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime(trim($sdm->tgl_lahir)))}}" required>
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -231,7 +231,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal Kerja*</label>
                                     <div class="col-sm-8">
-                                      <input type="date" class="form-control" name="input_tglkerja" value="{{$sdm->tgl_kerja}}" style="text-transform:uppercase" placeholder="{{date('d-m-Y')}}" id="input_tglkerja" required />
+                                      <input type="text" class="form-control" name="input_tglkerja" value="{{date('d-m-Y',strtotime(trim($sdm->tgl_kerja)))}}" style="text-transform:uppercase" placeholder="{{date('d-m-Y')}}" id="input_tglkerja" required />
                                     </div>
                                 </div>
                             </div>
@@ -406,7 +406,7 @@
                                                       <input type="text" class="form-control" name="input_tempat_lahir_ps" autocomplete="off" value="{{trim($sdm->tempat_lahir_ps,' ')}}" style="text-transform:uppercase" placeholder="tempat" />
                                                     </div>
                                                     <div class="col-sm-9">
-                                                      <input type="date" class="form-control" name="input_tanggal_lahir_ps" id="tanggallahirps" value="{{$sdm->lahir_ps}}" required placeholder = "{{date('d-m-Y')}}"" >
+                                                      <input type="text" class="form-control" name="input_tanggal_lahir_ps" id="tanggallahirps" value="{{date('d-m-Y',strtotime(trim($sdm->lahir_ps)))}}" required placeholder = "{{date('d-m-Y')}}"" >
                                                     </div>
                                                 </div> 
                                                 <div class="row form-group">
@@ -475,12 +475,7 @@
                                                     <label class="col-sm-3 control-label">Kecamatan</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" name="input_kecamatan_ps" autocomplete="off" value="{{trim($sdm->camat_ps,' ')}}" style="text-transform:uppercase" placeholder="kecamatan" />
-                                                        <!-- <select class="form-control" name="input_kecamatan_ps" >
-                                                            <option value >-Ganti Kecamatan-</option>
-                                                            @foreach($kecamatan as $k)
-                                                                <option value="{{$k->nama}}">{{$k->nama}}</option>
-                                                            @endforeach
-                                                        </select> -->
+                                                       
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
@@ -537,6 +532,10 @@
         }
     }
     $(document).ready(function() {
+
+        $('#input_tglkerja').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
+        $('#tanggallahir').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
+        $('#tanggallahirps').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
 
         var nikah = ($('[name="input_status_nikah"]').val());
         if(nikah == "0"){

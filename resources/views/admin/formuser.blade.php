@@ -22,6 +22,12 @@
                                     </div>
                                 </div>
                                 <div class="row form-group">
+                                    <label class="col-sm-2 control-label">Email</label>
+                                    <div class="col-sm-4">
+                                        <input type="email" class="form-control" name="input_email" autocomplete="off" value="" placeholder="email@gmail.com" required />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
                                     <label class="col-sm-2 control-label">Username*</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" name="input_username" autocomplete="off" value="" placeholder="USERNAME" required />
