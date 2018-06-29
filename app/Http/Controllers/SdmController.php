@@ -15,9 +15,7 @@ use App\mst_gelar;
 use App\mst_jabatan;
 use App\mst_nikah;
 use App\Http\Controllers\Controller;
-use App\Kelurahan;
-use App\Kecamatan;
-use App\kab;
+use App\mst_camat;
 use App\sdm_photo;
 use App\jabatan_mst;
 use App\kantor_mst;
@@ -84,18 +82,22 @@ class SdmController extends Controller
 
         return view('data.formdatasdm',compact('nsblist','datakredit','lihat1'));   
     }
-    
+
+
     public function viewFormSDM()
     {
-        $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
+        $kodyaa = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
         $gelar = DB::connection('mysql')->table('mst_gelar')->orderBy('kode','asc')->orderBy('kode','asc')->get();
-        $kelurahan = DB::connection('mysql')->table('mst_kelurahan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kecamatan = DB::connection('mysql')->table('mst_kecamatan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kab = DB::connection('mysql')->table('mst_kabupaten')->where('status','ada')->orderBy('nama','asc')->get();
         $kantor = DB::connection('mysql')->table('mst_kantor')->get();
         $jabatan = DB::connection('mysql')->table('mst_jabatan')->get();
         $status = DB::connection('mysql')->table('mst_statusrumah')->get();
         $mkantor = DB::connection('mysql')->table('master_kantor')->get();
+
+        $propinsi = DB::connection('mysql')->select(DB::raw("SELECT distinct(propinsi) as propinsi FROM mst_camat;")); 
+        $kodya = DB::connection('mysql')->select(DB::raw("SELECT distinct(kodya) as kodya FROM mst_camat where propinsi = 'Bali';")); 
+        $camat = DB::connection('mysql')->select(DB::raw("SELECT distinct(camat) as camat FROM mst_camat where kodya = 'Malang.kota';"));  
+        $lurah = DB::connection('mysql')->select(DB::raw("SELECT distinct(lurah) as lurah FROM mst_camat where camat = 'Blimbing';"));  
+        $kodepos = DB::connection('mysql')->table('mst_camat')->first();
 
         $sql3 ="SELECT mst_jabatan.jabatankantor,sdm.jabatan,mst_jabatan.kode
             from mst_jabatan,sdm 
@@ -103,8 +105,46 @@ class SdmController extends Controller
             sdm.jabatan=mst_jabatan.kode";
         $lihat1 = DB::connection('mysql')->select(DB::raw($sql3));
 
-        return view('input.forminputsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','lihat1','mkantor'));   
+        return view('input.forminputsdm',compact('kodyaa','jabatan','gelar','status','kantor','lihat1','mkantor','propinsi','kodya','camat','lurah','kodepos'));   
     }
+
+    public function input()
+    {
+      // $camat = DB::connection('pgsql')->table('mst_camat')->where('status','AKTIF')->orderBy('camat','asc')->get();
+    $propinsi = DB::connection('pgsql')->select(DB::raw("SELECT distinct(propinsi) as propinsi FROM mst_camat;")); 
+    $kodya = DB::connection('pgsql')->select(DB::raw("SELECT distinct(kodya) as kodya FROM mst_camat where propinsi = 'Bali';")); 
+    $camat = DB::connection('pgsql')->select(DB::raw("SELECT distinct(camat) as camat FROM mst_camat where kodya = 'Malang.kota';"));  
+    $lurah = DB::connection('pgsql')->select(DB::raw("SELECT distinct lurah,kodepos FROM mst_camat where camat = 'Blimbing';"));  
+    $kodepos = DB::connection('pgsql')->select(DB::raw("SELECT distinct (kodepos) as kodepos FROM mst_camat where camat = 'Blimbing' and lurah = 'Blimbing';"));     
+    $kerja = DB::connection('pgsql')->select(DB::raw("SELECT kode,note,kodeslik FROM mst_kerja;"));     
+    $bidang = DB::connection('pgsql')->select(DB::raw("SELECT note,kode FROM mst_usaha;"));     
+
+         // $kodepos = DB::connection('pgsql')->select(DB::raw("SELECT distinct(kodepos) as kodepos FROM mst_camat where camat = 'Blimbing';"));  
+      //log::info($camat);
+    return view('input.forminputsdm',compact('propinsi','kodya','camat','lurah','kodepos','kerja','bidang'));
+
+    }
+    
+    public function pilih(Request $request)
+    {
+        $kodya = DB::connection('mysql')->select(DB::raw("SELECT distinct(kodya) as kodya FROM mst_camat where propinsi ='".$request->input('pilih')."';"));
+        return $kodya;
+    }
+
+    public function pilihcamat(Request $request)
+    {
+        $camat = DB::connection('mysql')->select(DB::raw("SELECT distinct(camat) as camat FROM mst_camat where kodya ='".$request->input('pilihcamat')."';"));
+        return $camat;
+    }
+
+    public function pilihlurah(Request $request)
+    {
+      $lurah = DB::connection('mysql')->select(DB::raw("SELECT distinct lurah,kodepos  FROM mst_camat where camat ='".$request->input('pilihlurah')."';"));
+      return $lurah;
+    }
+    
+
+
     public function saveDataSDM(Request $request,$nonsb)
     {
         
@@ -183,9 +223,6 @@ class SdmController extends Controller
     {
         $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
         $gelar = DB::connection('mysql')->table('mst_gelar')->orderBy('kode','asc')->orderBy('kode','asc')->get();
-        $kelurahan = DB::connection('mysql')->table('mst_kelurahan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kecamatan = DB::connection('mysql')->table('mst_kecamatan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kab = DB::connection('mysql')->table('mst_kabupaten')->where('status','ada')->orderBy('nama','asc')->get();
         $kantor = DB::connection('mysql')->table('mst_kantor')->get();
         $jabatan = DB::connection('mysql')->table('mst_jabatan')->get();
         $status = DB::connection('mysql')->table('mst_statusrumah')->get();
@@ -241,9 +278,6 @@ class SdmController extends Controller
     {
         $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
         $gelar = DB::connection('mysql')->table('mst_gelar')->orderBy('kode','asc')->orderBy('kode','asc')->get();
-        $kelurahan = DB::connection('mysql')->table('mst_kelurahan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kecamatan = DB::connection('mysql')->table('mst_kecamatan')->where('status','ada')->orderBy('nama','asc')->get();
-        $kab = DB::connection('mysql')->table('mst_kabupaten')->where('status','ada')->orderBy('nama','asc')->get();
         $kantor = DB::connection('mysql')->table('mst_kantor')->get();
         $jabatan = DB::connection('mysql')->table('mst_jabatan')->get();
         $status = DB::connection('mysql')->table('mst_statusrumah')->get();

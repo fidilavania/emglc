@@ -468,12 +468,7 @@
                                                     <label class="col-sm-3 control-label">Kecamatan</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" name="input_kecamatan_ps" autocomplete="off" value="{{trim($sdm->camat_ps,' ')}}" style="text-transform:uppercase" placeholder="kecamatan" readonly/>
-                                                        <!-- <select class="form-control" name="input_kecamatan_ps" >
-                                                            <option value >-Ganti Kecamatan-</option>
-                                                            @foreach($kecamatan as $k)
-                                                                <option value="{{$k->nama}}">{{$k->nama}}</option>
-                                                            @endforeach
-                                                        </select> -->
+                                                      
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
@@ -481,10 +476,7 @@
                                                     <div class="col-sm-9">
                                                         <select class="form-control" name="input_kodya_ps" readonly>
                                                             <option replace>{{trim($sdm->kodya_ps,' ')}}</option>
-                                                           <!--  <option>-Ganti Kodya-</option>
-                                                            @foreach($kodya as $k)
-                                                                <option value="{{$k->desc2}}">{{$k->desc2}}</option>
-                                                            @endforeach -->
+                                                          
                                                         </select>
                                                     </div>
                                                 </div>

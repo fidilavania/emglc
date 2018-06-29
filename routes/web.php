@@ -29,6 +29,17 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/savesdmedit/{nonsb?}','SdmController@saveDataSDMEdit');
 	Route::get('/viewsdm/{nonsb?}', 'SdmController@viewFormSDMview');
 
+	// camat
+	Route::get('/input', 'SdmController@input');
+	Route::post('/pilih', 'SdmController@pilih');
+	Route::post('/pilihcamat', 'SdmController@pilihcamat');
+	Route::post('/pilihlurah', 'SdmController@pilihlurah');
+	// Route::post('/kodepos', 'BlogController@kodepos');
+	
+	// Route::post('/pilih', 'SdmController@pilih');
+	// Route::post('/pilihcamat', 'SdmController@pilihcamat');
+	// Route::post('/pilihlurah', 'SdmController@pilihlurah');
+
 	//input
 	Route::get('/addmateri', 'InputController@viewFormMateri');
 	Route::get('/addklien', 'InputController@viewFormKlien');
