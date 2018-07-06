@@ -34,6 +34,8 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/pilih', 'SdmController@pilih');
 	Route::post('/pilihcamat', 'SdmController@pilihcamat');
 	Route::post('/pilihlurah', 'SdmController@pilihlurah');
+
+	
 	// Route::post('/kodepos', 'BlogController@kodepos');
 	
 	// Route::post('/pilih', 'SdmController@pilih');

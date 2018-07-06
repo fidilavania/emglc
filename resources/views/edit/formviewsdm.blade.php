@@ -121,6 +121,12 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="row form-group">
+                                    <label class="col-sm-3 control-label">No KK*</label>
+                                    <div class="col-sm-8">
+                                      <input type="text" class="form-control" name="input_kk" autocomplete="off" value="{{trim($sdm->no_kk,' ')}}" style="text-transform:uppercase" maxlength="16" placeholder="323232323232323" readonly />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
                                     <label class="col-sm-3 control-label">No KTP*</label>
                                     <div class="col-sm-8">
                                       <input type="text" class="form-control" name="input_no_identitas" autocomplete="off" value="{{trim($sdm->ktp,' ')}}" style="text-transform:uppercase" maxlength="16" placeholder="323232323232323" id="ktp" id="pesanktp" readonly/>
@@ -279,6 +285,20 @@
                                                     </div>
                                             </div>
                                             <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Propinsi</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" name="propinsiktp" autocomplete="off" value="{{trim($sdm->propktp,' ')}}" style="text-transform:uppercase" placeholder="PROPINSI" readonly />
+                                                    </div>
+                                            </div>
+                                             <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Kodya*</label>
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control" name="input_kodyaktp" readonly>
+                                                                   <option replace>{{trim($sdm->kodya_ktp,' ')}}</option>
+                                                                </select>
+                                                    </div>
+                                            </div>
+                                            <div class="row form-group">
                                                 <label class="col-sm-3 control-label">Kelurahan*</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" name="input_kelurahanktp" autocomplete="off" value="{{trim($sdm->lurah_ktp,' ')}}" style="text-transform:uppercase" placeholder="KELURAHAN" readonly />
@@ -290,18 +310,7 @@
                                                         <input type="text" class="form-control" name="input_kecamatanktp" autocomplete="off" value="{{trim($sdm->camat_ktp,' ')}}" style="text-transform:uppercase" placeholder="KECAMATAN" readonly />
                                                     </div>
                                             </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kodya*</label>
-                                                    <div class="col-sm-9">
-                                                        <select class="form-control" name="input_kodyaktp" readonly>
-                                                                   <option replace>{{trim($sdm->kodya_ktp,' ')}}</option>
-                                                                   <!--  <option>-Ganti Kodya-</option>
-                                                                    @foreach($kodya as $k)
-                                                                        <option value="{{$k->desc2}}">{{$k->desc2}}</option>
-                                                                    @endforeach -->
-                                                                </select>
-                                                    </div>
-                                            </div>
+                                           
                                             <div class="row form-group">
                                                 <label class="col-sm-3 control-label">Kode Pos</label>
                                                     <div class="col-sm-9">
@@ -330,6 +339,20 @@
                                                     </div>
                                             </div>
                                             <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Propinsi</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" name="propinsi" autocomplete="off" value="{{trim($sdm->prop,' ')}}" style="text-transform:uppercase" placeholder="PROPINSI" readonly />
+                                                    </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Kodya*</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-control" name="input_kodya" readonly>
+                                                            <option replace>{{trim($sdm->kodya_tinggal,' ')}}</option>
+                                                         </select>
+                                                    </div>
+                                            </div>
+                                            <div class="row form-group">
                                                 <label class="col-sm-3 control-label">Kelurahan*</label>
                                                     <div class="col-sm-8">
                                                         <input type="text" class="form-control" name="input_kelurahan" autocomplete="off" value="{{trim($sdm->lurah_tinggal,' ')}}" style="text-transform:uppercase" placeholder="KELURAHAN" readonly />
@@ -339,18 +362,6 @@
                                                 <label class="col-sm-3 control-label">Kecamatan*</label>
                                                     <div class="col-sm-8">
                                                         <input type="text" class="form-control" name="input_kecamatan" autocomplete="off" value="{{trim($sdm->camat_tinggal,' ')}}" style="text-transform:uppercase" placeholder="KECAMATAN" readonly />
-                                                    </div>
-                                            </div>
-                                             <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kodya*</label>
-                                                    <div class="col-sm-8">
-                                                        <select class="form-control" name="input_kodya" readonly>
-                                                            <option replace>{{trim($sdm->kodya_tinggal,' ')}}</option>
-                                                             <!-- <option>-Ganti Kodya-</option>
-                                                            @foreach($kodya as $k)
-                                                            <option value="{{$k->desc2}}">{{$k->desc2}}</option>
-                                                             @endforeach -->
-                                                         </select>
                                                     </div>
                                             </div>
                                              <div class="row form-group">
@@ -419,13 +430,6 @@
                                                     <div class="col-sm-9">
                                                         <select class="form-control" name="input_agama_ps" readonly>
                                                             <option replace>{{trim($sdm->agama_ps,' ')}}</option>
-                                                            <!-- <option value >-Ganti Agama-</option>
-                                                            <option value="ISLAM">Islam</option>
-                                                            <option value="KATHOLIK">Katolik</option>
-                                                            <option value="PROTESTAN">Protestan</option>
-                                                            <option value="BUDDHA">Buddha</option>
-                                                            <option value="HINDU">Hindu</option>
-                                                            <option value="KHONGHUCU">Khonghucu</option> -->
                                                         </select>
                                                     </div>
                                                 </div>
@@ -459,6 +463,21 @@
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
+                                                    <label class="col-sm-3 control-label">Propinsi</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" name="propinsips" autocomplete="off" value="{{trim($sdm->propps,' ')}}" style="text-transform:uppercase" placeholder="PROPINSI" readonly />
+                                                    </div>
+                                                </div>
+                                                 <div class="row form-group">
+                                                    <label class="col-sm-3 control-label">Kodya</label>
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control" name="input_kodya_ps" readonly>
+                                                            <option replace>{{trim($sdm->kodya_ps,' ')}}</option>
+                                                          
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
                                                     <label class="col-sm-3 control-label">Kelurahan</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" name="input_kelurahan_ps" autocomplete="off" value="{{trim($sdm->lurah_ps,' ')}}" style="text-transform:uppercase" placeholder="kelurahan" readonly/>
@@ -469,15 +488,6 @@
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" name="input_kecamatan_ps" autocomplete="off" value="{{trim($sdm->camat_ps,' ')}}" style="text-transform:uppercase" placeholder="kecamatan" readonly/>
                                                       
-                                                    </div>
-                                                </div>
-                                                <div class="row form-group">
-                                                    <label class="col-sm-3 control-label">Kodya</label>
-                                                    <div class="col-sm-9">
-                                                        <select class="form-control" name="input_kodya_ps" readonly>
-                                                            <option replace>{{trim($sdm->kodya_ps,' ')}}</option>
-                                                          
-                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>

@@ -201,6 +201,13 @@ class SdmController extends Controller
 		$sdm->camat_ps = strtoupper($request->input('input_kecamatan_ps'));
 		$sdm->kodya_ps = strtoupper($request->input('input_kodya_ps'));
 
+        $sdm->prop = strtoupper($request->input('propinsi'));
+        $sdm->propktp = strtoupper($request->input('propinsiktp'));
+        $sdm->propps = strtoupper($request->input('propinsips'));
+        $sdm->no_kk = strtoupper($request->input('input_kk'));
+        
+
+
         //log::info($request->hasFile('img_upload'));
         if ($request->hasFile('img_upload')) {
             $image = $request->file('img_upload');
@@ -384,7 +391,12 @@ class SdmController extends Controller
         'lurah_ps'       => strtoupper($request->input('input_kelurahan_ps')),
         'camat_ps'       => strtoupper($request->input('input_kecamatan_ps')),
         'kodya_ps'       => strtoupper($request->input('input_kodya_ps')),
-        'opr'               => strtoupper($request->input('opr'))
+        'opr'               => strtoupper($request->input('opr')),
+
+        'prop' => strtoupper($request->input('propinsi')),
+        'propktp' => strtoupper($request->input('propinsiktp')),
+        'propps' => strtoupper($request->input('propinsips')),
+        'no_kk' => strtoupper($request->input('input_kk'))
         
         ]);
          
