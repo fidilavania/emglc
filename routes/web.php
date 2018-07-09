@@ -29,6 +29,11 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/savesdmedit/{nonsb?}','SdmController@saveDataSDMEdit');
 	Route::get('/viewsdm/{nonsb?}', 'SdmController@viewFormSDMview');
 
+	// resign
+	Route::match(['get', 'post'],'/dataresign/{key?}', 'SdmController@viewDataResign')->where('key', '(.*)');
+	Route::get('/addresign/{nonsb?}', 'SdmController@viewFormResign');
+	Route::post('/saveresign/{nonsb?}','SdmController@saveDataResign');
+
 	// camat
 	Route::get('/input', 'SdmController@input');
 	Route::post('/pilih', 'SdmController@pilih');

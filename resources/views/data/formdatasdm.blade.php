@@ -22,7 +22,7 @@
                                         <th>No Telpon</th>
                                         <th>Tanggal Mulai Bekerja</th>
                                         <!-- <th>Pelatihan</th> -->
-                                        <th colspan="2"></th>
+                                        <th colspan="3"></th>
                                     </thead>
                                     <div class="form-inline padding-bottom-15">
                                         <!-- <div class="row">
@@ -55,7 +55,7 @@
                                     <hr />
                                     <tbody>
                                         @foreach($nsblist as $nsb)
-                                        @if( trim($nsb->induk_kantor,' ') == trim(Auth::user()->kantor,' ') && trim(Auth::user()->kantor,' ') != 'EMG' )  
+                                        @if( trim($nsb->induk_kantor,' ') == trim(Auth::user()->kantor,' ') && trim(Auth::user()->kantor,' ') != 'EMG' && trim($nsb->status,' ') == 1 )  
                                             <tr class="accordion-toggle" data-toggle="collapse" data-target="#{{$nsb->no_sdm}}">
                                                 <td data-id="{{$nsb->no_sdm}}">{{$nsb->no_sdm}}</td>
                                                 <td>{{$nsb->kantor}}</td>
@@ -69,12 +69,13 @@
                                                 <td>{{date('d-m-Y',strtotime($nsb->tgl_kerja))}}</td>
                                                 <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
                                                 <td><input type="button" class="btn btn-primary" name="viewbutton" value="View" /></td>
+                                                <td><input type="button" class="btn btn-warning" name="viewbuttonres" value="Resign" /></td>
                                             </tr>
                                         @endif
                                         @endforeach
 
                                         @foreach($nsblist as $nsb)
-                                        @if( trim(Auth::user()->kantor,' ') == 'EMG')
+                                        @if( trim(Auth::user()->kantor,' ') == 'EMG' && trim($nsb->status,' ') == 1)
                                             <tr class="accordion-toggle" data-toggle="collapse" data-target="#{{$nsb->no_sdm}}">
                                                 <td data-id="{{$nsb->no_sdm}}">{{$nsb->no_sdm}}</td>
                                                 <td>{{$nsb->kantor}}</td>
@@ -88,6 +89,7 @@
                                                 <td>{{date('d-m-Y',strtotime($nsb->tgl_kerja))}}</td>
                                                 <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
                                                 <td><input type="button" class="btn btn-primary" name="viewbutton" value="View" /></td>
+                                                <td><input type="button" class="btn btn-warning" name="viewbuttonres" value="Resign" /></td>
                                             </tr>
                                         @endif
                                         @endforeach
@@ -162,6 +164,16 @@
                 window.location.href = '{{url("/viewsdm")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
             } else {
                 window.location.href = '{{url("/viewsdm")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+            }
+        });
+
+        $('[name="viewbuttonres"]').click(function() {
+            console.log($(this).parent().parent().find('td:nth-child(2)').text());
+            console.log($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Resign');
+            if($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'View'){
+                window.location.href = '{{url("/addresign")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+            } else {
+                window.location.href = '{{url("/addresign")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
             }
         });
 

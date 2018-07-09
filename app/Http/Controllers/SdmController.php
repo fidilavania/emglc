@@ -21,6 +21,7 @@ use App\jabatan_mst;
 use App\kantor_mst;
 use App\master_kantor;
 use App\usulan;
+use App\resign;
 use App\mst_statusrumah;
 use DB;
 use Auth;
@@ -29,6 +30,47 @@ use Input;
 
 class SdmController extends Controller
 {
+
+    public function viewFormResign($nonsb)
+    {
+        $sdm = sdm::where('no_sdm',$nonsb)->first();
+        
+        return view('resign.forminputresign',compact('sdm'));   
+    }
+
+    public function saveDataResign(Request $request,$nonsb)
+    {
+        
+        $res = new resign;
+        $res->no_sdm = $request->input('input_nosdm');
+        $res->tgl_input = date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon')));
+        $res->nama = strtoupper($request->input('input_nama'));
+        $res->opr = strtoupper($request->input('opr'));
+        $res->kantor =strtoupper($request->input('kantor'));
+        $res->alasan = $request->input('alasan');
+        $res->tanggal = date('Y-m-d H:i:s',strtotime($request->input('tanggal'))); 
+        $res->save();
+
+        DB::connection('mysql')->table('sdm')->where('no_sdm',$request->input('input_nosdm'))->update([
+            'status' => 0
+        ]);
+        
+        return redirect('/dataresign');
+    }
+
+    public function viewDataResign($key=null)
+    {
+        $datakredit = array();
+
+        if($key == null){
+            $lihatresign = resign::select('no_sdm','nama','alasan','tanggal','kantor')->paginate(20);
+        } else {
+            $lihatresign = resign::select('no_sdm','nama','alasan','tanggal','kantor')->whereRaw
+            ("nama LIKE '%".strtoupper($key)."%'OR kantor LIKE '%".strtoupper($key)."%'")->paginate(20);
+        }
+
+        return view('resign.dataresign',compact('lihatresign'));   
+    }
 
     public function viewusulan()
     {
@@ -74,9 +116,9 @@ class SdmController extends Controller
         $datakredit = array();
 
         if($key == null){
-            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor')->paginate(20);
+            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor','status')->paginate(20);
         } else {
-            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor')->whereRaw
+            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor','status')->whereRaw
             ("nama LIKE '%".strtoupper($key)."%'OR alamat_ktp LIKE '%".strtoupper($key)."%' OR alamat_tinggal LIKE '%".strtoupper($key)."%'OR no_sdm LIKE '%".strtoupper($key)."%'")->paginate(20);
         }
 
@@ -205,6 +247,8 @@ class SdmController extends Controller
         $sdm->propktp = strtoupper($request->input('propinsiktp'));
         $sdm->propps = strtoupper($request->input('propinsips'));
         $sdm->no_kk = strtoupper($request->input('input_kk'));
+
+        $sdm->status = 1;
         
 
 
@@ -396,7 +440,8 @@ class SdmController extends Controller
         'prop' => strtoupper($request->input('propinsi')),
         'propktp' => strtoupper($request->input('propinsiktp')),
         'propps' => strtoupper($request->input('propinsips')),
-        'no_kk' => strtoupper($request->input('input_kk'))
+        'no_kk' => strtoupper($request->input('input_kk')),
+        'status' => 1
         
         ]);
          

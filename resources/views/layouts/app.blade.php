@@ -124,6 +124,13 @@
                 </li>
                   </ul>
 
+                <li class="">
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resign<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{{ url('/dataresign') }}">Daftar Resign</a></li> 
+                </li>
+                  </ul>
+
               </ul>
             </ul>
             <ul class="nav navbar-nav navbar-right">
