@@ -138,6 +138,7 @@
                         <div class="row submitbtn1">
                             <div class="col-sm-12">
                                 <button type="submit" class="btn btn-primary" name="simpanbutton" onclick="return confirm('Apakah anda yakin akan menyimpan data ini?')">SIMPAN</button>
+                                <a href="{{ url('/pendaftaran') }}" id="clear-filter" title="KEMBALI">[Kembali Ke Daftar]</a>
                             </div>
                         </div>
                         @endif

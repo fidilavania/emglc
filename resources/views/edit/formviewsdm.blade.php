@@ -190,13 +190,7 @@
                                     <label class="col-sm-3 control-label">Jabatan*</label>
                                         <div class="col-sm-8">
                                             <select class="form-control" name="input_jabatan" readonly>
-                                                @foreach($lihat2 as $l)
-                                                    <option value="{{trim($l->jabatan,' ')}}">{{trim($l->jabatankantor,' ')}}</option>
-                                                @endforeach
-                                                <!-- <option>-Ganti Jabatan-</option>
-                                                    @foreach($jabatan as $jb)
-                                                        <option value="{{$jb->jabatankantor}}">{{$jb->jabatankantor}}</option>
-                                                    @endforeach -->
+                                                <option>{{trim($sdm->jabatan,' ')}}</option>
                                             </select>
                                         </div>
                                 </div>
@@ -416,12 +410,10 @@
                                                 <div class="row form-group">
                                                     <label class="col-sm-3 control-label">Gelar</label>
                                                     <div class="col-sm-9">
-                                                        <select class="form-control" name="input_gelar_ps" readonly>
-                                                            <option replace>{{trim($sdm->gelar_ps,' ')}}</option>
-                                                           <!--  <option value >-Ganti Gelar-</option>
-                                                            @foreach($gelar as $g)
-                                                                <option value="{{$g->kode}}">{{$g->gelar}}</option>    
-                                                            @endforeach -->
+                                                        <select class="form-control" name="pendidikan" readonly>
+                                                            @foreach($lihat5 as $l)
+                                                                <option  value="{{trim($l->gelar_ps,' ')}}">{{trim($l->gelar,' ')}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                 </div>

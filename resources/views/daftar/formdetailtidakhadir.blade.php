@@ -94,7 +94,7 @@
                                         <th>Alamat</th>
                                         <th>No Tlp</th>
                                         <th>No Hp</th>
-                                        <th>Alasan</th>
+                                        <!-- <th>Alasan</th> -->
                                     </thead>
                                     <tbody>
                                         @foreach($datasdm as $data)
@@ -108,7 +108,7 @@
                                             <td>{{$data->alamat_tinggal}}</td>
                                             <td>{{$data->notlp}}</td>
                                             <td>{{$data->nohp}}</td>
-                                            <td><input type="text"/></td>
+                                            <!-- <td><input type="text"/></td> -->
                                         </tr>
                                         @endif
                                         @endforeach
@@ -140,7 +140,6 @@
                         @if(isset($peserta))
                         <div class="row submitbtn1">
                             <div class="col-sm-12">
-                                <button type="submit" class="btn btn-primary" name="simpanbutton" onclick="return confirm('Apakah anda yakin akan menyimpan data ini?')">SIMPAN</button>
                                 <a href="{{ url('/pendaftaran') }}" id="clear-filter" title="KEMBALI">[Kembali Ke Daftar]</a>
                             </div>
                         </div>

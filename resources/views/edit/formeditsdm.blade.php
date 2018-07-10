@@ -183,12 +183,10 @@
                                     <label class="col-sm-3 control-label">Jabatan*</label>
                                         <div class="col-sm-8">
                                             <select class="form-control" name="input_jabatan" required>
-                                                @foreach($lihat2 as $l)
-                                                    <option value="{{trim($l->jabatan,' ')}}">{{trim($l->jabatankantor,' ')}}</option>
-                                                @endforeach
+                                                <option replace>{{trim($sdm->jabatan,' ')}}</option>
                                                 <option>-Ganti Jabatan-</option>
                                                 @foreach($jabatan as $jb)
-                                                        <option value="{{$jb->kode}}">{{$jb->jabatankantor}}</option>
+                                                        <option value="{{$jb->jabatankantor}}">{{$jb->jabatankantor}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -287,7 +285,14 @@
                                             <div class="row form-group">
                                                 <label class="col-sm-3 control-label">Propinsi</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" name="propinsiktp" autocomplete="off" value="{{trim($sdm->propktp,' ')}}" style="text-transform:uppercase" placeholder="PROPINSI" required />
+                                                        <select class="form-control" name="propinsiktp" required>
+                                                                    <option replace>{{trim($sdm->propktp,' ')}}</option>
+                                                                    <option>-Pilih Propinsi-</option>
+                                                                    @foreach($propinsi as $k)
+                                                                        <option value="{{$k->propinsi}}">{{$k->propinsi}}</option>
+                                                                    @endforeach
+                                                        </select>
+                                                        <!-- <input type="text" class="form-control" name="propinsiktp" autocomplete="off" value="{{trim($sdm->propktp,' ')}}" style="text-transform:uppercase" placeholder="PROPINSI" required /> -->
                                                     </div>
                                             </div>
                                             <div class="row form-group">
@@ -345,7 +350,14 @@
                                             <div class="row form-group">
                                                 <label class="col-sm-3 control-label">Propinsi</label>
                                                     <div class="col-sm-8">
-                                                        <input type="text" class="form-control" name="propinsi" autocomplete="off" value="{{trim($sdm->prop,' ')}}" style="text-transform:uppercase" placeholder="PROPINSI" required />
+                                                        <select class="form-control" name="propinsi" required>
+                                                                    <option replace>{{trim($sdm->prop,' ')}}</option>
+                                                                    <option>-Pilih Propinsi-</option>
+                                                                    @foreach($propinsi as $k)
+                                                                        <option value="{{$k->propinsi}}">{{$k->propinsi}}</option>
+                                                                    @endforeach
+                                                        </select>
+                                                        <!-- <input type="text" class="form-control" name="propinsi" autocomplete="off" value="{{trim($sdm->prop,' ')}}" style="text-transform:uppercase" placeholder="PROPINSI" required /> -->
                                                     </div>
                                             </div>
                                             <div class="row form-group">
@@ -427,9 +439,11 @@
                                                 <div class="row form-group">
                                                     <label class="col-sm-3 control-label">Gelar</label>
                                                     <div class="col-sm-9">
-                                                        <select class="form-control" name="input_gelar_ps">
-                                                            <option replace>{{trim($sdm->gelar_ps,' ')}}</option>
-                                                            <option value >-Ganti Gelar-</option>
+                                                        <select class="form-control" name="input_gelar_ps" required>
+                                                            @foreach($lihat5 as $l)
+                                                                    <option  value="{{trim($l->gelar_ps,' ')}}">{{trim($l->gelar,' ')}}</option>
+                                                            @endforeach
+                                                            <option>-Ganti Pendidikan-</option>
                                                             @foreach($gelar as $g)
                                                                 <option value="{{$g->kode}}">{{$g->gelar}}</option>    
                                                             @endforeach
@@ -483,7 +497,14 @@
                                                  <div class="row form-group">
                                                     <label class="col-sm-3 control-label">Propinsi</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" name="propinsips" autocomplete="off" value="{{trim($sdm->propps,' ')}}" style="text-transform:uppercase" placeholder="PROPINSI" required />
+                                                        <select class="form-control" name="propinsips">
+                                                                    <option replace>{{trim($sdm->propps,' ')}}</option>
+                                                                    <option>-Pilih Propinsi-</option>
+                                                                    @foreach($propinsi as $k)
+                                                                        <option value="{{$k->propinsi}}">{{$k->propinsi}}</option>
+                                                                    @endforeach
+                                                        </select>
+                                                        <!-- <input type="text" class="form-control" name="propinsips" autocomplete="off" value="{{trim($sdm->propps,' ')}}" style="text-transform:uppercase" placeholder="PROPINSI" required /> -->
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
@@ -553,12 +574,9 @@
         $('[name="input_kodyaktp"]').select2({ width: '100%' });
         $('[name="input_kodya"]').select2({ width: '100%' });
 
-        // $('[name="propinsiktp"]').select2({ width: '100%' });
-        // $('[name="propinsi"]').select2({ width: '100%' });
-        // $('[name="input_kelurahan"]').select2({ width: '100%' });
-        // $('[name="input_kecamatan"]').select2({ width: '100%' });
-        // $('[name="input_kecamatanktp"]').select2({ width: '100%' });
-        // $('[name="input_kelurahanktp"]').select2({ width: '100%' });
+        $('[name="propinsi"]').select2({ width: '100%' });
+        $('[name="propinsiktp"]').select2({ width: '100%' });
+
 
         $('#input_tglkerja').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
         $('#tanggallahir').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
@@ -581,8 +599,10 @@
                                     .appendTo('.KantorTambah');
                 // $('[name="input_tanggal_lahir_ps"]').datepicker({ format: 'dd-mm-yyyy', autoclose: true });
                 // // $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
-                 $('[name="input_tanggal_lahir_ps"]').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
+                $('[name="input_tanggal_lahir_ps"]').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
 
+                $('[name="input_kodya_ps"]').select2({ width: '100%' });
+                $('[name="propinsips"]').select2({ width: '100%' });
 
                 $('[name="input_ktp_ps"]').keypress(function(data){
                     if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))

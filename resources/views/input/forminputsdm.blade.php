@@ -102,8 +102,17 @@
                                     </div>
                                 </div>
                                 <div class="row form-group">
+                                    <label class="col-sm-3 control-label">No KK*</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" class="form-control" name="input_kk" autocomplete="off" value="" style="text-transform:uppercase" maxlength="16" placeholder="323232323232323" id="kk" id="pesankk" required/>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="row form-group">
                                         <label class="col-sm-3 control-label">Agama*</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-8">
                                             <select class="form-control" name="input_agama" required>
                                                 <option value >-Pilih Agama-</option>
                                                 <option value="ISLAM">Islam</option>
@@ -115,8 +124,6 @@
                                             </select>
                                         </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-6">
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">No NPWP</label>
                                     <div class="col-sm-8">
@@ -178,7 +185,7 @@
                                             <select class="form-control" name="input_jabatan" required>
                                                 <option>-Pilih Jabatan-</option>
                                                     @foreach($jabatan as $jb)
-                                                        <option value="{{$jb->kode}}">{{$jb->jabatankantor}}</option>
+                                                        <option value="{{$jb->jabatankantor}}">{{$jb->jabatankantor}}</option>
                                                     @endforeach
                                             </select>
                                         </div>
@@ -276,63 +283,31 @@
                                                         <input type="text" class="form-control" name="input_rwktp" autocomplete="off" value="" maxlength="3" placeholder="111" id="rw" id="pesanrw" />
                                                     </div>
                                             </div>
-                            
-                                <!-- <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Propinsi :</label>
-                                    <div class="col-sm-4">
-                                      <select class="form-control" name="propinsi" required>
-                                                 <option>-Pilih Propinsi-</option>
-                                                @foreach($propinsi as $prop)
-                                                 <option value="{{$prop->propinsi}}">{{$prop->propinsi}}</option>
-                                                @endforeach
-                                                
-                                      </select>
-                                                                              
-                                    </div>
-                                     
-                                </div>
-                            
-                            
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Kodya :</label>
-                                    <div class="col-sm-4">
-                                      <select class="form-control" name="kodya" required>
-                                                 <option>-Pilih Kodya Kab-</option>
-                                                @foreach($kodya as $dati2)
-                                                <option value="{{$dati2->kodya}}">{{$dati2->kodya}}</option>
-                                                 @endforeach
-                                      </select>
-                                    </div>
-                                </div>
-                           
-
-                            
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Kecamatan :</label>
-                                    <div class="col-sm-4">
-                                      <select class="form-control" name="camat" required>
-                                                 <option>-Pilih Kecamatan-</option>
-                                                @foreach($camat as $cmt)
-                                                <option value="{{$cmt->camat}}">{{$cmt->camat}}</option>
-                                                 @endforeach
-                                      </select>
-                                    </div>
-                                </div>
-                           
-                            
-                                <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Kelurahan :</label>
-                                    <div class="col-sm-4">
-                                      <select class="form-control" name="lurah" required>
-                                                 <option>-Pilih Kelurahan-</option>
-                                                @foreach($lurah as $lrh)
-                                                    <option value="{{$lrh->lurah}}">{{$lrh->lurah}}</option>
-                                                 @endforeach
-                                                
-                                      </select>
-                                    </div>
-                                </div> -->
-                            
+                                
+                                            <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Propinsi</label>
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control" name="propinsiktp" required>
+                                                                    <option>-Pilih Propinsi-</option>
+                                                                    @foreach($propinsi as $k)
+                                                                        <option value="{{$k->propinsi}}">{{$k->propinsi}}</option>
+                                                                    @endforeach
+                                                        </select>
+                                                        <!-- <input type="text" class="form-control" name="propinsiktp" autocomplete="off" value="" style="text-transform:uppercase" placeholder="PROPINSI" required /> -->
+                                                    </div>
+                                            </div>
+                               
+                                           <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Kodya*</label>
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control" name="input_kodyaktp" required>
+                                                                    <option>-Pilih Kodya-</option>
+                                                                    @foreach($kodyaa as $k)
+                                                                        <option value="{{$k->desc2}}">{{$k->desc2}}</option>
+                                                                    @endforeach
+                                                        </select>
+                                                    </div>
+                                            </div>                            
                                             <div class="row form-group">
                                                 <label class="col-sm-3 control-label">Kelurahan*</label>
                                                     <div class="col-sm-9">
@@ -345,18 +320,7 @@
                                                         <input type="text" class="form-control" name="input_kecamatanktp" autocomplete="off" value="" style="text-transform:uppercase" placeholder="KECAMATAN" required />
                                                     </div>
                                             </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kodya*</label>
-                                                    <div class="col-sm-9">
-                                                        <select class="form-control" name="input_kodyaktp" required>
-                                                                    <!-- <option value="1293" >1293 - Malang,Kota</option> -->
-                                                                    <option>-Pilih Kodya-</option>
-                                                                    @foreach($kodyaa as $k)
-                                                                        <option value="{{$k->desc2}}">{{$k->desc2}}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                    </div>
-                                            </div>
+                                            
                                             <div class="row form-group">
                                                 <label class="col-sm-3 control-label">Kode Pos</label>
                                                     <div class="col-sm-9">
@@ -366,7 +330,7 @@
                                             <div class="row form-group">
                                             <!-- <label class="col-sm-3 control-label">Alamat KTP*</label> -->
                                             <div class="col-sm-8">
-                                                <input type='button' class="btn btn-danger" name="generatesample" style="text-transform:uppercase" value="Alamat tinggal sama dengan KTP"> <br>
+                                                
                                             </div>
                                             </div>  
                                         </div>
@@ -387,6 +351,30 @@
                                                         <input type="text" class="form-control" name="input_rw" autocomplete="off" value="" maxlength="3" placeholder="111" id="rw" id="pesanrw" />
                                                      </div>
                                             </div>
+<div class="row form-group">
+                                                <label class="col-sm-3 control-label">Propinsi</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-control" name="propinsi" required>
+                                                                    <option>-Pilih Propinsi-</option>
+                                                                    @foreach($propinsi as $k)
+                                                                        <option value="{{$k->propinsi}}">{{$k->propinsi}}</option>
+                                                                    @endforeach
+                                                        </select>
+                                                        <!-- <input type="text" class="form-control" name="propinsi" autocomplete="off" value="" style="text-transform:uppercase" placeholder="PROPINSI" required /> -->
+                                                    </div>
+                                            </div>
+<div class="row form-group">
+                                                <label class="col-sm-3 control-label">Kodya*</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-control" name="input_kodya" required>
+                                                            <!-- <option value="1293" >1293 - Malang,Kota</option> -->
+                                                             <option>-Pilih Kodya-</option>
+                                                            @foreach($kodyaa as $k)
+                                                            <option value="{{$k->desc2}}">{{$k->desc2}}</option>
+                                                             @endforeach
+                                                         </select>
+                                                    </div>
+                                            </div>
                                             <div class="row form-group">
                                                 <label class="col-sm-3 control-label">Kelurahan*</label>
                                                     <div class="col-sm-8">
@@ -399,18 +387,7 @@
                                                         <input type="text" class="form-control" name="input_kecamatan" autocomplete="off" value="" style="text-transform:uppercase" placeholder="KECAMATAN" required />
                                                     </div>
                                             </div>
-                                             <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kodya*</label>
-                                                    <div class="col-sm-8">
-                                                        <select class="form-control" name="input_kodya" required>
-                                                            <!-- <option value="1293" >1293 - Malang,Kota</option> -->
-                                                             <option>-Pilih Kodya-</option>
-                                                            @foreach($kodyaa as $k)
-                                                            <option value="{{$k->desc2}}">{{$k->desc2}}</option>
-                                                             @endforeach
-                                                         </select>
-                                                    </div>
-                                            </div>
+                                             
                                              <div class="row form-group">
                                                 <label class="col-sm-3 control-label">Kode Pos</label>
                                                     <div class="col-sm-8">
@@ -520,6 +497,30 @@
                                                         <input type="text" class="form-control" name="input_rw_ps" autocomplete="off" value="" maxlength="3" placeholder="111"  id="rwps" id="pesanrws" />
                                                     </div>
                                                 </div>
+<div class="row form-group">
+                                                <label class="col-sm-3 control-label">Propinsi</label>
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control" name="propinsips">
+                                                                    <option>-Pilih Propinsi-</option>
+                                                                    @foreach($propinsi as $k)
+                                                                        <option value="{{$k->propinsi}}">{{$k->propinsi}}</option>
+                                                                    @endforeach
+                                                        </select>
+                                                        <!-- <input type="text" class="form-control" name="propinsips" autocomplete="off" value="" style="text-transform:uppercase" placeholder="PROPINSI" required /> -->
+                                                    </div>
+                                            </div>
+ <div class="row form-group">
+                                                    <label class="col-sm-3 control-label">Kodya</label>
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control" name="input_kodya_ps">
+                                                            <!-- <option value="1293" >1293 - Malang,Kota</option> -->
+                                                            <option>-Pilih Kodya-</option>
+                                                            @foreach($kodyaa as $k)
+                                                                <option value="{{$k->desc2}}">{{$k->desc2}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
                                                 <div class="row form-group">
                                                     <label class="col-sm-3 control-label">Kelurahan</label>
                                                     <div class="col-sm-9">
@@ -534,19 +535,11 @@
                                                      
                                                     </div>
                                                 </div>
-                                                <div class="row form-group">
-                                                    <label class="col-sm-3 control-label">Kodya</label>
-                                                    <div class="col-sm-9">
-                                                        <select class="form-control" name="input_kodya_ps">
-                                                            <!-- <option value="1293" >1293 - Malang,Kota</option> -->
-                                                            <option>-Pilih Kodya-</option>
-                                                            @foreach($kodyaa as $k)
-                                                                <option value="{{$k->desc2}}">{{$k->desc2}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                               
                                             </div>
+                                 <div class="col-sm-12">
+                                    <input type="button" value="Hapus Pasangan" class="btn btn-danger pull-right" name="hapusalat" />
+                                </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -574,140 +567,20 @@
 
     $(document).ready(function() {
 
-        var app = angular.module('pernikahan', []);
-             // $('#tanggallahirps').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
+        $('[name="status_rumah"]').select2({ width: '100%' });
+        $('[name="kantor"]').select2({ width: '100%' });
+        $('[name="input_jabatan"]').select2({ width: '100%' });
+        $('[name="pendidikan"]').select2({ width: '100%' });
+        $('[name="input_jenis_kelamin"]').select2({ width: '100%' });
+        $('[name="input_agama"]').select2({ width: '100%' });
+        $('[name="input_status"]').select2({ width: '100%' });
+        $('[name="input_status_nikah"]').select2({ width: '100%' });
+        $('[name="input_kodyaktp"]').select2({ width: '100%' });
+        $('[name="input_kodya"]').select2({ width: '100%' });
+        $('[name="propinsi"]').select2({ width: '100%' });
+        $('[name="propinsiktp"]').select2({ width: '100%' });
 
-        $('[name="propinsi"]').change(function(){
-            console.log($('[name="propinsi"]').val());
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                          }
-            });
-            $.ajax({
-                url:"{{ url('/pilih') }}",
-                type:"POST",
-                data: {'pilih' : $('[name="propinsi"]').val()
-                },
-                success: function(response){
-                    var content = '';
-                    for(var x = 0; x < response.length; x++){
-                        content += '<option value="'+response[x].kodya+'">'+response[x].kodya+'</option>';
-                    }
-                    $('[name="kodya"]').empty();
-                    $('[name="kodya"]').append(content);
-                },
-                error: function()
-                {
-                  alert('Data tidak ditemukan');
-                }
-            });
-        });
-
-        $('[name="kodya"]').change(function(){
-            console.log($('[name="kodya"]').val());
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                          }
-            });
-            $.ajax({
-                url:"{{ url('/pilihcamat') }}",
-                type:"POST",
-                data: {'pilihcamat' : $('[name="kodya"]').val()
-                },
-                success: function(response){
-                    var content = '';
-                    for(var x = 0; x < response.length; x++){
-                        content += '<option value="'+response[x].camat+'">'+response[x].camat+'</option>';
-                    }
-                    $('[name="camat"]').empty();
-                    $('[name="camat"]').append(content);
-                },
-                error: function()
-                {
-                  alert('Data tidak ditemukan');
-                }
-            });
-        });
-        $('[name="camat"]').change(function(){
-            console.log($('[name="camat"]').val());
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                          }
-            });
-            $.ajax({
-                url:"{{ url('/pilihlurah') }}",
-                type:"POST",
-                data: {'pilihlurah' : $('[name="camat"]').val()
-                },
-                success: function(response){
-                    var content = '';
-                    for(var x = 0; x < response.length; x++){
-                        content += '<option value="'+response[x].lurah+'">'+response[x].lurah+'</option>';
-                    }
-                    $('[name="lurah"]').empty();
-                    $('[name="lurah"]').append(content);
-                },
-                error: function()
-                {
-                  alert('Data tidak ditemukan');
-                }
-            });
-        });
-        $('[name="camat"]').change(function(){
-            console.log($('[name="camat"]').val());
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                          }
-            });
-            $.ajax({
-                url:"{{ url('/kodepos') }}",
-                type:"POST",
-                data: {'kodepos' : $('[name="camat"]').val()
-                },
-                success: function(response){
-                    var content = '';
-                    for(var x = 0; x < response.length; x++){
-                        content += '<option value="'+response[x].kodepos+'">'+response[x].kodepos+'</option>';
-                    }
-                    $('[name="kodepos"]').empty();
-                    $('[name="kodepos"]').append(content);
-                },
-                error: function()
-                {
-                  alert('Data tidak ditemukan');
-                }
-            });
-        });    
-
-        $('[name="generatesample"]').click(function(){
-
-        var alamatktp = ($('[name="input_alamatktp"]').val());
-        var rtktp = ($('[name="input_rtktp"]').val());
-        var rwktp = ($('[name="input_rwktp"]').val());
-        var kelurahanktp = ($('[name="input_kelurahanktp"]').val());
-        var kecamatanktp = ($('[name="input_kecamatanktp"]').val());
-        var kodyaktp = ($('[name="input_kodyaktp"]').val());
-        var kodeposktp = ($('[name="input_kodeposktp"]').val());
-
-        $('[name="input_alamat"]').val(alamatktp);
-        $('[name="input_rt"]').val(rtktp);
-        $('[name="input_rw"]').val(rwktp);
-        $('[name="input_kelurahan"]').val(kelurahanktp);
-        $('[name="input_kecamatan"]').val(kecamatanktp);
-        $('[name="input_kodya"]').val(kodyaktp);
-        $('[name="input_kodepos"]').val(kodeposktp);
-
-        });
-        // $('[name="input_tanggal_lahir"]').datepicker({ format: 'dd-mm-yyyy', autoclose: true });
-        // $("#tanggalmohon").datepicker({ dateFormat: 'dd-mm-yy' });
-        // $("#tanggalberlaku").datepicker({ dateFormat: 'dd-mm-yy' });
-        // $("#tanggallahir").datepicker({ dateFormat: 'dd-mm-yy' });
-        // $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
-        // $("#input_tglkerja").datepicker({ dateFormat: 'dd-mm-yy' });
+       
         $('[name="input_pendapatan"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
         $('[name="input_biaya_hidup"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
         $('#input_tglkerja').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
@@ -730,6 +603,9 @@
                 // $('[name="input_tanggal_lahir_ps"]').datepicker({ format: 'dd-mm-yyyy', autoclose: true });
                 //$("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
                  $('[name="input_tanggal_lahir_ps"]').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
+
+                $('[name="input_kodya_ps"]').select2({ width: '100%' });
+                $('[name="propinsips"]').select2({ width: '100%' });
 
                 $('[name="input_ktp_ps"]').keypress(function(data){
                     if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
@@ -862,3 +738,4 @@
 });
 </script>
 @endsection
+

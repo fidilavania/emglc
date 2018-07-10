@@ -153,13 +153,13 @@ class SdmController extends Controller
     public function input()
     {
       // $camat = DB::connection('pgsql')->table('mst_camat')->where('status','AKTIF')->orderBy('camat','asc')->get();
-    $propinsi = DB::connection('pgsql')->select(DB::raw("SELECT distinct(propinsi) as propinsi FROM mst_camat;")); 
-    $kodya = DB::connection('pgsql')->select(DB::raw("SELECT distinct(kodya) as kodya FROM mst_camat where propinsi = 'Bali';")); 
-    $camat = DB::connection('pgsql')->select(DB::raw("SELECT distinct(camat) as camat FROM mst_camat where kodya = 'Malang.kota';"));  
-    $lurah = DB::connection('pgsql')->select(DB::raw("SELECT distinct lurah,kodepos FROM mst_camat where camat = 'Blimbing';"));  
-    $kodepos = DB::connection('pgsql')->select(DB::raw("SELECT distinct (kodepos) as kodepos FROM mst_camat where camat = 'Blimbing' and lurah = 'Blimbing';"));     
-    $kerja = DB::connection('pgsql')->select(DB::raw("SELECT kode,note,kodeslik FROM mst_kerja;"));     
-    $bidang = DB::connection('pgsql')->select(DB::raw("SELECT note,kode FROM mst_usaha;"));     
+    $propinsi = DB::connection('mysql')->select(DB::raw("SELECT distinct(propinsi) as propinsi FROM mst_camat;")); 
+    $kodya = DB::connection('mysql')->select(DB::raw("SELECT distinct(kodya) as kodya FROM mst_camat where propinsi = 'Bali';")); 
+    $camat = DB::connection('mysql')->select(DB::raw("SELECT distinct(camat) as camat FROM mst_camat where kodya = 'Malang.kota';"));  
+    $lurah = DB::connection('mysql')->select(DB::raw("SELECT distinct lurah,kodepos FROM mst_camat where camat = 'Blimbing';"));  
+    $kodepos = DB::connection('mysql')->select(DB::raw("SELECT distinct (kodepos) as kodepos FROM mst_camat where camat = 'Blimbing' and lurah = 'Blimbing';"));     
+    $kerja = DB::connection('mysql')->select(DB::raw("SELECT kode,note,kodeslik FROM mst_kerja;"));     
+    $bidang = DB::connection('mysql')->select(DB::raw("SELECT note,kode FROM mst_usaha;"));     
 
          // $kodepos = DB::connection('pgsql')->select(DB::raw("SELECT distinct(kodepos) as kodepos FROM mst_camat where camat = 'Blimbing';"));  
       //log::info($camat);
@@ -273,7 +273,7 @@ class SdmController extends Controller
     public function viewFormSDMview($nonsb)
     {
         $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
-        $gelar = DB::connection('mysql')->table('mst_gelar')->orderBy('kode','asc')->orderBy('kode','asc')->get();
+        $gelar = DB::connection('mysql')->table('mst_gelar')->get();
         $kantor = DB::connection('mysql')->table('mst_kantor')->get();
         $jabatan = DB::connection('mysql')->table('mst_jabatan')->get();
         $status = DB::connection('mysql')->table('mst_statusrumah')->get();
@@ -322,20 +322,27 @@ class SdmController extends Controller
             sdm.nikah=mst_nikah.kode";
         $lihat4 = DB::connection('mysql')->select(DB::raw($sql1));  
 
-        return view('edit.formviewsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','sdm','nikah','mkantor','lihat1','lihat2','lihat3','lihat4'));   
+        $sql1 ="SELECT mst_gelar.kode,mst_gelar.gelar,sdm.gelar_ps 
+            from mst_gelar,sdm 
+            where sdm.no_sdm='".$nonsb."' 
+            AND
+            sdm.gelar_ps=mst_gelar.kode";
+        $lihat5 = DB::connection('mysql')->select(DB::raw($sql1));  
+
+        return view('edit.formviewsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','sdm','nikah','mkantor','lihat1','lihat2','lihat3','lihat4','lihat5'));   
     }
 
     public function viewFormSDMEdit($nonsb)
     {
         $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
-        $gelar = DB::connection('mysql')->table('mst_gelar')->orderBy('kode','asc')->orderBy('kode','asc')->get();
+        $gelar = DB::connection('mysql')->table('mst_gelar')->get();
         $kantor = DB::connection('mysql')->table('mst_kantor')->get();
         $jabatan = DB::connection('mysql')->table('mst_jabatan')->get();
         $status = DB::connection('mysql')->table('mst_statusrumah')->get();
         $nikah = DB::connection('mysql')->table('mst_nikah')->get();
         $sdm = sdm::where('no_sdm',$nonsb)->first();
         $mkantor = DB::connection('mysql')->table('master_kantor')->get();
-
+        $propinsi = DB::connection('mysql')->select(DB::raw("SELECT distinct(propinsi) as propinsi FROM mst_camat;")); 
         // $imagePath = public_path('foto');
         // $image = sdm::make(sdm::get($imagePath))->resize(320,240)->encode();
         // Storage::put($imagePath,$image);
@@ -370,7 +377,14 @@ class SdmController extends Controller
             sdm.nikah=mst_nikah.kode";
         $lihat4 = DB::connection('mysql')->select(DB::raw($sql1));  
 
-        return view('edit.formeditsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','sdm','nikah','mkantor','lihat1','lihat2','lihat3','lihat4'));   
+        $sql1 ="SELECT mst_gelar.kode,mst_gelar.gelar,sdm.gelar_ps 
+            from mst_gelar,sdm 
+            where sdm.no_sdm='".$nonsb."' 
+            AND
+            sdm.gelar_ps=mst_gelar.kode";
+        $lihat5 = DB::connection('mysql')->select(DB::raw($sql1));  
+
+        return view('edit.formeditsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','sdm','nikah','mkantor','lihat1','lihat2','lihat3','lihat4','propinsi','lihat5'));   
     }
     public function saveDataSDMEdit(Request $request,$nonsb)
     {               
