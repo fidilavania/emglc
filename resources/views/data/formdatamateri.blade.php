@@ -45,7 +45,8 @@
                                                 <td>{{$nsb->durasi}}</td>
                                                 <td>{{number_format($nsb->biaya,0,'','.')}}</td>
                                                 <td><input type="button" class="btn btn-danger" name="tambah" value="Edit" /></td>
-                                                <td><input type="button" class="btn btn-primary" name="tambahbutton" value="Detail" /></td>
+                                                <td><input type="button" class="btn btn-warning" name="tambahbutton" value="Detail" /></td>
+                                                <td><input type="button" class="btn btn-primary" name="tambahview" value="View" /></td>
                                                 <!-- <td><input type="button" class="btn btn-primary" name="view" value="Peserta" /></td> -->
                                             </tr>
                                          @endforeach
@@ -111,16 +112,16 @@
             }
         });
 
-        $('[name="view"]').click(function() {
+        $('[name="tambahview"]').click(function() {
             console.log($(this).parent().parent().find('td:nth-child(2)').text());
-            console.log($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Peserta');
-            if($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Peserta'){
-                window.location.href = '{{url("/detaildaftar")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+            console.log($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'View');
+            if($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'View'){
+                window.location.href = '{{url("/viewmateri")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
             } else {
-                window.location.href ='{{url("/detaildaftar")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+                window.location.href ='{{url("/viewmateri")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
             }
         });
-
+       
         
         <?php
             //}

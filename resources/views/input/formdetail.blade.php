@@ -25,8 +25,8 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Tanggal*</label>
-                                    <div class="col-sm-8">
+                                    <label class="col-sm-3 control-label">Tanggal</label>
+                                    <div class="col-sm-9">
                                       <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y')}}" readonly>
                                     </div>
                                 </div>
@@ -44,23 +44,16 @@
                             <div class="col-sm-6">
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Kode Modul</label>
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-9">
                                         <input type="text" class="form-control" name="kode_modul" autocomplete="off" value="{{trim($materi->kode_modul,' ')}}" style="text-transform:uppercase;" readonly />
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Nama Modul</label>
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-9">
                                         <input type="text" class="form-control" name="namamodul" autocomplete="off" value="{{trim($materi->nama_modul,' ')}}" style="text-transform:uppercase;" placeholder="Nama Modul" readonly />
                                     </div>
                                 </div>
-                                
-                                <!-- <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Peserta</label>
-                                    <div class="col-sm-9">
-                                        <textarea rows="10" cols="54" name="peserta" placeholder="Isi Peserta" style="text-transform:uppercase;">.readonly {{trim($materi->peserta,' ')}}</textarea>
-                                    </div>
-                                </div> -->
                             </div>
                             <div class="col-sm-6">
                                 <div class="row form-group">
@@ -82,31 +75,54 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                                <!-- <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Sesi</label>
-                                    <div class="col-sm-8">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" name="biaya" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="0"  />
-                                            <span class="input-group-addon">Kali</span>
-                                        </div>
-                                    </div>
-                                </div> -->
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal Pelaksanaan 1</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="tanggal_laksana1" id='tanggal_laksana1' placeholder ="{{date('d-m-Y')}}" >
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="tanggal_laksana1" id='tanggal_laksana1' placeholder ="{{date('d-m-Y')}}" > 
+                                    </div>
+                                    <label class="col-sm-1">-</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="tanggal_end_1" id='tanggal_end_1' placeholder ="{{date('d-m-Y')}}" >
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal Pelaksanaan 2</label>
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="tanggal_laksana2" id='tanggal_laksana2' placeholder ="{{date('d-m-Y')}}" >
+                                    </div>
+                                    <label class="col-sm-1">-</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="tanggal_end_2" id='tanggal_end_2' placeholder ="{{date('d-m-Y')}}" >
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal Pelaksanaan 3</label>
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-4">
                                         <input type="text" class="form-control" name="tanggal_laksana3" id='tanggal_laksana3' placeholder ="{{date('d-m-Y')}}" >
+                                    </div>
+                                    <label class="col-sm-1">-</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="tanggal_end_3" id='tanggal_end_3' placeholder ="{{date('d-m-Y')}}" >
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Tanggal Pelaksanaan 4</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="tanggal_laksana4" id='tanggal_laksana4' placeholder ="{{date('d-m-Y')}}" >
+                                    </div>
+                                    <label class="col-sm-1">-</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="tanggal_end_4" id='tanggal_end_4' placeholder ="{{date('d-m-Y')}}" >
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Tanggal Pelaksanaan 5</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="tanggal_laksana5" id='tanggal_laksana5' placeholder ="{{date('d-m-Y')}}" >
+                                    </div>
+                                    <label class="col-sm-1">-</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="tanggal_end_5" id='tanggal_end_5' placeholder ="{{date('d-m-Y')}}" >
                                     </div>
                                 </div>
                             </div>
@@ -127,6 +143,18 @@
                                     <label class="col-sm-3 control-label">Lokasi Pelaksanaan 3</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" name="lokasi3" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="Lokasi" />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Lokasi Pelaksanaan 4</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="lokasi4" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="Lokasi" />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Lokasi Pelaksanaan 5</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="lokasi5" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="Lokasi" />
                                     </div>
                                 </div>
                             </div>
@@ -152,29 +180,7 @@
         </div>
     </div>
 </div>
-<div id="kantorTambah" data-op ="kantor" hidden>
-    <div class="row">
-        <div class="col-sm-6">
-            <table class="table-bordered"  style="border-style: solid 1px #000000;" width=100% >
-                <thead>
-                    <th>No. SDM</th>
-                    <th>Nama</th>
-                    <th>Jabatan</th>
-                </thead>
-                <tbody>
-                    <?php
-                        foreach($sdm as $j){
-                        echo '<tr>';
-                        echo '<td>'."<input name='peserta[]' type='checkbox'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;$j->no_sdm".'</td>'; 
-                        echo '<td>'.$j->nama.'</td>';
-                        echo '<td>'.$j->jabatan.'</td>';
-                        echo '</tr>';
-                        }
-                    ?>
-                </tbody>
-            </table>
-        </div>
-</div>
+
 
 @endsection
 
@@ -210,29 +216,16 @@ $('#sKecamatan').on('change', function(){
     }
     $(document).ready(function() {
 
-        $('#addKantor').click(function(){
-            var $template = $('#kantorTambah'),
-                $clone    = $template
-                                // .clone()
-                                .removeAttr('hidden')
-                                .removeAttr('id')
-                                //.attr('id','tanahBangunanForm'+$('[data-jaminan="tanahBangunan"]').length)
-                                //.attr('id','tanahBangunanForm'+INC_OP)
-                                //.insertBefore($template);
-                                .appendTo('.KantorTambah');
-            
-        });
-
-        // $("#tanggalmohon").datepicker({ dateFormat: 'dd-mm-yy' });
         $("#tanggal_laksana1").datepicker({ dateFormat: 'dd-mm-yy' });
         $("#tanggal_laksana2").datepicker({ dateFormat: 'dd-mm-yy' });
         $("#tanggal_laksana3").datepicker({ dateFormat: 'dd-mm-yy' });
-        $("#tanggallahir").datepicker({ dateFormat: 'dd-mm-yy' });
-        $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
-        $('[name="input_pendapatan"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-        $('[name="input_biaya_hidup"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-        
-
+        $("#tanggal_laksana4").datepicker({ dateFormat: 'dd-mm-yy' });
+        $("#tanggal_laksana5").datepicker({ dateFormat: 'dd-mm-yy' });
+        $("#tanggal_end_1").datepicker({ dateFormat: 'dd-mm-yy' });
+        $("#tanggal_end_2").datepicker({ dateFormat: 'dd-mm-yy' });
+        $("#tanggal_end_3").datepicker({ dateFormat: 'dd-mm-yy' });
+        $("#tanggal_end_4").datepicker({ dateFormat: 'dd-mm-yy' });
+        $("#tanggal_end_5").datepicker({ dateFormat: 'dd-mm-yy' });
        
 });
 </script>

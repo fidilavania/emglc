@@ -76,6 +76,16 @@ class ViewController extends Controller
 
         return view('data.formdataklien',compact('nsblist','datakredit'));   
     }
+
+    public function ViewMateriview($nonsb)
+    {
+        $matdet = materi_detail::where('kode_modul',$nonsb)->first();
+        // $materi = DB::connection('mysql')->table('materi')->where('kode_modul',$nonsb)->first();
+        $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
+        $materi = materi::where('kode_modul',$nonsb)->first();
+        
+        return view('data.formmateriview',compact('matdet','materi','kodya'));   
+    }
 }
 
 

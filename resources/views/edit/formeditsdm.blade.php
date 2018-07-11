@@ -128,9 +128,9 @@
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">No KK*</label>
+                                    <label class="col-sm-3 control-label">No KK</label>
                                     <div class="col-sm-8">
-                                      <input type="text" class="form-control" name="input_kk" autocomplete="off" value="{{trim($sdm->no_kk,' ')}}" style="text-transform:uppercase" maxlength="16" placeholder="323232323232323" id="kk" id="pesankk" required/>
+                                      <input type="text" class="form-control" name="input_kk" autocomplete="off" value="{{trim($sdm->no_kk,' ')}}" style="text-transform:uppercase" maxlength="16" placeholder="323232323232323" id="kk" id="pesankk"/>
                                     </div>
                                 </div>
                                 <div class="row form-group">

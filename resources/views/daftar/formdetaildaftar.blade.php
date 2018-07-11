@@ -25,7 +25,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Tanggal*</label>
+                                    <label class="col-sm-3 control-label">Tanggal</label>
                                     <div class="col-sm-8">
                                       <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y')}}" readonly>
                                     </div>
@@ -84,6 +84,21 @@
                             <div class="col-sm-12">
                                 @if(isset($peserta))
                                 <h4 align="center">DAFTAR PESERTA</h4>
+                                <div class="col-sm-6">
+                                <div class="row form-group">
+                                    <label class="col-sm-4 control-label">Tanggal Kegiatan</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control"  value="{{$peserta->tgl_keg}}" style="text-transform:uppercase;"  readonly />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-4 control-label">Lokasi Kegiatan</label>
+                                        <div class="col-sm-7">
+                                        <input type="text" class="form-control"  value="{{$peserta->lokasi_keg}}" style="text-transform:uppercase;"  readonly />
+                                    </div>
+                                </div>
+                                </div>
+                                <br>
                                 <table class="table table-bordered" name="datasdm">
                                     <thead>
                                         <th>No SDM</th>
@@ -116,7 +131,7 @@
                                 <br>
                             </div>
                             @if(empty($peserta))
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <input type="button" class="btn btn-primary" value="Tambah Peserta" id="addKantor" />
                                 <br/>
                                 <br/>
@@ -151,28 +166,89 @@
 <div id="kantorTambah" data-op ="kantor" hidden>
  <div class="panel-body">
     <div class="row">
-        <div class="col-sm-15">
-            <table class="table-bordered"  style="border-style: solid 1px #000000;" width=100% >
-                <thead>
-                    <th>No. SDM</th>
-                    <th>Nama</th>
-                    <th>Jabatan</th>
-                </thead>
-                <tbody>
-                    <?php
-                        foreach($sdm as $j){
-                            if( trim($j->kantor,' ') == trim(Auth::user()->kantor,' ')) {
-                            echo '<tr>';
-                            // <input type="text" class="form-control" name="lokasi3" autocomplete="off" value="{{trim($detail->lokasi_3,' ')}}" style="text-transform:uppercase;" placeholder="Lokasi" readonly />
-                            echo '<td>'."<input type='checkbox' name='peserta[]' id='peserta' value='".$j->no_sdm."'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;$j->no_sdm".'</td>'; 
-                            echo '<td>'.$j->nama.'</td>';
-                            echo '<td>'.$j->jabatan.'</td>';
-                            echo '</tr>';
+        <div class="col-sm-12">
+            <div class="col-sm-6">
+                <table class="table-bordered"  style="border-style: solid 1px #000000;" width=100% >
+                    <thead>
+                        <th>No. SDM</th>
+                        <th>Nama</th>
+                        <th>Jabatan</th>
+                    </thead>
+                    <tbody>
+                        <?php
+                            foreach($sdm as $j){
+                                if( trim($j->kantor,' ') == trim(Auth::user()->kantor,' ')) {
+                                echo '<tr>';
+                                // <input type="text" class="form-control" name="lokasi3" autocomplete="off" value="{{trim($detail->lokasi_3,' ')}}" style="text-transform:uppercase;" placeholder="Lokasi" readonly />
+                                echo '<td>'."<input type='checkbox' name='peserta[]' id='peserta' value='".$j->no_sdm."'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;$j->no_sdm".'</td>'; 
+                                echo '<td>'.$j->nama.'</td>';
+                                echo '<td>'.$j->jabatan.'</td>';
+                                echo '</tr>';
+                                }
                             }
-                        }
-                    ?>
-                </tbody>
-            </table>
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+            @if(isset($matdet))
+            <div class="col-sm-6">
+                <div class="row form-group">
+                    <label class="col-sm-3 control-label">Tanggal Kegiatan</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" name="tanggal_keg">
+                                <option>-Pilih Tanggal-</option>
+                                @if($matdet->tgl_mulai_1 == '1970-01-01')
+                                <option>-</option>
+                                @else
+                                <option value="{{date('d-m-Y',strtotime(trim($matdet->tgl_mulai_1,' ')))}} sampai {{date('d-m-Y',strtotime(trim($matdet->tgl_end_1,' ')))}}">
+                                    {{date('d-m-Y',strtotime(trim($matdet->tgl_mulai_1,' ')))}} s/d {{date('d-m-Y',strtotime(trim($matdet->tgl_end_1,' ')))}}</option>
+                                @endif
+                                @if($matdet->tgl_mulai_2 == '1970-01-01')
+                                <option>-</option>
+                                @else
+                                <option value="{{date('d-m-Y',strtotime(trim($matdet->tgl_mulai_2,' ')))}} sampai {{date('d-m-Y',strtotime(trim($matdet->tgl_end_2,' ')))}}">
+                                    {{date('d-m-Y',strtotime(trim($matdet->tgl_mulai_2,' ')))}} s/d {{date('d-m-Y',strtotime(trim($matdet->tgl_end_2,' ')))}}</option>
+                                @endif
+                                @if($matdet->tgl_mulai_3 == '1970-01-01')
+                                <option>-</option>
+                                @else
+                                <option value="{{date('d-m-Y',strtotime(trim($matdet->tgl_mulai_3,' ')))}} sampai {{date('d-m-Y',strtotime(trim($matdet->tgl_end_3,' ')))}}">
+                                    {{date('d-m-Y',strtotime(trim($matdet->tgl_mulai_3,' ')))}} s/d {{date('d-m-Y',strtotime(trim($matdet->tgl_end_3,' ')))}}</option>
+                                @endif
+                                @if($matdet->tgl_mulai_3 == '1970-01-01')
+                                <option>-</option>
+                                @else
+                                <option value="{{date('d-m-Y',strtotime(trim($matdet->tgl_mulai_4,' ')))}} sampai {{date('d-m-Y',strtotime(trim($matdet->tgl_end_4,' ')))}}">
+                                    {{date('d-m-Y',strtotime(trim($matdet->tgl_mulai_4,' ')))}} s/d {{date('d-m-Y',strtotime(trim($matdet->tgl_end_4,' ')))}}</option>
+                                @endif
+                                @if($matdet->tgl_mulai_5 == '1970-01-01')
+                                <option>-</option>
+                                @else
+                                <option value="{{date('d-m-Y',strtotime(trim($matdet->tgl_mulai_5,' ')))}} sampai {{date('d-m-Y',strtotime(trim($matdet->tgl_end_5,' ')))}}">
+                                    {{date('d-m-Y',strtotime(trim($matdet->tgl_mulai_5,' ')))}} s/d {{date('d-m-Y',strtotime(trim($matdet->tgl_end_5,' ')))}}</option>
+                                @endif
+                            </select>
+                        </div>
+                </div> 
+                <div class="row form-group">
+                    <label class="col-sm-3 control-label">Lokasi Kegiatan</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" name="lokasi_keg">
+                                <option>-Pilih Lokasi-</option>
+                                <option value="{{trim($matdet->lokasi_1,' ')}}">{{trim($matdet->lokasi_1,' ')}}</option>
+                                <option value="{{trim($matdet->lokasi_2,' ')}}">{{trim($matdet->lokasi_2,' ')}}</option>
+                                <option value="{{trim($matdet->lokasi_3,' ')}}">{{trim($matdet->lokasi_3,' ')}}</option>
+                                <option value="{{trim($matdet->lokasi_4,' ')}}">{{trim($matdet->lokasi_4,' ')}}</option>
+                                <option value="{{trim($matdet->lokasi_5,' ')}}">{{trim($matdet->lokasi_5,' ')}}</option>
+                            </select>
+                        </div>
+                </div>              
+            </div>
+            @endif
+            @if(empty($matdet))
+            <div class="col-sm-6">
+            </div>
+            @endif
         </div>
     </div>
 </div>

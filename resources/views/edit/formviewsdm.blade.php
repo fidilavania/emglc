@@ -26,9 +26,9 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Tanggal</label>
+                                    <label class="col-sm-3 control-label">Tanggal Input</label>
                                     <div class="col-sm-9">
-                                      <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y')}}" readonly>
+                                      <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y',strtotime(trim($sdm->tgl_input,' ')))}}" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -36,7 +36,8 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Operator</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="opr" autocomplete="off" value="{{ trim(Auth::user()->nama_lengkap,' ') }}" style="text-transform:uppercase;" readonly />
+                                        <input type="text" class="form-control" name="opr" autocomplete="off" 
+                                        value="{{trim($sdm->opr,' ')}}" style="text-transform:uppercase;" readonly />
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +122,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">No KK*</label>
+                                    <label class="col-sm-3 control-label">No KK</label>
                                     <div class="col-sm-8">
                                       <input type="text" class="form-control" name="input_kk" autocomplete="off" value="{{trim($sdm->no_kk,' ')}}" style="text-transform:uppercase" maxlength="16" placeholder="323232323232323" readonly />
                                     </div>
