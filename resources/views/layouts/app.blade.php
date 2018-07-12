@@ -102,13 +102,6 @@
                   </ul>
               @if(strpos(Auth::user()->fungsi, '1111') !== false)
                 <li class="">
-                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Laporan Kegiatan<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="{{ url('/materi') }}">Laporan Kegiatan</a></li> 
-                </li>
-                  </ul>
-
-                <li class="">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data Klien<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="{{ url('/addklien') }}">Input Klien</a></li> 
@@ -128,6 +121,16 @@
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resign<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="{{ url('/dataresign') }}">Daftar Resign</a></li> 
+                </li>
+                  </ul>
+
+                <li class="">
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Laporan<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    @if(strpos(Auth::user()->fungsi, '1111') !== false)
+                    <li><a href="{{ url('/materi') }}">Laporan Kegiatan</a></li> 
+                    @endif
+                    <li><a href="{{ url('/piagam') }}">Piagam Kerjasama</a></li> 
                 </li>
                   </ul>
 

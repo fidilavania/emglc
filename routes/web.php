@@ -99,6 +99,10 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/saveusulsaran','SdmController@saveUsulan');
 	Route::match(['get', 'post'],'/usullihat/{key?}', 'SdmController@viewLihatUsulan')->where('key', '(.*)');
 
+	// piagam
+	Route::get('/piagam', 'LaporanController@formpiagam');
+	
+
 	Route::get('auth/logout', 'AuthController@logout');
 });
 

@@ -39,6 +39,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row form-group" hidden>
+                                    <label class="col-sm-3 control-label">Kantor</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="kantor" autocomplete="off" value="{{ trim(Auth::user()->kantor,' ') }}" style="text-transform:uppercase;" readonly />
+                                    </div>
+                                </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
