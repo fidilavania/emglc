@@ -262,158 +262,8 @@
                                 <!-- <input  type="button" class="btn btn-primary" value="Tambah Pasangan" id="addKantor" /> -->
                                 <!-- <br/>
                                 <br/> -->
-                                <div class="KantorTambah">
-                                </div>
-                            </div>
-                        <div class="col-sm-12">                                        
-                            <div class="panel panel-primary">
-                                <div class="panel-heading" align="center">DATA ALAMAT</div>
-                                    <div class="panel-body">
-                                        <div class="col-sm-6">
-                                            <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Alamat KTP*</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" name="input_alamatktp" autocomplete="off" value="{{trim($sdm->alamat_ktp,' ')}}" style="text-transform:uppercase" placeholder="ALAMAT" required />
-                                        </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-3 control-label">RT/RW</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="text" class="form-control" name="input_rtktp" autocomplete="off" value="{{trim($sdm->rtrw_ktp,' ')}}" placeholder="000/000" id="rt" id="pesanrt" />
-                                                    </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Propinsi</label>
-                                                    <div class="col-sm-9">
-                                                        <select class="form-control" name="propinsiktp" required>
-                                                                    <option replace>{{trim($sdm->propktp,' ')}}</option>
-                                                                    <option>-Pilih Propinsi-</option>
-                                                                    @foreach($propinsi as $k)
-                                                                        <option value="{{$k->propinsi}}">{{$k->propinsi}}</option>
-                                                                    @endforeach
-                                                        </select>
-                                                        <!-- <input type="text" class="form-control" name="propinsiktp" autocomplete="off" value="{{trim($sdm->propktp,' ')}}" style="text-transform:uppercase" placeholder="PROPINSI" required /> -->
-                                                    </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kodya*</label>
-                                                    <div class="col-sm-9">
-                                                        <select class="form-control" name="input_kodyaktp" required>
-                                                                   <option replace>{{trim($sdm->kodya_ktp,' ')}}</option>
-                                                                    <option>-Ganti Kodya-</option>
-                                                                    @foreach($kodya as $k)
-                                                                        <option value="{{$k->desc2}}">{{$k->desc2}}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                    </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kelurahan*</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="text" class="form-control" name="input_kelurahanktp" autocomplete="off" value="{{trim($sdm->lurah_ktp,' ')}}" style="text-transform:uppercase" placeholder="KELURAHAN" required />
-                                                    </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kecamatan*</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="text" class="form-control" name="input_kecamatanktp" autocomplete="off" value="{{trim($sdm->camat_ktp,' ')}}" style="text-transform:uppercase" placeholder="KECAMATAN" required />
-                                                    </div>
-                                            </div>
-                                           
-                                            <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kode Pos</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="text" class="form-control" name="input_kodeposktp" autocomplete="off" value="{{trim($sdm->kodepos_ktp,' ')}}" maxlength="5" placeholder="651xx" id="kodepos" id="pesanpos"  />
-                                                    </div>
-                                            </div>   
-                                            <div class="row form-group">
-                                            <!-- <label class="col-sm-3 control-label">Alamat KTP*</label> -->
-                                            <div class="col-sm-8">
-                                                <!-- <input type='button' class="btn btn-danger" name="generatesample" style="text-transform:uppercase" value="Alamat tinggal sama dengan KTP"> <br> -->
-                                            </div>
-                                            </div>  
-                                        </div>
-                                        <div class="col-sm-6">
-                                            
-                                            <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Alamat Tinggal*</label>
-                                                    <div class="col-sm-8">
-                                                        <input type="text" class="form-control" name="input_alamat" autocomplete="off" value="{{trim($sdm->alamat_tinggal,' ')}}" style="text-transform:uppercase" placeholder="ALAMAT" required />
-                                                    </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-3 control-label">RT/RW</label>
-                                                     <div class="col-sm-8">
-                                                        <input type="text" class="form-control" name="input_rt" autocomplete="off" value="{{trim($sdm->rtrw_tinggal,' ')}}" placeholder="000/000" id="rt" id="pesanrt" />
-                                                    </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Propinsi</label>
-                                                    <div class="col-sm-8">
-                                                        <select class="form-control" name="propinsi" required>
-                                                                    <option replace>{{trim($sdm->prop,' ')}}</option>
-                                                                    <option>-Pilih Propinsi-</option>
-                                                                    @foreach($propinsi as $k)
-                                                                        <option value="{{$k->propinsi}}">{{$k->propinsi}}</option>
-                                                                    @endforeach
-                                                        </select>
-                                                        <!-- <input type="text" class="form-control" name="propinsi" autocomplete="off" value="{{trim($sdm->prop,' ')}}" style="text-transform:uppercase" placeholder="PROPINSI" required /> -->
-                                                    </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kodya*</label>
-                                                    <div class="col-sm-8">
-                                                        <select class="form-control" name="input_kodya" required>
-                                                            <option replace>{{trim($sdm->kodya_tinggal,' ')}}</option>
-                                                             <option>-Ganti Kodya-</option>
-                                                            @foreach($kodya as $k)
-                                                            <option value="{{$k->desc2}}">{{$k->desc2}}</option>
-                                                             @endforeach
-                                                         </select>
-                                                    </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kelurahan*</label>
-                                                    <div class="col-sm-8">
-                                                        <input type="text" class="form-control" name="input_kelurahan" autocomplete="off" value="{{trim($sdm->lurah_tinggal,' ')}}" style="text-transform:uppercase" placeholder="KELURAHAN" required />
-                                                    </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kecamatan*</label>
-                                                    <div class="col-sm-8">
-                                                        <input type="text" class="form-control" name="input_kecamatan" autocomplete="off" value="{{trim($sdm->camat_tinggal,' ')}}" style="text-transform:uppercase" placeholder="KECAMATAN" required />
-                                                    </div>
-                                            </div>
-                                             
-                                             <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kode Pos</label>
-                                                    <div class="col-sm-8">
-                                                        <input type="text" class="form-control" name="input_kodepos" autocomplete="off" value="{{trim($sdm->kodepos_tinggal,' ')}}" maxlength="5" placeholder="651xx" id="kodepos" id="pesanpos"  />
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row submitbtn1">
-                            <!-- <div class="col-sm-12">
-                                <button type="submit" class="btn btn-primary" name="simpanbutton">KE KREDIT</button>
-                            </div> -->
-                            <div class="col-sm-12">
-                                <button type="submit" class="btn btn-primary" name="simpanbutton" onclick="return confirm('Apakah anda yakin akan menyimpan data ini?')">SIMPAN</button>
-                                <a href="{{ url('/datasdm') }}" id="clear-filter" title="Input SDM Baru">[Kembali Ke Daftar]</a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-@endsection
-<div id="kantorTambah" data-op ="kantor" hidden>
+                                <!-- <div class="KantorTambah"> -->
+                                    <div id="kantorTambah" data-op ="kantor" hidden>
      <div class="row">
         <div class="col-sm-12">
                 <div class="panel panel-primary">
@@ -433,7 +283,11 @@
                                                       <input type="text" class="form-control" name="input_tempat_lahir_ps" autocomplete="off" value="{{trim($sdm->tempat_lahir_ps,' ')}}" style="text-transform:uppercase" placeholder="tempat" />
                                                     </div>
                                                     <div class="col-sm-9">
-                                                      <input type="text" class="form-control" name="input_tanggal_lahir_ps" id="tanggallahirps" value="{{date('d-m-Y',strtotime(trim($sdm->lahir_ps)))}}" required placeholder = "{{date('d-m-Y')}}"" >
+                                                      @if($sdm->lahir_ps == '1970-01-01')
+                                                      <input type="text" class="form-control" name="input_tanggal_lahir_ps" id="tanggallahirps" value="" required placeholder = "{{date('d-m-Y')}}" >
+                                                      @else
+                                                      <input type="text" class="form-control" name="input_tanggal_lahir_ps" id="tanggallahirps" value="{{date('d-m-Y',strtotime(trim($sdm->lahir_ps)))}}" required placeholder = "{{date('d-m-Y')}}" >
+                                                      @endif
                                                     </div>
                                                 </div> 
                                                 <div class="row form-group">
@@ -491,48 +345,60 @@
                                                 <div class="row form-group">
                                                     <label class="col-sm-3 control-label">RT/RW</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" name="input_rt_ps" autocomplete="off" value="{{trim($sdm->rtrw_ps,' ')}}" placeholder="000/000" id="rtps" id="pesanrts" />
+                                                        <input type="text" class="form-control" name="input_rt_ps" autocomplete="off" value="{{trim($sdm->rtrw_ps,' ')}}" placeholder="000/000"  />
                                                     </div>
                                                 </div>
-                                                 <div class="row form-group">
-                                                    <label class="col-sm-3 control-label">Propinsi</label>
-                                                    <div class="col-sm-9">
-                                                        <select class="form-control" name="propinsips">
+                                                    <div class="row form-group">
+                                                        <label class="col-sm-3 control-label">Propinsi :</label>
+                                                            <div class="col-sm-9">
+                                                                <select class="form-control" name="propinsips" required>
                                                                     <option replace>{{trim($sdm->propps,' ')}}</option>
                                                                     <option>-Pilih Propinsi-</option>
-                                                                    @foreach($propinsi as $k)
-                                                                        <option value="{{$k->propinsi}}">{{$k->propinsi}}</option>
+                                                                    @foreach($propinsi as $prop)
+                                                                    <option value="{{$prop->propinsi}}">{{$prop->propinsi}}</option>
                                                                     @endforeach
-                                                        </select>
-                                                        <!-- <input type="text" class="form-control" name="propinsips" autocomplete="off" value="{{trim($sdm->propps,' ')}}" style="text-transform:uppercase" placeholder="PROPINSI" required /> -->
+                                                                </select>                        
+                                                            </div>
                                                     </div>
-                                                </div>
-                                                <div class="row form-group">
-                                                    <label class="col-sm-3 control-label">Kodya</label>
-                                                    <div class="col-sm-9">
-                                                        <select class="form-control" name="input_kodya_ps">
-                                                            <option replace>{{trim($sdm->kodya_ps,' ')}}</option>
-                                                            <option>-Ganti Kodya-</option>
-                                                            @foreach($kodya as $k)
-                                                                <option value="{{$k->desc2}}">{{$k->desc2}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="row form-group">
-                                                    <label class="col-sm-3 control-label">Kelurahan</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="text" class="form-control" name="input_kelurahan_ps" autocomplete="off" value="{{trim($sdm->lurah_ps,' ')}}" style="text-transform:uppercase" placeholder="kelurahan" />
-                                                    </div>
-                                                </div>
-                                                <div class="row form-group">
-                                                    <label class="col-sm-3 control-label">Kecamatan</label>
-                                                    <div class="col-sm-9">
-                                                        <input type="text" class="form-control" name="input_kecamatan_ps" autocomplete="off" value="{{trim($sdm->camat_ps,' ')}}" style="text-transform:uppercase" placeholder="kecamatan" />
-                                                       
-                                                    </div>
-                                                </div>
-                                                
+                                                                                    <div class="row form-group">
+                                                                                        <label class="col-sm-3 control-label">Kodya :</label>
+                                                                                        <div class="col-sm-9">
+                                                                                          <select class="form-control" name="input_kodya_ps" required>
+                                                                                                    <option replace>{{trim($sdm->kodya_ps,' ')}}</option>
+                                                                                                     <option>-Pilih Kodya Kab-</option>
+                                                                                                    @foreach($kodya as $dati2)
+                                                                                                    <option value="{{$dati2->kodya}}">{{$dati2->kodya}}</option>
+                                                                                                     @endforeach
+                                                                                          </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="row form-group">
+                                                                                        <label class="col-sm-3 control-label">Kecamatan :</label>
+                                                                                        <div class="col-sm-9">
+                                                                                          <select class="form-control" name="input_kecamatan_ps" required>
+                                                                                                    <option replace>{{trim($sdm->camat_ps,' ')}}</option>
+                                                                                                     <option>-Pilih Kecamatan-</option>
+                                                                                                    @foreach($camat as $cmt)
+                                                                                                    <option value="{{$cmt->camat}}">{{$cmt->camat}}</option>
+                                                                                                     @endforeach
+                                                                                          </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                               
+                                                                                    <div class="row form-group">
+                                                                                        <label class="col-sm-3 control-label">Kelurahan :</label>
+                                                                                        <div class="col-sm-9">
+                                                                                          <select class="form-control" name="input_kelurahan_ps" required>
+                                                                                                    <option replace>{{trim($sdm->lurah_ps,' ')}}</option>
+                                                                                                     <option>-Pilih Kelurahan-</option>
+                                                                                                    @foreach($lurah as $lrh)
+                                                                                                        <option value="{{$lrh->lurah}}">{{$lrh->lurah}}</option>
+                                                                                                     @endforeach
+                                                                                                    
+                                                                                          </select>
+                                                                                        </div>
+                                                                                    </div>
+                                               
                                             </div>
                                 <div class="col-sm-12">
                                     <input type="button" value="Hapus Pasangan" class="btn btn-danger pull-right" name="hapusalat" />
@@ -543,66 +409,311 @@
         </div>
     </div>
 </div>
+                                <!-- </div> -->
+                            </div>
+                        <div class="col-sm-12">                                        
+                            <div class="panel panel-primary">
+                                <div class="panel-heading" align="center">DATA ALAMAT</div>
+                                    <div class="panel-body">
+                                        <div class="col-sm-6">
+                                            <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Alamat KTP*</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="input_alamatktp" autocomplete="off" value="{{trim($sdm->alamat_ktp,' ')}}" style="text-transform:uppercase" placeholder="ALAMAT" required />
+                                        </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <label class="col-sm-3 control-label">RT/RW</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" name="input_rtktp" autocomplete="off" value="{{trim($sdm->rtrw_ktp,' ')}}" placeholder="000/000"  />
+                                                    </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Propinsi</label>
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control" name="propinsiktp" required>
+                                                                    <option replace>{{trim($sdm->propktp,' ')}}</option>
+                                                                    <option>-Pilih Propinsi-</option>
+                                                                    @foreach($propinsi as $k)
+                                                                        <option value="{{$k->propinsi}}">{{$k->propinsi}}</option>
+                                                                    @endforeach
+                                                        </select>
+                                                        <!-- <input type="text" class="form-control" name="propinsiktp" autocomplete="off" value="{{trim($sdm->propktp,' ')}}" style="text-transform:uppercase" placeholder="PROPINSI" required /> -->
+                                                    </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Kodya*</label>
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control" name="input_kodyaktp" required>
+                                                                   <option replace>{{trim($sdm->kodya_ktp,' ')}}</option>
+                                                                    <option>-Ganti Kodya-</option>
+                                                                    @foreach($kodya as $dati2)
+                                                                    <option value="{{$dati2->kodya}}">{{$dati2->kodya}}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                    </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Kecamatan :</label>
+                                                <div class="col-sm-9">
+                                                  <select class="form-control" name="input_kecamatanktp" required>
+                                                             <option replace>{{trim($sdm->camat_ktp,' ')}}</option>
+                                                             <option>-Pilih Kecamatan-</option>
+                                                            @foreach($camat as $cmt)
+                                                            <option value="{{$cmt->camat}}">{{$cmt->camat}}</option>
+                                                             @endforeach
+                                                  </select>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Kelurahan :</label>
+                                                <div class="col-sm-9">
+                                                  <select class="form-control" name="input_kelurahanktp" required>
+                                                            <option replace>{{trim($sdm->lurah_ktp,' ')}}</option>
+                                                            <option>-Pilih Kelurahan-</option>
+                                                            @foreach($lurah as $lrh)
+                                                                <option value="{{$lrh->lurah}}">{{$lrh->lurah}}</option>
+                                                             @endforeach
+                                                            
+                                                  </select>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Kode Pos</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" class="form-control" name="input_kodeposktp" autocomplete="off" value="{{trim($sdm->kodepos_ktp,' ')}}" maxlength="5" placeholder="651xx" id="kodepos" id="pesanpos"  />
+                                                    </div>
+                                            </div>   
+                                            <div class="row form-group">
+                                            <!-- <label class="col-sm-3 control-label">Alamat KTP*</label> -->
+                                            <div class="col-sm-8">
+                                                <!-- <input type='button' class="btn btn-danger" name="generatesample" style="text-transform:uppercase" value="Alamat tinggal sama dengan KTP"> <br> -->
+                                            </div>
+                                            </div>  
+                                        </div>
+                                        <div class="col-sm-6">
+                                            
+                                            <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Alamat Tinggal*</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" name="input_alamat" autocomplete="off" value="{{trim($sdm->alamat_tinggal,' ')}}" style="text-transform:uppercase" placeholder="ALAMAT" required />
+                                                    </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <label class="col-sm-3 control-label">RT/RW</label>
+                                                     <div class="col-sm-8">
+                                                        <input type="text" class="form-control" name="input_rt" autocomplete="off" value="{{trim($sdm->rtrw_tinggal,' ')}}" placeholder="000/000"/>
+                                                    </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Propinsi</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-control" name="propinsi" required>
+                                                                    <option replace>{{trim($sdm->prop,' ')}}</option>
+                                                                    <option>-Pilih Propinsi-</option>
+                                                                    @foreach($propinsi as $k)
+                                                                        <option value="{{$k->propinsi}}">{{$k->propinsi}}</option>
+                                                                    @endforeach
+                                                        </select>
+                                                        <!-- <input type="text" class="form-control" name="propinsi" autocomplete="off" value="{{trim($sdm->prop,' ')}}" style="text-transform:uppercase" placeholder="PROPINSI" required /> -->
+                                                    </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Kodya*</label>
+                                                    <div class="col-sm-8">
+                                                        <select class="form-control" name="input_kodya" required>
+                                                            <option replace>{{trim($sdm->kodya_tinggal,' ')}}</option>
+                                                            <option>-Ganti Kodya-</option>
+                                                            @foreach($kodya as $dati2)
+                                                            <option value="{{$dati2->kodya}}">{{$dati2->kodya}}</option>
+                                                            @endforeach
+                                                         </select>
+                                                    </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Kecamatan :</label>
+                                                <div class="col-sm-8">
+                                                  <select class="form-control" name="input_kecamatan" required>
+                                                            <option replace>{{trim($sdm->camat_tinggal,' ')}}</option>
+                                                            <option>-Pilih Kecamatan-</option>
+                                                            @foreach($camat as $cmt)
+                                                            <option value="{{$cmt->camat}}">{{$cmt->camat}}</option>
+                                                             @endforeach
+                                                  </select>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Kecamatan*</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" name="input_kecamatan" autocomplete="off" value="{{trim($sdm->camat_tinggal,' ')}}" style="text-transform:uppercase" placeholder="KECAMATAN" required />
+                                                    </div>
+                                            </div> -->
+                                            <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Kelurahan :</label>
+                                                <div class="col-sm-8">
+                                                  <select class="form-control" name="input_kelurahan" required>
+                                                            <option replace>{{trim($sdm->lurah_tinggal,' ')}}</option>
+                                                            <option>-Pilih Kelurahan-</option>
+                                                            @foreach($lurah as $lrh)
+                                                                <option value="{{$lrh->lurah}}">{{$lrh->lurah}}</option>
+                                                             @endforeach
+                                                            
+                                                  </select>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Kelurahan*</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" name="input_kelurahan" autocomplete="off" value="{{trim($sdm->lurah_tinggal,' ')}}" style="text-transform:uppercase" placeholder="KELURAHAN" required />
+                                                    </div>
+                                            </div> -->
+                                             <div class="row form-group">
+                                                <label class="col-sm-3 control-label">Kode Pos</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control" name="input_kodepos" autocomplete="off" value="{{trim($sdm->kodepos_tinggal,' ')}}" maxlength="5" placeholder="651xx" id="kodepos" id="pesanpos"  />
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row submitbtn1">
+                            <!-- <div class="col-sm-12">
+                                <button type="submit" class="btn btn-primary" name="simpanbutton">KE KREDIT</button>
+                            </div> -->
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-primary" name="simpanbutton" onclick="return confirm('Apakah anda yakin akan menyimpan data ini?')">SIMPAN</button>
+                                <a href="{{ url('/datasdm') }}" id="clear-filter" title="Input SDM Baru">[Kembali Ke Daftar]</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endsection
+
 
 @section('js')
 <script type="text/javascript">
 
-    
-    var SUBM = 0;
-    function isNumber(nama,pesan) {
-        var val = $('[name="'+nama+'"]').val().replace(/[\s-()]+/g, "");
-        //return !isNaN(parseFloat(val)) && isFinite(val);
-        if(!(!isNaN(parseFloat(val)) && isFinite(val))){
-            $('.errormsg').append('<li class="text-danger">'+pesan+' hanya berisi angka</li>');
-            $('[name="'+nama+'"]').css("background-color", "#F9CECE");
-        }
-    }
-    function checkEmpty(nama,pesan){
-        if($('[name="'+nama+'"]').val() == ''){
-            $('.errormsg').append('<li class="text-danger">'+pesan+' wajib diisi</li>');
-            $('[name="'+nama+'"]').css("background-color", "#F9CECE");
-        }
-    }
     $(document).ready(function() {
         $('[name="status_rumah"]').select2({ width: '100%' });
+        $('[name="kantor"]').select2({ width: '100%' });
         $('[name="input_jabatan"]').select2({ width: '100%' });
         $('[name="pendidikan"]').select2({ width: '100%' });
         $('[name="input_jenis_kelamin"]').select2({ width: '100%' });
         $('[name="input_agama"]').select2({ width: '100%' });
         $('[name="input_status"]').select2({ width: '100%' });
-        // $('[name="input_status_nikah"]').select2({ width: '100%' });
+        $('[name="input_status_nikah"]').select2({ width: '100%' });
         $('[name="input_kodyaktp"]').select2({ width: '100%' });
         $('[name="input_kodya"]').select2({ width: '100%' });
 
-        $('[name="propinsi"]').select2({ width: '100%' });
         $('[name="propinsiktp"]').select2({ width: '100%' });
-
-
+        $('[name="propinsi"]').select2({ width: '100%' });
+        $('[name="input_kelurahan"]').select2({ width: '100%' });
+        $('[name="input_kecamatan"]').select2({ width: '100%' });
+        $('[name="input_kecamatanktp"]').select2({ width: '100%' });
+        $('[name="input_kelurahanktp"]').select2({ width: '100%' });
+       
+       
         $('#input_tglkerja').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
         $('#tanggallahir').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
        
-       // $('[name="input_status_nikah"]').change(function(){
-       //      var nikah = ($('[name="input_status_nikah"]').val());
-       //      if(nikah == "0"){
         $('#pernikahan').each(function(){
             var $nikah = ($('#pernikahan').val());
             if($nikah == "0"){
-                console.log('masuk');
-                 var $template = $('#kantorTambah'),
-                    $clone    = $template
-                                    .clone()
-                                    .removeAttr('hidden')
-                                    .removeAttr('id')
-                                    //.attr('id','tanahBangunanForm'+$('[data-jaminan="tanahBangunan"]').length)
-                                    //.attr('id','tanahBangunanForm'+INC_OP)
-                                    //.insertBefore($template);
-                                    .appendTo('.KantorTambah');
-                // $('[name="input_tanggal_lahir_ps"]').datepicker({ format: 'dd-mm-yyyy', autoclose: true });
-                // // $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
+                $('#kantorTambah').show();
+
+                    $('[name="propinsips"]').change(function(){
+                        console.log($('[name="propinsips"]').val());
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                      }
+                        });
+                        $.ajax({
+                            url:"{{ url('/pilih') }}",
+                            type:"POST",
+                            data: {'pilih' : $('[name="propinsips"]').val()
+                            },
+                            success: function(response){
+                                var content = '';
+                                for(var x = 0; x < response.length; x++){
+                                    content += '<option value="'+response[x].kodya+'">'+response[x].kodya+'</option>';
+                                }
+                                $('[name="input_kodya_ps"]').empty();
+                                $('[name="input_kodya_ps"]').append(content);
+                            },
+                            error: function()
+                            {
+                              alert('Data tidak ditemukan');
+                            }
+                        });
+                    });
+
+                    $('[name="input_kodya_ps"]').change(function(){
+                        console.log($('[name="input_kodya_ps"]').val());
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                      }
+                        });
+                        $.ajax({
+                            url:"{{ url('/pilihcamat') }}",
+                            type:"POST",
+                            data: {'pilihcamat' : $('[name="input_kodya_ps"]').val()
+                            },
+                            success: function(response){
+                                var content = '';
+                                for(var x = 0; x < response.length; x++){
+                                    content += '<option value="'+response[x].camat+'">'+response[x].camat+'</option>';
+                                }
+                                $('[name="input_kecamatan_ps"]').empty();
+                                $('[name="input_kecamatan_ps"]').append(content);
+                            },
+                            error: function()
+                            {
+                              alert('Data tidak ditemukan');
+                            }
+                        });
+                    });
+                    $('[name="input_kecamatan_ps"]').change(function(){
+                        console.log($('[name="input_kecamatan_ps"]').val());
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                      }
+                        });
+                        $.ajax({
+                            url:"{{ url('/pilihlurah') }}",
+                            type:"POST",
+                            data: {'pilihlurah' : $('[name="input_kecamatan_ps"]').val()
+                            },
+                            success: function(response){
+                                var content = '';
+                                for(var x = 0; x < response.length; x++){
+                                    content += '<option value="'+response[x].lurah+'">'+response[x].lurah+'</option>';
+                                }
+                                $('[name="input_kelurahan_ps"]').empty();
+                                $('[name="input_kelurahan_ps"]').append(content);
+                            },
+                            error: function()
+                            {
+                              alert('Data tidak ditemukan');
+                            }
+                        });
+                    });
+
                 $('[name="input_tanggal_lahir_ps"]').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
 
                 $('[name="input_kodya_ps"]').select2({ width: '100%' });
                 $('[name="propinsips"]').select2({ width: '100%' });
+                $('[name="input_kelurahan_ps"]').select2({ width: '100%' });
+                $('[name="input_kecamatan_ps"]').select2({ width: '100%' });
 
                 $('[name="input_ktp_ps"]').keypress(function(data){
                     if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
@@ -629,90 +740,139 @@
                 });
 
                 $('[name="hapusalat"]').on('click',function(){
-                    $(this).closest("div.row").remove();
-                        e.preventDefault();
-                    // $(this).parent().parent().parent().remove();
+                    $('[name="propinsips"]').select2('destroy');
+                    $('[name="input_kodya_ps"]').select2('destroy');
+                    $('[name="input_kelurahan_ps"]').select2('destroy');
+                    $('[name="input_kecamatan_ps"]').select2('destroy');
+                    $('#kantorTambah').hide();
                 });
             }
-       });
-
-         $('#pernikahan').change(function(){
-            var $nikah = ($('#pernikahan').val());
-            if($nikah == "0"){
-                console.log('masuk');
-                 var $template = $('#kantorTambah'),
-                    $clone    = $template
-                                    .clone()
-                                    .removeAttr('hidden')
-                                    .removeAttr('id')
-                                    //.attr('id','tanahBangunanForm'+$('[data-jaminan="tanahBangunan"]').length)
-                                    //.attr('id','tanahBangunanForm'+INC_OP)
-                                    //.insertBefore($template);
-                                    .appendTo('.KantorTambah');
-                // $('[name="input_tanggal_lahir_ps"]').datepicker({ format: 'dd-mm-yyyy', autoclose: true });
-                // // $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
-                 $('[name="input_tanggal_lahir_ps"]').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
-
-
-                $('[name="input_ktp_ps"]').keypress(function(data){
-                    if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-                    {
-                        $("#pesanktps").html("isikan angka").show().fadeOut("slow");
-                        return false;
-                    }
-                });
-                
-                $('[name="input_nom_ps"]').keypress(function(data){
-                    if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-                    {
-                        $("#pesanrws").html("isikan angka").show().fadeOut("slow");
-                        return false;
-                    }
-                });
-                
-                $('[name="input_kodepos_ps"]').keypress(function(data){
-                    if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-                    {
-                        $("#pesanposs").html("isikan angka").show().fadeOut("slow");
-                        return false;
-                    }
-                });
-
-                $('[name="hapusalat"]').on('click',function(){
-                    $(this).closest("div.row").remove();
-                        e.preventDefault();
-                    // $(this).parent().parent().parent().remove();
-                });
-            }
-       });
-        
-        $('[name="generatesample"]').click(function(){
-
-        var alamatktp = ($('[name="input_alamatktp"]').val());
-        var rtktp = ($('[name="input_rtktp"]').val());
-        var rwktp = ($('[name="input_rwktp"]').val());
-        var kelurahanktp = ($('[name="input_kelurahanktp"]').val());
-        var kecamatanktp = ($('[name="input_kecamatanktp"]').val());
-        var kodyaktp = ($('[name="input_kodyaktp"]').val());
-        var kodeposktp = ($('[name="input_kodeposktp"]').val());
-
-        $('[name="input_alamat"]').val(alamatktp);
-        $('[name="input_rt"]').val(rtktp);
-        $('[name="input_rw"]').val(rwktp);
-        $('[name="input_kelurahan"]').val(kelurahanktp);
-        $('[name="input_kecamatan"]').val(kecamatanktp);
-        $('[name="input_kodya"]').val(kodyaktp);
-        $('[name="input_kodepos"]').val(kodeposktp);
-
         });
 
-        // $("#tanggalberlaku").datepicker({ dateFormat: 'dd-mm-yy' });
-        // $("#tanggallahir").datepicker({ format: 'dd-mm-yyyy', autoclose: true });
-        
-        // $("#input_tglkerja").datepicker({ dateFormat: 'dd-mm-yy' });
-        $('[name="input_pendapatan"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-        $('[name="input_biaya_hidup"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-        
+        $('#pernikahan').change(function(){
+            var $nikah = ($('#pernikahan').val());
+            if($nikah == "0"){
+                $('#kantorTambah').show();
+
+                    $('[name="propinsips"]').change(function(){
+                        console.log($('[name="propinsips"]').val());
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                      }
+                        });
+                        $.ajax({
+                            url:"{{ url('/pilih') }}",
+                            type:"POST",
+                            data: {'pilih' : $('[name="propinsips"]').val()
+                            },
+                            success: function(response){
+                                var content = '';
+                                for(var x = 0; x < response.length; x++){
+                                    content += '<option value="'+response[x].kodya+'">'+response[x].kodya+'</option>';
+                                }
+                                $('[name="input_kodya_ps"]').empty();
+                                $('[name="input_kodya_ps"]').append(content);
+                            },
+                            error: function()
+                            {
+                              alert('Data tidak ditemukan');
+                            }
+                        });
+                    });
+                    $('[name="input_kodya_ps"]').change(function(){
+                        console.log($('[name="input_kodya_ps"]').val());
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                      }
+                        });
+                        $.ajax({
+                            url:"{{ url('/pilihcamat') }}",
+                            type:"POST",
+                            data: {'pilihcamat' : $('[name="input_kodya_ps"]').val()
+                            },
+                            success: function(response){
+                                var content = '';
+                                for(var x = 0; x < response.length; x++){
+                                    content += '<option value="'+response[x].camat+'">'+response[x].camat+'</option>';
+                                }
+                                $('[name="input_kecamatan_ps"]').empty();
+                                $('[name="input_kecamatan_ps"]').append(content);
+                            },
+                            error: function()
+                            {
+                              alert('Data tidak ditemukan');
+                            }
+                        });
+                    });
+                    $('[name="input_kecamatan_ps"]').change(function(){
+                        console.log($('[name="input_kecamatan_ps"]').val());
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                      }
+                        });
+                        $.ajax({
+                            url:"{{ url('/pilihlurah') }}",
+                            type:"POST",
+                            data: {'pilihlurah' : $('[name="input_kecamatan_ps"]').val()
+                            },
+                            success: function(response){
+                                var content = '';
+                                for(var x = 0; x < response.length; x++){
+                                    content += '<option value="'+response[x].lurah+'">'+response[x].lurah+'</option>';
+                                }
+                                $('[name="input_kelurahan_ps"]').empty();
+                                $('[name="input_kelurahan_ps"]').append(content);
+                            },
+                            error: function()
+                            {
+                              alert('Data tidak ditemukan');
+                            }
+                        });
+                    });
+
+                $('[name="input_tanggal_lahir_ps"]').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
+
+                $('[name="input_kodya_ps"]').select2({ width: '100%' });
+                $('[name="propinsips"]').select2({ width: '100%' });
+                $('[name="input_kelurahan_ps"]').select2({ width: '100%' });
+                $('[name="input_kecamatan_ps"]').select2({ width: '100%' });
+
+                $('[name="input_ktp_ps"]').keypress(function(data){
+                    if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
+                    {
+                        $("#pesanktps").html("isikan angka").show().fadeOut("slow");
+                        return false;
+                    }
+                });
+                
+                $('[name="input_nom_ps"]').keypress(function(data){
+                    if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
+                    {
+                        $("#pesanrws").html("isikan angka").show().fadeOut("slow");
+                        return false;
+                    }
+                });
+                
+                $('[name="input_kodepos_ps"]').keypress(function(data){
+                    if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
+                    {
+                        $("#pesanposs").html("isikan angka").show().fadeOut("slow");
+                        return false;
+                    }
+                });
+
+                $('[name="hapusalat"]').on('click',function(){
+                    $('[name="propinsips"]').select2('destroy');
+                    $('[name="input_kodya_ps"]').select2('destroy');
+                    $('[name="input_kelurahan_ps"]').select2('destroy');
+                    $('[name="input_kecamatan_ps"]').select2('destroy');
+                    $('#kantorTambah').hide();
+                });
+            }
+        });
 
         $("#hp").keypress(function(data){
             if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
@@ -742,42 +902,167 @@
                 return false;
             }
         });
-        $("#tanggungan").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesantang").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#pendapatan").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesandapat").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
-        });
-        $("#biaya").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanbi").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
+        
+
+        $('[name="propinsiktp"]').change(function(){
+            console.log($('[name="propinsiktp"]').val());
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                          }
+            });
+            $.ajax({
+                url:"{{ url('/pilih') }}",
+                type:"POST",
+                data: {'pilih' : $('[name="propinsiktp"]').val()
+                },
+                success: function(response){
+                    var content = '';
+                    for(var x = 0; x < response.length; x++){
+                        content += '<option value="'+response[x].kodya+'">'+response[x].kodya+'</option>';
+                    }
+                    $('[name="input_kodyaktp"]').empty();
+                    $('[name="input_kodyaktp"]').append(content);
+                },
+                error: function()
+                {
+                  alert('Data tidak ditemukan');
+                }
+            });
         });
 
-        $("#rt").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanrt").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
+        $('[name="input_kodyaktp"]').change(function(){
+            console.log($('[name="input_kodyaktp"]').val());
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                          }
+            });
+            $.ajax({
+                url:"{{ url('/pilihcamat') }}",
+                type:"POST",
+                data: {'pilihcamat' : $('[name="input_kodyaktp"]').val()
+                },
+                success: function(response){
+                    var content = '';
+                    for(var x = 0; x < response.length; x++){
+                        content += '<option value="'+response[x].camat+'">'+response[x].camat+'</option>';
+                    }
+                    $('[name="input_kecamatanktp"]').empty();
+                    $('[name="input_kecamatanktp"]').append(content);
+                },
+                error: function()
+                {
+                  alert('Data tidak ditemukan');
+                }
+            });
         });
-        $("#rw").keypress(function(data){
-            if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
-            {
-                $("#pesanrw").html("isikan angka").show().fadeOut("slow");
-                return false;
-            }
+        $('[name="input_kecamatanktp"]').change(function(){
+            console.log($('[name="input_kecamatanktp"]').val());
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                          }
+            });
+            $.ajax({
+                url:"{{ url('/pilihlurah') }}",
+                type:"POST",
+                data: {'pilihlurah' : $('[name="input_kecamatanktp"]').val()
+                },
+                success: function(response){
+                    var content = '';
+                    for(var x = 0; x < response.length; x++){
+                        content += '<option value="'+response[x].lurah+'">'+response[x].lurah+'</option>';
+                    }
+                    $('[name="input_kelurahanktp"]').empty();
+                    $('[name="input_kelurahanktp"]').append(content);
+                },
+                error: function()
+                {
+                  alert('Data tidak ditemukan');
+                }
+            });
         });
+
+        $('[name="propinsi"]').change(function(){
+            console.log($('[name="propinsi"]').val());
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                          }
+            });
+            $.ajax({
+                url:"{{ url('/pilih') }}",
+                type:"POST",
+                data: {'pilih' : $('[name="propinsi"]').val()
+                },
+                success: function(response){
+                    var content = '';
+                    for(var x = 0; x < response.length; x++){
+                        content += '<option value="'+response[x].kodya+'">'+response[x].kodya+'</option>';
+                    }
+                    $('[name="input_kodya"]').empty();
+                    $('[name="input_kodya"]').append(content);
+                },
+                error: function()
+                {
+                  alert('Data tidak ditemukan');
+                }
+            });
+        });
+
+        $('[name="input_kodya"]').change(function(){
+            console.log($('[name="input_kodya"]').val());
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                          }
+            });
+            $.ajax({
+                url:"{{ url('/pilihcamat') }}",
+                type:"POST",
+                data: {'pilihcamat' : $('[name="input_kodya"]').val()
+                },
+                success: function(response){
+                    var content = '';
+                    for(var x = 0; x < response.length; x++){
+                        content += '<option value="'+response[x].camat+'">'+response[x].camat+'</option>';
+                    }
+                    $('[name="input_kecamatan"]').empty();
+                    $('[name="input_kecamatan"]').append(content);
+                },
+                error: function()
+                {
+                  alert('Data tidak ditemukan');
+                }
+            });
+        });
+        $('[name="input_kecamatan"]').change(function(){
+            console.log($('[name="input_kecamatan"]').val());
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                          }
+            });
+            $.ajax({
+                url:"{{ url('/pilihlurah') }}",
+                type:"POST",
+                data: {'pilihlurah' : $('[name="input_kecamatan"]').val()
+                },
+                success: function(response){
+                    var content = '';
+                    for(var x = 0; x < response.length; x++){
+                        content += '<option value="'+response[x].lurah+'">'+response[x].lurah+'</option>';
+                    }
+                    $('[name="input_kelurahan"]').empty();
+                    $('[name="input_kelurahan"]').append(content);
+                },
+                error: function()
+                {
+                  alert('Data tidak ditemukan');
+                }
+            });
+        }); 
         
 });
 </script>
