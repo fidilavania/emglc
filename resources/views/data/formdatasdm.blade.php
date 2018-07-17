@@ -9,7 +9,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-12">
-                                <table class="table table-bordered" name="daftarnasabahtable">
+                                <table class="table table-bordered" name="daftarnasabahtable" >
                                     <thead>
                                         <th>No SDM</th>
                                         <th>Kantor</th>
@@ -69,9 +69,9 @@
                                                 <td>{{$nsb->nohp}}</td>
                                                 <td>{{$nsb->notlp}}</td>
                                                 <td>{{date('d-m-Y',strtotime($nsb->tgl_kerja))}}</td>
-                                                <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
-                                                <td><input type="button" class="btn btn-primary" name="viewbutton" value="View" /></td>
-                                                <td><input type="button" class="btn btn-warning" name="viewbuttonres" value="Resign" /></td>
+                                                <td><input type="button" class="btn btn-danger btn-sm" name="tambahbutton" value="Edit" /></td>
+                                                <td><input type="button" class="btn btn-primary btn-sm" name="viewbutton" value="View" /></td>
+                                                <td><input type="button" class="btn btn-warning btn-sm" name="viewbuttonres" value="Resign" /></td>
                                             </tr>
                                         @endforeach
 

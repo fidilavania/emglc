@@ -29,6 +29,11 @@
         background-size: 100%;*/
             
         }
+
+      table {
+        font-size: 12px;
+      }
+      
       th {
         border:solid 1px black;
             margin:0px;
@@ -37,6 +42,7 @@
             border-spacing: 5;
             text-align:center;
             background-color: #ededed;
+            
         }
       tr.active td{
             color: red !important;
@@ -128,7 +134,7 @@
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Laporan<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     @if(strpos(Auth::user()->fungsi, '1111') !== false)
-                    <li><a href="{{ url('/materi') }}">Laporan Kegiatan</a></li> 
+                    <!-- <li><a href="{{ url('/materi') }}">Laporan Kegiatan</a></li>  -->
                     @endif
                     <li><a href="{{ url('/piagam') }}">Piagam Kerjasama</a></li> 
                 </li>
