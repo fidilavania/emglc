@@ -62,11 +62,20 @@ class SdmController extends Controller
     {
         $datakredit = array();
 
-        if($key == null){
-            $lihatresign = resign::select('no_sdm','nama','alasan','tanggal','kantor')->paginate(20);
-        } else {
-            $lihatresign = resign::select('no_sdm','nama','alasan','tanggal','kantor')->whereRaw
-            ("nama LIKE '%".strtoupper($key)."%'OR kantor LIKE '%".strtoupper($key)."%'")->paginate(20);
+         if(trim(Auth::user()->kantor,' ') != 'EMG' ){
+            if($key == null){
+                $lihatresign = resign::select('no_sdm','nama','alasan','tanggal','kantor')->where('kantor',Auth::user()->kantor)->paginate(20);
+            } else {
+                $lihatresign = resign::select('no_sdm','nama','alasan','tanggal','kantor')->whereRaw
+                ("nama LIKE '%".strtoupper($key)."%'OR kantor LIKE '%".strtoupper($key)."%'")->where('kantor',Auth::user()->kantor)->paginate(20);
+            }
+        }else{
+            if($key == null){
+                $lihatresign = resign::select('no_sdm','nama','alasan','tanggal','kantor')->paginate(20);
+            } else {
+                $lihatresign = resign::select('no_sdm','nama','alasan','tanggal','kantor')->whereRaw
+                ("nama LIKE '%".strtoupper($key)."%'OR kantor LIKE '%".strtoupper($key)."%'")->paginate(20);
+            }
         }
 
         return view('resign.dataresign',compact('lihatresign'));   
@@ -119,8 +128,10 @@ class SdmController extends Controller
            if($key == null){
             $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor','status')->where('status','1')->where('induk_kantor',Auth::user()->kantor)->paginate(20);
             } else {
+                // $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor','status')->whereRaw
+                // ("nama LIKE '%".strtoupper($key)."%'OR kantor LIKE '%".strtoupper($key)."%' OR alamat_tinggal LIKE '%".strtoupper($key)."%'OR no_sdm LIKE '%".strtoupper($key)."%'")->where('status','1')->where('induk_kantor',Auth::user()->kantor)->paginate(20);
                 $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor','status')->whereRaw
-                ("nama LIKE '%".strtoupper($key)."%'OR kantor LIKE '%".strtoupper($key)."%' OR alamat_tinggal LIKE '%".strtoupper($key)."%'OR no_sdm LIKE '%".strtoupper($key)."%'")->where('status','1')->where('induk_kantor',Auth::user()->kantor)->paginate(20);
+                ("(nama LIKE '%".strtoupper($key)."%' OR alamat_tinggal LIKE '%".strtoupper($key)."%'OR no_sdm LIKE '%".strtoupper($key)."%') AND status = 1 AND induk_kantor = '".Auth::user()->kantor."'")->paginate(20);
             } 
         }else{
             if($key == null){
