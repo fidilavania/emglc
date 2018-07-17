@@ -274,7 +274,7 @@
                                                 <div class="row form-group">
                                                     <label class="col-sm-3 control-label">Nama*</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" class="form-control" name="input_nama_ps" autocomplete="off" value="{{trim($sdm->nama_ps,' ')}}" style="text-transform:uppercase;" required placeholder="NAMA" />
+                                                        <input type="text" class="form-control" name="input_nama_ps" autocomplete="off" value="{{trim($sdm->nama_ps,' ')}}" style="text-transform:uppercase;"  placeholder="NAMA" />
                                                     </div>                                
                                                 </div>
                                                 <div class="row form-group">
@@ -284,16 +284,16 @@
                                                     </div>
                                                     <div class="col-sm-9">
                                                       @if($sdm->lahir_ps == '1970-01-01')
-                                                      <input type="text" class="form-control" name="input_tanggal_lahir_ps" id="tanggallahirps" value="" required placeholder = "{{date('d-m-Y')}}" >
+                                                      <input type="text" class="form-control" name="input_tanggal_lahir_ps" id="tanggallahirps" value=""  placeholder = "{{date('d-m-Y')}}" >
                                                       @else
-                                                      <input type="text" class="form-control" name="input_tanggal_lahir_ps" id="tanggallahirps" value="{{date('d-m-Y',strtotime(trim($sdm->lahir_ps)))}}" required placeholder = "{{date('d-m-Y')}}" >
+                                                      <input type="text" class="form-control" name="input_tanggal_lahir_ps" id="tanggallahirps" value="{{date('d-m-Y',strtotime(trim($sdm->lahir_ps)))}}"  placeholder = "{{date('d-m-Y')}}" >
                                                       @endif
                                                     </div>
                                                 </div> 
                                                 <div class="row form-group">
-                                                    <label class="col-sm-3 control-label">Gelar</label>
+                                                    <label class="col-sm-3 control-label">Pendidikan Terakhir</label>
                                                     <div class="col-sm-9">
-                                                        <select class="form-control" name="input_gelar_ps" required>
+                                                        <select class="form-control" name="input_gelar_ps" >
                                                             @foreach($lihat5 as $l)
                                                                     <option  value="{{trim($l->gelar_ps,' ')}}">{{trim($l->gelar,' ')}}</option>
                                                             @endforeach
@@ -349,9 +349,9 @@
                                                     </div>
                                                 </div>
                                                     <div class="row form-group">
-                                                        <label class="col-sm-3 control-label">Propinsi :</label>
+                                                        <label class="col-sm-3 control-label">Propinsi :*</label>
                                                             <div class="col-sm-9">
-                                                                <select class="form-control" name="propinsips" required>
+                                                                <select class="form-control" name="propinsips" >
                                                                     <option replace>{{trim($sdm->propps,' ')}}</option>
                                                                     <option>-Pilih Propinsi-</option>
                                                                     @foreach($propinsi as $prop)
@@ -361,9 +361,9 @@
                                                             </div>
                                                     </div>
                                                                                     <div class="row form-group">
-                                                                                        <label class="col-sm-3 control-label">Kodya :</label>
+                                                                                        <label class="col-sm-3 control-label">Kodya :*</label>
                                                                                         <div class="col-sm-9">
-                                                                                          <select class="form-control" name="input_kodya_ps" required>
+                                                                                          <select class="form-control" name="input_kodya_ps" >
                                                                                                     <option replace>{{trim($sdm->kodya_ps,' ')}}</option>
                                                                                                      <option>-Pilih Kodya Kab-</option>
                                                                                                     @foreach($kodya as $dati2)
@@ -373,9 +373,9 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="row form-group">
-                                                                                        <label class="col-sm-3 control-label">Kecamatan :</label>
+                                                                                        <label class="col-sm-3 control-label">Kecamatan :*</label>
                                                                                         <div class="col-sm-9">
-                                                                                          <select class="form-control" name="input_kecamatan_ps" required>
+                                                                                          <select class="form-control" name="input_kecamatan_ps" >
                                                                                                     <option replace>{{trim($sdm->camat_ps,' ')}}</option>
                                                                                                      <option>-Pilih Kecamatan-</option>
                                                                                                     @foreach($camat as $cmt)
@@ -386,9 +386,9 @@
                                                                                     </div>
                                                                                
                                                                                     <div class="row form-group">
-                                                                                        <label class="col-sm-3 control-label">Kelurahan :</label>
+                                                                                        <label class="col-sm-3 control-label">Kelurahan :*</label>
                                                                                         <div class="col-sm-9">
-                                                                                          <select class="form-control" name="input_kelurahan_ps" required>
+                                                                                          <select class="form-control" name="input_kelurahan_ps" >
                                                                                                     <option replace>{{trim($sdm->lurah_ps,' ')}}</option>
                                                                                                      <option>-Pilih Kelurahan-</option>
                                                                                                     @foreach($lurah as $lrh)
@@ -429,7 +429,7 @@
                                                     </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Propinsi</label>
+                                                <label class="col-sm-3 control-label">Propinsi :*</label>
                                                     <div class="col-sm-9">
                                                         <select class="form-control" name="propinsiktp" required>
                                                                     <option replace>{{trim($sdm->propktp,' ')}}</option>
@@ -442,7 +442,7 @@
                                                     </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kodya*</label>
+                                                <label class="col-sm-3 control-label">Kodya :*</label>
                                                     <div class="col-sm-9">
                                                         <select class="form-control" name="input_kodyaktp" required>
                                                                    <option replace>{{trim($sdm->kodya_ktp,' ')}}</option>
@@ -454,7 +454,7 @@
                                                     </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kecamatan :</label>
+                                                <label class="col-sm-3 control-label">Kecamatan :*</label>
                                                 <div class="col-sm-9">
                                                   <select class="form-control" name="input_kecamatanktp" required>
                                                              <option replace>{{trim($sdm->camat_ktp,' ')}}</option>
@@ -466,7 +466,7 @@
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kelurahan :</label>
+                                                <label class="col-sm-3 control-label">Kelurahan :*</label>
                                                 <div class="col-sm-9">
                                                   <select class="form-control" name="input_kelurahanktp" required>
                                                             <option replace>{{trim($sdm->lurah_ktp,' ')}}</option>
@@ -479,7 +479,7 @@
                                                 </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kode Pos</label>
+                                                <label class="col-sm-3 control-label">Kode Pos*</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" name="input_kodeposktp" autocomplete="off" value="{{trim($sdm->kodepos_ktp,' ')}}" maxlength="5" placeholder="651xx" id="kodepos" id="pesanpos"  />
                                                     </div>
@@ -506,7 +506,7 @@
                                                     </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Propinsi</label>
+                                                <label class="col-sm-3 control-label">Propinsi :*</label>
                                                     <div class="col-sm-8">
                                                         <select class="form-control" name="propinsi" required>
                                                                     <option replace>{{trim($sdm->prop,' ')}}</option>
@@ -519,7 +519,7 @@
                                                     </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kodya*</label>
+                                                <label class="col-sm-3 control-label">Kodya :*</label>
                                                     <div class="col-sm-8">
                                                         <select class="form-control" name="input_kodya" required>
                                                             <option replace>{{trim($sdm->kodya_tinggal,' ')}}</option>
@@ -531,7 +531,7 @@
                                                     </div>
                                             </div>
                                             <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kecamatan :</label>
+                                                <label class="col-sm-3 control-label">Kecamatan :*</label>
                                                 <div class="col-sm-8">
                                                   <select class="form-control" name="input_kecamatan" required>
                                                             <option replace>{{trim($sdm->camat_tinggal,' ')}}</option>
@@ -549,7 +549,7 @@
                                                     </div>
                                             </div> -->
                                             <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kelurahan :</label>
+                                                <label class="col-sm-3 control-label">Kelurahan :*</label>
                                                 <div class="col-sm-8">
                                                   <select class="form-control" name="input_kelurahan" required>
                                                             <option replace>{{trim($sdm->lurah_tinggal,' ')}}</option>
@@ -568,7 +568,7 @@
                                                     </div>
                                             </div> -->
                                              <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kode Pos</label>
+                                                <label class="col-sm-3 control-label">Kode Pos*</label>
                                                     <div class="col-sm-8">
                                                         <input type="text" class="form-control" name="input_kodepos" autocomplete="off" value="{{trim($sdm->kodepos_tinggal,' ')}}" maxlength="5" placeholder="651xx" id="kodepos" id="pesanpos"  />
                                                     </div>
@@ -602,7 +602,7 @@
 
     $(document).ready(function() {
         $('[name="status_rumah"]').select2({ width: '100%' });
-        $('[name="kantor"]').select2({ width: '100%' });
+        // $('[name="kantor"]').select2({ width: '100%' });
         $('[name="input_jabatan"]').select2({ width: '100%' });
         $('[name="pendidikan"]').select2({ width: '100%' });
         $('[name="input_jenis_kelamin"]').select2({ width: '100%' });

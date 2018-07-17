@@ -271,7 +271,7 @@
                                                                                     <div class="row form-group">
                                                                                         <label class="col-sm-3 control-label">Nama*</label>
                                                                                         <div class="col-sm-9">
-                                                                                            <input type="text" class="form-control" name="input_nama_ps" autocomplete="off" value="" style="text-transform:uppercase;" required placeholder="NAMA" />
+                                                                                            <input type="text" class="form-control" name="input_nama_ps" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="NAMA" />
                                                                                         </div>                                
                                                                                     </div>
                                                                                     <div class="row form-group">
@@ -280,11 +280,11 @@
                                                                                           <input type="text" class="form-control" name="input_tempat_lahir_ps" autocomplete="off" value="" style="text-transform:uppercase" placeholder="tempat" />
                                                                                         </div>
                                                                                         <div class="col-sm-9">
-                                                                                          <input type="text" class="form-control" name="input_tanggal_lahir_ps" id="tanggallahirps" value="" required placeholder = "{{date('d-m-Y')}}"" >
+                                                                                          <input type="text" class="form-control" name="input_tanggal_lahir_ps" id="tanggallahirps" value="" placeholder = "{{date('d-m-Y')}}"" >
                                                                                         </div>
                                                                                     </div> 
                                                                                     <div class="row form-group">
-                                                                                        <label class="col-sm-3 control-label">Gelar</label>
+                                                                                        <label class="col-sm-3 control-label">Pendidikan Terakhir</label>
                                                                                         <div class="col-sm-9">
                                                                                             <select class="form-control" name="input_gelar_ps">
                                                                                                 <option value >-Pilih Gelar-</option>
@@ -341,9 +341,9 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="row form-group">
-                                                                                        <label class="col-sm-3 control-label">Propinsi :</label>
+                                                                                        <label class="col-sm-3 control-label">Propinsi :*</label>
                                                                                         <div class="col-sm-9">
-                                                                                          <select class="form-control" name="propinsips" required>
+                                                                                          <select class="form-control" name="propinsips" >
                                                                                                      <option>-Pilih Propinsi-</option>
                                                                                                     @foreach($propinsi as $prop)
                                                                                                      <option value="{{$prop->propinsi}}">{{$prop->propinsi}}</option>
@@ -352,9 +352,9 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="row form-group">
-                                                                                        <label class="col-sm-3 control-label">Kodya :</label>
+                                                                                        <label class="col-sm-3 control-label">Kodya :*</label>
                                                                                         <div class="col-sm-9">
-                                                                                          <select class="form-control" name="input_kodya_ps" required>
+                                                                                          <select class="form-control" name="input_kodya_ps" >
                                                                                                      <option>-Pilih Kodya Kab-</option>
                                                                                                     @foreach($kodya as $dati2)
                                                                                                     <option value="{{$dati2->kodya}}">{{$dati2->kodya}}</option>
@@ -363,9 +363,9 @@
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="row form-group">
-                                                                                        <label class="col-sm-3 control-label">Kecamatan :</label>
+                                                                                        <label class="col-sm-3 control-label">Kecamatan :*</label>
                                                                                         <div class="col-sm-9">
-                                                                                          <select class="form-control" name="input_kecamatan_ps" required>
+                                                                                          <select class="form-control" name="input_kecamatan_ps" >
                                                                                                      <option>-Pilih Kecamatan-</option>
                                                                                                     @foreach($camat as $cmt)
                                                                                                     <option value="{{$cmt->camat}}">{{$cmt->camat}}</option>
@@ -375,9 +375,9 @@
                                                                                     </div>
                                                                                
                                                                                     <div class="row form-group">
-                                                                                        <label class="col-sm-3 control-label">Kelurahan :</label>
+                                                                                        <label class="col-sm-3 control-label">Kelurahan :*</label>
                                                                                         <div class="col-sm-9">
-                                                                                          <select class="form-control" name="input_kelurahan_ps" required>
+                                                                                          <select class="form-control" name="input_kelurahan_ps" >
                                                                                                      <option>-Pilih Kelurahan-</option>
                                                                                                     @foreach($lurah as $lrh)
                                                                                                         <option value="{{$lrh->lurah}}">{{$lrh->lurah}}</option>
@@ -420,7 +420,7 @@
                                             </div>
                             
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Propinsi :</label>
+                                    <label class="col-sm-3 control-label">Propinsi :*</label>
                                     <div class="col-sm-9">
                                       <select class="form-control" name="propinsiktp" required>
                                                  <option>-Pilih Propinsi-</option>
@@ -431,7 +431,7 @@
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Kodya :</label>
+                                    <label class="col-sm-3 control-label">Kodya :*</label>
                                     <div class="col-sm-9">
                                       <select class="form-control" name="input_kodyaktp" required>
                                                  <option>-Pilih Kodya Kab-</option>
@@ -442,7 +442,7 @@
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Kecamatan :</label>
+                                    <label class="col-sm-3 control-label">Kecamatan :*</label>
                                     <div class="col-sm-9">
                                       <select class="form-control" name="input_kecamatanktp" required>
                                                  <option>-Pilih Kecamatan-</option>
@@ -454,7 +454,7 @@
                                 </div>
                            
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Kelurahan :</label>
+                                    <label class="col-sm-3 control-label">Kelurahan :*</label>
                                     <div class="col-sm-9">
                                       <select class="form-control" name="input_kelurahanktp" required>
                                                  <option>-Pilih Kelurahan-</option>
@@ -467,7 +467,7 @@
                                 </div>
                             
                                             <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kode Pos</label>
+                                                <label class="col-sm-3 control-label">Kode Pos*</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" name="input_kodeposktp" autocomplete="off" value="" maxlength="5" placeholder="651xx" id="kodepos" id="pesanpos"  />
                                                     </div>
@@ -492,7 +492,7 @@
                                             </div>
 
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Propinsi :</label>
+                                    <label class="col-sm-3 control-label">Propinsi :*</label>
                                     <div class="col-sm-9">
                                       <select class="form-control" name="propinsi" required>
                                                  <option>-Pilih Propinsi-</option>
@@ -506,7 +506,7 @@
                                      
                                 </div>
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Kodya :</label>
+                                    <label class="col-sm-3 control-label">Kodya :*</label>
                                     <div class="col-sm-9">
                                       <select class="form-control" name="input_kodya" required>
                                                  <option>-Pilih Kodya Kab-</option>
@@ -517,7 +517,7 @@
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Kecamatan :</label>
+                                    <label class="col-sm-3 control-label">Kecamatan :*</label>
                                     <div class="col-sm-9">
                                       <select class="form-control" name="input_kecamatan" required>
                                                  <option>-Pilih Kecamatan-</option>
@@ -530,7 +530,7 @@
                            
                             
                                 <div class="row form-group">
-                                    <label class="col-sm-3 control-label">Kelurahan :</label>
+                                    <label class="col-sm-3 control-label">Kelurahan :*</label>
                                     <div class="col-sm-9">
                                       <select class="form-control" name="input_kelurahan" required>
                                                  <option>-Pilih Kelurahan-</option>
@@ -543,7 +543,7 @@
                                 </div>
                                       
                                              <div class="row form-group">
-                                                <label class="col-sm-3 control-label">Kode Pos</label>
+                                                <label class="col-sm-3 control-label">Kode Pos*</label>
                                                     <div class="col-sm-9">
                                                         <input type="text" class="form-control" name="input_kodepos" autocomplete="off" value="" maxlength="5" placeholder="651xx" id="kodepos" id="pesanpos"  />
                                                     </div>

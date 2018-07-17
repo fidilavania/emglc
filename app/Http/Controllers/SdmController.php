@@ -115,12 +115,22 @@ class SdmController extends Controller
 
         $datakredit = array();
 
-        if($key == null){
-            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor','status')->paginate(20);
-        } else {
-            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor','status')->whereRaw
-            ("nama LIKE '%".strtoupper($key)."%'OR alamat_ktp LIKE '%".strtoupper($key)."%' OR alamat_tinggal LIKE '%".strtoupper($key)."%'OR no_sdm LIKE '%".strtoupper($key)."%'")->paginate(20);
+        if(trim(Auth::user()->kantor,' ') != 'EMG' ){
+           if($key == null){
+            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor','status')->where('status','1')->where('induk_kantor',Auth::user()->kantor)->paginate(20);
+            } else {
+                $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor','status')->whereRaw
+                ("nama LIKE '%".strtoupper($key)."%'OR kantor LIKE '%".strtoupper($key)."%' OR alamat_tinggal LIKE '%".strtoupper($key)."%'OR no_sdm LIKE '%".strtoupper($key)."%'")->where('status','1')->where('induk_kantor',Auth::user()->kantor)->paginate(20);
+            } 
+        }else{
+            if($key == null){
+            $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor','status')->where('status','1')->paginate(20);
+            } else {
+                $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor','status')->whereRaw
+                ("nama LIKE '%".strtoupper($key)."%'OR kantor LIKE '%".strtoupper($key)."%' OR alamat_tinggal LIKE '%".strtoupper($key)."%'OR no_sdm LIKE '%".strtoupper($key)."%'")->where('status','1')->paginate(20);
+            }
         }
+        
 
         return view('data.formdatasdm',compact('nsblist','datakredit','lihat1'));   
     }

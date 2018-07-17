@@ -16,7 +16,7 @@
                                         <th>Nama</th>
                                         <th>Jenis Kelamin</th>
                                         <th>Tempat, Tanggal Lahir</th>
-                                        <th>Alamat</th>
+                                        <th>Alamat Tinggal</th>
                                         <th>Jabatan</th>
                                         <th>No HP</th>
                                         <th>No Telpon</th>
@@ -46,6 +46,9 @@
                                                     <input id="cif" type="text"  placeholder="Cari Nomor SDM" class="form-control" autocomplete="off" style="text-transform:uppercase">
                                                     <input id="nama" type="text"  placeholder="Cari Nama Nasabah" class="form-control" autocomplete="off" style="text-transform:uppercase">
                                                     <input id="alamat" type="text"  placeholder="Cari Alamat" class="form-control" autocomplete="off" style="text-transform:uppercase">
+                                                    @if(strpos(Auth::user()->fungsi, '1111') !== false)
+                                                    <input id="kantor" type="text"  placeholder="Cari Kantor" class="form-control" autocomplete="off" style="text-transform:uppercase">
+                                                    @endif
                                                 </div>                                        
                                                 <a href="{{ url('/datasdm') }}" id="clear-filter" title="clear filter">[KEMBALI]</a>
                                             </div>
@@ -55,7 +58,6 @@
                                     <hr />
                                     <tbody>
                                         @foreach($nsblist as $nsb)
-                                        @if( trim($nsb->induk_kantor,' ') == trim(Auth::user()->kantor,' ') && trim(Auth::user()->kantor,' ') != 'EMG' && trim($nsb->status,' ') == 1 )  
                                             <tr class="accordion-toggle" data-toggle="collapse" data-target="#{{$nsb->no_sdm}}">
                                                 <td data-id="{{$nsb->no_sdm}}">{{$nsb->no_sdm}}</td>
                                                 <td>{{$nsb->kantor}}</td>
@@ -71,29 +73,8 @@
                                                 <td><input type="button" class="btn btn-primary" name="viewbutton" value="View" /></td>
                                                 <td><input type="button" class="btn btn-warning" name="viewbuttonres" value="Resign" /></td>
                                             </tr>
-                                        @endif
                                         @endforeach
 
-                                        @foreach($nsblist as $nsb)
-                                        @if( trim(Auth::user()->kantor,' ') == 'EMG' && trim($nsb->status,' ') == 1)
-                                            <tr class="accordion-toggle" data-toggle="collapse" data-target="#{{$nsb->no_sdm}}">
-                                                <td data-id="{{$nsb->no_sdm}}">{{$nsb->no_sdm}}</td>
-                                                <td>{{$nsb->kantor}}</td>
-                                                <td>{{$nsb->nama}}</td>
-                                                <td>{{$nsb->jenis_kel}}</td>
-                                                <td>{{$nsb->tempat_lahir}}, {{date('d-m-Y',strtotime($nsb->tgl_lahir))}}</td>
-                                                <td>{{$nsb->alamat_tinggal}}</td>
-                                                <td>{{$nsb->jabatan}}</td>
-                                                <td>{{$nsb->nohp}}</td>
-                                                <td>{{$nsb->notlp}}</td>
-                                                <td>{{date('d-m-Y',strtotime($nsb->tgl_kerja))}}</td>
-                                                <td><input type="button" class="btn btn-danger" name="tambahbutton" value="Edit" /></td>
-                                                <td><input type="button" class="btn btn-primary" name="viewbutton" value="View" /></td>
-                                                <td><input type="button" class="btn btn-warning" name="viewbuttonres" value="Resign" /></td>
-                                            </tr>
-                                        @endif
-                                        @endforeach
-                                    
                                     </tbody>
                                 </table>
                                 <div class="page">
@@ -192,11 +173,11 @@
                 e.preventDefault();
               }
           });
-        $("#ibu").on('keyup',function(e){
+        $("#kantor").on('keyup',function(e){
             //Search saat tekan Enter
               if(e.keyCode==13){
-                if($("#ibu").val() != ""){
-                    var searchword = $("#ibu").val().replace('/', '\/');
+                if($("#kantor").val() != ""){
+                    var searchword = $("#kantor").val().replace('/', '\/');
                     window.location = '{{url("/datasdm")}}'+'/'+searchword;
                 } else {
                     return false;
