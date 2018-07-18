@@ -98,7 +98,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach($datasdm as $data)
-                                        @if( trim($data->kantor,' ') == trim(Auth::user()->kantor,' '))
+                                        @if( trim($data->induk_kantor,' ') == trim(Auth::user()->kantor,' '))
                                         <tr>
                                             <td data-id="{{$data->no_sdm}}">{{$data->no_sdm}}</td>
                                             <td>{{$data->kantor}}</td>
@@ -163,7 +163,7 @@
                 <tbody>
                     <?php
                         foreach($sdm as $j){
-                            if( trim($j->kantor,' ') == trim(Auth::user()->kantor,' ')){
+                            if( trim($j->induk_kantor,' ') == trim(Auth::user()->kantor,' ')){
                             echo '<tr>';
                             // <input type="text" class="form-control" name="lokasi3" autocomplete="off" value="{{trim($detail->lokasi_3,' ')}}" style="text-transform:uppercase;" placeholder="Lokasi" readonly />
                             echo '<td>'."<input type='checkbox' name='peserta[]' id='peserta' value='".$j->no_sdm."'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;$j->no_sdm".'</td>'; 

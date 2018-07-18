@@ -120,7 +120,7 @@
                                         @if(isset($peserta))
                                         @foreach($datasdm as $data)
                                         <tr>
-                                            <td data-id="{{$data->no_sdm}}">{{$data->no_sdm}}</td>
+                                            <td data-id="{{$peserta->kode_modul}}">{{$data->no_sdm}}</td>
                                             <td>{{$data->kantor}}</td>
                                             <td>{{$data->nama}}</td>
                                             <td>{{$data->jenis_kel}}</td>
@@ -133,9 +133,14 @@
                                         @endif
                                     </tbody>
                                 </table>
-                                @endif
-                                <br>
                             </div>
+                            <div class="col-sm-12">
+                                <input type="button" class="btn btn-success" name="cetak" value="Cetak Pendaftaran" />
+                                <br/>
+                                <br/>
+                            </div>
+                            @endif
+                            <br>
                             @if(empty($peserta))
                             <div class="col-sm-12">
                                 <input type="button" class="btn btn-primary" value="Tambah Peserta" id="addKantor" />
@@ -183,7 +188,7 @@
                     <tbody>
                         <?php
                             foreach($sdm as $j){
-                                if( trim($j->kantor,' ') == trim(Auth::user()->kantor,' ')) {
+                                if( trim($j->induk_kantor,' ') == trim(Auth::user()->kantor,' ')) {
                                 echo '<tr>';
                                 // <input type="text" class="form-control" name="lokasi3" autocomplete="off" value="{{trim($detail->lokasi_3,' ')}}" style="text-transform:uppercase;" placeholder="Lokasi" readonly />
                                 echo '<td>'."<input type='checkbox' name='peserta[]' id='peserta' value='".$j->no_sdm."'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;$j->no_sdm".'</td>'; 
@@ -306,14 +311,20 @@ $('#sKecamatan').on('change', function(){
             
         });
 
-        // $("#tanggalmohon").datepicker({ dateFormat: 'dd-mm-yy' });
-        // $("#tanggal_laksana1").datepicker({ dateFormat: 'dd-mm-yy' });
-        // $("#tanggal_laksana2").datepicker({ dateFormat: 'dd-mm-yy' });
-        // $("#tanggal_laksana3").datepicker({ dateFormat: 'dd-mm-yy' });
         $("#tanggallahir").datepicker({ dateFormat: 'dd-mm-yy' });
         $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
         $('[name="input_pendapatan"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
         $('[name="input_biaya_hidup"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+
+        $('[name="cetak"]').click(function() {
+            console.log($(this).parent().parent().find('td:nth-child(2)').text());
+            console.log($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Cetak Pendaftaran');
+            if($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'View'){
+                window.location.href = '{{url("/cetak")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+            } else {
+                window.location.href = '{{url("/cetak")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+            }
+        });
         
 
        
