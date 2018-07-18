@@ -53,7 +53,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Upload Foto</label>
                                     <div class="col-sm-9">
-                                        <input type="file" class="form-control-file" name="img_upload">
+                                        <input type="file" class="form-control-file" name="img_upload">Maksimal 2MB
                                     </div>
                                 </div>
                                 <div class="row form-group">

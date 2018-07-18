@@ -33,7 +33,6 @@
                                     <hr />
                                     <tbody>
                                         @foreach($lihatresign as $nsb)
-                                        @if( trim($nsb->kantor,' ') == trim(Auth::user()->kantor,' ') && trim(Auth::user()->kantor,' ') != 'EMG')  
                                             <tr class="accordion-toggle" data-toggle="collapse" data-target="#{{$nsb->no_sdm}}">
                                                 <td data-id="{{$nsb->no_sdm}}">{{$nsb->no_sdm}}</td>
                                                 <td>{{$nsb->kantor}}</td>
@@ -41,21 +40,7 @@
                                                 <td>{{$nsb->alasan}}</td>
                                                 <td>{{date('d-m-Y',strtotime($nsb->tanggal))}}</td>
                                             </tr>
-                                        @endif
                                         @endforeach
-
-                                        @foreach($lihatresign as $nsb)
-                                        @if( trim(Auth::user()->kantor,' ') == 'EMG')
-                                            <tr class="accordion-toggle" data-toggle="collapse" data-target="#{{$nsb->no_sdm}}">
-                                                <td data-id="{{$nsb->no_sdm}}">{{$nsb->no_sdm}}</td>
-                                                <td>{{$nsb->kantor}}</td>
-                                                <td>{{$nsb->nama}}</td>
-                                                <td>{{$nsb->alasan}}</td>
-                                                <td>{{date('d-m-Y',strtotime($nsb->tanggal))}}</td>
-                                            </tr>
-                                        @endif
-                                        @endforeach
-                                    
                                     </tbody>
                                 </table>
                                 <div class="page">

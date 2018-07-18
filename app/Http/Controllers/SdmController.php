@@ -47,6 +47,7 @@ class SdmController extends Controller
         $res->nama = strtoupper($request->input('input_nama'));
         $res->opr = strtoupper($request->input('opr'));
         $res->kantor =strtoupper($request->input('kantor'));
+        $res->induk_kantor =strtoupper($request->input('induk_kantor'));
         $res->alasan = $request->input('alasan');
         $res->tanggal = date('Y-m-d H:i:s',strtotime($request->input('tanggal'))); 
         $res->save();
@@ -62,18 +63,18 @@ class SdmController extends Controller
     {
         $datakredit = array();
 
-         if(trim(Auth::user()->kantor,' ') != 'EMG' ){
+        if(trim(Auth::user()->kantor,' ') != 'EMG' ){
             if($key == null){
-                $lihatresign = resign::select('no_sdm','nama','alasan','tanggal','kantor')->where('kantor',Auth::user()->kantor)->paginate(20);
+                $lihatresign = resign::select('no_sdm','nama','alasan','tanggal','kantor','induk_kantor')->where('induk_kantor',Auth::user()->kantor)->paginate(20);
             } else {
-                $lihatresign = resign::select('no_sdm','nama','alasan','tanggal','kantor')->whereRaw
-                ("nama LIKE '%".strtoupper($key)."%'OR kantor LIKE '%".strtoupper($key)."%'")->where('kantor',Auth::user()->kantor)->paginate(20);
+                $lihatresign = resign::select('no_sdm','nama','alasan','tanggal','kantor','induk_kantor')->whereRaw
+                ("(nama LIKE '%".strtoupper($key)."%'OR kantor LIKE '%".strtoupper($key)."%') AND induk_kantor = '".Auth::user()->kantor."' ")->paginate(20);
             }
         }else{
             if($key == null){
-                $lihatresign = resign::select('no_sdm','nama','alasan','tanggal','kantor')->paginate(20);
+                $lihatresign = resign::select('no_sdm','nama','alasan','tanggal','kantor','induk_kantor')->paginate(20);
             } else {
-                $lihatresign = resign::select('no_sdm','nama','alasan','tanggal','kantor')->whereRaw
+                $lihatresign = resign::select('no_sdm','nama','alasan','tanggal','kantor','induk_kantor')->whereRaw
                 ("nama LIKE '%".strtoupper($key)."%'OR kantor LIKE '%".strtoupper($key)."%'")->paginate(20);
             }
         }

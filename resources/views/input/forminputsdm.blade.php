@@ -46,7 +46,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Nama*</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="input_nama" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="NAMA" required />
+                                        <input type="text" class="form-control" name="input_nama" autocomplete="off" value="" style="text-transform:uppercase;" placeholder="NAMA" maxlength="50" required />
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -236,7 +236,7 @@
                                  <div class="form-group">
                                     <label class="col-sm-3 control-label">Upload Foto</label>
                                     <div class="col-sm-9">
-                                        <input type="file" class="form-control-file" name="img_upload">
+                                        <input type="file" class="form-control-file" name="img_upload">Maksimal 2MB
                                     </div>
                                 </div>
                             </div>

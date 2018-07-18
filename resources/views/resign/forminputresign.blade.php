@@ -93,6 +93,12 @@
                                             <input type="text" class="form-control" name="kantor" value="{{trim($sdm->kantor,' ')}}" placeholder="kantor" style="text-transform:uppercase" readonly />
                                         </div>
                                 </div>
+                                <div class="row form-group" hidden>
+                                    <label class="col-sm-3 control-label">Induk Kantor</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="induk_kantor" value="{{trim($sdm->induk_kantor,' ')}}" placeholder="indukkantor" style="text-transform:uppercase" readonly />
+                                        </div>
+                                </div>
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal Kerja*</label>
                                     <div class="col-sm-8">
