@@ -48,6 +48,7 @@ class AdminController extends Controller
     	$user->jabatan = $request->input('input_jabatan');
     	$user->kantor = $request->input('input_kantor');
         $user->fungsi = $request->input('input_akses');
+        $user->tlp = $request->input('tlp');
     	$user->status = 1;
     	$user->password = Hash::make($request->input('input_password'));
     	$user->save();

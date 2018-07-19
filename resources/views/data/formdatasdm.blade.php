@@ -46,7 +46,7 @@
                                                     <input id="cif" type="text"  placeholder="Cari Nomor SDM" class="form-control" autocomplete="off" style="text-transform:uppercase">
                                                     <input id="nama" type="text"  placeholder="Cari Nama Nasabah" class="form-control" autocomplete="off" style="text-transform:uppercase">
                                                     <input id="alamat" type="text"  placeholder="Cari Alamat" class="form-control" autocomplete="off" style="text-transform:uppercase">
-                                                    @if(strpos(Auth::user()->fungsi, '1111') !== false)
+                                                    @if(strpos(Auth::user()->fungsi, '2222') !== false)
                                                     <input id="kantor" type="text"  placeholder="Cari Kantor" class="form-control" autocomplete="off" style="text-transform:uppercase">
                                                     @endif
                                                 </div>                                        
@@ -69,9 +69,13 @@
                                                 <td>{{$nsb->nohp}}</td>
                                                 <td>{{$nsb->notlp}}</td>
                                                 <td>{{date('d-m-Y',strtotime($nsb->tgl_kerja))}}</td>
+                                                @if(strpos(Auth::user()->fungsi, '0000') !== false)
                                                 <td><input type="button" class="btn btn-danger btn-sm" name="tambahbutton" value="Edit" /></td>
+                                                @endif
                                                 <td><input type="button" class="btn btn-primary btn-sm" name="viewbutton" value="View" /></td>
+                                                @if(strpos(Auth::user()->fungsi, '0000') !== false)
                                                 <td><input type="button" class="btn btn-warning btn-sm" name="viewbuttonres" value="Resign" /></td>
+                                                @endif
                                             </tr>
                                         @endforeach
 

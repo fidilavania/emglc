@@ -99,10 +99,14 @@
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data Modul Pelatihan<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                   @if(strpos(Auth::user()->fungsi, '1111') !== false)
-                    <li><a href="{{ url('/addmateri') }}">Input Materi</a></li> 
+                    <li><a href="{{ url('/addmateri') }}">Input Materi</a></li>
+                  @endif
+                  @if(strpos(Auth::user()->fungsi, '2222') !== false)
                     <li><a href="{{ url('/datamateri') }}">Daftar Materi</a></li> 
                   @endif
+                  @if(strpos(Auth::user()->fungsi, '0000') !== false)
                     <li><a href="{{ url('/pendaftaran') }}">Pendaftaran</a></li> 
+                  @endif
                     <!-- <li><a>Pendaftaran</a></li>  -->
                 </li>
                   </ul>
@@ -118,7 +122,9 @@
                 <li class="">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data SDM<span class="caret"></span></a>
                   <ul class="dropdown-menu">
+                  @if(strpos(Auth::user()->fungsi, '0000') !== false)
                     <li><a href="{{ url('/addsdm') }}">Input SDM</a></li> 
+                  @endif
                     <li><a href="{{ url('/datasdm') }}">Daftar SDM</a></li> 
                 </li>
                   </ul>
@@ -144,19 +150,21 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
             <li class="">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
               {{ Auth::user()->nama_lengkap }} ({{ Auth::user()->kantor }}) <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li class=""><a href="{{ url('auth/logout') }}">Logout<span class="sr-only">(current)</span></a></li>    
-               @if(strpos(Auth::user()->fungsi, '1111') !== false)
+               @if(strpos(Auth::user()->fungsi, '2222') !== false)
                <li><a href="{{ url('/addkantor') }}">Daftar Kantor</a></li>
-               <li><a href="{{ url('/addjabatan') }}">Input Master Jabatan</a></li>
-               <li><a href="{{ url('/adduser') }}">Input User</a></li>
-               <li><a href="{{ url('/lihatuser') }}">Daftar User</a></li>
+               <li><a href="{{ url('/addjabatan') }}">Daftar Jabatan</a></li>
                @endif
+               @if(strpos(Auth::user()->fungsi, '1111') !== false)
+               <li><a href="{{ url('/lihatuser') }}">Daftar User</a></li>
+               <li><a href="{{ url('/adduser') }}">Input User</a></li>
+               @endif
+               <li><a href="{{ url('/usullihat') }}">Daftar Usulan</a></li>
                <li><a href="{{ url('/usul') }}">Usulan</a></li>
-               <li><a href="{{ url('/usullihat') }}">Lihat Usulan</a></li>
-                
+
             </li> 
             </ul>          
             </ul>

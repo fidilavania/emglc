@@ -13,7 +13,7 @@
             <form class="form-horizontal" id="simpanform" role="form" method="POST" action="{{ url('/savejabatan/$nonsb') }}" >
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="panel panel-primary" id="panelnasabah">
-                    <div class="panel-heading"><h4 align="center">MASUKKAN DATA JABATAN</h4></div>
+                    <div class="panel-heading"><h4 align="center">DATA JABATAN</h4></div>
                     <div class="row">
                         <div class="col-sm-3">
                             <?php
@@ -57,6 +57,7 @@
                                 ?>
                             </tbody>
                         </table>
+                        @if(strpos(Auth::user()->fungsi, '1111') !== false)
                         <input type="button" class="btn btn-primary" value="Tambah Jabatan" id="addKantor" />
                         <div class="KantorTambah">
                         </div>
@@ -68,6 +69,7 @@
                                 <button type="submit" class="btn btn-primary" name="simpanbutton" onclick="return confirm('Apakah anda yakin akan menyimpan data ini?')">SIMPAN</button>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
             </form>

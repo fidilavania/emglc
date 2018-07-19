@@ -24,7 +24,13 @@
                                 <div class="row form-group">
                                     <label class="col-sm-2 control-label">Email</label>
                                     <div class="col-sm-4">
-                                        <input type="email" class="form-control" name="input_email" autocomplete="off" value="" placeholder="email@gmail.com" required />
+                                        <input type="email" class="form-control" name="input_email" autocomplete="off" value="" placeholder="email@gmail.com"  />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-2 control-label">Nomor HP/Tlp</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" name="tlp" autocomplete="off" value="" placeholder="081233xxxxxxxx"  />
                                     </div>
                                 </div>
                                 <div class="row form-group">

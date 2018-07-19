@@ -53,7 +53,7 @@ class PesertaController extends Controller
         $matdet = materi_detail::where('kode_modul',$nonsb)->first();
         $sdm = DB::connection('mysql')->table('sdm')->where('status','1')->orderby('jabatan','asc')->get();
         $materi = DB::connection('mysql')->table('materi')->where('kode_modul',$nonsb)->first();
-        $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('opr',trim(Auth::user()->nama_lengkap,' '))->first();
+        $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('kantor',trim(Auth::user()->kantor,' '))->first();
 
         if(isset($peserta)){
         $datasdm = sdm::select('nama','jenis_kel','kantor','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($peserta->no_sdm,' ').')')->where('status','1')->orderby('jabatan','asc')->get();
@@ -103,7 +103,7 @@ class PesertaController extends Controller
     {
         $sdm = DB::connection('mysql')->table('sdm')->where('status','1')->orderby('jabatan','asc')->get();
         $materi = DB::connection('mysql')->table('materi')->where('kode_modul',$nonsb)->first();
-        $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('opr',trim(Auth::user()->nama_lengkap,' '))->first();
+        $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('kantor',trim(Auth::user()->kantor,' '))->first();
 
         if(isset($peserta)){
         $datasdm = sdm::select('nama','jenis_kel','kantor','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm NOT IN ('.trim($peserta->no_sdm,' ').')')->where('status','1')->orderby('jabatan','asc')->get();
@@ -123,7 +123,7 @@ class PesertaController extends Controller
         $matdet = materi_detail::where('kode_modul',$nonsb)->first();
         $sdm = DB::connection('mysql')->table('sdm')->where('status','1')->orderby('jabatan','asc')->get();
         $materi = DB::connection('mysql')->table('materi')->where('kode_modul',$nonsb)->first();
-        $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('opr',trim(Auth::user()->nama_lengkap,' '))->first();
+        $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('kantor',trim(Auth::user()->kantor,' '))->first();
 
         if(isset($peserta)){
         $datasdm = sdm::select('nama','jenis_kel','kantor','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($peserta->no_sdm,' ').')')->where('status','1')->orderby('jabatan','asc')->get();
