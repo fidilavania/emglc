@@ -641,7 +641,7 @@
                             data: {'pilih' : $('[name="propinsips"]').val()
                             },
                             success: function(response){
-                                var content = '';
+                                var content = '<option value >-Pilih-</option>';
                                 for(var x = 0; x < response.length; x++){
                                     content += '<option value="'+response[x].kodya+'">'+response[x].kodya+'</option>';
                                 }
@@ -668,7 +668,7 @@
                             data: {'pilihcamat' : $('[name="input_kodya_ps"]').val()
                             },
                             success: function(response){
-                                var content = '';
+                                var content = '<option value >-Pilih-</option>';
                                 for(var x = 0; x < response.length; x++){
                                     content += '<option value="'+response[x].camat+'">'+response[x].camat+'</option>';
                                 }
@@ -694,7 +694,7 @@
                             data: {'pilihlurah' : $('[name="input_kecamatan_ps"]').val()
                             },
                             success: function(response){
-                                var content = '';
+                                var content = '<option value >-Pilih-</option>';
                                 for(var x = 0; x < response.length; x++){
                                     content += '<option value="'+response[x].lurah+'">'+response[x].lurah+'</option>';
                                 }
@@ -767,7 +767,7 @@
                             data: {'pilih' : $('[name="propinsips"]').val()
                             },
                             success: function(response){
-                                var content = '';
+                                var content = '<option value >-Pilih-</option>';
                                 for(var x = 0; x < response.length; x++){
                                     content += '<option value="'+response[x].kodya+'">'+response[x].kodya+'</option>';
                                 }
@@ -793,7 +793,7 @@
                             data: {'pilihcamat' : $('[name="input_kodya_ps"]').val()
                             },
                             success: function(response){
-                                var content = '';
+                                var content = '<option value >-Pilih-</option>';
                                 for(var x = 0; x < response.length; x++){
                                     content += '<option value="'+response[x].camat+'">'+response[x].camat+'</option>';
                                 }
@@ -819,7 +819,7 @@
                             data: {'pilihlurah' : $('[name="input_kecamatan_ps"]').val()
                             },
                             success: function(response){
-                                var content = '';
+                                var content = '<option value >-Pilih-</option>';
                                 for(var x = 0; x < response.length; x++){
                                     content += '<option value="'+response[x].lurah+'">'+response[x].lurah+'</option>';
                                 }
@@ -917,7 +917,7 @@
                 data: {'pilih' : $('[name="propinsiktp"]').val()
                 },
                 success: function(response){
-                    var content = '';
+                    var content = '<option value >-Pilih-</option>';
                     for(var x = 0; x < response.length; x++){
                         content += '<option value="'+response[x].kodya+'">'+response[x].kodya+'</option>';
                     }
@@ -944,7 +944,7 @@
                 data: {'pilihcamat' : $('[name="input_kodyaktp"]').val()
                 },
                 success: function(response){
-                    var content = '';
+                    var content = '<option value >-Pilih-</option>';
                     for(var x = 0; x < response.length; x++){
                         content += '<option value="'+response[x].camat+'">'+response[x].camat+'</option>';
                     }
@@ -970,7 +970,7 @@
                 data: {'pilihlurah' : $('[name="input_kecamatanktp"]').val()
                 },
                 success: function(response){
-                    var content = '';
+                    var content = '<option value >-Pilih-</option>';
                     for(var x = 0; x < response.length; x++){
                         content += '<option value="'+response[x].lurah+'">'+response[x].lurah+'</option>';
                     }
@@ -997,7 +997,7 @@
                 data: {'pilih' : $('[name="propinsi"]').val()
                 },
                 success: function(response){
-                    var content = '';
+                    var content = '<option value >-Pilih-</option>';
                     for(var x = 0; x < response.length; x++){
                         content += '<option value="'+response[x].kodya+'">'+response[x].kodya+'</option>';
                     }
@@ -1024,7 +1024,7 @@
                 data: {'pilihcamat' : $('[name="input_kodya"]').val()
                 },
                 success: function(response){
-                    var content = '';
+                    var content = '<option value >-Pilih-</option>';
                     for(var x = 0; x < response.length; x++){
                         content += '<option value="'+response[x].camat+'">'+response[x].camat+'</option>';
                     }
@@ -1050,7 +1050,7 @@
                 data: {'pilihlurah' : $('[name="input_kecamatan"]').val()
                 },
                 success: function(response){
-                    var content = '';
+                    var content = '<option value >-Pilih-</option>';
                     for(var x = 0; x < response.length; x++){
                         content += '<option value="'+response[x].lurah+'">'+response[x].lurah+'</option>';
                     }

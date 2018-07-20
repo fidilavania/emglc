@@ -224,13 +224,59 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <input type="button" class="btn btn-primary" value="Tambah Peserta" id="addKantor" /> -->
-                        <br/>
-                        <br/>
-                        <div class="KantorTambah">
+                        <div class="row">
+                            <!-- @foreach($peserta as $p)
+                                <div class="col-sm-4">   
+                                    <input type="text" class="form-control" value="{{trim($p->tgl_keg,' ')}}" readonly >
+                                </div>
+                            @endforeach -->
                         </div>
-                        <br/>
-                        <br/>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                    <div class="panel-heading"><h4 align="center">DAFTAR PESERTA</h4></div>
+                                    <table class="table table-bordered"  style="border-style: solid 1px #000000;" width=100% >
+                                        <thead>
+                                            <th>No.</th>
+                                            <th>No. SDM</th>
+                                            <th>Kantor</th>
+                                            <th>Nama</th>
+                                            <th>Jabatan</th>
+                                            <!-- <th>Tanggal Kegiatan</th> -->
+                                            <!-- <th>Lokasi Kegiatan</th> -->
+                                            <!-- <th>Tanggal Kegiatan</th>
+                                            <th>Lokasi Kegiatan</th> -->
+                                        </thead>
+                                        <tbody>
+                                            @foreach($peserta as $p)
+                                                <td data-id="{{$p->kode_modul}}" hidden></td>
+                                            @endforeach
+                                            <?php
+                                            $no = 0;
+                                                foreach ($all as $a) {
+                                                $no++;
+                                                    echo '<td align="center">'.$no.'</td>'; 
+                                                    // echo '<tr>';
+                                                    echo '<td align="center">'.$a->no_sdm.'</td>'; 
+                                                    echo '<td>'.$a->kantor.'</td>';
+                                                    echo '<td>'.$a->nama.'</td>';
+                                                    echo '<td>'.$a->jabatan.'</td>';
+                                                    // echo '<td>'.$p->tgl_keg.'</td>';
+                                                    // echo '<td>'.$p->lokasi_keg.'</td>';
+                                                    echo '</tr>';
+                                                        // echo '<td>'.$p->tgl_keg.'</td>';
+                                                    // }
+                                                }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </div>
+                            <div class="col-sm-12">
+                                <input type="button" class="btn btn-success" name="cetak" value="Daftar Hadir" />
+                                <br/>
+                                <br/>
+                            </div>
+                        <br><br>
                         <div class="row submitbtn1">
                             <!-- <div class="col-sm-12">
                                 <button type="submit" class="btn btn-primary" name="simpanbutton">KE KREDIT</button>
@@ -254,6 +300,16 @@
 
     
     $(document).ready(function() {
+
+        $('[name="cetak"]').click(function() {
+            console.log($(this).parent().parent().find('td:nth-child(2)').text());
+            console.log($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Daftar Hadir');
+            if($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'View'){
+                window.location.href = '{{url("/presensi")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+            } else {
+                window.location.href = '{{url("/presensi")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+            }
+        });
 
     });
 </script>

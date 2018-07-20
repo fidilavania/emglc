@@ -80,13 +80,48 @@ class ViewController extends Controller
     public function ViewMateriview($nonsb)
     {
         $matdet = materi_detail::where('kode_modul',$nonsb)->first();
-        // $materi = DB::connection('mysql')->table('materi')->where('kode_modul',$nonsb)->first();
         $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
         $materi = materi::where('kode_modul',$nonsb)->first();
-        
-        return view('data.formmateriview',compact('matdet','materi','kodya'));   
+      
+        $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->get();
+        $all = array();
+        foreach ($peserta as $p) {
+            $sdm = sdm::select('kantor','nama','jenis_kel','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->where('status','1')->orderby('jabatan','asc')->get();
+            for($i=0;$i<count($sdm);$i++){
+                array_push($all, $sdm[$i]);
+            }
+        }
+       
+
+        return view('data.formmateriview',compact('matdet','materi','kodya','datasdm','peserta','all'));   
+    }
+
+    public function viewCetakDaftarHadir($nonsb)
+    {
+        $matdet = materi_detail::where('kode_modul',$nonsb)->first();
+        $sdm = DB::connection('mysql')->table('sdm')->where('status','1')->orderby('jabatan','asc')->get();
+        $materi = DB::connection('mysql')->table('materi')->where('kode_modul',$nonsb)->first();
+        // $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('kantor',trim(Auth::user()->kantor,' '))->first();
+
+        // if(isset($peserta)){
+        // $datasdm = sdm::select('nama','jenis_kel','kantor','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($peserta->no_sdm,' ').')')->where('status','1')->orderby('jabatan','asc')->get();
+        // }
+
+        $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->get();
+        $all = array();
+        foreach ($peserta as $p) {
+            $sdm = sdm::select('kantor','nama','jenis_kel','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->where('status','1')->orderby('jabatan','asc')->get();
+            for($i=0;$i<count($sdm);$i++){
+                array_push($all, $sdm[$i]);
+            }
+            //array_push($all, $sdm);
+        }
+
+        return view('cetak.formdaftarhadir',compact('sdm','materi','matdet','peserta','datasdm','all'));   
     }
 }
+
+
 
 
 

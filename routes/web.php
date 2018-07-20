@@ -94,6 +94,9 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/savematerisimpan/{nonsb?}','ViewController@simpanMateri');
 	Route::get('/viewmateri/{nonsb?}', 'ViewController@ViewMateriview');
 
+	// daftar hadir
+	Route::get('/presensi/{nonsb?}', 'ViewController@viewCetakDaftarHadir');
+
 	// peserta
 	Route::match(['get', 'post'],'/pendaftaran/{key?}', 'PesertaController@formPendaftaran')->where('key', '(.*)');
 
