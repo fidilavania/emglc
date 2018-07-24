@@ -154,13 +154,13 @@ class SdmController extends Controller
         $kantor = DB::connection('mysql')->table('mst_kantor')->get();
         $jabatan = DB::connection('mysql')->table('mst_jabatan')->get();
         $status = DB::connection('mysql')->table('mst_statusrumah')->get();
-        $mkantor = DB::connection('mysql')->table('master_kantor')->get();
+        $mkantor = DB::connection('mysql')->table('master_kantor')->where('kode_induk',Auth::user()->kantor)->get();
 
         $propinsi = DB::connection('mysql')->select(DB::raw("SELECT distinct(propinsi) as propinsi FROM mst_camat;")); 
         $kodya = DB::connection('mysql')->select(DB::raw("SELECT distinct(kodya) as kodya FROM mst_camat where propinsi = 'Bali';")); 
         $camat = DB::connection('mysql')->select(DB::raw("SELECT distinct(camat) as camat FROM mst_camat where kodya = 'Malang.kota';"));  
         $lurah = DB::connection('mysql')->select(DB::raw("SELECT distinct(lurah) as lurah FROM mst_camat where camat = 'Blimbing';"));  
-        $kodepos = DB::connection('mysql')->table('mst_camat')->first();
+        // $kodepos = DB::connection('mysql')->table('mst_camat')->first();
 
         $sql3 ="SELECT mst_jabatan.jabatankantor,sdm.jabatan,mst_jabatan.kode
             from mst_jabatan,sdm 

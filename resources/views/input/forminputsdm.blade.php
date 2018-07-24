@@ -140,7 +140,7 @@
                                     <label class="col-sm-3 control-label">Status Rumah*</label>
                                         <div class="col-sm-8">
                                             <select class="form-control" name="status_rumah" required>
-                                                 <option>-Pilih Status-</option>
+                                                 <option value>-Pilih Status-</option>
                                                 @foreach($status as $s)
                                                 <option value="{{$s->kode_status}}">{{$s->status}}</option>
                                                  @endforeach
@@ -152,11 +152,9 @@
                                         <div class="col-sm-8">
                                            <!--  <input type="text" class="form-control" name="kantor" value="{{ trim(Auth::user()->kantor,' ') }}" placeholder="npwp" style="text-transform:uppercase" readonly /> -->
                                             <select class="form-control" name="kantor" required>
-                                                <option>-Pilih Nama UB-</option>
-                                                    @foreach($mkantor as $kan)
-                                                    @if( trim($kan->kode_induk,' ') == trim(Auth::user()->kantor,' '))    
+                                                <option value>-Pilih Nama UB-</option>
+                                                    @foreach($mkantor as $kan)  
                                                         <option value="{{$kan->kode_induk}}-{{$kan->kode_kantor}}">{{$kan->nama}}</option>
-                                                    @endif
                                                     @endforeach
                                             </select>
                                         </div>
@@ -183,7 +181,7 @@
                                     <label class="col-sm-3 control-label">Jabatan*</label>
                                         <div class="col-sm-8">
                                             <select class="form-control" name="input_jabatan" required>
-                                                <option>-Pilih Jabatan-</option>
+                                                <option value>-Pilih Jabatan-</option>
                                                     @foreach($jabatan as $jb)
                                                         <option value="{{$jb->jabatankantor}}">{{$jb->jabatankantor}}</option>
                                                     @endforeach
@@ -423,7 +421,7 @@
                                     <label class="col-sm-3 control-label">Propinsi :*</label>
                                     <div class="col-sm-9">
                                       <select class="form-control" name="propinsiktp" required>
-                                                 <option>-Pilih Propinsi-</option>
+                                                 <option value>-Pilih Propinsi-</option>
                                                 @foreach($propinsi as $prop)
                                                  <option value="{{$prop->propinsi}}">{{$prop->propinsi}}</option>
                                                 @endforeach
@@ -434,7 +432,7 @@
                                     <label class="col-sm-3 control-label">Kodya :*</label>
                                     <div class="col-sm-9">
                                       <select class="form-control" name="input_kodyaktp" required>
-                                                 <option>-Pilih Kodya Kab-</option>
+                                                 <option value>-Pilih Kodya Kab-</option>
                                                 @foreach($kodya as $dati2)
                                                 <option value="{{$dati2->kodya}}">{{$dati2->kodya}}</option>
                                                  @endforeach
@@ -445,7 +443,7 @@
                                     <label class="col-sm-3 control-label">Kecamatan :*</label>
                                     <div class="col-sm-9">
                                       <select class="form-control" name="input_kecamatanktp" required>
-                                                 <option>-Pilih Kecamatan-</option>
+                                                 <option value>-Pilih Kecamatan-</option>
                                                 @foreach($camat as $cmt)
                                                 <option value="{{$cmt->camat}}">{{$cmt->camat}}</option>
                                                  @endforeach
@@ -457,7 +455,7 @@
                                     <label class="col-sm-3 control-label">Kelurahan :*</label>
                                     <div class="col-sm-9">
                                       <select class="form-control" name="input_kelurahanktp" required>
-                                                 <option>-Pilih Kelurahan-</option>
+                                                 <option value>-Pilih Kelurahan-</option>
                                                 @foreach($lurah as $lrh)
                                                     <option value="{{$lrh->lurah}}">{{$lrh->lurah}}</option>
                                                  @endforeach
@@ -495,7 +493,7 @@
                                     <label class="col-sm-3 control-label">Propinsi :*</label>
                                     <div class="col-sm-9">
                                       <select class="form-control" name="propinsi" required>
-                                                 <option>-Pilih Propinsi-</option>
+                                                 <option value>-Pilih Propinsi-</option>
                                                 @foreach($propinsi as $prop)
                                                  <option value="{{$prop->propinsi}}">{{$prop->propinsi}}</option>
                                                 @endforeach
@@ -509,7 +507,7 @@
                                     <label class="col-sm-3 control-label">Kodya :*</label>
                                     <div class="col-sm-9">
                                       <select class="form-control" name="input_kodya" required>
-                                                 <option>-Pilih Kodya Kab-</option>
+                                                 <option value>-Pilih Kodya Kab-</option>
                                                 @foreach($kodya as $dati2)
                                                 <option value="{{$dati2->kodya}}">{{$dati2->kodya}}</option>
                                                  @endforeach
@@ -520,7 +518,7 @@
                                     <label class="col-sm-3 control-label">Kecamatan :*</label>
                                     <div class="col-sm-9">
                                       <select class="form-control" name="input_kecamatan" required>
-                                                 <option>-Pilih Kecamatan-</option>
+                                                 <option value>-Pilih Kecamatan-</option>
                                                 @foreach($camat as $cmt)
                                                 <option value="{{$cmt->camat}}">{{$cmt->camat}}</option>
                                                  @endforeach
@@ -533,7 +531,7 @@
                                     <label class="col-sm-3 control-label">Kelurahan :*</label>
                                     <div class="col-sm-9">
                                       <select class="form-control" name="input_kelurahan" required>
-                                                 <option>-Pilih Kelurahan-</option>
+                                                 <option value>-Pilih Kelurahan-</option>
                                                 @foreach($lurah as $lrh)
                                                     <option value="{{$lrh->lurah}}">{{$lrh->lurah}}</option>
                                                  @endforeach

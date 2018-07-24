@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Cetak Pendfataran</title>
+    <title>Cetak Pendaftaran</title>
     <link rel="stylesheet" href="/cetak/css1/boot.css">
     <style>
       @import url(href="/cetak/css1/boot.css");
@@ -25,7 +25,8 @@
           </h1>
         </div>
         <div class="col-xs-6 text-right">
-          <img src="ATM-logo.jpg" height="110" width="200" href="#" onclick="window.print()"> 
+          <br>
+          <img src="ATM-logo.jpg" height="90" width="180" href="#" onclick="window.print()"> 
           <!-- <h1>EMG LEARNING CENTER</h1> -->
           <h1><small>Formulir Pendaftaran</small></h1>
         </div>
@@ -62,6 +63,8 @@
           </div>
         </div>
       </div>
+      <p><h4>Menyetujui Surat Penawaran No :  _________________________________________</h4></p>
+      <p><h4>Kami mendaftarkan peserta sebagai berikut :</h4></p>
       <!-- / end client details section -->
       <table class="table table-bordered">
         <thead>
@@ -69,9 +72,9 @@
             <th colspan="2">
               <h4 align="center"><b>Nama</b></h4>
             </th>
-            <th>
+            <!-- <th>
               <h4 align="center"><b>Kantor</b></h4>
-            </th>
+            </th> -->
             <th>
               <h4 align="center"><b>Jabatan</b></h4>
             </th>
@@ -85,7 +88,7 @@
             @foreach($datasdm as $data)
                 <tr>
                     <td data-id="{{$peserta->kode_modul}}" colspan="2" >{{$data->nama}}</td>
-                    <td>{{$data->kantor}}</td>
+                    <!-- <td>{{$data->kantor}}</td> -->
                     <td>{{$data->jabatan}}</td>
                     <td>{{$data->jenis_kel}}</td>                        
                     </tr>
@@ -119,7 +122,7 @@
               <p align="center"><b>{{date('d-m-Y')}}</b></p>
               <br><br><br><br>
               <p align="center">________________________</p>
-              <p align="center"><b>Direktur Utama</b></p>
+              <p align="center"><b>Direksi / Pimpinan</b></p>
             <!-- </div> -->
           <!-- </div> -->
         </div>

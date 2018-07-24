@@ -44,7 +44,7 @@
                                             <div class="col-sm-12 text-center">     
                                                 <div class="form-group">
                                                     <input id="cif" type="text"  placeholder="Cari Nomor SDM" class="form-control" autocomplete="off" style="text-transform:uppercase">
-                                                    <input id="nama" type="text"  placeholder="Cari Nama Nasabah" class="form-control" autocomplete="off" style="text-transform:uppercase">
+                                                    <input id="nama" type="text"  placeholder="Cari Nama SDM" class="form-control" autocomplete="off" style="text-transform:uppercase">
                                                     <input id="alamat" type="text"  placeholder="Cari Alamat" class="form-control" autocomplete="off" style="text-transform:uppercase">
                                                     @if(strpos(Auth::user()->fungsi, '2222') !== false)
                                                     <input id="kantor" type="text"  placeholder="Cari Kantor" class="form-control" autocomplete="off" style="text-transform:uppercase">

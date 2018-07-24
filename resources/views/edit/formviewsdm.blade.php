@@ -47,7 +47,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Foto</label>
                                     <div class="col-sm-9">
-                                         <img src="{{url(trim($sdm->foto,' '))}}" height="170" width="150"/>
+                                         <img src="{{url(trim($sdm->foto,' '))}}" height="180" width="150"/>
                                          <!-- <input type="file" class="form-control-file" name="img_upload"> -->
                                     </div>
                                 </div>
@@ -497,33 +497,7 @@
 @section('js')
 <script type="text/javascript">
 
-$('#sKota').on('change', function(){
-    $.post('{{ URL::to('site/data') }}', {type: 'kecamatan', id: $('#sKota').val()}, function(e){
-        $('#sKecamatan').html(e);
-    });
-    $('#sDesa').html('');
-});
-$('#sKecamatan').on('change', function(){
-    $.post('{{ URL::to('site/data') }}', {type: 'desa', id: $('#sKecamatan').val()}, function(e){
-        $('#sDesa').html(e);
-    });
-});
-// 
-    var SUBM = 0;
-    function isNumber(nama,pesan) {
-        var val = $('[name="'+nama+'"]').val().replace(/[\s-()]+/g, "");
-        //return !isNaN(parseFloat(val)) && isFinite(val);
-        if(!(!isNaN(parseFloat(val)) && isFinite(val))){
-            $('.errormsg').append('<li class="text-danger">'+pesan+' hanya berisi angka</li>');
-            $('[name="'+nama+'"]').css("background-color", "#F9CECE");
-        }
-    }
-    function checkEmpty(nama,pesan){
-        if($('[name="'+nama+'"]').val() == ''){
-            $('.errormsg').append('<li class="text-danger">'+pesan+' wajib diisi</li>');
-            $('[name="'+nama+'"]').css("background-color", "#F9CECE");
-        }
-    }
+    
     $(document).ready(function() {
 
         var nikah = ($('[name="input_status_nikah"]').val());
@@ -537,7 +511,7 @@ $('#sKecamatan').on('change', function(){
                                 //.attr('id','tanahBangunanForm'+INC_OP)
                                 //.insertBefore($template);
                                 .appendTo('.KantorTambah');
-            $('[name="input_tanggal_lahir_ps"]').datepicker({ format: 'dd-mm-yyyy', autoclose: true });
+            // $('[name="input_tanggal_lahir_ps"]').datepicker({ format: 'dd-mm-yyyy', autoclose: true });
             // $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
             $('[name="input_ktp_ps"]').keypress(function(data){
                 if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
@@ -581,7 +555,7 @@ $('#sKecamatan').on('change', function(){
                                 //.attr('id','tanahBangunanForm'+INC_OP)
                                 //.insertBefore($template);
                                 .appendTo('.KantorTambah');
-            $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
+            // $("#tanggallahirps").datepicker({ dateFormat: 'dd-mm-yy' });
             $('[name="input_ktp_ps"]').keypress(function(data){
                 if(data.which!=8 && data.which!=0 && (data.which<48 || data.which>57))
                 {
@@ -652,10 +626,10 @@ $('#sKecamatan').on('change', function(){
 
         });
 
-        $("#tanggalberlaku").datepicker({ dateFormat: 'dd-mm-yy' });
-        $("#tanggallahir").datepicker({ dateFormat: 'dd-mm-yy' });
+        // $("#tanggalberlaku").datepicker({ dateFormat: 'dd-mm-yy' });
+        // $("#tanggallahir").datepicker({ dateFormat: 'dd-mm-yy' });
         
-        $("#input_tglkerja").datepicker({ dateFormat: 'dd-mm-yy' });
+        // $("#input_tglkerja").datepicker({ dateFormat: 'dd-mm-yy' });
         $('[name="input_pendapatan"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
         $('[name="input_biaya_hidup"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
         
