@@ -35,4 +35,10 @@ class LaporanController extends Controller
         
         return view('laporan.piagam');   
     }
+
+    public function formlapsdm()
+    {
+        
+        return view('laporan.lapdatasdm');   
+    }
 }

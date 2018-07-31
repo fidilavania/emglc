@@ -141,6 +141,7 @@
                   <ul class="dropdown-menu">
                     @if(strpos(Auth::user()->fungsi, '1111') !== false)
                     <!-- <li><a href="{{ url('/materi') }}">Laporan Kegiatan</a></li>  -->
+                    <li><a href="{{ url('/lapsdm') }}">Laporan Data SDM</a></li>
                     @endif
                     <li><a href="{{ url('/piagam') }}">Piagam Kerjasama</a></li> 
                 </li>

@@ -168,7 +168,7 @@
               if(e.keyCode==13){
                 if($("#nama").val() != ""){
                     var searchword = $("#nama").val().replace('/', '\/');
-                    window.location = '{{url("/datasdm")}}'+'/'+searchword;
+                    window.location = '{{url("/datasdm")}}'+'/'+searchword+'/nama';
                 } else {
                     return false;
                 }
@@ -182,7 +182,7 @@
               if(e.keyCode==13){
                 if($("#kantor").val() != ""){
                     var searchword = $("#kantor").val().replace('/', '\/');
-                    window.location = '{{url("/datasdm")}}'+'/'+searchword;
+                    window.location = '{{url("/datasdm")}}'+'/'+searchword+'/kantor';
                 } else {
                     return false;
                 }
@@ -196,7 +196,7 @@
               if(e.keyCode==13){
                 if($("#alamat").val() != ""){
                     var searchword = $("#alamat").val().replace('/', '\/');
-                    window.location = '{{url("/datasdm")}}'+'/'+searchword;
+                    window.location = '{{url("/datasdm")}}'+'/'+searchword+'/alamat_tinggal';
                 } else {
                     return false;
                 }
@@ -210,7 +210,7 @@
               if(e.keyCode==13){
                 if($("#cif").val() != ""){
                     var searchword = $("#cif").val().replace('/', '\/');
-                    window.location = '{{url("/datasdm")}}'+'/'+searchword;
+                    window.location = '{{url("/datasdm")}}'+'/'+searchword+'/no_sdm';
                 } else {
                     return false;
                 }

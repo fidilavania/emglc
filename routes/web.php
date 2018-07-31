@@ -22,7 +22,7 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/', 'HomeController@viewDashboard');
 
 	// SDM
-	Route::match(['get', 'post'],'/datasdm/{key?}', 'SdmController@viewDataSdm')->where('key', '(.*)');
+	Route::match(['get', 'post'],'/datasdm/{key?}/{kol?}', 'SdmController@viewDataSdm');
 	Route::get('/addsdm', 'SdmController@viewFormSDM');
 	Route::post('/savesdm/{nonsb?}','SdmController@saveDataSDM');
 	Route::get('/editsdm/{nonsb?}', 'SdmController@viewFormSDMEdit');
@@ -107,6 +107,9 @@ Route::group(['middleware' => ['auth']], function () {
 
 	// piagam
 	Route::get('/piagam', 'LaporanController@formpiagam');
+
+	// laporan data sdm
+	Route::get('/lapsdm', 'LaporanController@formlapsdm');
 	
 
 	Route::get('auth/logout', 'AuthController@logout');

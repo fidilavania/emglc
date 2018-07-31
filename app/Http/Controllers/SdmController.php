@@ -115,7 +115,7 @@ class SdmController extends Controller
         return view('usulan.formdatausulan',compact('lihatusulan'));   
     }
 
-	public function viewDataSdm($key=null)
+	public function viewDataSdm($key=null,$kol=null)
     {
         $sql3 ="SELECT mst_jabatan.jabatankantor,sdm.jabatan,mst_jabatan.kode
             from mst_jabatan,sdm 
@@ -131,15 +131,19 @@ class SdmController extends Controller
             } else {
                 // $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor','status')->whereRaw
                 // ("nama LIKE '%".strtoupper($key)."%'OR kantor LIKE '%".strtoupper($key)."%' OR alamat_tinggal LIKE '%".strtoupper($key)."%'OR no_sdm LIKE '%".strtoupper($key)."%'")->where('status','1')->where('induk_kantor',Auth::user()->kantor)->paginate(20);
+                /*$nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor','status')->whereRaw
+                ("(nama LIKE '%".strtoupper($key)."%' OR alamat_tinggal LIKE '%".strtoupper($key)."%'OR no_sdm LIKE '%".strtoupper($key)."%') AND status = 1 AND induk_kantor = '".Auth::user()->kantor."'")->paginate(20);*/
                 $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor','status')->whereRaw
-                ("(nama LIKE '%".strtoupper($key)."%' OR alamat_tinggal LIKE '%".strtoupper($key)."%'OR no_sdm LIKE '%".strtoupper($key)."%') AND status = 1 AND induk_kantor = '".Auth::user()->kantor."'")->paginate(20);
+                ($kol." LIKE '%".strtoupper($key)."%' AND status = 1 AND induk_kantor = '".Auth::user()->kantor."'")->paginate(20);
             } 
         }else{
             if($key == null){
             $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor','status')->where('status','1')->paginate(20);
             } else {
+                /*$nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor','status')->whereRaw
+                ("(nama LIKE '%".strtoupper($key)."%'OR kantor LIKE '%".strtoupper($key)."%' OR alamat_tinggal LIKE '%".strtoupper($key)."%'OR no_sdm LIKE '%".strtoupper($key)."%') AND status = 1")->paginate(20);*/
                 $nsblist = sdm::select('no_sdm','nama','tempat_lahir','tgl_lahir','jenis_kel','ktp','alamat_tinggal','nohp','jabatan','notlp','nohp','tgl_kerja','kantor','induk_kantor','status')->whereRaw
-                ("nama LIKE '%".strtoupper($key)."%'OR kantor LIKE '%".strtoupper($key)."%' OR alamat_tinggal LIKE '%".strtoupper($key)."%'OR no_sdm LIKE '%".strtoupper($key)."%'")->where('status','1')->paginate(20);
+                ($kol." LIKE '%".strtoupper($key)."%' AND status = 1")->paginate(20);
             }
         }
         
