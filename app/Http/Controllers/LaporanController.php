@@ -38,7 +38,22 @@ class LaporanController extends Controller
 
     public function formlapsdm()
     {
-        
-        return view('laporan.lapdatasdm');   
+        // $datakredit = array();
+        // $nsblist = master_kantor::select('nama','kode_kantor')->paginate(100);
+
+        $jumlah =  "SELECT master_kantor.nama,master_kantor.kode_kantor,sdm.kantor,count(sdm.no_sdm) as total
+					FROM sdm,master_kantor 
+					WHERE
+					sdm.kantor = master_kantor.kode_kantor and sdm.status = '1'
+					GROUP BY master_kantor.nama,master_kantor.kode_kantor,sdm.kantor";
+        $nsblist = DB::connection('mysql')->select(DB::raw($jumlah));  
+
+        $totallist =  "SELECT count(no_sdm) as total FROM sdm where status = 1 ";
+        $listall = DB::connection('mysql')->select(DB::raw($totallist));  
+
+        // $mkantor = DB::connection('mysql')->table('master_kantor')->get();
+       
+
+        return view('laporan.lapdatasdm',compact('nsblist','listall'));   
     }
 }

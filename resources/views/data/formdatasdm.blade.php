@@ -56,6 +56,9 @@
                                         <br>
                                     </div>
                                     <hr />
+                                    @foreach($listjumlah as $all)
+                                    <div class="panel-heading"><b>Total Seluruh Data Entry : {{$all->total}} SDM</b></div>
+                                    @endforeach
                                     <tbody>
                                         @foreach($nsblist as $nsb)
                                             <tr class="accordion-toggle" data-toggle="collapse" data-target="#{{$nsb->no_sdm}}">

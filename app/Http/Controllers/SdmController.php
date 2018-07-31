@@ -146,9 +146,17 @@ class SdmController extends Controller
                 ($kol." LIKE '%".strtoupper($key)."%' AND status = 1")->paginate(20);
             }
         }
+
+    if(trim(Auth::user()->kantor,' ') != 'EMG' ){
+        $jumlah =  "SELECT count(no_sdm) as total FROM sdm where status = 1 AND status = 1 AND induk_kantor = '".Auth::user()->kantor."' ";
+        $listjumlah = DB::connection('mysql')->select(DB::raw($jumlah));  
+    }else{
+        $jumlah =  "SELECT count(no_sdm) as total FROM sdm where status = 1 ";
+        $listjumlah = DB::connection('mysql')->select(DB::raw($jumlah));  
+    }
         
 
-        return view('data.formdatasdm',compact('nsblist','datakredit','lihat1'));   
+        return view('data.formdatasdm',compact('nsblist','datakredit','lihat1','listjumlah'));   
     }
 
 
