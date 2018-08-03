@@ -83,7 +83,7 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/savedetaildaftar/{nonsb?}','PesertaController@saveFormDetailDaftar');
 
 	// cetak pendaftaran
-	Route::get('/cetak/{nonsb?}', 'PesertaController@viewCetakDaftar');
+	Route::get('/cetak/{nonsb?}/{kantor?}', 'PesertaController@viewCetakDaftar');
 
 	// tidak hadir
 	Route::get('/detailtidakhadir/{nonsb?}', 'PesertaController@viewFormDetailTidakHadir');

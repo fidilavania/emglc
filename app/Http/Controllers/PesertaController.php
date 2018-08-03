@@ -51,18 +51,23 @@ class PesertaController extends Controller
     public function viewFormDetailDaftar($nonsb)
     {
         $matdet = materi_detail::where('kode_modul',$nonsb)->first();
-        $sdm = DB::connection('mysql')->table('sdm')->where('status','1')->orderby('jabatan','asc')->get();
+        $sdm = DB::connection('mysql')->table('sdm')->where('status','1')->orderby('kantor','asc')->get();
         $materi = DB::connection('mysql')->table('materi')->where('kode_modul',$nonsb)->first();
         $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('kantor',trim(Auth::user()->kantor,' '))->first();
 
         if(isset($peserta)){
         $datasdm = sdm::select('nama','jenis_kel','kantor','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($peserta->no_sdm,' ').')')->where('status','1')->orderby('jabatan','asc')->get();
+        
+        
+            $arr = array();
+            foreach($datasdm as $data)
+            {
+               $arr[$data->kantor][$data->no_sdm] = $data;
+            }
         }
 
-        //Log::info($datasdm);
 
-
-        return view('daftar.formdetaildaftar',compact('sdm','materi','matdet','peserta','datasdm'));   
+        return view('daftar.formdetaildaftar',compact('sdm','materi','matdet','peserta','datasdm','arr'));   
     }
     public function saveFormDetailDaftar(Request $request,$nonsb)
     {
@@ -71,18 +76,10 @@ class PesertaController extends Controller
        
         $noakhir = peserta::max('nomor');
         $no = (int) $noakhir + 1;
-        
-           //  DB::connection('mysql')->table('peserta')->where('kode_modul',$request->input('kode_modul'))->update([
-           //      'opr'           => (strtoupper($request->input('opr'))),
-           //      'tgl_input'     => (date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon')))),
-           //      'no_sdm'        => (implode(',', $check)),
-           //      'kode_modul'    => (strtoupper($request->input('kode_modul')))
-           // ]);
-
-        // if(empty($peserta->no_sdm)){ 
+       
             $check = $request->input('peserta');
             $peserta = new peserta;
-            $peserta->nomor = $no ;
+            $peserta->nomor = str_pad($no, 6, '0',STR_PAD_LEFT);
             $peserta->opr = strtoupper($request->input('opr'));
             $peserta->tgl_input = date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon')));
             $peserta->no_sdm = implode(',', $check);
@@ -91,7 +88,18 @@ class PesertaController extends Controller
             $peserta->tgl_keg = strtoupper($request->input('tanggal_keg'));
             $peserta->kantor = strtoupper($request->input('kantor'));
             $peserta->save();
-        // }
+
+        // DB::connection('mysql')->table('peserta')->where('no_sdm',$request->input('peserta'))->update([
+        //     // $check = $request->input('peserta');
+        //    'nomor'      => ($request->input('nomor') ),
+        //    'opr'        => (strtoupper($request->input('opr'))),
+        //    'tgl_input'  => (date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon')))),
+        //    'no_sdm'     => (implode(',', $request->input('peserta'))),
+        //    'kode_modul' => (strtoupper($request->input('kode_modul'))),
+        //    'lokasi_keg' => (strtoupper($request->input('lokasi_keg'))),
+        //    'tgl_keg'    => (strtoupper($request->input('tanggal_keg'))),
+        //    'kantor'     => (strtoupper($request->input('kantor')))
+        // ]);
 
         
 
@@ -118,7 +126,7 @@ class PesertaController extends Controller
         return redirect('/pendaftaran');
     }
     
-    public function viewCetakDaftar($nonsb)
+    public function viewCetakDaftar($nonsb,$kantor)
     {
         $matdet = materi_detail::where('kode_modul',$nonsb)->first();
         $sdm = DB::connection('mysql')->table('sdm')->where('status','1')->orderby('jabatan','asc')->get();
@@ -126,15 +134,19 @@ class PesertaController extends Controller
         $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('kantor',trim(Auth::user()->kantor,' '))->first();
 
         if(isset($peserta)){
-        $datasdm = sdm::select('nama','jenis_kel','kantor','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($peserta->no_sdm,' ').')')->where('status','1')->orderby('jabatan','asc')->get();
+        $datasdm = sdm::select('nama','jenis_kel','kantor','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($peserta->no_sdm,' ').')')->where('status','1')->where('kantor',$kantor)->orderby('jabatan','asc')->get();
         }
 
-        $sql1 ="SELECT peserta.kantor,master_kantor.nama,master_kantor.kode_kantor,peserta.opr,'".Auth::user()->nama_lengkap."'
-            from master_kantor,peserta 
-            where peserta.kode_modul='".$nonsb."' AND  '".Auth::user()->nama_lengkap."' = peserta.opr AND
-            peserta.kantor=master_kantor.kode_kantor";
+        $arr = array();
+        foreach($datasdm as $data)
+        {
+           $arr[$data->kantor][$data->no_sdm] = $data;
+        }
+
+        $sql1 ="SELECT master_kantor.nama,master_kantor.kode_kantor from master_kantor
+            where master_kantor.kode_kantor='".$kantor."'";
         $lihat1 = DB::connection('mysql')->select(DB::raw($sql1));  
 
-        return view('daftar.formcetak',compact('sdm','materi','matdet','peserta','datasdm','lihat1'));   
+        return view('daftar.formcetak',compact('sdm','materi','matdet','peserta','datasdm','lihat1','arr'));   
     }
 }

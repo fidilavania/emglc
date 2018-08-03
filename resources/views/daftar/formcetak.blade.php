@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" moznomarginboxes mozdisallowselectionprint>
   <head>
     <meta charset="UTF-8">
     <title>Cetak Pendaftaran</title>
@@ -21,12 +21,12 @@
       <div class="row">
         <div class="col-xs-6">
           <h1>
-            <img src="emg.png" height="110" width="110" href="#" onclick="window.print()">
+            <img src="/pic/emg.png" height="110" width="110" href="#" onclick="window.print()">
           </h1>
         </div>
         <div class="col-xs-6 text-right">
           <br>
-          <img src="ATM-logo.jpg" height="90" width="180" href="#" onclick="window.print()"> 
+          <img src="/pic/ATM-logo.jpg" height="90" width="180" href="#" onclick="window.print()"> 
           <!-- <h1>EMG LEARNING CENTER</h1> -->
           <h1><small>Formulir Pendaftaran</small></h1>
         </div>
@@ -48,18 +48,10 @@
         <div class="col-xs-5 col-xs-offset-2 text-center">
           <div class="panel panel-default">
             <div class="panel-default">
-              <!-- <h4><a href="">{{Auth::user()->kantor}}</a></h4> -->
               @foreach($lihat1 as $l)
                 <h3><b>{{$l->nama}}</b></h3>
               @endforeach
             </div>
-            <!-- <div class="panel-body">
-              <p>
-                Address <br>
-                details <br>
-                more <br>
-              </p>
-            </div> -->
           </div>
         </div>
       </div>
@@ -91,7 +83,7 @@
                     <!-- <td>{{$data->kantor}}</td> -->
                     <td>{{$data->jabatan}}</td>
                     <td>{{$data->jenis_kel}}</td>                        
-                    </tr>
+                </tr>
             @endforeach
             @endif
         </tbody>

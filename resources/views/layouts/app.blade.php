@@ -231,10 +231,10 @@
     <!-- dropdown -->
     <script src="/dropdown/jquery-1.10.2.min.js"></script>
         <script src="/dropdown/jquery.chained.min.js"></script>
-        <script>
+        <!-- <script>
             $("#kota").chained("#provinsi");
             $("#kecamatan").chained("#kota");
-    </script>
+    </script> -->
 
     <!-- untuk membuat back to top (gak jadi)-->
     <link rel="stylesheet" href="{{asset('/elev/src/jquery.elevator.css')}}">
