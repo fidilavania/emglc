@@ -229,8 +229,8 @@
                 <div class="row form-group">
                     <label class="col-sm-3 control-label">Tanggal Kegiatan</label>
                         <div class="col-sm-9">
-                            <select class="form-control" name="tanggal_keg">
-                                <option>-Pilih Tanggal-</option>
+                            <select class="form-control" name="tanggal_keg" required>
+                                <option value>-Pilih Tanggal-</option>
                                 @if($matdet->tgl_mulai_1 == '1970-01-01')
                                 <option>-</option>
                                 @else
@@ -267,8 +267,8 @@
                 <div class="row form-group">
                     <label class="col-sm-3 control-label">Lokasi Kegiatan</label>
                         <div class="col-sm-9">
-                            <select class="form-control" name="lokasi_keg">
-                                <option>-Pilih Lokasi-</option>
+                            <select class="form-control" name="lokasi_keg" required>
+                                <option value>-Pilih Lokasi-</option>
                                 <option value="{{trim($matdet->lokasi_1,' ')}}">{{trim($matdet->lokasi_1,' ')}}</option>
                                 <option value="{{trim($matdet->lokasi_2,' ')}}">{{trim($matdet->lokasi_2,' ')}}</option>
                                 <option value="{{trim($matdet->lokasi_3,' ')}}">{{trim($matdet->lokasi_3,' ')}}</option>
