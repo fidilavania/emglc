@@ -240,6 +240,7 @@
                                             <th>No. SDM</th>
                                             <th>Kantor</th>
                                             <th>Nama</th>
+                                            <th>Jenis Kelamin</th>
                                             <th>Jabatan</th>
                                             <!-- <th>Tanggal Kegiatan</th> -->
                                             <!-- <th>Lokasi Kegiatan</th> -->
@@ -259,6 +260,7 @@
                                                     echo '<td align="center">'.$a->no_sdm.'</td>'; 
                                                     echo '<td>'.$a->kantor.'</td>';
                                                     echo '<td>'.$a->nama.'</td>';
+                                                    echo '<td>'.$a->jenis_kel.'</td>';
                                                     echo '<td>'.$a->jabatan.'</td>';
                                                     // echo '<td>'.$p->tgl_keg.'</td>';
                                                     // echo '<td>'.$p->lokasi_keg.'</td>';

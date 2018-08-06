@@ -49,6 +49,9 @@
               <h4 align="center"><b>Nama</b></h4>
             </th>
             <th>
+              <h4 align="center"><b>Jenis Kelamin</b></h4>
+            </th>
+            <th>
               <h4 align="center"><b>Unit Bisnis</b></h4>
             </th>
             <th>
@@ -66,6 +69,7 @@
               $no++;
               echo '<td align="center">'.$no.'</td>'; 
               echo '<td>'.$a->nama.'</td>';
+              echo '<td>'.$a->jenis_kel.'</td>';
               echo '<td>'.$a->kantor.'</td>';
               echo '<td>'.$a->jabatan.'</td>';
               if($no % 2 == 0){
