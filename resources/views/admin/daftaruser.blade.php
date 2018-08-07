@@ -41,7 +41,7 @@
                                          @foreach($user as $u)
                                             <tr>
                                                 <td data-id="{{$u->id}}">{{$u->id}}</td>
-                                                <td>{{$u->nama_lengkap}}</td>
+                                                <td style="text-transform:uppercase;">{{$u->nama_lengkap}}</td>
                                                 <td>{{$u->username}}</td>
                                                 <td>{{$u->nama}}</td>
                                                 <td>{{$u->jabatankantor}}</td>

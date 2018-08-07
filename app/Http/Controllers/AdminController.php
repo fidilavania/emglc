@@ -85,7 +85,7 @@ class AdminController extends Controller
 
         // $url = url('/lihatuser');
 
-        $sql = "SELECT id,email,username,nama_lengkap,jabatan,mst_kantor.nama,status,mst_jabatan.jabatankantor FROM users,mst_kantor,mst_jabatan WHERE ";
+        $sql = "SELECT id,email,username,nama_lengkap,jabatan,master_kantor.nama,users.status,mst_jabatan.jabatankantor FROM users,master_kantor,mst_jabatan WHERE ";
         if(($kolom <> null) && ($key <> null)){
             $sql .= $kolom." LIKE '%".$kunci."%' AND kode_kantor=kantor AND mst_jabatan.kode=jabatan ORDER BY id";
         } else {
