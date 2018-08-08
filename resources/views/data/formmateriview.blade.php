@@ -275,6 +275,7 @@
                         </div>
                             <div class="col-sm-12">
                                 <input type="button" class="btn btn-success" name="cetak" value="Daftar Hadir" />
+                                <input type="button" class="btn btn-primary" name="excel" value="Expor Excel" />
                                 <br/>
                                 <br/>
                             </div>
@@ -312,6 +313,23 @@
                 window.location.href = '{{url("/presensi")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
             }
         });
+
+        $('[name="excel"]').click(function() {
+            console.log($(this).parent().parent().find('td:nth-child(2)').text());
+            console.log($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Expor Excel');
+            if($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'View'){
+                window.location.href = '{{url("/presensiexcel")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+            } else {
+                window.location.href = '{{url("/presensiexcel")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+            }
+        });
+
+        // $('[name="cetak"]').click(function() {
+        //     window.location.href = '{{url("/presensi")}}'+'/'+$(this).find('td:first').attr('data-id');
+        // });
+        // $('[name="excel"]').click(function() {
+        //     window.location.href = '{{url("/presensiexcel")}}'+'/'+$(this).find('td:first').attr('data-id');
+        // });
 
     });
 </script>

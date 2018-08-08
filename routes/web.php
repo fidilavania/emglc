@@ -96,6 +96,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 	// daftar hadir
 	Route::get('/presensi/{nonsb?}', 'ViewController@viewCetakDaftarHadir');
+	Route::get('/presensiexcel/{nonsb?}', 'ViewController@viewCetakDaftarHadirExcel');
 
 	// peserta
 	Route::match(['get', 'post'],'/pendaftaran/{key?}', 'PesertaController@formPendaftaran')->where('key', '(.*)');

@@ -83,7 +83,7 @@ class ViewController extends Controller
         $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
         $materi = materi::where('kode_modul',$nonsb)->first();
       
-        $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->get();
+        $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->orderby('kantor','asc')->get();
         $all = array();
         foreach ($peserta as $p) {
             $sdm = sdm::select('kantor','nama','jenis_kel','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->where('status','1')->orderby('jabatan','asc')->get();
@@ -101,6 +101,7 @@ class ViewController extends Controller
         $matdet = materi_detail::where('kode_modul',$nonsb)->first();
         $sdm = DB::connection('mysql')->table('sdm')->where('status','1')->orderby('jabatan','asc')->get();
         $materi = DB::connection('mysql')->table('materi')->where('kode_modul',$nonsb)->first();
+        // $mkantor = DB::connection('mysql')->table('master_kantor')->get();
         // $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('kantor',trim(Auth::user()->kantor,' '))->first();
 
         // if(isset($peserta)){
@@ -110,14 +111,65 @@ class ViewController extends Controller
         $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->get();
         $all = array();
         foreach ($peserta as $p) {
-            $sdm = sdm::select('kantor','nama','jenis_kel','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->where('status','1')->orderby('jabatan','asc')->get();
+            $sdm = sdm::select('kantor','nama','jenis_kel','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->where('status','1')->orderby('kantor','asc')->get();
             for($i=0;$i<count($sdm);$i++){
                 array_push($all, $sdm[$i]);
             }
-            //array_push($all, $sdm);
         }
+            //array_push($all, $sdm);
 
-        return view('cetak.formdaftarhadir',compact('sdm','materi','matdet','peserta','datasdm','all'));   
+        // foreach ($peserta as $p) {
+        // $kan = array();
+        // foreach ($peserta as $p) {
+        // $sql1 ="SELECT master_kantor.kode_kantor,master_kantor.nama,sdm.no_sdm,sdm.kantor,peserta.no_sdm,peserta.kode_modul
+        //     from master_kantor,sdm,peserta 
+        //     where sdm.no_sdm in (select '".$p->no_sdm."') and peserta.kode_modul='".$nonsb."' 
+        //     AND
+        //     sdm.kantor=master_kantor.kode_kantor";
+        // }
+        
+        // $lihat1 = DB::connection('mysql')->select(DB::raw($sql1));  
+        // log::info($lihat1);
+       
+        // $sql = "SELECT sdm.kantor,sdm.nama,jenis_kel,jabatan,sdm.no_sdm,alamat_tinggal,notlp,nohp,induk_kantor,master_kantor.kode_kantor,master_kantor.nama,peserta.no_sdm FROM sdm,master_kantor,peserta WHERE ";
+        //     $sql .= " sdm.kantor=master_kantor.kode_kantor  AND sdm.status=1 ORDER BY sdm.kantor and peserta.kode_modul = '".$nonsb."'";
+               
+        // $lihat1 = DB::connection('mysql')->select(DB::raw($sql));
+
+        // $url = url('/lihatuser');
+
+        return view('cetak.formdaftarhadir',compact('sdm','materi','matdet','peserta','datasdm','all','lihat1'));   
+    }
+
+    public function viewCetakDaftarHadirExcel($nonsb)
+    {
+        $matdet = materi_detail::where('kode_modul',$nonsb)->first();
+        $sdm = DB::connection('mysql')->table('sdm')->where('status','1')->orderby('jabatan','asc')->get();
+        $materi = DB::connection('mysql')->table('materi')->where('kode_modul',$nonsb)->first();
+       
+
+        $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->get();
+        $all = array();
+        foreach ($peserta as $p) {
+            $sdm = sdm::select('kantor','nama','jenis_kel','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->where('status','1')->orderby('kantor','asc')->get();
+            for($i=0;$i<count($sdm);$i++){
+                array_push($all, $sdm[$i]);
+            }
+        }
+           
+        // $kan = array();
+        // foreach ($peserta as $p) {
+        // $sql1 ="SELECT master_kantor.kode_kantor,master_kantor.nama,sdm.no_sdm,sdm.kantor,peserta.no_sdm,peserta.kode_modul
+        //     from master_kantor,sdm,peserta 
+        //     where sdm.no_sdm in (select '".$p->no_sdm."') and peserta.kode_modul='".$nonsb."' 
+        //     AND
+        //     sdm.kantor=master_kantor.kode_kantor";
+        // }
+        
+        // $lihat1 = DB::connection('mysql')->select(DB::raw($sql1));  
+        
+
+        return view('cetak.formdaftarhadir2',compact('sdm','materi','matdet','peserta','datasdm','all','lihat1'));   
     }
 }
 
