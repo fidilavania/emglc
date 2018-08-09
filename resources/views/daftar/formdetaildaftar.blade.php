@@ -193,42 +193,11 @@
  <div class="panel-body">
     <div class="row">
         <div class="col-sm-12">
-            <div class="col-sm-8">
-                <table class="table-bordered"  style="border-style: solid 1px #000000;" width=100% >
-                    <thead>
-                        <th>No. SDM</th>
-                        <th>Nama</th>
-                        <th>JK</th>
-                        <th>Kantor</th>
-                        <th>Jabatan</th>
-                    </thead>
-                    <tbody>
-                        <?php
-                            foreach($sdm as $j){
-                                if( trim($j->induk_kantor,' ') == trim(Auth::user()->kantor,' ')) {
-                                echo '<tr>';
-                                // <input type="text" class="form-control" name="lokasi3" autocomplete="off" value="{{trim($detail->lokasi_3,' ')}}" style="text-transform:uppercase;" placeholder="Lokasi" readonly />
-                                echo '<td>'."<input type='checkbox' name='peserta[]' id='peserta' value='".$j->no_sdm."'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;$j->no_sdm".'</td>'; 
-                                echo '<td>'.$j->nama.'</td>';
-                                if(trim($j->jenis_kel,' ') == 'WANITA'){
-                                echo '<td>P</td>';
-                                }else{
-                                echo '<td>L</td>';    
-                                }
-                                echo '<td>'.$j->kantor.'</td>';
-                                echo '<td>'.$j->jabatan.'</td>';
-                                echo '</tr>';
-                                }
-                            }
-                        ?>
-                    </tbody>
-                </table>
-            </div>
             @if(isset($matdet))
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div class="row form-group">
-                    <label class="col-sm-3 control-label">Tanggal Kegiatan</label>
-                        <div class="col-sm-9">
+                    <label class="col-sm-4 control-label">Tanggal Kegiatan</label>
+                        <div class="col-sm-7">
                             <select class="form-control" name="tanggal_keg" required>
                                 <option value>-Pilih Tanggal-</option>
                                 @if($matdet->tgl_mulai_1 == '1970-01-01')
@@ -265,8 +234,8 @@
                         </div>
                 </div> 
                 <div class="row form-group">
-                    <label class="col-sm-3 control-label">Lokasi Kegiatan</label>
-                        <div class="col-sm-9">
+                    <label class="col-sm-4 control-label">Lokasi Kegiatan</label>
+                        <div class="col-sm-7">
                             <select class="form-control" name="lokasi_keg" required>
                                 <option value>-Pilih Lokasi-</option>
                                 <option value="{{trim($matdet->lokasi_1,' ')}}">{{trim($matdet->lokasi_1,' ')}}</option>
@@ -284,6 +253,39 @@
             </div>
             @endif
         </div>
+        <!-- <div class="col-sm-12"> -->
+            <div class="col-sm-12">
+                <table class="table-bordered"  style="border-style: solid 1px #000000;" width=100% >
+                    <thead>
+                        <th>No. SDM</th>
+                        <th>Nama</th>
+                        <th>JK</th>
+                        <th>Kantor</th>
+                        <th>Jabatan</th>
+                    </thead>
+                    <tbody>
+                        <?php
+                            foreach($sdm as $j){
+                                if( trim($j->induk_kantor,' ') == trim(Auth::user()->kantor,' ')) {
+                                echo '<tr>';
+                                // <input type="text" class="form-control" name="lokasi3" autocomplete="off" value="{{trim($detail->lokasi_3,' ')}}" style="text-transform:uppercase;" placeholder="Lokasi" readonly />
+                                echo '<td>'."<input type='checkbox' name='peserta[]' id='peserta' value='".$j->no_sdm."'/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;$j->no_sdm".'</td>'; 
+                                echo '<td>'.$j->nama.'</td>';
+                                if(trim($j->jenis_kel,' ') == 'WANITA'){
+                                echo '<td>P</td>';
+                                }else{
+                                echo '<td>L</td>';    
+                                }
+                                echo '<td>'.$j->kantor.'</td>';
+                                echo '<td>'.$j->jabatan.'</td>';
+                                echo '</tr>';
+                                }
+                            }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        <!-- </div> -->
     </div>
 </div>
 @if(isset($peserta))

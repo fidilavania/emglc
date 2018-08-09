@@ -27,7 +27,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Tanggal Input</label>
                                     <div class="col-sm-9">
-                                      <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y',strtotime(trim($matdet->tgl_input,' ')))}}" readonly>
+                                      <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y',strtotime($materi->tgl_input))}}" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -98,6 +98,7 @@
                                 </div>
                             </div>
                         </div>
+                        @if(isset($matdet))
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="row form-group">
@@ -106,7 +107,7 @@
                                         @if($matdet->tgl_mulai_1 == '1970-01-01')
                                         <input type="text" class="form-control" name="tanggal_end_1" id='tanggal_end_1' placeholder ="{{date('d-m-Y')}}" value="-" readonly >
                                         @else
-                                        <input type="text" class="form-control" name="tanggal_laksana1" id='tanggal_laksana1' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime(trim($matdet->tgl_mulai_1,' ')))}}" readonly > 
+                                        <input type="text" class="form-control" name="tanggal_laksana1" id='tanggal_laksana1' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime($matdet->tgl_mulai_1))}}" readonly > 
                                         @endif
                                     </div>
                                     <label class="col-sm-1">s/d</label>
@@ -114,7 +115,7 @@
                                         @if($matdet->tgl_end_1 == '1970-01-01')
                                         <input type="text" class="form-control" name="tanggal_end_1" id='tanggal_end_1' placeholder ="{{date('d-m-Y')}}" value="-" readonly >
                                         @else
-                                        <input type="text" class="form-control" name="tanggal_end_1" id='tanggal_end_1' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime(trim($matdet->tgl_end_1,' ')))}}" readonly >
+                                        <input type="text" class="form-control" name="tanggal_end_1" id='tanggal_end_1' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime($matdet->tgl_end_1))}}" readonly >
                                         @endif
                                     </div>
                                 </div>
@@ -124,7 +125,7 @@
                                         @if($matdet->tgl_mulai_2 == '1970-01-01')
                                         <input type="text" class="form-control" name="tanggal_end_1" id='tanggal_end_1' placeholder ="{{date('d-m-Y')}}" value="-" readonly >
                                         @else
-                                        <input type="text" class="form-control" name="tanggal_laksana2" id='tanggal_laksana2' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime(trim($matdet->tgl_mulai_2,' ')))}}" readonly >
+                                        <input type="text" class="form-control" name="tanggal_laksana2" id='tanggal_laksana2' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime($matdet->tgl_mulai_2))}}" readonly >
                                         @endif
                                     </div>
                                     <label class="col-sm-1">s/d</label>
@@ -132,7 +133,7 @@
                                         @if($matdet->tgl_end_2 == '1970-01-01')
                                         <input type="text" class="form-control" name="tanggal_end_1" id='tanggal_end_1' placeholder ="{{date('d-m-Y')}}" value="-" readonly >
                                         @else
-                                        <input type="text" class="form-control" name="tanggal_end_2" id='tanggal_end_2' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime(trim($matdet->tgl_end_2,' ')))}}" readonly >
+                                        <input type="text" class="form-control" name="tanggal_end_2" id='tanggal_end_2' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime($matdet->tgl_end_2))}}" readonly >
                                         @endif
                                     </div>
                                 </div>
@@ -142,7 +143,7 @@
                                         @if($matdet->tgl_mulai_3 == '1970-01-01')
                                         <input type="text" class="form-control" name="tanggal_end_1" id='tanggal_end_1' placeholder ="{{date('d-m-Y')}}" value="-" readonly >
                                         @else
-                                        <input type="text" class="form-control" name="tanggal_laksana3" id='tanggal_laksana3' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime(trim($matdet->tgl_mulai_3,' ')))}}" readonly >
+                                        <input type="text" class="form-control" name="tanggal_laksana3" id='tanggal_laksana3' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime($matdet->tgl_mulai_3))}}" readonly >
                                         @endif
                                     </div>
                                     <label class="col-sm-1">s/d</label>
@@ -150,7 +151,7 @@
                                         @if($matdet->tgl_end_3 == '1970-01-01')
                                         <input type="text" class="form-control" name="tanggal_end_1" id='tanggal_end_1' placeholder ="{{date('d-m-Y')}}" value="-" readonly >
                                         @else
-                                        <input type="text" class="form-control" name="tanggal_end_3" id='tanggal_end_3' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime(trim($matdet->tgl_end_3,' ')))}}" readonly >
+                                        <input type="text" class="form-control" name="tanggal_end_3" id='tanggal_end_3' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime($matdet->tgl_end_3))}}" readonly >
                                         @endif
                                     </div>
                                 </div>
@@ -160,7 +161,7 @@
                                         @if($matdet->tgl_mulai_4 == '1970-01-01')
                                         <input type="text" class="form-control" name="tanggal_end_1" id='tanggal_end_1' placeholder ="{{date('d-m-Y')}}" value="-" readonly >
                                         @else
-                                        <input type="text" class="form-control" name="tanggal_laksana4" id='tanggal_laksana4' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime(trim($matdet->tgl_mulai_4,' ')))}}" readonly >
+                                        <input type="text" class="form-control" name="tanggal_laksana4" id='tanggal_laksana4' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime($matdet->tgl_mulai_4))}}" readonly >
                                         @endif
                                     </div>
                                     <label class="col-sm-1">s/d</label>
@@ -168,7 +169,7 @@
                                         @if($matdet->tgl_end_4 == '1970-01-01')
                                         <input type="text" class="form-control" name="tanggal_end_1" id='tanggal_end_1' placeholder ="{{date('d-m-Y')}}" value="-" readonly >
                                         @else
-                                        <input type="text" class="form-control" name="tanggal_end_4" id='tanggal_end_4' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime(trim($matdet->tgl_end_4,' ')))}}" readonly >
+                                        <input type="text" class="form-control" name="tanggal_end_4" id='tanggal_end_4' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime($matdet->tgl_end_4))}}" readonly >
                                         @endif
                                     </div>
                                 </div>
@@ -178,7 +179,7 @@
                                         @if($matdet->tgl_mulai_5 == '1970-01-01')
                                         <input type="text" class="form-control" name="tanggal_end_1" id='tanggal_end_1' placeholder ="{{date('d-m-Y')}}" value="-" readonly >
                                         @else
-                                        <input type="text" class="form-control" name="tanggal_laksana5" id='tanggal_laksana5' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime(trim($matdet->tgl_mulai_5,' ')))}}" readonly >
+                                        <input type="text" class="form-control" name="tanggal_laksana5" id='tanggal_laksana5' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime($matdet->tgl_mulai_5))}}" readonly >
                                         @endif
                                     </div>
                                     <label class="col-sm-1">s/d</label>
@@ -186,7 +187,7 @@
                                         @if($matdet->tgl_end_5 == '1970-01-01')
                                         <input type="text" class="form-control" name="tanggal_end_1" id='tanggal_end_1' placeholder ="{{date('d-m-Y')}}" value="-" readonly >
                                         @else
-                                        <input type="text" class="form-control" name="tanggal_end_5" id='tanggal_end_5' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime(trim($matdet->tgl_end_5,' ')))}}" readonly >
+                                        <input type="text" class="form-control" name="tanggal_end_5" id='tanggal_end_5' placeholder ="{{date('d-m-Y')}}" value="{{date('d-m-Y',strtotime($matdet->tgl_end_5))}}" readonly >
                                         @endif
                                     </div>
                                 </div>
@@ -224,6 +225,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                         <div class="row">
                             <!-- @foreach($peserta as $p)
                                 <div class="col-sm-4">   

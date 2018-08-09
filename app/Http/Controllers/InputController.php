@@ -59,7 +59,7 @@ class InputController extends Controller
         $materi->save();
         
        
-        return redirect('/datamateri');
+        return redirect('/viewmateri/'.$request->input('kode_modul'));
         
     }
 
@@ -87,7 +87,7 @@ class InputController extends Controller
         ]);
         
        
-        return redirect('/datamateri');
+        return redirect('/viewmateri/'.$request->input('kode_modul'));
         
     }
    
@@ -95,12 +95,15 @@ class InputController extends Controller
     {
         $sdm = DB::connection('mysql')->table('sdm')->get();
         $materi = DB::connection('mysql')->table('materi')->where('kode_modul',$nonsb)->first();
+        $matdet = materi_detail::where('kode_modul',$nonsb)->first();
         
-        return view('input.formdetail',compact('sdm','materi'));   
+        return view('input.formdetail',compact('sdm','materi','matdet'));   
     }
 
     public function saveDaftar(Request $request,$nonsb)
     {
+        $detail = materi_detail::where('kode_modul',$nonsb)->get();
+
         $detail = new materi_detail;
         $detail->tgl_input = date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon')));
         $detail->opr = strtoupper($request->input('opr'));
@@ -122,7 +125,7 @@ class InputController extends Controller
         $detail->lokasi_5 = strtoupper($request->input('lokasi5'));
         $detail->save();
 
-        return redirect('/datamateri');
+        return redirect('/daftar/'.$detail->kode_modul);
     }
 
     public function viewFormJabatan()

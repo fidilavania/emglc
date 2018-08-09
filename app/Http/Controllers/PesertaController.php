@@ -104,7 +104,7 @@ class PesertaController extends Controller
         
 
 
-        return redirect('/pendaftaran');
+        return redirect('/detaildaftar/'.$peserta->kode_modul);
     }
 
     public function viewFormDetailTidakHadir($nonsb)

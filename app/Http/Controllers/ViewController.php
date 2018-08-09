@@ -86,7 +86,7 @@ class ViewController extends Controller
         $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->orderby('kantor','asc')->get();
         $all = array();
         foreach ($peserta as $p) {
-            $sdm = sdm::select('kantor','nama','jenis_kel','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->where('status','1')->orderby('jabatan','asc')->get();
+            $sdm = sdm::select('kantor','nama','jenis_kel','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->where('status','1')->orderby('kantor','asc')->get();
             for($i=0;$i<count($sdm);$i++){
                 array_push($all, $sdm[$i]);
             }
