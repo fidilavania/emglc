@@ -47,7 +47,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Foto</label>
                                     <div class="col-sm-9">
-                                         <img src="" height="180" width="150"/>
+                                         <img src="{{$foto}}" height="180" width="150"/>
                                     </div>
                                 </div>
                                 @endif
