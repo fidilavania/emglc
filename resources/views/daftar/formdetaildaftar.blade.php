@@ -91,25 +91,29 @@
                                 @if(isset($peserta))
                                 <h4 align="center">DAFTAR PESERTA</h4>
                                 <div class="col-sm-6">
-                                <div class="row form-group">
-                                    <label class="col-sm-4 control-label">Tanggal Kegiatan</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control"  value="{{$peserta->tgl_keg}}" style="text-transform:uppercase;"  readonly />
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <label class="col-sm-4 control-label">Lokasi Kegiatan</label>
+                                    <div class="row form-group">
+                                        <label class="col-sm-4 control-label">Tanggal Kegiatan</label>
                                         <div class="col-sm-7">
-                                        <input type="text" class="form-control"  value="{{$peserta->lokasi_keg}}" style="text-transform:uppercase;"  readonly />
+                                            <input type="text" class="form-control"  value="{{$peserta->tgl_keg}}" style="text-transform:uppercase;"  readonly />
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-sm-4 control-label">Lokasi Kegiatan</label>
+                                            <div class="col-sm-7">
+                                            <input type="text" class="form-control"  value="{{$peserta->lokasi_keg}}" style="text-transform:uppercase;"  readonly />
+                                        </div>
                                     </div>
                                 </div>
-                                </div>
+                                <!-- <div class="col-sm-6">
+                                    <a href="{{ url('/') }}" id="clear-filter" title="KEMBALI"><button type="submit" style="background-color: #000000; color: #ffffff; width: 150px; heigth: 25px;" >REVISI</button></a>
+                                </div> -->
                                 <br><br><br><br><br>
                                 @if(isset($peserta))
                                 @foreach($arr as $aa)
                                     <label>Kantor : {{$aa[key($aa)]->kantor}}</label>
                                     <table class="table table-bordered" name="datasdm">
                                         <thead>
+                                            <th>no.</th>
                                             <th>No SDM</th>
                                             <th>Kantor</th>
                                             <th>Nama</th>
@@ -120,7 +124,24 @@
                                             <th>No Hp</th>
                                         </thead>
                                         <tbody>
-                                            @foreach($aa as $a)
+                                            <?php
+                                            $no = 0;
+                                                foreach ($aa as $a) {
+                                                $no++;
+                                                    echo '<td align="center">'.$no.'</td>'; 
+                                                    // echo '<tr>';
+                                                    echo '<td data-id="{{$peserta->kode_modul}}/{{$a->kantor}}">'.$a->no_sdm.'</td>'; 
+                                                    echo '<td>'.$a->kantor.'</td>';
+                                                    echo '<td>'.$a->nama.'</td>';
+                                                    echo '<td>'.$a->jenis_kel.'</td>';
+                                                    echo '<td>'.$a->jabatan.'</td>';
+                                                    echo '<td>'.$a->alamat_tinggal.'</td>';
+                                                    echo '<td>'.$a->notlp.'</td>';
+                                                    echo '<td>'.$a->nohp.'</td>';
+                                                    echo '</tr>';
+                                                }
+                                            ?>
+                                            <!-- @foreach($aa as $a)
                                             <tr>
                                                 <td data-id="{{$peserta->kode_modul}}/{{$a->kantor}}">{{$a->no_sdm}}</td>
                                                 <td>{{$a->kantor}}</td>
@@ -131,7 +152,7 @@
                                                 <td>{{$a->notlp}}</td>
                                                 <td>{{$a->nohp}}</td>
                                             </tr>
-                                            @endforeach
+                                            @endforeach -->
                                         </tbody>
                                     </table>
                                     <?php
