@@ -321,8 +321,11 @@ class SdmController extends Controller
         $sdm = sdm::where('no_sdm',$nonsb)->first();
         $mkantor = DB::connection('mysql')->table('master_kantor')->get();
 
+        if(isset($sdm->foto)){
         $foto = Storage::disk('s3')->url($sdm->foto);
-
+        }else{
+            
+        }
 
         // $imagePath = public_path('foto');
         // $image = sdm::make(sdm::get($imagePath))->resize(320,240)->encode();
@@ -396,7 +399,11 @@ class SdmController extends Controller
 
         // $sdm->foto = $imagePath;
 
+        if(isset($sdm->foto)){
         $foto = Storage::disk('s3')->url($sdm->foto);
+        }else{
+            
+        }
 
 
         $sql1 ="SELECT mst_statusrumah.kode_status,mst_statusrumah.status,sdm.status_rumah 

@@ -44,12 +44,22 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
+                                @if(isset($foto))
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Foto</label>
                                     <div class="col-sm-9">
-                                        <img src="{{$foto}}" height="180" width="150"/>
+                                         <img src="{{$foto}}" height="180" width="150"/>
                                     </div>
                                 </div>
+                                @endif
+                                @if(empty($foto))
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Foto</label>
+                                    <div class="col-sm-9">
+                                         <img src="" height="180" width="150"/>
+                                    </div>
+                                </div>
+                                @endif
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Nama*</label>
                                     <div class="col-sm-9">
