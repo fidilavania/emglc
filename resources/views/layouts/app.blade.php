@@ -165,6 +165,7 @@
                @endif
                <li><a href="{{ url('/usullihat') }}">Daftar Usulan</a></li>
                <li><a href="{{ url('/usul') }}">Usulan</a></li>
+               
 
             </li> 
             </ul>          

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -27,6 +25,9 @@ use DB;
 use Auth;
 use Log;
 use Input;
+use Illuminate\Support\Facades\Storage;
+// use League\Flysystem\AwsS3v3\AwsS3Adapter as S3Adapter;
+// use League\Flysystem\AwsS3v3\AwsS3Adapter;
 
 class LaporanController extends Controller
 {
@@ -55,5 +56,32 @@ class LaporanController extends Controller
        
 
         return view('laporan.lapdatasdm',compact('nsblist','listall'));   
+    }
+
+     public function formcoba()
+    {
+        
+        return view('cetak.coba');   
+    }
+
+    public function saveCoba(Request $request)
+    {
+        $fileContents = $request->file('fileToUpload');
+        $paths3 =  Storage::disk('s3')->put('picture', $fileContents,'public');
+        echo Storage::disk('s3')->url($paths3);
+        // Storage::put('https://console.aws.amazon.com/s3/buckets/siakad-emg/picture/', $fileContents);
+
+        // log::info( Storage::disk('s3'));
+        
+        // if ($request->hasFile('fileToUpload')) {
+        //     $image = $request->file('fileToUpload');
+        //     $name = time().'.'.$image->getClientOriginalExtension();
+        //     Storage::disk('s3')->put('https://console.aws.amazon.com/s3/buckets/siakad-emg/picture/', $fileContents);
+        //     // $destinationPath = public_path('foto');
+
+        //     $image->move($destinationPath, $name);
+        //     // $sdm->foto = 'foto/'.$name;
+        // }
+        // return redirect('/');
     }
 }

@@ -46,11 +46,10 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Foto</label>
                                     <div class="col-sm-9">
-                                         <img src="{{url(trim($sdm->foto,' '))}}" height="170" width="150"/>
-                                         <!-- <input type="file" class="form-control-file" name="img_upload"> -->
+                                         <img src="{{$foto}}" height="180" width="150"/>
                                     </div>
                                 </div>
-                                <div class="form-group" hidden>
+                                <div class="form-group">
                                     <label class="col-sm-3 control-label">Upload Foto</label>
                                     <div class="col-sm-9">
                                         <input type="file" class="form-control-file" name="img_upload">Maksimal 2MB

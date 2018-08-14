@@ -27,6 +27,7 @@ use DB;
 use Auth;
 use Log;
 use Input;
+use Illuminate\Support\Facades\Storage;
 
 class SdmController extends Controller
 {
@@ -286,12 +287,18 @@ class SdmController extends Controller
 
 
         //log::info($request->hasFile('img_upload'));
+        // if ($request->hasFile('img_upload')) {
+        //     $image = $request->file('img_upload');
+        //     $name = time().'.'.$image->getClientOriginalExtension();
+        //     $destinationPath = public_path('foto');
+        //     $image->move($destinationPath, $name);
+        //     $sdm->foto = 'foto/'.$name;
+        // }
+
         if ($request->hasFile('img_upload')) {
-            $image = $request->file('img_upload');
-            $name = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('foto');
-            $image->move($destinationPath, $name);
-            $sdm->foto = 'foto/'.$name;
+            $fileContents = $request->file('img_upload');
+            $paths3 =  Storage::disk('s3')->put('foto', $fileContents,'public');
+            $sdm->foto = $paths3;
         }
 
         // $photoName = time().'.'.$request->input('input_img')->getClientOriginalExtension();
@@ -313,6 +320,9 @@ class SdmController extends Controller
         $nikah = DB::connection('mysql')->table('mst_nikah')->get();
         $sdm = sdm::where('no_sdm',$nonsb)->first();
         $mkantor = DB::connection('mysql')->table('master_kantor')->get();
+
+        $foto = Storage::disk('s3')->url($sdm->foto);
+
 
         // $imagePath = public_path('foto');
         // $image = sdm::make(sdm::get($imagePath))->resize(320,240)->encode();
@@ -362,7 +372,7 @@ class SdmController extends Controller
             sdm.gelar_ps=mst_gelar.kode";
         $lihat5 = DB::connection('mysql')->select(DB::raw($sql1));  
 
-        return view('edit.formviewsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','sdm','nikah','mkantor','lihat1','lihat2','lihat3','lihat4','lihat5'));   
+        return view('edit.formviewsdm',compact('kodya','jabatan','kelurahan','kecamatan','kab','gelar','status','kantor','sdm','nikah','mkantor','lihat1','lihat2','lihat3','lihat4','lihat5','foto'));   
     }
 
     public function viewFormSDMEdit($nonsb)
@@ -385,6 +395,9 @@ class SdmController extends Controller
         // Storage::put($imagePath,$image);
 
         // $sdm->foto = $imagePath;
+
+        $foto = Storage::disk('s3')->url($sdm->foto);
+
 
         $sql1 ="SELECT mst_statusrumah.kode_status,mst_statusrumah.status,sdm.status_rumah 
             from mst_statusrumah,sdm 
@@ -421,23 +434,30 @@ class SdmController extends Controller
             sdm.gelar_ps=mst_gelar.kode";
         $lihat5 = DB::connection('mysql')->select(DB::raw($sql1));  
 
-        return view('edit.formeditsdm',compact('kodya','jabatan','kelurahan','camat','lurah','gelar','status','kantor','sdm','nikah','mkantor','lihat1','lihat2','lihat3','lihat4','propinsi','lihat5'));   
+        return view('edit.formeditsdm',compact('kodya','jabatan','kelurahan','camat','lurah','gelar','status','kantor','sdm','nikah','mkantor','lihat1','lihat2','lihat3','lihat4','propinsi','lihat5','foto'));   
     }
     public function saveDataSDMEdit(Request $request,$nonsb)
     {               
         Log::info($request->hasFile('img_upload'));
-        if ($request->hasFile('img_upload')) {
-            Log::info('masuk');
-            $image = $request->file('img_upload');
-            $name = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('foto');
-            $image->move($destinationPath, $name);
-            DB::connection('mysql')->table('sdm')->where('no_sdm',$request->input('input_nosdm'))->update([
-                'foto' => 'foto/'.$name
+        // if ($request->hasFile('img_upload')) {
+        //     Log::info('masuk');
+        //     $image = $request->file('img_upload');
+        //     $name = time().'.'.$image->getClientOriginalExtension();
+        //     $destinationPath = public_path('foto');
+        //     $image->move($destinationPath, $name);
+        //     DB::connection('mysql')->table('sdm')->where('no_sdm',$request->input('input_nosdm'))->update([
+        //         'foto' => 'foto/'.$name
         
+        //     ]);
+        // }
+       
+       if ($request->hasFile('img_upload')) {
+            $fileContents = $request->file('img_upload');
+            $paths3 =  Storage::disk('s3')->put('foto', $fileContents,'public');
+            DB::connection('mysql')->table('sdm')->where('no_sdm',$request->input('input_nosdm'))->update([
+                'foto' => $paths3
             ]);
         }
-       
         
 
         DB::connection('mysql')->table('sdm')->where('no_sdm',$request->input('input_nosdm'))->update([

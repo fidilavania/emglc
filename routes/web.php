@@ -111,6 +111,10 @@ Route::group(['middleware' => ['auth']], function () {
 
 	// laporan data sdm
 	Route::get('/lapsdm', 'LaporanController@formlapsdm');
+
+	// coba
+	Route::get('/coba', 'LaporanController@formcoba');
+	Route::post('/savecoba','LaporanController@saveCoba');
 	
 
 	Route::get('auth/logout', 'AuthController@logout');
