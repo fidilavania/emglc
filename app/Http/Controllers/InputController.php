@@ -59,7 +59,7 @@ class InputController extends Controller
         $materi->save();
         
        
-        return redirect('/viewmateri/'.$request->input('kode_modul'));
+        return redirect('/viewmateri/'.$materi->kode_modul);
         
     }
 
