@@ -17,7 +17,7 @@
                     <div class="row">
                         <div class="col-sm-3">
                             <?php
-                                echo "<font color='#ff0000'>wajib diisi*</font><br>";
+                               
                             ?>
                         </div>
                     </div>
@@ -276,7 +276,12 @@
                             </div>
                         </div>
                             <div class="col-sm-12">
-                                <input type="button" class="btn btn-success" name="cetak" value="Daftar Hadir" />
+                                @if($materi->materi != '')
+                                <a href="{{$materi->materi}}" id="clear-filter" >
+                                    <input type="button" class="btn btn-success" name="materi" value="DOWNLOAD MATERI">
+                                </a>
+                                @endif
+                                <input type="button" class="btn btn-primary" name="cetak" value="Daftar Hadir" />
                                 <input type="button" class="btn btn-primary" name="excel" value="Expor Excel" />
                                 <br/>
                                 <br/>
@@ -326,12 +331,7 @@
             }
         });
 
-        // $('[name="cetak"]').click(function() {
-        //     window.location.href = '{{url("/presensi")}}'+'/'+$(this).find('td:first').attr('data-id');
-        // });
-        // $('[name="excel"]').click(function() {
-        //     window.location.href = '{{url("/presensiexcel")}}'+'/'+$(this).find('td:first').attr('data-id');
-        // });
+        
 
     });
 </script>

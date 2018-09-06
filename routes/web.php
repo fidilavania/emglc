@@ -100,6 +100,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 	// peserta
 	Route::match(['get', 'post'],'/pendaftaran/{key?}', 'PesertaController@formPendaftaran')->where('key', '(.*)');
+	Route::get('/materidownload/{nonsb?}', 'PesertaController@ViewMateridownload');
 
 	// usulan
 	Route::get('/usul', 'SdmController@viewusulan');

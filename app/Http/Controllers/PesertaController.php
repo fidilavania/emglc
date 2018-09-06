@@ -149,4 +149,14 @@ class PesertaController extends Controller
 
         return view('daftar.formcetak',compact('sdm','materi','matdet','peserta','datasdm','lihat1','arr'));   
     }
+
+    public function ViewMateridownload($nonsb)
+    {
+        $matdet = materi_detail::where('kode_modul',$nonsb)->first();
+        $kodya = DB::connection('mysql')->table('mst_dati2')->where('status',' ')->orderBy('desc2','asc')->get();
+        $materi = materi::where('kode_modul',$nonsb)->first();
+
+        return view('peserta.formmateridownload',compact('matdet','materi','kodya'));   
+    }
+
 }
