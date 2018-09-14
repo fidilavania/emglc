@@ -235,6 +235,40 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
+                                    <div class="panel-heading"><h4 align="center">DAFTAR TANGGAL DAN LOKASI</h4></div>
+                                    <table class="table table-bordered"  style="border-style: solid 1px #000000;" width=100% >
+                                        <thead>
+                                            <th>No</th>
+                                            <th>Kantor</th>
+                                            <th>Jumlah Peserta</th>
+                                            <th>Tanggal Kegiatan</th>
+                                            <th>Lokasi Kegiatan</th>
+                                        </thead>
+                                        <tbody>
+                                           <?php
+                                            $no = 0;
+                                            
+                                                foreach ($peserta as $a) {
+                                                $no++;
+                                                $string = $a->no_sdm;
+                                                $result = substr_count($string, ",")+1;
+                                                    echo '<td align="center">'.$no.'</td>'; 
+                                                    // echo '<tr>';
+                                                    echo '<td align="center">'.$a->kantor.'</td>'; 
+                                                    echo '<td align="center">'.$result.'</td>';
+                                                    echo '<td align="center">'.$a->tgl_keg.'</td>'; 
+                                                    echo '<td align="center">'.$a->lokasi_keg.'</td>';
+                                                    echo '</tr>';
+                                                        // echo '<td>'.$p->tgl_keg.'</td>';
+                                                    // }
+                                                }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
                                     <div class="panel-heading"><h4 align="center">DAFTAR PESERTA</h4></div>
                                     <table class="table table-bordered"  style="border-style: solid 1px #000000;" width=100% >
                                         <thead>
@@ -274,8 +308,8 @@
                                         </tbody>
                                     </table>
                             </div>
-                        </div>
-                            <div class="col-sm-12">
+                        
+                        <div class="col-sm-12">
                                 @if($materi->materi != '')
                                 <a href="{{$materi->materi}}" id="clear-filter" >
                                     <input type="button" class="btn btn-success" name="materi" value="DOWNLOAD MATERI">
@@ -287,6 +321,8 @@
                                 <br/>
                             </div>
                         <br><br>
+                        </div>
+                            
                         <div class="row submitbtn1">
                             <!-- <div class="col-sm-12">
                                 <button type="submit" class="btn btn-primary" name="simpanbutton">KE KREDIT</button>
