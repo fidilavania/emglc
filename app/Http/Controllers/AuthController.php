@@ -38,7 +38,7 @@ class AuthController extends Controller
         $user = User::all();
         //Log::info(json_encode($user));
         if (Auth::check()) {
-            return redirect('/');
+            return redirect('/pilih');
         }
         return view('login');
     }
@@ -48,7 +48,7 @@ class AuthController extends Controller
             // Authentication passed...
             $user = Auth::user();
             
-            return redirect('/');
+            return redirect('/pilih');
         }else{
             //return view('login',compact('lkh','buka'));
             return view('login');

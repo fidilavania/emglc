@@ -14,7 +14,7 @@
 <style>
   body{
     min-height: 500px;
-    background-image: url("/pic/bg2.gif");
+    background-image: url("/pic/pilih.jpg");
     background-size: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;

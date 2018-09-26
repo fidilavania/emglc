@@ -11,16 +11,22 @@
 |
 */
 Route::get('/welcome', 'AuthController@viewAwal');
+// Route::get('/pilih', 'RbbController@viewPilih');
 // GRAHA EMG
 Route::get('/graha', 'GrahaController@formgraha');
 
 Route::get('auth/login', 'AuthController@login')->name('login');
 Route::post('auth/postlogin','AuthController@authenticate');
 
+// Route::get('auth/loginrbb', 'RbbController@loginrbb')->name('loginrbb');
+// Route::post('auth/postlogin','RbbController@authenticaterbb');
+
 Route::group(['middleware' => ['auth']], function () {
 		//Home
 	Route::get('/', 'HomeController@viewDashboard');
-
+	Route::get('/pilih', 'RbbController@viewPilih');
+	Route::get('/homerbb', 'RbbController@viewHomeRbb');
+	
 	// SDM
 	Route::match(['get', 'post'],'/datasdm/{key?}/{kol?}', 'SdmController@viewDataSdm');
 	Route::get('/addsdm', 'SdmController@viewFormSDM');
