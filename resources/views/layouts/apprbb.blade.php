@@ -100,8 +100,8 @@
                 <li class="">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Import Excel<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                  @if(strpos(Auth::user()->fungsi, '1111') !== false)
-                    <li><a href="{{ url('') }}">Import</a></li>
+                  @if(strpos(Auth::user()->fungsi, '0000') !== false)
+                    <li><a href="">Import</a></li>
                   @endif
                 </li>
               </ul>

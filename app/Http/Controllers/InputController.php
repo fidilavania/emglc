@@ -56,6 +56,7 @@ class InputController extends Controller
         $materi->silabus = ($request->input('silabus'));
         $materi->durasi = strtoupper($request->input('durasi'));
         $materi->biaya = DataController::formatangka($request->input('biaya'));
+        $materi->materi = '';
         $materi->save();
         
        
