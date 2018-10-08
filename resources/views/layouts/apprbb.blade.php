@@ -35,41 +35,45 @@
       }
       
       th {
-        border:solid 1px black;
-            margin:0px;
-            padding:0px;
-            border-collapse: collapse;
-            border-spacing: 5;
-            text-align:center;
-            background-color: #ededed;
-            
-        }
-      tr.active td{
-            color: red !important;
-        } 
-        td.angka{
-            text-align: right;
-        }
-        
-        /*#header{
-            bottom: 10;
-            position: fixed;
-            top: 10;
-            z-index: 100;
-            height:20px;
-            background-color:#FFFFE0;
-            width:1140px;
-            -webkit-box-shadow: #666 1px 1px 2px;
-            -moz-box-shadow: #666 1px 1px 2px;
-            box-shadow:     #666 1px 1px 2px;
-            padding:1px;
-        }
+        border:solid 1px silver;
+        margin:0px;
+        padding:0px;
+        border-collapse: collapse;
+        border-spacing: 5;
+        text-align:center;
+      }
 
-        #konten {
-          padding:5px;
-          margin-top:50px;
-          margin-bottom:1px;
-      }*/
+      td {
+        border:solid 1px silver;
+      }
+     
+        
+      .table1 {
+          font-family: sans-serif;
+          color: #444;
+          border-collapse: collapse;
+          width: 100%;
+          border: 1px solid #f2f5f7;
+      }
+
+      .table1 tr th{
+          background: #8B0000;
+          color: #fff;
+          font-weight: normal;
+      }
+
+      .table1, th, td {
+          padding: 8px 20px;
+          text-align: center;
+      }
+
+      .table1 td:hover {
+          background-color: #BC8F8F;
+      }
+
+      .table1 tr:nth-child(even) {
+          background-color: #f2f2f2;
+      }
 
     </style>
 
@@ -98,13 +102,39 @@
         @if(strpos(Auth::user()->jenis, 'RBB') !== false)
             <ul class="nav navbar-nav navbar-left"> 
                 <li class="">
-                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Import Excel<span class="caret"></span></a>
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Import/Export<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                   @if(strpos(Auth::user()->fungsi, '0000') !== false)
-                    <li><a href="">Import</a></li>
+                    <li><a href="/import">Import Excel</a></li>
+                    <li><a href="/download-jsonfile">Export Txt</a></li>
                   @endif
                 </li>
               </ul>
+
+              <li class="">
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rencana Bisnis<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                  @if(strpos(Auth::user()->fungsi, '0000') !== false)
+                    <li><a href="/0102">Indikator Keuangan Utama - 0102</a></li>
+                    <li><a href="/0301">Proyeksi Neraca - 0301</a></li>
+                    <li><a href="/0401">Proyeksi Laba Rugi - 0401</a></li>
+                    <li><a href="/0501">Target Rasio-Rasio dan Pos-Pos Keuangan - 0501</a></li>
+                    <li><a href="/0601">Rencana Penghimpunan Dana Pihak Ketiga - 0601</a></li>
+                    <li><a href="/0701">Rencana Pendanaan Lainnya - 0701</a></li>
+                    <li><a href="/0801">Rencana Penyaluran Dana Kepada Pihak Terkait - 0801</a></li>
+                    <li><a href="/0802">Rencana Penempatan Pada Bank Lain - 0802</a></li>
+                    <li><a href="/0803">Rencana Penyaluran Kredit Kepada Bank Lain - 0803</a></li>
+                    <li><a href="/0804">Rencana Penyaluran Kredit Kepada Debitur Inti - 0804</a></li>
+                    <li><a href="/0805">Rencana Penyaluran Kredit berdasarkan Sektor Ekonomi - 0805</a></li>
+                    <li><a href="/0806">Rencana Penyaluran Kredit berdasarkan Jenis Penggunaan - 0806</a></li>
+                    <li><a href="/0807">Rencana Penyaluran Kredit Berdasarkan Jenis Usaha - 0807</a></li>
+                    <li><a href="/0901">Rencana Pemenuhan Rasio Kewajiban Penyediaan Modal Minimum (KPMM) - 0901</a></li>
+                    <li><a href="/0902">Rencana Pemenuhan Modal Inti Minimum - 0902</a></li>
+                    <li><a href="/0903">Rencana Penambahan Modal - 0903</a></li>
+                  @endif
+                </li>
+              </ul>
+
             </ul>
          @endif
 
@@ -200,6 +230,15 @@
       .back-to-top-a {font-size:10px;z-index:9999999;opacity:0.2;position:fixed;bottom:0;}
       .back-to-top a {font-size: 30px ;background-color: #DD3434 ;color:#FFF;-webkit-transition:all .3s ease;-moz-transition:all .3s ease;transition:all .3s ease;padding:12px 18px 20px;text-decoration: none}.back-to-top a:hover {background-color: #272727 ;text-decoration: none}
     </style>
+
+    <!-- kembali ke /pilih -->
+    <span class='kembali'><a href='/pilih'>   &#8592; </a></span>
+    <style>
+      .kembali {position: fixed ;bottom:20px;left:10px;z-index:9999999}
+      .kembali-a {font-size:10px;z-index:9999999;opacity:0.2;position:fixed;bottom:0;}
+      .kembali a {font-size: 30px ;background-color: #DD3434 ;color:#FFF;-webkit-transition:all .3s ease;-moz-transition:all .3s ease;transition:all .3s ease;padding:12px 18px 20px;text-decoration: none}.kembali a:hover {background-color: #272727 ;text-decoration: none}
+    </style>
+    
     <!-- end backtotop -->
     @yield('js')
   </body>

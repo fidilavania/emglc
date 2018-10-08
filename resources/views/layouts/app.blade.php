@@ -251,6 +251,15 @@
       .back-to-top-a {font-size:10px;z-index:9999999;opacity:0.2;position:fixed;bottom:0;}
       .back-to-top a {font-size: 30px ;background-color: #DD3434 ;color:#FFF;-webkit-transition:all .3s ease;-moz-transition:all .3s ease;transition:all .3s ease;padding:12px 18px 20px;text-decoration: none}.back-to-top a:hover {background-color: #272727 ;text-decoration: none}
     </style>
+
+    <!-- kembali ke /pilih -->
+    <span class='kembali'><a href='/pilih'>   &#8592; </a></span>
+    <style>
+      .kembali {position: fixed ;bottom:20px;left:10px;z-index:9999999}
+      .kembali-a {font-size:10px;z-index:9999999;opacity:0.2;position:fixed;bottom:0;}
+      .kembali a {font-size: 30px ;background-color: #DD3434 ;color:#FFF;-webkit-transition:all .3s ease;-moz-transition:all .3s ease;transition:all .3s ease;padding:12px 18px 20px;text-decoration: none}.kembali a:hover {background-color: #272727 ;text-decoration: none}
+    </style>
+
     <!-- end backtotop -->
     @yield('js')
   </body>

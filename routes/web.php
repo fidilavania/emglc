@@ -26,6 +26,33 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/', 'HomeController@viewDashboard');
 	Route::get('/pilih', 'RbbController@viewPilih');
 	Route::get('/homerbb', 'RbbController@viewHomeRbb');
+
+	// RBB
+		// RBB import
+		Route::get('/import', 'RbbController@viewImport');
+		// Route::get('/', 'StudentController@index')->name('index');
+		Route::post('/proses', 'RbbController@proses')->name('proses');
+
+		// rencana
+		Route::get('/0102', 'RbbViewController@view0102');
+		Route::get('/0301', 'RbbViewController@view0301');
+		Route::get('/0401', 'RbbViewController@view0401');
+		Route::get('/0501', 'RbbViewController@view0501');
+		Route::get('/0601', 'RbbViewController@view0601');
+		Route::get('/0701', 'RbbViewController@view0701');
+		Route::get('/0801', 'RbbViewController@view0801');
+		Route::get('/0802', 'RbbViewController@view0802');
+		Route::get('/0803', 'RbbViewController@view0803');
+		Route::get('/0804', 'RbbViewController@view0804');
+		Route::get('/0805', 'RbbViewController@view0805');
+		Route::get('/0806', 'RbbViewController@view0806');
+		Route::get('/0807', 'RbbViewController@view0807');
+		Route::get('/0901', 'RbbViewController@view0901');
+		Route::get('/0902', 'RbbViewController@view0902');
+		Route::get('/0903', 'RbbViewController@view0903');
+
+		// export
+		Route::get('/download-jsonfile', array('as'=> 'file.download', 'uses' => 'RbbViewController@downloadJSONFile'));
 	
 	// SDM
 	Route::match(['get', 'post'],'/datasdm/{key?}/{kol?}', 'SdmController@viewDataSdm');
