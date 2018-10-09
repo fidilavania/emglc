@@ -36,23 +36,26 @@
       
       th {
         border:solid 1px silver;
-        margin:0px;
-        padding:0px;
-        border-collapse: collapse;
-        border-spacing: 5;
+        /*margin:0px;
+        padding:0px;*/
+        /*border-collapse: collapse;*/
+        /*border-spacing: 5;*/
         text-align:center;
       }
 
       td {
         border:solid 1px silver;
       }
-     
+
+      .td1{
+        text-align:right;
+      }
         
       .table1 {
           font-family: sans-serif;
           color: #444;
-          border-collapse: collapse;
-          width: 100%;
+          /*border-collapse: collapse;*/
+          /*width: 100%;*/
           border: 1px solid #f2f5f7;
       }
 
@@ -64,7 +67,26 @@
 
       .table1, th, td {
           padding: 8px 20px;
-          text-align: center;
+      }
+
+      .th1{
+        padding: 8px 200px;
+      }
+
+      .th2{
+        padding: 8px 150px;
+      }
+
+      .th3{
+        padding: 8px 30px;
+      }
+
+      .th4{
+        padding: 8px 340px;
+      }
+
+      .th5{
+        padding: 8px 50px;
       }
 
       .table1 td:hover {

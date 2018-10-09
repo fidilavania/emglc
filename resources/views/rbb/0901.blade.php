@@ -49,10 +49,10 @@
                                 <table class="table1" name="tabelA">
                                     <thead>
                                         <tr>
-                                            <th rowspan="2">Periode</th>
+                                            <th class="th3" rowspan="2">Periode</th>
                                             <th rowspan="2">Kantor</th>
                                             <th rowspan="2">Komponen</th>
-                                            <th rowspan="2">Komponen Modal</th>
+                                            <th class="th4" rowspan="2">Komponen Modal</th>
                                             <th colspan="2">Kinerja</th>
                                             <th colspan="15">Proyeksi</th>
                                         </tr>
@@ -72,11 +72,11 @@
                                             <td>{{$A->no_kantor}}</td>
                                             <td>{{$A->komponen}}</td>
                                             <td>{{$A->modal}}</td>
-                                            <td>{{$A->kinerja_okt}}</td>
-                                            <td>{{$A->pro_des}}</td>
-                                            <td>{{$A->pro_juni}}</td>
-                                            <td>{{$A->pro_des1}}</td>
-                                            <td>{{$A->pro_des2}}</td>
+                                            <td class="td1">{{$A->kinerja_okt}}</td>
+                                            <td class="td1">{{$A->pro_des}}</td>
+                                            <td class="td1">{{$A->pro_juni}}</td>
+                                            <td class="td1">{{$A->pro_des1}}</td>
+                                            <td class="td1">{{$A->pro_des2}}</td>
 
                                         </tr>
                                         @endforeach

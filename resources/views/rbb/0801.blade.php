@@ -49,11 +49,11 @@
                                 <table class="table1" name="tabelA">
                                     <thead>
                                         <tr>
-                                            <th rowspan="2">Periode</th>
+                                            <th class="th3" rowspan="2">Periode</th>
                                             <th rowspan="2">Kantor</th>
                                             <th rowspan="2">Komponen</th>
                                             <th rowspan="2">Kode Referensi Jenis Pendanaan Lainnya</th>
-                                            <th rowspan="2">Jenis Penyaluran Dana</th>
+                                            <th class="th2" rowspan="2">Jenis Penyaluran Dana</th>
                                             <th rowspan="2">Jumlah Debitur</th>
                                             <th colspan="1">Kinerja</th>
                                             <th colspan="5">Proyeksi</th>
@@ -69,16 +69,16 @@
                                     <tbody>
                                         @foreach($rbb as $A)
                                         <tr>
-                                            <td>{{$A->periode}}</td>
+                                            <td >{{$A->periode}}</td>
                                             <td>{{$A->no_kantor}}</td>
                                             <td>{{$A->komponen}}</td>
                                             <td>{{$A->kode_ref}}</td> 
                                             <td>{{$A->jenis}}</td>
-                                            <td>{{$A->jumlah}}</td>
-                                            <td>{{$A->kinerja_okt}}</td> 
-                                            <td>{{$A->pro_des}}</td> 
-                                            <td>{{$A->pro_juni}}</td> 
-                                            <td>{{$A->pro_des1}}</td> 
+                                            <td class="td1">{{$A->jumlah}}</td>
+                                            <td class="td1">{{$A->kinerja_okt}}</td> 
+                                            <td class="td1">{{$A->pro_des}}</td> 
+                                            <td class="td1">{{$A->pro_juni}}</td> 
+                                            <td class="td1">{{$A->pro_des1}}</td> 
                                         </tr>
                                         @endforeach
                                     </tbody>

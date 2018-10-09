@@ -49,11 +49,11 @@
                                 <table class="table1" name="tabelA">
                                     <thead>
                                         <tr>
-                                            <th rowspan="2">Periode</th>
+                                            <th class="th3" rowspan="2">Periode</th>
                                             <th rowspan="2">Kantor</th>
                                             <th rowspan="2">Komponen</th>
-                                            <th rowspan="2">Keterangan Baris</th>
-                                            <th rowspan="2">Rincian Nama Pemegang Saham/Rincian Nama Modal Lainnya</th>
+                                            <th class="th1" rowspan="2">Keterangan Baris</th>
+                                            <th class="th5" rowspan="2">Rincian Nama Pemegang Saham/Rincian Nama Modal Lainnya</th>
                                             <th colspan="2">Kinerja</th>
                                             <th colspan="15">Proyeksi</th>
                                         </tr>
@@ -75,12 +75,42 @@
                                             <td>{{$A->komponen}}</td>
                                             <td>{{$A->ket_bisnis}}</td>
                                             <td>{{$A->nama}}</td>
-                                            <td>{{$A->kinerja_okt}}</td>
-                                            <td>{{$A->pro_des}}</td>
-                                            <td>{{$A->pro_juni}}</td>
-                                            <td>{{$A->pro_des1}}</td>
-                                            <td>{{$A->pro_des2}}</td>
-                                            <td>{{$A->pro_des3}}</td>
+                                            @if($A->komponen == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->kinerja_okt,0,'','.')}}</td>
+                                            @endif
+                                            
+                                            @if($A->komponen == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->pro_des,0,'','.')}}</td>
+                                            @endif
+                                            
+                                            @if($A->komponen == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->pro_juni,0,'','.')}}</td>
+                                            @endif
+                                            
+                                            @if($A->komponen == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->pro_des1,0,'','.')}}</td>
+                                            @endif
+                                            
+                                            @if($A->komponen == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->pro_des2,0,'','.')}}</td>
+                                            @endif
+                                            
+                                            @if($A->komponen == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->pro_des3,0,'','.')}}</td>
+                                            @endif
+                                            
                                         </tr>
                                         @endforeach
                                     </tbody>

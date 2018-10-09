@@ -49,10 +49,10 @@
                                 <table class="table1" name="tabelA">
                                     <thead>
                                         <tr>
-                                            <th rowspan="3">Periode</th>
+                                            <th class="th3" rowspan="3">Periode</th>
                                             <th rowspan="3">Kantor</th>
                                             <th rowspan="3">Komponen</th>
-                                            <th rowspan="3">Indikator Keuangan Utama</th>
+                                            <th class="th1" rowspan="3">Indikator Keuangan Utama</th>
                                             <th colspan="3">Kinerja</th>
                                             <th colspan="15">Proyeksi</th>
                                         </tr>
@@ -93,24 +93,89 @@
                                             <td>{{$A->no_kantor}}</td>
                                             <td>{{$A->komponen}}</td>
                                             <td>{{$A->indikator}}</td>
-                                            <td>{{$A->kinerja_okt_pembilang}}</td>
-                                            <td>{{$A->kinerja_okt_penyebut}}</td>
-                                            <td>{{$A->kinerja_persen}}</td>
-                                            <td>{{$A->proyeksi_des_pembilang}}</td>
-                                            <td>{{$A->proyeksi_des_penyebut}}</td>
-                                            <td>{{$A->proyeksi_des_persen}}</td>
-                                            <td>{{$A->proyeksi_jun_pembilang}}</td>
-                                            <td>{{$A->proyeksi_jun_penyebut}}</td>
-                                            <td>{{$A->proyeksi_jun_persen}}</td>
-                                            <td>{{$A->proyeksi_des_pembilang_1}}</td>
-                                            <td>{{$A->proyeksi_des_penyebut_1}}</td>
-                                            <td>{{$A->proyeksi_des_persen_1}}</td>
-                                            <td>{{$A->proyeksi_des_pembilang_2}}</td>
-                                            <td>{{$A->proyeksi_des_penyebut_2}}</td>
-                                            <td>{{$A->proyeksi_des_persen_2}}</td>
-                                            <td>{{$A->proyeksi_des_pembilang_3}}</td>
-                                            <td>{{$A->proyeksi_des_penyebut_3}}</td>
-                                            <td>{{$A->proyeksi_des_persen_3}}</td>
+                                            @if($A->kinerja_okt_pembilang == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->kinerja_okt_pembilang,0,'','.')}}</td>
+                                            @endif
+
+                                            @if($A->kinerja_okt_penyebut == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->kinerja_okt_penyebut,0,'','.')}}</td>
+                                            @endif
+                                            
+                                            <td class="td1">{{$A->kinerja_persen}}</td>
+
+                                            @if($A->proyeksi_des_pembilang == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->proyeksi_des_pembilang,0,'','.')}}</td>
+                                            @endif
+
+                                            @if($A->proyeksi_des_penyebut == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->proyeksi_des_penyebut,0,'','.')}}</td>
+                                            @endif
+
+                                            <td class="td1">{{$A->proyeksi_des_persen}}</td>
+
+                                            @if($A->proyeksi_jun_pembilang == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->proyeksi_jun_pembilang,0,'','.')}}</td>
+                                            @endif
+
+                                            @if($A->proyeksi_jun_penyebut == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->proyeksi_jun_penyebut,0,'','.')}}</td>
+                                            @endif
+
+                                            <td class="td1">{{$A->proyeksi_jun_persen}}</td>
+
+                                            @if($A->proyeksi_des_pembilang_1 == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->proyeksi_des_pembilang_1,0,'','.')}}</td>
+                                            @endif
+
+                                            @if($A->proyeksi_des_penyebut_1 == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->proyeksi_des_penyebut_1,0,'','.')}}</td>
+                                            @endif
+
+                                            <td class="td1">{{$A->proyeksi_des_persen_1}}</td>
+
+                                            @if($A->proyeksi_des_pembilang_2 == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->proyeksi_des_pembilang_2,0,'','.')}}</td>
+                                            @endif
+
+                                            @if($A->proyeksi_des_penyebut_2 == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->proyeksi_des_penyebut_2,0,'','.')}}</td>
+                                            @endif
+
+                                            <td class="td1">{{$A->proyeksi_des_persen_2}}</td>
+                                            
+                                            @if($A->proyeksi_des_pembilang_3 == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->proyeksi_des_pembilang_3,0,'','.')}}</td>
+                                            @endif
+
+                                            @if($A->proyeksi_des_penyebut_3 == '')
+                                            <td></td>
+                                            @else
+                                            <td class="td1">{{number_format($A->proyeksi_des_penyebut_3,0,'','.')}}</td>
+                                            @endif
+
+                                            <td class="td1">{{$A->proyeksi_des_persen_3}}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>

@@ -49,11 +49,11 @@
                                 <table class="table1" name="tabelA">
                                     <thead>
                                         <tr>
-                                            <th rowspan="2">Periode</th>
+                                            <th class="th3" rowspan="2">Periode</th>
                                             <th rowspan="2">Kantor</th>
                                             <th rowspan="2">Komponen</th>
                                             <th rowspan="2">Kode Referensi Jenis Pendanaan Lainnya</th>
-                                            <th rowspan="2">Jenis Pendanaan Lainnya</th>
+                                            <th class="th2" rowspan="2">Jenis Pendanaan Lainnya</th>
                                             <th rowspan="2">Nama Pihak/Lembaga Pemberi Dana</th>
                                             <th colspan="1">Kinerja</th>
                                             <th colspan="5">Proyeksi</th>

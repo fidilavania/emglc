@@ -49,10 +49,10 @@
                                 <table class="table1" name="tabelA">
                                     <thead>
                                         <tr>
-                                            <th rowspan="2">Periode</th>
+                                            <th class="th3" rowspan="2">Periode</th>
                                             <th rowspan="2">Kantor</th>
                                             <th rowspan="2">Komponen</th>
-                                            <th rowspan="2">Keterangan</th>
+                                            <th class="th5" rowspan="2">Keterangan</th>
                                             <th colspan="2">Kinerja</th>
                                             <th colspan="15">Proyeksi</th>
                                         </tr>
@@ -75,14 +75,14 @@
                                             <td>{{$A->no_kantor}}</td>
                                             <td>{{$A->komponen}}</td>
                                             <td>{{$A->ket}}</td>
-                                            <td>{{$A->kinerja_okt}}</td>
-                                            <td>{{$A->pro_des}}</td>
-                                            <td>{{$A->pro_juni}}</td>
-                                            <td>{{$A->pro_des1}}</td>
-                                            <td>{{$A->pro_des2}}</td>
-                                            <td>{{$A->pro_des3}}</td>
-                                            <td>{{$A->pro_des4}}</td>
-                                            <td>{{$A->pro_des5}}</td>
+                                            <td class="td1">{{number_format($A->kinerja_okt,0,'','.')}}</td>
+                                            <td class="td1">{{number_format($A->pro_des,0,'','.')}}</td>
+                                            <td class="td1">{{number_format($A->pro_juni,0,'','.')}}</td>
+                                            <td class="td1">{{number_format($A->pro_des1,0,'','.')}}</td>
+                                            <td class="td1">{{number_format($A->pro_des2,0,'','.')}}</td>
+                                            <td class="td1">{{number_format($A->pro_des3,0,'','.')}}</td>
+                                            <td class="td1">{{number_format($A->pro_des4,0,'','.')}}</td>
+                                            <td class="td1">{{number_format($A->pro_des5,0,'','.')}}</td>
 
                                         </tr>
                                         @endforeach
