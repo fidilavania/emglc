@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    @if ( Session::has('success') )
+   @if ( Session::has('success') )
         <div class="alert alert-success alert-dismissible" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -54,7 +54,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Periode</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="periode" autocomplete="off" value="{{date('Y')}}-12-31" style="text-transform:uppercase;" readonly />
+                                        <input type="text" class="form-control" name="periode" autocomplete="off" value="{{date('Y')}}-12-31" style="text-transform:uppercase;" required />
                                     </div>
                                 </div>
                             </div>

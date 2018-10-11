@@ -52,7 +52,8 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('/0903', 'RbbViewController@view0903');
 
 		// export
-		Route::get('/download-jsonfile', array('as'=> 'file.download', 'uses' => 'RbbViewController@downloadJSONFile'));
+		Route::get('/export', 'RbbViewController@viewEksport');
+		Route::post('/download-jsonfile', array('as'=> 'file.download', 'uses' => 'RbbViewController@downloadJSONFile'));
 	
 	// SDM
 	Route::match(['get', 'post'],'/datasdm/{key?}/{kol?}', 'SdmController@viewDataSdm');

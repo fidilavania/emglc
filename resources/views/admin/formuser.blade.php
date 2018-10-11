@@ -75,6 +75,18 @@
                                     </div>
                                 </div>
                                 <div class="row form-group">
+                                    <label class="col-sm-2 control-label">Modul*</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control" name="input_modul" required>
+                                            <option value >Pilih Modul</option>
+                                            @foreach($modul as $m)
+                                                <option value="{{$m->nama}}">{{$m->nama}}</option>
+                                            @endforeach
+                                        </select>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
                                     <label class="col-sm-2 control-label">Hak Akses*</label>
                                     <div class="col-sm-4">
                                         <select class="form-control" name="input_akses" required>

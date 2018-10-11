@@ -19,6 +19,7 @@ use App\kantor_mst;
 use App\mst_akses;
 use App\ABCJabatan;
 use App\master_kantor;
+use App\mst_modul;
 use App\Http\Requests;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 
@@ -33,7 +34,8 @@ class AdminController extends Controller
         $mkantor = DB::connection('mysql')->table('master_kantor')->where('induk','1')->where('status','AKTIF')->get();
         $jabatan = mst_jabatan::all();
         $akses = mst_akses::all();
-		return view('admin.formuser', compact('kantor','jabatan','akses','mkantor'));
+        $modul = mst_modul::all();
+		return view('admin.formuser', compact('kantor','jabatan','akses','mkantor','modul'));
     }
     public function postSaveUser(Request $request)
     {
@@ -49,6 +51,7 @@ class AdminController extends Controller
     	$user->kantor = $request->input('input_kantor');
         $user->fungsi = $request->input('input_akses');
         $user->tlp = $request->input('tlp');
+        $user->jenis = $request->input('input_modul');
     	$user->status = 1;
     	$user->password = Hash::make($request->input('input_password'));
     	$user->save();

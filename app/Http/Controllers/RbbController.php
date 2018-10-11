@@ -201,9 +201,11 @@ class RbbController extends Controller
                         'no_kantor' => strtoupper($request->input('kantor')),
                         'flag'  => $value->flag,
                         'kode_sektor'   => $value->kode_sektor,
+                        'kode_ljk'  => $value->sandi_ljk,
                         'periode'   => $value->periode,
                         'kode_jenis'    => $value->kode_jenis,
                         'modal_inti'    => $value->modal_inti,
+                        'ref_surat' => $value->ojk,
                         ];
                     }
  

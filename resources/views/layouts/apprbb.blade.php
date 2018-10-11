@@ -128,7 +128,7 @@
                   <ul class="dropdown-menu">
                   @if(strpos(Auth::user()->fungsi, '0000') !== false)
                     <li><a href="/import">Import Excel</a></li>
-                    <li><a href="/download-jsonfile">Export Txt</a></li>
+                    <li><a href="/export">Export Txt</a></li>
                   @endif
                 </li>
               </ul>
