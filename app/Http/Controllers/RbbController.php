@@ -28,6 +28,22 @@ use App\rbb_0807;
 use App\rbb_0901;
 use App\rbb_0902;
 use App\rbb_0903;
+use App\rbb_0102_f;
+use App\rbb_0301_f;
+use App\rbb_0401_f;
+use App\rbb_0501_f;
+use App\rbb_0601_f;
+use App\rbb_0701_f;
+use App\rbb_0801_f;
+use App\rbb_0802_f;
+use App\rbb_0803_f;
+use App\rbb_0804_f;
+use App\rbb_0805_f;
+use App\rbb_0806_f;
+use App\rbb_0807_f;
+use App\rbb_0901_f;
+use App\rbb_0902_f;
+use App\rbb_0903_f;
 use App\LKH;
 use Hash;
 use Validator;
@@ -105,6 +121,120 @@ class RbbController extends Controller
                 })->get();
                 $rbb_p = Excel::selectSheets('RBBPRK-0903_im')->load($path, function($reader) {
                 })->get();
+
+                $rbbaf = Excel::selectSheets('RBBPRK-0102_F')->load($path, function($reader) {
+                })->get();
+                $rbbbf = Excel::selectSheets('RBBPRK-0301_F')->load($path, function($reader) {
+                })->get();
+                $rbbcf = Excel::selectSheets('RBBPRK-0401_F')->load($path, function($reader) {
+                })->get();
+                $rbbdf = Excel::selectSheets('RBBPRK-0501_F')->load($path, function($reader) {
+                })->get();
+                $rbbef = Excel::selectSheets('RBBPRK-0601_F')->load($path, function($reader) {
+                })->get();
+                $rbbff = Excel::selectSheets('RBBPRK-0701_F')->load($path, function($reader) {
+                })->get();
+                $rbbgf = Excel::selectSheets('RBBPRK-0801_F')->load($path, function($reader) {
+                })->get();
+                $rbbhf = Excel::selectSheets('RBBPRK-0802_F')->load($path, function($reader) {
+                })->get();
+                $rbbif = Excel::selectSheets('RBBPRK-0803_F')->load($path, function($reader) {
+                })->get();
+                $rbbjf = Excel::selectSheets('RBBPRK-0804_F')->load($path, function($reader) {
+                })->get();
+                $rbbkf = Excel::selectSheets('RBBPRK-0805_F')->load($path, function($reader) {
+                })->get();
+                $rbblf = Excel::selectSheets('RBBPRK-0806_F')->load($path, function($reader) {
+                })->get();
+                $rbbmf = Excel::selectSheets('RBBPRK-0807_F')->load($path, function($reader) {
+                })->get();
+                $rbbnf = Excel::selectSheets('RBBPRK-0901_F')->load($path, function($reader) {
+                })->get();
+                $rbbof = Excel::selectSheets('RBBPRK-0902_F')->load($path, function($reader) {
+                })->get();
+                $rbbpf = Excel::selectSheets('RBBPRK-0903_F')->load($path, function($reader) {
+                })->get();
+
+                $cariaf = rbb_0102_f::where('no_kantor',$request->input('kantor'))->first();
+                if(!empty($cariaf)){
+                    DB::table('rbb_0102_f','no_kantor')->where('no_kantor',$request->input('kantor'))->where('periode',$request->input('periode'))->delete();
+                }
+
+                $caribf = rbb_0301_f::where('no_kantor',$request->input('kantor'))->first();
+                if(!empty($caribf)){
+                    DB::table('rbb_0301_f','no_kantor')->where('no_kantor',$request->input('kantor'))->where('periode',$request->input('periode'))->delete();
+                }
+
+                $caricf = rbb_0401_f::where('no_kantor',$request->input('kantor'))->first();
+                if(!empty($caricf)){
+                    DB::table('rbb_0401_f','no_kantor')->where('no_kantor',$request->input('kantor'))->where('periode',$request->input('periode'))->delete();
+                }
+
+                $caridf = rbb_0501_f::where('no_kantor',$request->input('kantor'))->first();
+                if(!empty($caridf)){
+                    DB::table('rbb_0501_f','no_kantor')->where('no_kantor',$request->input('kantor'))->where('periode',$request->input('periode'))->delete();
+                }
+
+                $carief = rbb_0601_f::where('no_kantor',$request->input('kantor'))->first();
+                if(!empty($carief)){
+                    DB::table('rbb_0601_f','no_kantor')->where('no_kantor',$request->input('kantor'))->where('periode',$request->input('periode'))->delete();
+                }
+
+                $cariff = rbb_0701_f::where('no_kantor',$request->input('kantor'))->first();
+                if(!empty($cariff)){
+                    DB::table('rbb_0701_f','no_kantor')->where('no_kantor',$request->input('kantor'))->where('periode',$request->input('periode'))->delete();
+                }
+
+                $carigf = rbb_0801_f::where('no_kantor',$request->input('kantor'))->first();
+                if(!empty($carigf)){
+                    DB::table('rbb_0801_f','no_kantor')->where('no_kantor',$request->input('kantor'))->where('periode',$request->input('periode'))->delete();
+                }
+
+                $carihf = rbb_0802_f::where('no_kantor',$request->input('kantor'))->first();
+                if(!empty($carihf)){
+                    DB::table('rbb_0802_f','no_kantor')->where('no_kantor',$request->input('kantor'))->where('periode',$request->input('periode'))->delete();
+                }
+
+                $cariif = rbb_0803_f::where('no_kantor',$request->input('kantor'))->first();
+                if(!empty($cariif)){
+                    DB::table('rbb_0803_f','no_kantor')->where('no_kantor',$request->input('kantor'))->where('periode',$request->input('periode'))->delete();
+                }
+
+                $carijf = rbb_0804_f::where('no_kantor',$request->input('kantor'))->first();
+                if(!empty($carijf)){
+                    DB::table('rbb_0804_f','no_kantor')->where('no_kantor',$request->input('kantor'))->where('periode',$request->input('periode'))->delete();
+                }
+
+                $carikf = rbb_0805_f::where('no_kantor',$request->input('kantor'))->first();
+                if(!empty($carikf)){
+                    DB::table('rbb_0805_f','no_kantor')->where('no_kantor',$request->input('kantor'))->where('periode',$request->input('periode'))->delete();
+                }
+
+                $carilf = rbb_0806_f::where('no_kantor',$request->input('kantor'))->first();
+                if(!empty($carilf)){
+                    DB::table('rbb_0806_f','no_kantor')->where('no_kantor',$request->input('kantor'))->where('periode',$request->input('periode'))->delete();
+                }
+
+                $carimf = rbb_0807_f::where('no_kantor',$request->input('kantor'))->first();
+                if(!empty($carimf)){
+                    DB::table('rbb_0807_f','no_kantor')->where('no_kantor',$request->input('kantor'))->where('periode',$request->input('periode'))->delete();
+                }
+
+                $carinf = rbb_0901_f::where('no_kantor',$request->input('kantor'))->first();
+                if(!empty($carinf)){
+                    DB::table('rbb_0901_f','no_kantor')->where('no_kantor',$request->input('kantor'))->where('periode',$request->input('periode'))->delete();
+                }
+
+                $cariof = rbb_0902_f::where('no_kantor',$request->input('kantor'))->first();
+                if(!empty($cariof)){
+                    DB::table('rbb_0902_f','no_kantor')->where('no_kantor',$request->input('kantor'))->where('periode',$request->input('periode'))->delete();
+                }
+
+                $caripf = rbb_0903_f::where('no_kantor',$request->input('kantor'))->first();
+                if(!empty($caripf)){
+                    DB::table('rbb_0903_f','no_kantor')->where('no_kantor',$request->input('kantor'))->where('periode',$request->input('periode'))->delete();
+                }
+
 
                 $cariheader = rbb_header::where('no_kantor',$request->input('kantor'))->first();
                 if(!empty($cariheader)){
@@ -191,6 +321,456 @@ class RbbController extends Controller
                     DB::table('rbb_0903','no_kantor')->where('no_kantor',$request->input('kantor'))->where('periode',$request->input('periode'))->delete();
                 }
 
+
+                if(!empty($rbbaf) && $rbbaf->count()){
+ 
+                    foreach ($rbbaf as $key => $value) {
+                        $insertrbbaf[] = [
+                        'kode'      => rand(1,9999999999),
+                        'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
+                        'opr'       => strtoupper($request->input('opr')),
+                        'no_kantor' => strtoupper($request->input('kantor')),
+                        'periode' => $value->periode,
+                        'basic' => $value->basic,
+                        'id' => $value->no,
+                        'data' => $value->data,
+                        'isi' => $value->isi,
+                        ];
+                    }
+ 
+                    if(!empty($insertrbbaf)){
+ 
+                        $insertDatarbbaf = DB::table('rbb_0102_f')->insert($insertrbbaf);
+                        if ($insertDatarbbaf) {
+                            Session::flash('success', 'Your Data has successfully imported');
+                        }else {                        
+                            Session::flash('error', 'Error inserting the data..');
+                            return back();
+                        }
+                    }
+                }
+
+                if(!empty($rbbbf) && $rbbbf->count()){
+ 
+                    foreach ($rbbbf as $key => $value) {
+                        $insertrbbbf[] = [
+                        'kode'      => rand(1,9999999999),
+                        'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
+                        'opr'       => strtoupper($request->input('opr')),
+                        'no_kantor' => strtoupper($request->input('kantor')),
+                        'periode' => $value->periode,
+                        'basic' => $value->basic,
+                        'id' => $value->no,
+                        'data' => $value->data,
+                        'isi' => $value->isi,
+                        ];
+                    }
+ 
+                    if(!empty($insertrbbbf)){
+ 
+                        $insertDatarbbbf = DB::table('rbb_0301_f')->insert($insertrbbbf);
+                        if ($insertDatarbbbf) {
+                            Session::flash('success', 'Your Data has successfully imported');
+                        }else {                        
+                            Session::flash('error', 'Error inserting the data..');
+                            return back();
+                        }
+                    }
+                }
+
+                if(!empty($rbbcf) && $rbbcf->count()){
+ 
+                    foreach ($rbbcf as $key => $value) {
+                        $insertrbbcf[] = [
+                        'kode'      => rand(1,9999999999),
+                        'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
+                        'opr'       => strtoupper($request->input('opr')),
+                        'no_kantor' => strtoupper($request->input('kantor')),
+                        'periode' => $value->periode,
+                        'basic' => $value->basic,
+                        'id' => $value->no,
+                        'data' => $value->data,
+                        'isi' => $value->isi,
+                        ];
+                    }
+ 
+                    if(!empty($insertrbbcf)){
+ 
+                        $insertDatarbbcf = DB::table('rbb_0401_f')->insert($insertrbbcf);
+                        if ($insertDatarbbcf) {
+                            Session::flash('success', 'Your Data has successfully imported');
+                        }else {                        
+                            Session::flash('error', 'Error inserting the data..');
+                            return back();
+                        }
+                    }
+                }
+
+                if(!empty($rbbdf) && $rbbdf->count()){
+ 
+                    foreach ($rbbdf as $key => $value) {
+                        $insertrbbdf[] = [
+                        'kode'      => rand(1,9999999999),
+                        'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
+                        'opr'       => strtoupper($request->input('opr')),
+                        'no_kantor' => strtoupper($request->input('kantor')),
+                        'periode' => $value->periode,
+                        'basic' => $value->basic,
+                        'id' => $value->no,
+                        'data' => $value->data,
+                        'isi' => $value->isi,
+                        ];
+                    }
+ 
+                    if(!empty($insertrbbdf)){
+ 
+                        $insertDatarbbdf = DB::table('rbb_0501_f')->insert($insertrbbdf);
+                        if ($insertDatarbbdf) {
+                            Session::flash('success', 'Your Data has successfully imported');
+                        }else {                        
+                            Session::flash('error', 'Error inserting the data..');
+                            return back();
+                        }
+                    }
+                }
+
+                if(!empty($rbbef) && $rbbef->count()){
+ 
+                    foreach ($rbbef as $key => $value) {
+                        $insertrbbef[] = [
+                        'kode'      => rand(1,9999999999),
+                        'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
+                        'opr'       => strtoupper($request->input('opr')),
+                        'no_kantor' => strtoupper($request->input('kantor')),
+                        'periode' => $value->periode,
+                        'basic' => $value->basic,
+                        'id' => $value->no,
+                        'data' => $value->data,
+                        'isi' => $value->isi,
+                        ];
+                    }
+ 
+                    if(!empty($insertrbbef)){
+ 
+                        $insertDatarbbef = DB::table('rbb_0601_f')->insert($insertrbbef);
+                        if ($insertDatarbbef) {
+                            Session::flash('success', 'Your Data has successfully imported');
+                        }else {                        
+                            Session::flash('error', 'Error inserting the data..');
+                            return back();
+                        }
+                    }
+                }
+
+                if(!empty($rbbff) && $rbbff->count()){
+ 
+                    foreach ($rbbff as $key => $value) {
+                        $insertrbbff[] = [
+                        'kode'      => rand(1,9999999999),
+                        'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
+                        'opr'       => strtoupper($request->input('opr')),
+                        'no_kantor' => strtoupper($request->input('kantor')),
+                        'periode' => $value->periode,
+                        'basic' => $value->basic,
+                        'id' => $value->no,
+                        'data' => $value->data,
+                        'isi' => $value->isi,
+                        ];
+                    }
+ 
+                    if(!empty($insertrbbff)){
+ 
+                        $insertDatarbbff = DB::table('rbb_0701_f')->insert($insertrbbff);
+                        if ($insertDatarbbff) {
+                            Session::flash('success', 'Your Data has successfully imported');
+                        }else {                        
+                            Session::flash('error', 'Error inserting the data..');
+                            return back();
+                        }
+                    }
+                }
+
+                if(!empty($rbbgf) && $rbbgf->count()){
+ 
+                    foreach ($rbbgf as $key => $value) {
+                        $insertrbbgf[] = [
+                        'kode'      => rand(1,9999999999),
+                        'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
+                        'opr'       => strtoupper($request->input('opr')),
+                        'no_kantor' => strtoupper($request->input('kantor')),
+                        'periode' => $value->periode,
+                        'basic' => $value->basic,
+                        'id' => $value->no,
+                        'data' => $value->data,
+                        'isi' => $value->isi,
+                        ];
+                    }
+ 
+                    if(!empty($insertrbbgf)){
+ 
+                        $insertDatarbbgf = DB::table('rbb_0801_f')->insert($insertrbbgf);
+                        if ($insertDatarbbgf) {
+                            Session::flash('success', 'Your Data has successfully imported');
+                        }else {                        
+                            Session::flash('error', 'Error inserting the data..');
+                            return back();
+                        }
+                    }
+                }
+
+                if(!empty($rbbhf) && $rbbhf->count()){
+ 
+                    foreach ($rbbhf as $key => $value) {
+                        $insertrbbhf[] = [
+                        'kode'      => rand(1,9999999999),
+                        'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
+                        'opr'       => strtoupper($request->input('opr')),
+                        'no_kantor' => strtoupper($request->input('kantor')),
+                        'periode' => $value->periode,
+                        'basic' => $value->basic,
+                        'id' => $value->no,
+                        'data' => $value->data,
+                        'isi' => $value->isi,
+                        ];
+                    }
+ 
+                    if(!empty($insertrbbhf)){
+ 
+                        $insertDatarbbhf = DB::table('rbb_0802_f')->insert($insertrbbhf);
+                        if ($insertDatarbbhf) {
+                            Session::flash('success', 'Your Data has successfully imported');
+                        }else {                        
+                            Session::flash('error', 'Error inserting the data..');
+                            return back();
+                        }
+                    }
+                }
+
+                if(!empty($rbbif) && $rbbif->count()){
+ 
+                    foreach ($rbbif as $key => $value) {
+                        $insertrbbif[] = [
+                        'kode'      => rand(1,9999999999),
+                        'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
+                        'opr'       => strtoupper($request->input('opr')),
+                        'no_kantor' => strtoupper($request->input('kantor')),
+                        'periode' => $value->periode,
+                        'basic' => $value->basic,
+                        'id' => $value->no,
+                        'data' => $value->data,
+                        'isi' => $value->isi,
+                        ];
+                    }
+ 
+                    if(!empty($insertrbbif)){
+ 
+                        $insertDatarbbif = DB::table('rbb_0803_f')->insert($insertrbbif);
+                        if ($insertDatarbbif) {
+                            Session::flash('success', 'Your Data has successfully imported');
+                        }else {                        
+                            Session::flash('error', 'Error inserting the data..');
+                            return back();
+                        }
+                    }
+                }
+
+                if(!empty($rbbjf) && $rbbjf->count()){
+ 
+                    foreach ($rbbjf as $key => $value) {
+                        $insertrbbjf[] = [
+                        'kode'      => rand(1,9999999999),
+                        'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
+                        'opr'       => strtoupper($request->input('opr')),
+                        'no_kantor' => strtoupper($request->input('kantor')),
+                        'periode' => $value->periode,
+                        'basic' => $value->basic,
+                        'id' => $value->no,
+                        'data' => $value->data,
+                        'isi' => $value->isi,
+                        ];
+                    }
+ 
+                    if(!empty($insertrbbjf)){
+ 
+                        $insertDatarbbjf = DB::table('rbb_0804_f')->insert($insertrbbjf);
+                        if ($insertDatarbbjf) {
+                            Session::flash('success', 'Your Data has successfully imported');
+                        }else {                        
+                            Session::flash('error', 'Error inserting the data..');
+                            return back();
+                        }
+                    }
+                }
+
+                if(!empty($rbbkf) && $rbbkf->count()){
+ 
+                    foreach ($rbbkf as $key => $value) {
+                        $insertrbbkf[] = [
+                        'kode'      => rand(1,9999999999),
+                        'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
+                        'opr'       => strtoupper($request->input('opr')),
+                        'no_kantor' => strtoupper($request->input('kantor')),
+                        'periode' => $value->periode,
+                        'basic' => $value->basic,
+                        'id' => $value->no,
+                        'data' => $value->data,
+                        'isi' => $value->isi,
+                        ];
+                    }
+ 
+                    if(!empty($insertrbbkf)){
+ 
+                        $insertDatarbbkf = DB::table('rbb_0805_f')->insert($insertrbbkf);
+                        if ($insertDatarbbkf) {
+                            Session::flash('success', 'Your Data has successfully imported');
+                        }else {                        
+                            Session::flash('error', 'Error inserting the data..');
+                            return back();
+                        }
+                    }
+                }
+
+                if(!empty($rbblf) && $rbblf->count()){
+ 
+                    foreach ($rbblf as $key => $value) {
+                        $insertrbblf[] = [
+                        'kode'      => rand(1,9999999999),
+                        'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
+                        'opr'       => strtoupper($request->input('opr')),
+                        'no_kantor' => strtoupper($request->input('kantor')),
+                        'periode' => $value->periode,
+                        'basic' => $value->basic,
+                        'id' => $value->no,
+                        'data' => $value->data,
+                        'isi' => $value->isi,
+                        ];
+                    }
+ 
+                    if(!empty($insertrbblf)){
+ 
+                        $insertDatarbblf = DB::table('rbb_0806_f')->insert($insertrbblf);
+                        if ($insertDatarbblf) {
+                            Session::flash('success', 'Your Data has successfully imported');
+                        }else {                        
+                            Session::flash('error', 'Error inserting the data..');
+                            return back();
+                        }
+                    }
+                }
+
+                if(!empty($rbbmf) && $rbbmf->count()){
+ 
+                    foreach ($rbbmf as $key => $value) {
+                        $insertrbbmf[] = [
+                        'kode'      => rand(1,9999999999),
+                        'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
+                        'opr'       => strtoupper($request->input('opr')),
+                        'no_kantor' => strtoupper($request->input('kantor')),
+                        'periode' => $value->periode,
+                        'basic' => $value->basic,
+                        'id' => $value->no,
+                        'data' => $value->data,
+                        'isi' => $value->isi,
+                        ];
+                    }
+ 
+                    if(!empty($insertrbbmf)){
+ 
+                        $insertDatarbbmf = DB::table('rbb_0807_f')->insert($insertrbbmf);
+                        if ($insertDatarbbmf) {
+                            Session::flash('success', 'Your Data has successfully imported');
+                        }else {                        
+                            Session::flash('error', 'Error inserting the data..');
+                            return back();
+                        }
+                    }
+                }
+
+                if(!empty($rbbnf) && $rbbnf->count()){
+ 
+                    foreach ($rbbnf as $key => $value) {
+                        $insertrbbnf[] = [
+                        'kode'      => rand(1,9999999999),
+                        'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
+                        'opr'       => strtoupper($request->input('opr')),
+                        'no_kantor' => strtoupper($request->input('kantor')),
+                        'periode' => $value->periode,
+                        'basic' => $value->basic,
+                        'id' => $value->no,
+                        'data' => $value->data,
+                        'isi' => $value->isi,
+                        ];
+                    }
+ 
+                    if(!empty($insertrbbnf)){
+ 
+                        $insertDatarbbnf = DB::table('rbb_0901_f')->insert($insertrbbnf);
+                        if ($insertDatarbbnf) {
+                            Session::flash('success', 'Your Data has successfully imported');
+                        }else {                        
+                            Session::flash('error', 'Error inserting the data..');
+                            return back();
+                        }
+                    }
+                }
+
+                if(!empty($rbbof) && $rbbof->count()){
+ 
+                    foreach ($rbbof as $key => $value) {
+                        $insertrbbof[] = [
+                        'kode'      => rand(1,9999999999),
+                        'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
+                        'opr'       => strtoupper($request->input('opr')),
+                        'no_kantor' => strtoupper($request->input('kantor')),
+                        'periode' => $value->periode,
+                        'basic' => $value->basic,
+                        'id' => $value->no,
+                        'data' => $value->data,
+                        'isi' => $value->isi,
+                        ];
+                    }
+ 
+                    if(!empty($insertrbbof)){
+ 
+                        $insertDatarbbof = DB::table('rbb_0902_f')->insert($insertrbbof);
+                        if ($insertDatarbbof) {
+                            Session::flash('success', 'Your Data has successfully imported');
+                        }else {                        
+                            Session::flash('error', 'Error inserting the data..');
+                            return back();
+                        }
+                    }
+                }
+
+                if(!empty($rbbpf) && $rbbpf->count()){
+ 
+                    foreach ($rbbpf as $key => $value) {
+                        $insertrbbpf[] = [
+                        'kode'      => rand(1,9999999999),
+                        'tgl_input' => date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon'))),
+                        'opr'       => strtoupper($request->input('opr')),
+                        'no_kantor' => strtoupper($request->input('kantor')),
+                        'periode' => $value->periode,
+                        'basic' => $value->basic,
+                        'id' => $value->no,
+                        'data' => $value->data,
+                        'isi' => $value->isi,
+                        ];
+                    }
+ 
+                    if(!empty($insertrbbpf)){
+ 
+                        $insertDatarbbpf = DB::table('rbb_0903_f')->insert($insertrbbpf);
+                        if ($insertDatarbbpf) {
+                            Session::flash('success', 'Your Data has successfully imported');
+                        }else {                        
+                            Session::flash('error', 'Error inserting the data..');
+                            return back();
+                        }
+                    }
+                }
+
+
                 if(!empty($head) && $head->count()){
  
                     foreach ($head as $key => $value) {
@@ -200,7 +780,7 @@ class RbbController extends Controller
                         'opr'       => strtoupper($request->input('opr')),
                         'no_kantor' => strtoupper($request->input('kantor')),
                         'flag'  => $value->flag,
-                        'kode_sektor'   => $value->kode_sektor,
+                        'kode_sektor'   => '0'.$value->kode_sektor,
                         'kode_ljk'  => $value->sandi_ljk,
                         'periode'   => $value->periode,
                         'kode_jenis'    => $value->kode_jenis,
@@ -234,7 +814,7 @@ class RbbController extends Controller
                         'basic'                     => $value->a1,
                         'row'                       => $value->a2,
                         'flag'                      => $value->a3,
-                        'komponen'                  => $value->a4,
+                        'komponen'                  => '0'.$value->a4,
                         'indikator'                 => $value->a5,
 						'kinerja_okt_pembilang'  	=> $value->a6,
 						'kinerja_okt_penyebut'  	=> $value->a7,
@@ -283,7 +863,7 @@ class RbbController extends Controller
                         'basic' => $value->b1,
                         'row'   => $value->b2,
                         'flag'  => $value->b3,
-                        'komponen'  => $value->b4,
+                        'komponen'  => '0'.$value->b4,
                         'pos'   => $value->b5,
                         'kinerja_okt'   => $value->b6,
                         'pro_des'   => $value->b7,
@@ -319,7 +899,7 @@ class RbbController extends Controller
                         'basic' => $value->c1,
                         'row'   => $value->c2,
                         'flag'  => $value->c3,
-                        'komponen'  => $value->c4,
+                        'komponen'  => '0'.$value->c4,
                         'pos'   => $value->c5,
                         'kinerja_okt'   => $value->c6,
                         'pro_des'   => $value->c7,
@@ -355,7 +935,7 @@ class RbbController extends Controller
                         'basic'     => $value->d1,
                         'row'       => $value->d2,
                         'flag'      => $value->d3,
-                        'komponen'      => $value->d4,
+                        'komponen'      => '0'.$value->d4,
                         'rasio'     => $value->d5,
                         'kinerja_okt_pembilang'     => $value->d6,
                         'kinerja_okt_penyebut'      => $value->d7,
@@ -403,7 +983,7 @@ class RbbController extends Controller
                         'basic'     => $value->e1,
                         'row'       => $value->e2,
                         'flag'      => $value->e3,
-                        'komponen'      => $value->e4,
+                        'komponen'      => '0'.$value->e4,
                         'kel'       => $value->e5,
                         'kinerja_okt'       => $value->e6,
                         'pro_des'       => $value->e7,
@@ -437,7 +1017,7 @@ class RbbController extends Controller
                         'basic'     => $value->f1,
                         'row'       => $value->f2,
                         'flag'      => $value->f3,
-                        'komponen'  => $value->f4,
+                        'komponen'  => '0'.$value->f4,
                         'kode_ref'      => $value->f5,
                         'jenis'     => $value->f6,
                         'nama'      => $value->f7,
@@ -473,7 +1053,7 @@ class RbbController extends Controller
                         'basic'     => $value->g1,
                         'row'       => $value->g2,
                         'flag'      => $value->g3,
-                        'komponen'      => $value->g4,
+                        'komponen'      => '0'.$value->g4,
                         'kode_ref'      => $value->g5,
                         'jenis'     => $value->g6,
                         'jumlah'        => $value->g7,
@@ -510,7 +1090,7 @@ class RbbController extends Controller
                         'basic'     => $value->h1,
                         'row'       => $value->h2,
                         'flag'      => $value->h3,
-                        'komponen'      => $value->h4,
+                        'komponen'      => '0'.$value->h4,
                         'jenis'     => $value->h5,
                         'kinerja_okt'       => $value->h6,
                         'pro_des'       => $value->h7,
@@ -545,7 +1125,7 @@ class RbbController extends Controller
                         'basic'     => $value->i1,
                         'row'       => $value->i2,
                         'flag'      => $value->i3,
-                        'komponen'      => $value->i4,
+                        'komponen'      => '0'.$value->i4,
                         'sandi_bank'        => $value->i5,
                         'kinerja_okt'       => $value->i6,
                         'pro_des'       => $value->i7,
