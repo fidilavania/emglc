@@ -278,8 +278,8 @@
                                             <th>Nama</th>
                                             <th>Jenis Kelamin</th>
                                             <th>Jabatan</th>
-                                            <!-- <th>Tanggal Kegiatan</th> -->
-                                            <!-- <th>Lokasi Kegiatan</th> -->
+                                            <th>Tanggal Kegiatan</th>
+                                            <th>Lokasi Kegiatan</th>
                                             <!-- <th>Tanggal Kegiatan</th>
                                             <th>Lokasi Kegiatan</th> -->
                                         </thead>
@@ -298,8 +298,8 @@
                                                     echo '<td>'.$a->nama.'</td>';
                                                     echo '<td>'.$a->jenis_kel.'</td>';
                                                     echo '<td>'.$a->jabatan.'</td>';
-                                                    // echo '<td>'.$p->tgl_keg.'</td>';
-                                                    // echo '<td>'.$p->lokasi_keg.'</td>';
+                                                    echo '<td>'.$a->tgl_keg.'</td>';
+                                                    echo '<td>'.$a->lokasi_keg.'</td>';
                                                     echo '</tr>';
                                                         // echo '<td>'.$p->tgl_keg.'</td>';
                                                     // }

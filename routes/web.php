@@ -15,6 +15,10 @@ Route::get('/welcome', 'AuthController@viewAwal');
 // GRAHA EMG
 Route::get('/graha', 'GrahaController@formgraha');
 
+// Foto
+Route::get('/fotoemg', 'GrahaController@formfoto');
+
+
 Route::get('auth/login', 'AuthController@login')->name('login');
 Route::post('auth/postlogin','AuthController@authenticate');
 
@@ -26,6 +30,20 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/', 'HomeController@viewDashboard');
 	Route::get('/pilih', 'RbbController@viewPilih');
 	Route::get('/homerbb', 'RbbController@viewHomeRbb');
+
+	// foto
+	Route::get('/fotologin', 'GrahaController@formfotologin');
+	Route::get('/upload', 'GrahaController@formupload');
+	Route::post('/savefoto', 'GrahaController@saveFoto');
+
+	// max
+	Route::get('/mak', 'MakController@formmak');
+	Route::get('/menuutama', 'MakController@formMenu');
+		// agunan 
+		Route::get('/agunan', 'MakController@formAgunan');
+		// analisa
+		Route::get('/analisa', 'MakController@formAnalisa');
+	// Route::post('/savemak', 'MakController@savemax');
 
 	// RBB
 		// RBB import
@@ -62,6 +80,11 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/editsdm/{nonsb?}', 'SdmController@viewFormSDMEdit');
 	Route::post('/savesdmedit/{nonsb?}','SdmController@saveDataSDMEdit');
 	Route::get('/viewsdm/{nonsb?}', 'SdmController@viewFormSDMview');
+
+	// mutasi
+	Route::get('/mutasi/{nonsb?}', 'SdmController@viewFormMutasi');
+	Route::post('/savemut/{nonsb?}','SdmController@saveDataMutasi');
+	Route::match(['get', 'post'],'/datamutasi/{key?}', 'SdmController@viewDataMutasi')->where('key', '(.*)');
 
 	// resign
 	Route::match(['get', 'post'],'/dataresign/{key?}', 'SdmController@viewDataResign')->where('key', '(.*)');

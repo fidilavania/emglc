@@ -22,6 +22,7 @@ use App\kantor_mst;
 use App\master_kantor;
 use App\usulan;
 use App\resign;
+use App\mutasi;
 use App\mst_statusrumah;
 use DB;
 use Auth;
@@ -31,6 +32,52 @@ use Illuminate\Support\Facades\Storage;
 
 class SdmController extends Controller
 {
+    public function viewFormMutasi($nonsb)
+    {
+        $sdm = sdm::where('no_sdm',$nonsb)->first();
+        $mkantor = DB::connection('mysql')->table('master_kantor')->get();
+        
+        return view('mutasi.forminputmutasi',compact('sdm','mkantor'));   
+    }
+
+    public function saveDataMutasi(Request $request,$nonsb)
+    {
+        $mkantor = explode('-', $request->input('kantor_baru'));
+
+        $mut = new mutasi;
+        $mut->no_sdm = $request->input('input_nosdm');
+        $mut->nama = strtoupper($request->input('input_nama'));
+        $mut->tanggal = date('Y-m-d H:i:s',strtotime($request->input('tanggal'))); 
+        $mut->alasan = $request->input('alasan');
+        $mut->induk_lama = $request->input('induk_kantor');
+        $mut->kantor_lama = $request->input('kantor');
+        $mut->induk_baru = $mkantor[0];
+        $mut->kantor_baru = $mkantor[1];
+        $mut->opr = strtoupper($request->input('opr'));
+        $mut->tgl_input = date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon')));
+        $mut->save();
+
+        DB::connection('mysql')->table('sdm')->where('no_sdm',$request->input('input_nosdm'))->update([
+            'kantor' => $mkantor[1],
+            'induk_kantor' => $mkantor[0]
+        ]);
+        
+        return redirect('/datamutasi');
+    }
+
+    public function viewDataMutasi($key=null)
+    {
+        $datakredit = array();
+
+            if($key == null){
+                $lihatmutasi = mutasi::select('no_sdm','nama','tanggal','alasan','induk_lama','kantor_lama','induk_baru','kantor_baru','opr','tgl_input')->paginate(20);
+            } else {
+                $lihatmutasi = mutasi::select('no_sdm','nama','tanggal','alasan','induk_lama','kantor_lama','induk_baru','kantor_baru','opr','tgl_input')->whereRaw
+                ("(nama LIKE '%".strtoupper($key)."%'OR kantor_baru LIKE '%".strtoupper($key)."%' OR induk_baru LIKE '%".strtoupper($key)."%') ")->paginate(20);
+            }
+        
+        return view('mutasi.datamutasi',compact('lihatmutasi'));   
+    }
 
     public function viewFormResign($nonsb)
     {

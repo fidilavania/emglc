@@ -57,9 +57,15 @@
             <th>
               <h4 align="center"><b>Jabatan</b></h4>
             </th>
-            <th >
-              <h4 align="center"><b>Tanda Tangan</b></h4>
+             <th>
+              <h4 align="center"><b>Tanggal</b></h4>
             </th>
+             <th>
+              <h4 align="center"><b>Lokasi</b></h4>
+            </th>
+            <!-- <th >
+              <h4 align="center"><b>Tanda Tangan</b></h4>
+            </th> -->
           </tr>
         </thead>
         <tbody style="text-transform:uppercase;">
@@ -205,6 +211,8 @@
                   echo '<td>'.$a->kantor.'</td>';
               }
               echo '<td>'.$a->jabatan.'</td>';
+              echo '<td>'.$a->tgl_keg.'</td>';
+              echo '<td>'.$a->lokasi_keg.'</td>';
               // if($no % 2 == 0){
               //   echo '<td  bgcolor="#FF7F50"></td>';
               //   echo '<td><font size="1">'.$no.'</font></td>';
@@ -212,7 +220,7 @@
               //   echo '<td><font size="1">'.$no.'</font></td>';
               //   echo '<td bgcolor="#FF7F50"></td>';
               // }
-              echo '<td></td>';
+              // echo '<td></td>';
               echo '</tr>';
             }
           ?>
