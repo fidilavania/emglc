@@ -415,16 +415,21 @@ class RbbViewController extends Controller
 	      	$header = rbb_header::where('no_kantor',Auth::user()->kantor)->where('periode',$request->input('periode'))->first();
 	      	$arr[0] = $rbb->flag;
 			$arr[1] = $rbb->komponen;
-	      	if($arr[1] == '5050000000000' && $arr[1] == '5060000000000'){
-				$arr[2] = number_format($rbb->kinerja_okt, 2, '.', '');
-				$arr[3] = number_format($rbb->pro_des, 2, '.', '');
-				$arr[4] = number_format($rbb->pro_juni, 2, '.', '');
-				$arr[5] = number_format($rbb->pro_des1, 2, '.', '');
-	      	}else{
-				$arr[2] = $rbb->kinerja_okt;
-				$arr[3] = $rbb->pro_des;
-				$arr[4] = $rbb->pro_juni;
-				$arr[5] = $rbb->pro_des1;
+	      	if($arr[1] == '05050000000000'){
+  				$arr[2] = number_format($rbb->kinerja_okt, 2, '.', '');
+  				$arr[3] = number_format($rbb->pro_des, 2, '.', '');
+  				$arr[4] = number_format($rbb->pro_juni, 2, '.', '');
+  				$arr[5] = number_format($rbb->pro_des1, 2, '.', '');
+	      	} elseif ($arr[1] == '05060000000000') {
+            $arr[2] = number_format($rbb->kinerja_okt, 2, '.', '');
+            $arr[3] = number_format($rbb->pro_des, 2, '.', '');
+            $arr[4] = number_format($rbb->pro_juni, 2, '.', '');
+            $arr[5] = number_format($rbb->pro_des1, 2, '.', '');
+          } else{
+  				$arr[2] = $rbb->kinerja_okt;
+  				$arr[3] = $rbb->pro_des;
+  				$arr[4] = $rbb->pro_juni;
+  				$arr[5] = $rbb->pro_des1;
 	      	}
   			$f01 = 'F01|dijelaskan di narasi';
   			$f02 = 'F02|dijelaskan di narasi';
@@ -862,7 +867,8 @@ class RbbViewController extends Controller
 		    $data0902 .= $arr[0].'|'.$arr[1].'|'.$arr[2].'|'.$arr[3].'|'.$arr[4].'|'.$arr[5].'|'.$arr[6].'|'.$arr[7].'|'.$arr[8].'|'.$arr[9]."\r\n";
 
 		    $data2_0902 = $f01."\r\n".$f02;
-		    $data_0902 = $head0902.$data0902.$data2_0902;
+		    // $data_0902 = $head0902.$data0902.$data2_0902;
+        $data_0902 = $head0902;
 
 	      	$file0902 = 'RBBPRK-0902-R-A-'.str_replace("-","",$request->input('periode')).'-'.$request->input('kantor_ljk').'-01.txt';
 	      	$expor0902 = array($file0902);
