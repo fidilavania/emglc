@@ -22,8 +22,16 @@
                                 </div>
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Periode</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="periode" autocomplete="off" value="{{date('Y')}}-12-31" style="text-transform:uppercase;" readonly />
+                                    <div class="col-sm-7">
+                                        <select class="form-control" name="periode">
+                                            <option value>-Pilih Periode-</option>
+                                            @foreach($periode as $p)
+                                                <option value="{{$p->periode}}">{{$p->periode}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-1">
+                                            <input type="button" class="btn btn-primary" name="submbutton" value="Tampilkan" />
                                     </div>
                                 </div>
                             </div>
@@ -108,4 +116,18 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+<script type="text/javascript">
+    
+    $(document).ready(function() {
+        $('[name="submbutton"]').click(function(){
+            if($(this).val() == 'Tampilkan'){
+                 window.location.href = '{{url("/0601")}}'+'/'+$('[name="periode"]').val();
+            }
+            
+        });
+    });
+</script>
 @endsection

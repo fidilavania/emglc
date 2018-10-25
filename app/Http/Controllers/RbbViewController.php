@@ -61,87 +61,249 @@ class RbbViewController extends Controller
        return view('rbb/export',compact('kantor'));   
     }
 
-
     public function view0102()
     {
+        $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
         $rbbA = DB::connection('mysql')->table('rbb_0102')->where('no_kantor',Auth::user()->kantor)->OrderBy('id','asc')->where('periode','2018-12-31')->get();
-        return view('rbb/0102',compact('rbbA'));   
+        return view('rbb/0102',compact('rbbA','periode'));   
     }
+
+    public function view0102tanggal($tanggal)
+    {
+        $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+
+        $rbbA = DB::connection('mysql')->table('rbb_0102')->where('no_kantor',Auth::user()->kantor)->OrderBy('id','asc')->where('periode',$tanggal)->get();
+        return view('rbb/0102',compact('rbbA','periode'));   
+    }
+
     public function view0301()
     {
-        $rbb = DB::connection('mysql')->table('rbb_0301')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
-        return view('rbb/0301',compact('rbb'));   
+       $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+       $rbb = DB::connection('mysql')->table('rbb_0301')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
+       return view('rbb/0301',compact('rbb','periode'));   
     }
+
+    public function view0301tanggal($tanggal)
+    {
+        $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+        $rbb = DB::connection('mysql')->table('rbb_0301')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode',$tanggal)->get();
+        return view('rbb/0301',compact('rbb','periode'));   
+    }
+
     public function view0401()
     {
-        $rbb = DB::connection('mysql')->table('rbb_0401')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
-        return view('rbb/0401',compact('rbb'));   
+       $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+       $rbb = DB::connection('mysql')->table('rbb_0401')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
+       return view('rbb/0401',compact('rbb','periode'));   
     }
+    public function view0401tanggal($tanggal)
+    {
+        $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+        $rbb = DB::connection('mysql')->table('rbb_0401')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode',$tanggal)->get();
+        return view('rbb/0401',compact('rbb','periode'));   
+    }
+
     public function view0501()
     {
-        $rbb = DB::connection('mysql')->table('rbb_0501')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
-        return view('rbb/0501',compact('rbb'));   
+       $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+       $rbb = DB::connection('mysql')->table('rbb_0501')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
+       return view('rbb/0501',compact('rbb','periode'));   
     }
+    public function view0501tanggal($tanggal)
+    {
+        $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+        $rbb = DB::connection('mysql')->table('rbb_0501')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode',$tanggal)->get();
+        return view('rbb/0501',compact('rbb','periode'));   
+    }
+
     public function view0601()
     {
-        $rbb = DB::connection('mysql')->table('rbb_0601')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
-        return view('rbb/0601',compact('rbb'));   
+       $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+       $rbb = DB::connection('mysql')->table('rbb_0601')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
+       return view('rbb/0601',compact('rbb','periode'));   
     }
+    public function view0601tanggal($tanggal)
+    {
+        $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+        $rbb = DB::connection('mysql')->table('rbb_0601')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode',$tanggal)->get();
+        return view('rbb/0601',compact('rbb','periode'));   
+    }
+
     public function view0701()
     {
-        $rbb = DB::connection('mysql')->table('rbb_0701')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
-        return view('rbb/0701',compact('rbb'));   
+       $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+       $rbb = DB::connection('mysql')->table('rbb_0701')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
+       return view('rbb/0701',compact('rbb','periode'));   
     }
+    public function view0701tanggal($tanggal)
+    {
+        $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+        $rbb = DB::connection('mysql')->table('rbb_0701')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode',$tanggal)->get();
+        return view('rbb/0701',compact('rbb','periode'));   
+    }
+
     public function view0801()
     {
-        $rbb = DB::connection('mysql')->table('rbb_0801')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
-        return view('rbb/0801',compact('rbb'));   
+       $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+       $rbb = DB::connection('mysql')->table('rbb_0801')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
+       return view('rbb/0801',compact('rbb','periode'));   
     }
+    public function view0801tanggal($tanggal)
+    {
+        $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+        $rbb = DB::connection('mysql')->table('rbb_0801')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode',$tanggal)->get();
+        return view('rbb/0801',compact('rbb','periode'));   
+    }
+
     public function view0802()
     {
-        $rbb = DB::connection('mysql')->table('rbb_0802')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
-        return view('rbb/0802',compact('rbb'));   
+       $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+       $rbb = DB::connection('mysql')->table('rbb_0802')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
+       return view('rbb/0802',compact('rbb','periode'));   
     }
+    public function view0802tanggal($tanggal)
+    {
+        $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+        $rbb = DB::connection('mysql')->table('rbb_0802')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode',$tanggal)->get();
+        return view('rbb/0802',compact('rbb','periode'));   
+    }
+
     public function view0803()
     {
-        $rbb = DB::connection('mysql')->table('rbb_0803')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
-        return view('rbb/0803',compact('rbb'));   
+       $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+       $rbb = DB::connection('mysql')->table('rbb_0803')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
+       return view('rbb/0803',compact('rbb','periode'));   
     }
+    public function view0803tanggal($tanggal)
+    {
+        $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+        $rbb = DB::connection('mysql')->table('rbb_0803')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode',$tanggal)->get();
+        return view('rbb/0803',compact('rbb','periode'));   
+    }
+
     public function view0804()
     {
-        $rbb = DB::connection('mysql')->table('rbb_0804')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
-        return view('rbb/0804',compact('rbb'));   
+       $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+       $rbb = DB::connection('mysql')->table('rbb_0804')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
+       return view('rbb/0804',compact('rbb','periode'));   
     }
+    public function view0804tanggal($tanggal)
+    {
+        $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+        $rbb = DB::connection('mysql')->table('rbb_0804')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode',$tanggal)->get();
+        return view('rbb/0804',compact('rbb','periode'));   
+    }
+
     public function view0805()
     {
-        $rbb = DB::connection('mysql')->table('rbb_0805')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
-        return view('rbb/0805',compact('rbb'));   
+       $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+       $rbb = DB::connection('mysql')->table('rbb_0805')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
+       return view('rbb/0805',compact('rbb','periode'));   
     }
+    public function view0805tanggal($tanggal)
+    {
+        $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+        $rbb = DB::connection('mysql')->table('rbb_0805')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode',$tanggal)->get();
+        return view('rbb/0805',compact('rbb','periode'));   
+    }
+
     public function view0806()
     {
-        $rbb = DB::connection('mysql')->table('rbb_0806')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
-        return view('rbb/0806',compact('rbb'));   
+       $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+       $rbb = DB::connection('mysql')->table('rbb_0806')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
+       return view('rbb/0806',compact('rbb','periode'));   
     }
+    public function view0806tanggal($tanggal)
+    {
+        $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+        $rbb = DB::connection('mysql')->table('rbb_0806')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode',$tanggal)->get();
+        return view('rbb/0806',compact('rbb','periode'));   
+    }
+
     public function view0807()
     {
-        $rbb = DB::connection('mysql')->table('rbb_0807')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
-        return view('rbb/0807',compact('rbb'));   
+       $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+       $rbb = DB::connection('mysql')->table('rbb_0807')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
+       return view('rbb/0807',compact('rbb','periode'));   
     }
+    public function view0807tanggal($tanggal)
+    {
+        $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+        $rbb = DB::connection('mysql')->table('rbb_0807')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode',$tanggal)->get();
+        return view('rbb/0807',compact('rbb','periode'));   
+    }
+
     public function view0901()
     {
-        $rbb = DB::connection('mysql')->table('rbb_0901')->where('no_kantor',Auth::user()->kantor)->OrderBy('id','ASC')->where('periode','2018-12-31')->get();
-        return view('rbb/0901',compact('rbb'));   
+       $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+       $rbb = DB::connection('mysql')->table('rbb_0901')->where('no_kantor',Auth::user()->kantor)->OrderBy('id','ASC')->where('periode','2018-12-31')->get();
+       return view('rbb/0901',compact('rbb','periode'));   
     }
+    public function view0901tanggal($tanggal)
+    {
+        $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+        $rbb = DB::connection('mysql')->table('rbb_0901')->where('no_kantor',Auth::user()->kantor)->OrderBy('id','ASC')->where('periode',$tanggal)->get();
+        return view('rbb/0901',compact('rbb','periode'));   
+    }
+
     public function view0902()
     {
-        $rbb = DB::connection('mysql')->table('rbb_0902')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
-        return view('rbb/0902',compact('rbb'));   
+       $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+       $rbb = DB::connection('mysql')->table('rbb_0902')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
+       return view('rbb/0902',compact('rbb','periode'));   
     }
+    public function view0902tanggal($tanggal)
+    {
+        $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+        $rbb = DB::connection('mysql')->table('rbb_0902')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode',$tanggal)->get();
+        return view('rbb/0902',compact('rbb','periode'));   
+    }
+
     public function view0903()
     {
-        $rbb = DB::connection('mysql')->table('rbb_0903')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
-        return view('rbb/0903',compact('rbb'));   
+       $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+       $rbb = DB::connection('mysql')->table('rbb_0903')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode','2018-12-31')->get();
+       return view('rbb/0903',compact('rbb','periode'));   
     }
+    public function view0903tanggal($tanggal)
+    {
+        $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+
+        $rbb = DB::connection('mysql')->table('rbb_0903')->where('no_kantor',Auth::user()->kantor)->orderby('id','asc')->where('periode',$tanggal)->get();
+        return view('rbb/0903',compact('rbb','periode'));   
+    }
+
 
     public function downloadJSONFile(Request $request){
       	// t    -beda- t-t- beda    -beda-   t.t

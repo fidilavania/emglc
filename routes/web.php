@@ -53,21 +53,37 @@ Route::group(['middleware' => ['auth']], function () {
 
 		// rencana
 		Route::get('/0102', 'RbbViewController@view0102');
+		Route::get('/0102/{tanggal}', 'RbbViewController@view0102tanggal');
 		Route::get('/0301', 'RbbViewController@view0301');
+		Route::get('/0301/{tanggal}', 'RbbViewController@view0301tanggal');
 		Route::get('/0401', 'RbbViewController@view0401');
+		Route::get('/0401/{tanggal}', 'RbbViewController@view0401tanggal');
 		Route::get('/0501', 'RbbViewController@view0501');
+		Route::get('/0501/{tanggal}', 'RbbViewController@view0501tanggal');
 		Route::get('/0601', 'RbbViewController@view0601');
+		Route::get('/0601/{tanggal}', 'RbbViewController@view0601tanggal');
 		Route::get('/0701', 'RbbViewController@view0701');
+		Route::get('/0701/{tanggal}', 'RbbViewController@view0701tanggal');
 		Route::get('/0801', 'RbbViewController@view0801');
+		Route::get('/0801/{tanggal}', 'RbbViewController@view0801tanggal');
 		Route::get('/0802', 'RbbViewController@view0802');
+		Route::get('/0802/{tanggal}', 'RbbViewController@view0802tanggal');
 		Route::get('/0803', 'RbbViewController@view0803');
+		Route::get('/0803/{tanggal}', 'RbbViewController@view0803tanggal');
 		Route::get('/0804', 'RbbViewController@view0804');
+		Route::get('/0804/{tanggal}', 'RbbViewController@view0804tanggal');
 		Route::get('/0805', 'RbbViewController@view0805');
+		Route::get('/0805/{tanggal}', 'RbbViewController@view0805tanggal');
 		Route::get('/0806', 'RbbViewController@view0806');
+		Route::get('/0806/{tanggal}', 'RbbViewController@view0806tanggal');
 		Route::get('/0807', 'RbbViewController@view0807');
+		Route::get('/0807/{tanggal}', 'RbbViewController@view0807tanggal');
 		Route::get('/0901', 'RbbViewController@view0901');
+		Route::get('/0901/{tanggal}', 'RbbViewController@view0901tanggal');
 		Route::get('/0902', 'RbbViewController@view0902');
+		Route::get('/0902/{tanggal}', 'RbbViewController@view0902tanggal');
 		Route::get('/0903', 'RbbViewController@view0903');
+		Route::get('/0903/{tanggal}', 'RbbViewController@view0903tanggal');
 
 		// export
 		Route::get('/export', 'RbbViewController@viewEksport');

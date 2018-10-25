@@ -231,8 +231,9 @@
                         <a href='/' name="emg" value="emg"> SIAKAD </a>
                         <a href='/homerbb' name="graha" value="graha"> RBB </a>
                         <a href='/mak' name="mak" value="foto"> ANALISA KREDIT </a>
-                        <!-- <a href='/fotologin' name="foto" value="foto"> GALERY FOTO </a> -->
-
+                        @if(strpos(Auth::user()->username, 'vania') !== false)
+                        <a href='/fotologin' name="foto" value="foto"> GALERY FOTO </a>
+                        @endif
                       </div>
                   </div>
                 </div>

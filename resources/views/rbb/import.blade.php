@@ -55,8 +55,10 @@
                                     <label class="col-sm-3 control-label">Periode</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="periode" autocomplete="off" value="{{date('Y')}}-12-31" style="text-transform:uppercase;" required />
+                                        <!-- <label class="col-sm-8 control-label">(Jangan Lupa Ganti Periode)</label> -->
                                     </div>
                                 </div>
+
                             </div>
                             <div class="col-sm-6">
                                 <div class="row form-group">
