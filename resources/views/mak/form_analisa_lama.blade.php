@@ -98,28 +98,22 @@
                                                                 <th>Jumlah</th>
                                                             </thead>
                                                             <tbody>
+                                                                <td rowspan="5">- Produksi</td>
+                                                                    <td colspan="2"><input type="text" class="form-control" name="uraian[]" value=""></td>
+                                                                    <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah[]" value=""></td>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="urai_1[]" value="Produksi" readonly></td>
                                                                     <td colspan="2"><input type="text" class="form-control" name="uraian[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="urai_1[]" value=""></td>
                                                                     <td colspan="2"><input type="text" class="form-control" name="uraian[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="urai_1[]" value=""></td>
                                                                     <td colspan="2"><input type="text" class="form-control" name="uraian[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="urai_1[]" value=""></td>
-                                                                    <td colspan="2"><input type="text" class="form-control" name="uraian[]" value=""></td>
-                                                                    <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="urai_1[]" value=""></td>
                                                                     <td colspan="2"><input type="text" class="form-control" name="uraian[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah[]" value=""></td>
                                                                 </tr>
@@ -134,54 +128,49 @@
                                                                     <td><b>Jumlah</b></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="sewa[]" value="Sewa Lahan" readonly></td>
+                                                                    <td>- Sewa Lahan</td>
                                                                     <td><input type="text" class="form-control" name="uraian_sewa[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_sewa[]" value=""></td>
                                                                     <td rowspan="9"></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="pengolahan[]" value="Pengolahan Lahan" readonly></td>
+                                                                    <td>- Pengolahan Lahan</td>
                                                                     <td><input type="text" class="form-control" name="uraian_olah[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_olah[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="bibit[]" value="Pembelian Bibit/Benih" readonly></td>
+                                                                    <td>- Pembelian Bibit/Benih</td>
                                                                     <td><input type="text" class="form-control" name="uraian_bibit[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_bibit[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="pupuk[]" value="Biaya Pupuk" readonly></td>
+                                                                    <td>- Biaya Pupuk</td>
                                                                     <td><input type="text" class="form-control" name="uraian_pupuk[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_pupuk[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="obat[]" value="Biaya Obat-Obatan" readonly></td>
+                                                                    <td>- Biaya Obat-Obatan</td>
                                                                     <td><input type="text" class="form-control" name="uraian_obat[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_obat[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="irigasi[]" value="Biaya Irigasi" readonly></td>
+                                                                    <td>- Biaya Irigasi</td>
                                                                     <td><input type="text" class="form-control" name="uraian_irigasi[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_irigasi[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="tanam[]" value="Tenaga Keja (Tanam)" readonly></td>
+                                                                    <td>- Tenaga Keja (Tanam)</td>
                                                                     <td><input type="text" class="form-control" name="uraian_tanam[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_tanam[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="pemelihara[]" value="Tenaga Kerja (Pemeliharaan)" readonly></td>
+                                                                    <td>- Tenaga Kerja (Pemeliharaan)</td>
                                                                     <td><input type="text" class="form-control" name="uraian_lihara[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_lihara[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="bilain[]" value="Biaya Lain-Lain" readonly></td>
+                                                                    <td>- Biaya Lain-Lain</td>
                                                                     <td><input type="text" class="form-control" name="uraian_lain[]" value=""></td>
-                                                                    <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_lain[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="lainnya[]" value=""></td>
-                                                                    <td><input type="text" class="form-control" name="uraian_lainnya[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_lain[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
@@ -195,38 +184,33 @@
                                                                     <td><b>Jumlah</b></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="sewa_alat[]" value="Sewa Peralatan" readonly></td>
+                                                                    <td>- Sewa Peralatan</td>
                                                                     <td><input type="text" class="form-control" name="uraian_alat[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_alat[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="panen[]" value="Tenaga Kerja (Panen)" readonly></td>
+                                                                    <td>- Tenaga Kerja (Panen)</td>
                                                                     <td><input type="text" class="form-control" name="uraian_panen[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_panen[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="angkut[]" value="Tenaga Kerja (Angkut)" readonly></td>
+                                                                    <td>- Tenaga Kerja (Angkut)</td>
                                                                     <td><input type="text" class="form-control" name="uraian_angkut[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_angkut[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="tebang[]" value="Tenaga Kerja (Tebang)" readonly></td>
+                                                                    <td>- Tenaga Kerja (Tebang)</td>
                                                                     <td><input type="text" class="form-control" name="uraian_tebang[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_tebang[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="transpor[]" value="Transportasi" readonly></td>
+                                                                    <td>- Transportasi</td>
                                                                     <td><input type="text" class="form-control" name="uraian_trans[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_trans[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="bi_lain[]" value="Biaya Lain-lain" readonly></td>
+                                                                    <td>- Biaya Lain-lain</td>
                                                                     <td><input type="text" class="form-control" name="uraian_lain2[]" value=""></td>
-                                                                    <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_lain2[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="lain3[]" value="" ></td>
-                                                                    <td><input type="text" class="form-control" name="uraian_lain3[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_lain2[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
@@ -245,24 +229,6 @@
                                                                 <tr>
                                                                     <td align="center" colspan="2"><b>Keuntungan dalam 1 Bulan</b></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="total_untung[]" value=""></td>
-                                                                </tr>
-                                                            </tbody>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_1[]" value="Foto Usaha 1" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_1[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_2[]" value="Foto Usaha 2" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_2[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_3[]" value="Foto Usaha 3" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_3[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_4[]" value="Foto Usaha 4" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_4[]" value=""></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -307,28 +273,22 @@
                                                                 <th>Jumlah</th>
                                                             </thead>
                                                             <tbody>
+                                                                <td rowspan="5">- Produksi</td>
+                                                                    <td colspan="2"><input type="text" class="form-control" name="uraian_dagang[]" value=""></td>
+                                                                    <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_dagang[]" value=""></td>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="produksi[]" value="Produksi" readonly></td>
                                                                     <td colspan="2"><input type="text" class="form-control" name="uraian_dagang[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_dagang[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="produksi[]" value=""></td>
                                                                     <td colspan="2"><input type="text" class="form-control" name="uraian_dagang[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_dagang[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="produksi[]" value=""></td>
                                                                     <td colspan="2"><input type="text" class="form-control" name="uraian_dagang[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_dagang[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="produksi[]" value=""></td>
-                                                                    <td colspan="2"><input type="text" class="form-control" name="uraian_dagang[]" value=""></td>
-                                                                    <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_dagang[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="produksi[]" value=""></td>
                                                                     <td colspan="2"><input type="text" class="form-control" name="uraian_dagang[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_dagang[]" value=""></td>
                                                                 </tr>
@@ -373,43 +333,38 @@
                                                                     <td><b>Jumlah</b></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="sewa_d[]" value="Sewa Tempat Usaha" readonly></td>
+                                                                    <td>- Sewa Tempat Usaha</td>
                                                                     <td><input type="text" class="form-control" name="uraian_sewa_dagang[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_sewa_dagang[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="tlp_d[]" value="Telepone" readonly></td>
+                                                                    <td>- Telepone</td>
                                                                     <td><input type="text" class="form-control" name="uraian_tlp[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_tlp[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="listrik_d[]" value="Listrik" readonly></td>
+                                                                    <td>- Listrik</td>
                                                                     <td><input type="text" class="form-control" name="uraian_listrik[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_listrik[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="air_d[]" value="Air" readonly></td>
+                                                                    <td>- Air</td>
                                                                     <td><input type="text" class="form-control" name="uraian_air[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_air[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="oprasional_d[]" value="Tenaga Kerja (Operasional)" readonly></td>
+                                                                    <td>- Tenaga Kerja (Operasional)</td>
                                                                     <td><input type="text" class="form-control" name="uraian_op[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_op[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="umum_d[]" value="Administrasi dan Umum" readonly></td>
+                                                                    <td>- Administrasi dan Umum</td>
                                                                     <td><input type="text" class="form-control" name="uraian_umum[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_umum[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="lain_d[]" value="Biaya Lain-lain" readonly></td>
+                                                                    <td>- Biaya Lain-lain</td>
                                                                     <td><input type="text" class="form-control" name="uraian_lain2_dagang[]" value=""></td>
-                                                                    <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_lain2_dagang[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="lain_dd[]" value=""></td>
-                                                                    <td><input type="text" class="form-control" name="uraian_d[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_lain2_dagang[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
@@ -420,24 +375,6 @@
                                                                 <tr>
                                                                     <td align="center" colspan="2"><b>Keuntungan dalam 1 Bulan</b></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="total_untung_dagang[]" value=""></td>
-                                                                </tr>
-                                                            </tbody>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_1_d[]" value="Foto Usaha 1" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_1_d[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_2_d[]" value="Foto Usaha 2" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_2_d[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_3_d[]" value="Foto Usaha 3" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_3_d[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_4_d[]" value="Foto Usaha 4" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_4_d[]" value=""></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -482,28 +419,22 @@
                                                                 <th>Jumlah</th>
                                                             </thead>
                                                             <tbody>
+                                                                <td rowspan="5">- Produksi</td>
+                                                                    <td colspan="2"><input type="text" class="form-control" name="uraian_konst[]" value=""></td>
+                                                                    <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_konst[]" value=""></td>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="produksi_k[]" value="Produksi" readonly></td>
                                                                     <td colspan="2"><input type="text" class="form-control" name="uraian_konst[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_konst[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="produksi_k[]" value=""></td>
                                                                     <td colspan="2"><input type="text" class="form-control" name="uraian_konst[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_konst[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="produksi_k[]" value=""></td>
                                                                     <td colspan="2"><input type="text" class="form-control" name="uraian_konst[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_konst[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="produksi_k[]" value=""></td>
-                                                                    <td colspan="2"><input type="text" class="form-control" name="uraian_konst[]" value=""></td>
-                                                                    <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_konst[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="produksi_k[]" value=""></td>
                                                                     <td colspan="2"><input type="text" class="form-control" name="uraian_konst[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_konst[]" value=""></td>
                                                                 </tr>
@@ -576,24 +507,6 @@
                                                                 </tr>
                                                                 <tr>
                                                             </tbody>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_1_k[]" value="Foto Usaha 1" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_1_k[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_2_k[]" value="Foto Usaha 2" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_2_k[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_3_k[]" value="Foto Usaha 3" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_3_k[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_4_k[]" value="Foto Usaha 4" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_4_k[]" value=""></td>
-                                                                </tr>
-                                                            </tbody>
                                                         </table>
                                                     </div>
                                                     <div class="col-sm-12"><br>
@@ -636,18 +549,14 @@
                                                                 <th>Jumlah</th>
                                                             </thead>
                                                             <tbody>
+                                                                <td rowspan="4">- Produksi</td>
+                                                                    <td colspan="2"><input type="text" class="form-control" name="uraian_ternak[]" value=""></td>
+                                                                    <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_ternak[]" value=""></td>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="produksi_t[]" value="Produksi" readonly></td>
                                                                     <td colspan="2"><input type="text" class="form-control" name="uraian_ternak[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_ternak[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="produksi_t[]" value=""></td>
-                                                                    <td colspan="2"><input type="text" class="form-control" name="uraian_ternak[]" value=""></td>
-                                                                    <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_ternak[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="produksi_t[]" value=""></td>
                                                                     <td colspan="2"><input type="text" class="form-control" name="uraian_ternak[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_ternak[]" value=""></td>
                                                                 </tr>
@@ -661,39 +570,34 @@
                                                                     <td><b>Jumlah</b></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="bibit_t[]" value="Pembelian Bibit/Benih" readonly></td>
+                                                                    <td>- Pembelian Bibit/Benih</td>
                                                                     <td><input type="text" class="form-control" name="uraian_bibit[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_bibit[]" value=""></td>
                                                                     <td rowspan="5"></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="ternak_t[]" value="Pakan Ternak" readonly></td>
+                                                                    <td>- Pakan Ternak</td>
                                                                     <td><input type="text" class="form-control" name="uraian_pakan[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_pakan[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="obat_t[]" value="Obat-Obatan" readonly></td>
+                                                                    <td>- Obat-Obatan</td>
                                                                     <td><input type="text" class="form-control" name="uraian_obat[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_obat[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="pelihara_t[]" value="Tenaga Keja (Pemelihara/vaksi)" readonly></td>
+                                                                    <td>- Tenaga Keja (Pemelihara/vaksi)</td>
                                                                     <td><input type="text" class="form-control" name="uraian_vaksin[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_vaksin[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="lain_t[]" value="Lain-Lain" readonly></td>
+                                                                    <td>- Lain-Lain</td>
                                                                     <td><input type="text" class="form-control" name="uraian_lain_ternak[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_lain_ternak[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="irigasi_t[]" value="Biaya Irigasi" readonly></td>
+                                                                    <td>- Biaya Irigasi</td>
                                                                     <td><input type="text" class="form-control" name="uraian_irigasi[]" value=""></td>
-                                                                    <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_irigasi[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="lain_4[]" value=""></td>
-                                                                    <td><input type="text" class="form-control" name="uraian_4[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_irigasi[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
@@ -707,28 +611,23 @@
                                                                     <td><b>Jumlah</b></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="listrik_t[]" value="Listrik" readonly></td>
+                                                                    <td>- Listrik</td>
                                                                     <td><input type="text" class="form-control" name="uraian_listrik_ternak[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_listrik_ternak[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="tlp_t[]" value="Telepone" readonly></td>
+                                                                    <td>- Telepone</td>
                                                                     <td><input type="text" class="form-control" name="uraian_tlp_ternak[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_tlp_ternak[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="air_t[]" value="Air" readonly></td>
+                                                                    <td>- Air</td>
                                                                     <td><input type="text" class="form-control" name="uraian_air_ternak[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_air_ternak[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><input type="text" class="form-control" name="lain_t[]" value="Lain-Lain" readonly></td>
+                                                                    <td>- Lain-Lain</td>
                                                                     <td><input type="text" class="form-control" name="uraian_lain3_ternak[]" value=""></td>
-                                                                    <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_lain3_ternak[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="lain_1t[]" value="" ></td>
-                                                                    <td><input type="text" class="form-control" name="uraian_1t[]" value=""></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="jumlah_lain3_ternak[]" value=""></td>
                                                                 </tr>
                                                                 <tr>
@@ -743,24 +642,6 @@
                                                                 <tr>
                                                                     <td align="center" colspan="2"><b>Keuntungan Usaha dalam 1 Bulan</b></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="total_untung_ternak[]" value=""></td>
-                                                                </tr>
-                                                            </tbody>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_1_t[]" value="Foto Usaha 1" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_1_t[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_2_t[]" value="Foto Usaha 2" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_2_t[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_3_t[]" value="Foto Usaha 3" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_3_t[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_4_t[]" value="Foto Usaha 4" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_4_t[]" value=""></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -888,24 +769,6 @@
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="total_untung_jasa[]" value=""></td>
                                                                 </tr>
                                                             </tbody>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_1_j[]" value="Foto Usaha 1" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_1_j[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_2_j[]" value="Foto Usaha 2" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_2_j[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_3_j[]" value="Foto Usaha 3" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_3_j[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_4_j[]" value="Foto Usaha 4" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_4_j[]" value=""></td>
-                                                                </tr>
-                                                            </tbody>
                                                         </table>
                                                     </div>
                                                     <div class="col-sm-12"><br>
@@ -979,24 +842,6 @@
                                                                 <tr>
                                                                     <td align="center" colspan="2"><b>Pendapatan dalam 1 Bulan</b></td>
                                                                     <td class="input-group"><span class="input-group-addon">Rp.</span><input type="text" class="form-control" name="total_profesi[]" value=""></td>
-                                                                </tr>
-                                                            </tbody>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_1_p[]" value="Foto Usaha 1" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_1_p[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_2_p[]" value="Foto Usaha 2" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_2_p[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_3_p[]" value="Foto Usaha 3" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_3_p[]" value=""></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><input type="text" class="form-control" name="foto_4_p[]" value="Foto Usaha 4" readonly></td>
-                                                                    <td colspan="3"><input type="file" class="form-control" name="isi_foto_4_p[]" value=""></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>

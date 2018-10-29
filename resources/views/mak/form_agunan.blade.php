@@ -226,7 +226,6 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nilai Pasar (Rp)</label>
                                                                     <div class="col-sm-8">
@@ -302,6 +301,15 @@
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon">Tampak Samping Kiri</span>
                                                                         <input type="file" class="form-control-file" name="kiri">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-4 control-label">Upload Foto Agunan dan Nasabah</label>
+                                                                <div class="col-sm-8">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">Agunan dan Nasabah</span>
+                                                                        <input type="file" class="form-control-file" name="agundeb">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -518,6 +526,15 @@
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon">Tampak Samping Kiri</span>
                                                                         <input type="file" class="form-control-file" name="kiri">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-4 control-label">Upload Foto Agunan dan Nasabah</label>
+                                                                <div class="col-sm-8">
+                                                                    <div class="input-group">
+                                                                        <span class="input-group-addon">Agunan dan Nasabah</span>
+                                                                        <input type="file" class="form-control-file" name="agundeb_kend">
                                                                     </div>
                                                                 </div>
                                                             </div>

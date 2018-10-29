@@ -9,7 +9,7 @@
   <link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
   
-<title>LOGIN EMG LEARNING CENTER</title>
+<title>EMG LEARNING CENTER</title>
 <link rel="icon" href="/pic/logo.ico" type="image/x-icon">
 <style>
   body{
@@ -29,7 +29,7 @@
         left:0; right:0;
         top:0; bottom:0;
         max-width:700px;
-        max-height:300px;
+        max-height:400px;
         
         overflow:auto;
     }
@@ -49,22 +49,54 @@
     }
 
     .button {
-    background-color: #008CBA;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-     width: 20em;  height: 5em;
+      background-color: #008CBA;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      width: 20em;  height: 5em;
+      border-radius: 12px;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+      cursor: pointer;
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      
+    }
+    .button:hover {
+      background-color: #A9A9A9;
+      color: white;
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      padding-right: 25px;
+    }
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .button span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+    .button:hover span:after {
+      opacity: 1;
+      right: 0;
     }
 
     .button1 {background-color: #CD5C5C;color: white;} 
     .button2 {background-color: #4B0082;color: white;}
     .button3 {background-color: #228B22;color: white;} 
+    .button4 {background-color: #FF7F50; color: white; } 
   
 </style>
 </head>
@@ -115,6 +147,23 @@
                     </div>
                   </div>
                 </div>
+                @if(strpos(Auth::user()->username, 'vania') !== false)
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="row form-group">
+                            <div>
+                             <button class="button button4" type="submit" name="foto" value="cafe">GALERY FOTO</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                  </div>
+                </div>
+                @endif
             <!-- </form> -->
         </div>
   </div>
@@ -143,6 +192,10 @@
 
       $('[name="digital"]').click(function() {
             window.location.href ='{{url("/welcome")}}';
+        });
+
+      $('[name="foto"]').click(function() {
+            window.location.href ='{{url("/fotoemg")}}';
         });
 
       // $("#loginform").submit(function(){

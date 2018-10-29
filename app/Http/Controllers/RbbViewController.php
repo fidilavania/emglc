@@ -55,12 +55,7 @@ use Response;
 
 class RbbViewController extends Controller
 {
-	public function viewEksport()
-    {
-       $kantor = DB::connection('mysql')->table('rbb_kodeljk')->where('no_kantor',Auth::user()->kantor)->first();
-       return view('rbb/export',compact('kantor'));   
-    }
-
+	
     public function view0102()
     {
         $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
@@ -304,6 +299,13 @@ class RbbViewController extends Controller
         return view('rbb/0903',compact('rbb','periode'));   
     }
 
+    public function viewEksport()
+    {
+       $kantor = DB::connection('mysql')->table('rbb_kodeljk')->where('no_kantor',Auth::user()->kantor)->first();
+       $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+       return view('rbb/export',compact('kantor','periode'));   
+    }
+
 
     public function downloadJSONFile(Request $request){
       	// t    -beda- t-t- beda    -beda-   t.t
@@ -324,7 +326,7 @@ class RbbViewController extends Controller
       // RBBPRK-0901-R-A-20181231-601025-01.txt
       // RBBPRK-0902-R-A-20181231-601025-01.txt
       // RBBPRK-0903-R-A-20181231-601025-01.txt
-    
+     
       $kantor = DB::connection('mysql')->table('rbb_kodeljk')->where('no_kantor',Auth::user()->kantor)->first();
 
       $header = DB::connection('mysql')->select(DB::raw("SELECT kode, periode, no_kantor, flag, kode_sektor,kode_ljk, kode_jenis, modal_inti, opr, tgl_input FROM rbb_header where periode = '".$request->input('periode')."' AND no_kantor = '".Auth::user()->kantor."' "));

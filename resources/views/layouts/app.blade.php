@@ -131,9 +131,12 @@
                   </ul>
 
                 <li class="">
-                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resign<span class="caret"></span></a>
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resign/Mutasi<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="{{ url('/dataresign') }}">Daftar Resign</a></li> 
+                    @if(strpos(Auth::user()->username, 'vania') !== false)
+                    <li><a href="{{ url('/datamutasi') }}">Daftar Mutasi</a></li> 
+                    @endif
                 </li>
                   </ul>
                   

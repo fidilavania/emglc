@@ -54,8 +54,12 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Periode</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="periode" autocomplete="off" value="{{date('Y')}}-12-31" style="text-transform:uppercase;" required />
-                                        <!-- <label class="col-sm-8 control-label">(Jangan Lupa Ganti Periode)</label> -->
+                                        <select class="form-control" name="periode" required>
+                                            <option value>-Pilih Periode-</option>
+                                            @foreach($periode as $p)
+                                                <option value="{{$p->periode}}">{{$p->periode}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
 
@@ -78,7 +82,7 @@
                         <br><br>
                         <div class="row">
                             <div class="col-sm-12">
-                                Pilih File RBB : <input type="file" name="file" class="form-control">
+                                Pilih File RBB : <input type="file" name="file" class="form-control" required>
                                 <input type="submit" class="btn btn-primary btn-lg" style="margin-top: 3%">
                             </div>
                         </div>
