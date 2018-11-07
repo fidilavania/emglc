@@ -54,7 +54,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Periode</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="periode" autocomplete="off" value="{{date('Y')}}-12-31" style="text-transform:uppercase;" required />
+                                        <input type="text" class="form-control" name="periode" autocomplete="off" value="{{date('Y', strtotime('+1 year'))}}-12-31" style="text-transform:uppercase;" required />
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +83,10 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <!-- Pilih File RBB : <input type="file" name="file" class="form-control"> -->
-                                <input type="submit" class="btn btn-primary btn-lg" style="margin-top: 3%">
+                                <!-- <input type="submit" class="btn btn-primary btn-lg" style="margin-top: 3%"> -->
+
+                                <button type="submit" class="btn btn-primary btn-lg" name="simpanbutton" onclick="return confirm('Apakah anda yakin akan eksport data ini?'<br>'Apakah anda sudah mengganti periode?')">EXPORT</button>
+
                             </div>
                         </div>
                     </form>

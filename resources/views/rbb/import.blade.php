@@ -54,12 +54,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Periode</label>
                                     <div class="col-sm-9">
-                                        <select class="form-control" name="periode" required>
-                                            <option value>-Pilih Periode-</option>
-                                            @foreach($periode as $p)
-                                                <option value="{{$p->periode}}">{{$p->periode}}</option>
-                                            @endforeach
-                                        </select>
+                                        <input type="text" class="form-control" name="periode" autocomplete="off" value="{{date('Y', strtotime('+1 year'))}}-12-31" style="text-transform:uppercase;" required />
                                     </div>
                                 </div>
 
@@ -69,6 +64,12 @@
                                     <label class="col-sm-3 control-label">Operator</label>
                                     <div class="col-sm-8">
                                         <input type="text" class="form-control" name="opr" autocomplete="off" value="{{ trim(Auth::user()->nama_lengkap,' ') }}" style="text-transform:uppercase;" readonly />
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Kode Kantor LJK</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="" autocomplete="off" value="{{ trim($ljk->kode_rbb,' ') }}" style="text-transform:uppercase;" readonly />
                                     </div>
                                 </div>
                                 <div class="row form-group" hidden>
@@ -83,7 +84,9 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 Pilih File RBB : <input type="file" name="file" class="form-control" required>
-                                <input type="submit" class="btn btn-primary btn-lg" style="margin-top: 3%">
+                                <br>
+                                <!-- <input type="submit" class="btn btn-primary btn-lg" style="margin-top: 3%"> -->
+                                <button type="submit" class="btn btn-primary btn-lg" name="simpanbutton" onclick="return confirm('Apakah anda yakin akan import data ini?'<br>'Apakah anda sudah mengganti periode?')">IMPORT</button>
                             </div>
                         </div>
                     </form>

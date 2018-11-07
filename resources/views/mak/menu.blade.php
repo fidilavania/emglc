@@ -469,6 +469,62 @@
                                 </div>
                             </div>
                         </fieldset>
+                        <fieldset class="tab-pane animation-slide-left" id="uang" role="tabpanel">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="row form-group">
+                                        <label class="col-sm-4 control-label">Biaya-Biaya :</label>
+                                        <div class="col-sm-8">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-sm-4 control-label">Kebutuhan Rumah Tangga</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="keb_rumah" value="" style="text-transform:uppercase;" placeholder="" data-toggle="tooltip" data-placement="right" title="" />
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-sm-4 control-label">Listrik dan Air (PDAM)</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="listrik_air" value="" style="text-transform:uppercase;" placeholder="" data-toggle="tooltip" data-placement="right" title="" />
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-sm-4 control-label">Biaya Pendidikan</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="pendidikkan" value="" style="text-transform:uppercase;" placeholder="" data-toggle="tooltip" data-placement="right" title="" />
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-sm-4 control-label">Lain-Lain :</label>
+                                        <div class="col-sm-8">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-sm-4 control-label">Arisan</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="arisan" value="" style="text-transform:uppercase;" placeholder="" data-toggle="tooltip" data-placement="right" title="" />
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-sm-4 control-label">Sumbangan + Lainnya</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="sumbang" value="" style="text-transform:uppercase;" placeholder="" data-toggle="tooltip" data-placement="right" title="" />
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-sm-4 control-label">Total :</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="total" value="" style="text-transform:uppercase;" placeholder="" data-toggle="tooltip" data-placement="right" title="" />
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-sm-6">
+                                   
+                                </div>
+                            </div>
+                        </fieldset>
                         <fieldset class="tab-pane animation-slide-left" id="managemen" role="tabpanel">
                             <div class="panel panel-primary" id="panelkredit">
                                 <div class="panel-heading"><h4 align="center">Data Manajemen Usaha dan Pekerjaan Profesi</h4></div>

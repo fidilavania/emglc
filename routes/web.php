@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
 	// foto
 	Route::get('/fotologin', 'GrahaController@formfotologin');
 	Route::get('/upload', 'GrahaController@formupload');
-	Route::post('/savefoto', 'GrahaController@saveFoto');
+	Route::post('/savefoto', 'GrahaController@saveFotoGalery');
 
 	// max
 	Route::get('/mak', 'MakController@formmak');
@@ -87,7 +87,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 		// export
 		Route::get('/export', 'RbbViewController@viewEksport');
-		Route::post('/download-jsonfile', array('as'=> 'file.download', 'uses' => 'RbbViewController@downloadJSONFile'));
+		// Route::post('/download-jsonfile', array('as'=> 'file.download', 'uses' => 'RbbViewController@downloadJSONFile'));
+		Route::post('/download-jsonfile', array('as'=> 'file.download', 'uses' => 'RbbViewController@getDownload'));
 	
 	// SDM
 	Route::match(['get', 'post'],'/datasdm/{key?}/{kol?}', 'SdmController@viewDataSdm');
@@ -157,6 +158,9 @@ Route::group(['middleware' => ['auth']], function () {
 
 	// cetak pendaftaran
 	Route::get('/cetak/{nonsb?}/{kantor?}', 'PesertaController@viewCetakDaftar');
+
+	// cetak sertifikat
+	Route::get('/cetaksertif/{nonsb?}', 'PesertaController@CetakSertif');
 
 	// tidak hadir
 	Route::get('/detailtidakhadir/{nonsb?}', 'PesertaController@viewFormDetailTidakHadir');

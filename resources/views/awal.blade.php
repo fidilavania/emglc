@@ -147,7 +147,6 @@
                     </div>
                   </div>
                 </div>
-                @if(strpos(Auth::user()->username, 'vania') !== false)
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="col-sm-3">
@@ -163,7 +162,6 @@
                     </div>
                   </div>
                 </div>
-                @endif
             <!-- </form> -->
         </div>
   </div>

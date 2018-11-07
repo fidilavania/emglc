@@ -73,8 +73,9 @@ class RbbController extends Controller
     public function viewImport()
     {
         $periode = DB::connection('mysql')->table('rbb_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
+        $ljk = DB::connection('mysql')->table('rbb_kodeljk')->where('no_kantor',Auth::user()->kantor)->first();
 
-        return view('rbb/import',compact('periode'));   
+        return view('rbb/import',compact('periode','ljk'));   
     }
 
     public function proses(Request $request){
