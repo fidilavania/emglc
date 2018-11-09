@@ -228,9 +228,15 @@
                       <div id="myNav" class="overlay">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                         <div class="overlay-content">
+                        @if(strpos(Auth::user()->jenis, 'SIAKAD') !== false)
                         <a href='/' name="emg" value="emg"> SIAKAD </a>
+                        @endif
+                        @if(strpos(Auth::user()->jenis, 'RBB') !== false)
                         <a href='/homerbb' name="graha" value="graha"> RBB </a>
+                        @endif
+                        @if(strpos(Auth::user()->jenis, 'MAK') !== false)
                         <a href='/mak' name="mak" value="foto"> ANALISA KREDIT </a>
+                        @endif
                         @if(strpos(Auth::user()->username, 'vania') !== false)
                         <a href='/fotologin' name="foto" value="foto"> GALERY FOTO </a>
                         @endif

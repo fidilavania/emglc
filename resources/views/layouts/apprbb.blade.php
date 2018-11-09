@@ -126,17 +126,14 @@
                 <li class="">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Import/Export<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                  @if(strpos(Auth::user()->fungsi, '0000') !== false)
                     <li><a href="/import">Import Excel</a></li>
                     <li><a href="/export">Export Txt</a></li>
-                  @endif
                 </li>
               </ul>
 
               <li class="">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rencana Bisnis<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                  @if(strpos(Auth::user()->fungsi, '0000') !== false)
                     <li><a href="/0102">Indikator Keuangan Utama - 0102</a></li>
                     <li><a href="/0301">Proyeksi Neraca - 0301</a></li>
                     <li><a href="/0401">Proyeksi Laba Rugi - 0401</a></li>
@@ -153,7 +150,6 @@
                     <li><a href="/0901">Rencana Pemenuhan Rasio Kewajiban Penyediaan Modal Minimum (KPMM) - 0901</a></li>
                     <li><a href="/0902">Rencana Pemenuhan Modal Inti Minimum - 0902</a></li>
                     <li><a href="/0903">Rencana Penambahan Modal - 0903</a></li>
-                  @endif
                 </li>
               </ul>
 
