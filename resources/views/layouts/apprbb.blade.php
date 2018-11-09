@@ -153,7 +153,16 @@
                 </li>
               </ul>
 
+              <li class="">
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Realisasi RBB<span class="caret"></span></a>
+              </li>
+              <li class="">
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pengawasan RBB<span class="caret"></span></a>
+              </li>
+
+
             </ul>
+
          @endif
 
             <ul class="nav navbar-nav navbar-right">
