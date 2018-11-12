@@ -99,7 +99,11 @@
                                         <tr>
                                             <td>{{$A->periode}}</td>
                                             <td>{{$A->no_kantor}}</td>
+                                            @if($A->komponen == 0)
+                                            <td></td>
+                                            @else
                                             <td>{{$A->komponen}}</td>
+                                            @endif
                                             <td>{{$A->indikator}}</td>
                                             @if($A->kinerja_okt_pembilang == '')
                                             <td></td>

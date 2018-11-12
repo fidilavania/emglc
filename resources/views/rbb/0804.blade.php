@@ -78,7 +78,11 @@
                                         <tr>
                                             <td>{{$A->periode}}</td>
                                             <td>{{$A->no_kantor}}</td>
+                                            @if($A->komponen == 0)
+                                            <td></td>
+                                            @else
                                             <td>{{$A->komponen}}</td>
+                                            @endif
                                             <td>{{$A->jenis}}</td>
                                             <td class="td1">{{number_format($A->jumlah,0,'','.')}}</td>
                                             <td class="td1">{{number_format($A->kinerja_okt,0,'','.')}}</td> 

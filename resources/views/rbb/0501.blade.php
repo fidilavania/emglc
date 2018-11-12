@@ -99,69 +99,73 @@
                                         <tr>
                                             <td>{{$A->periode}}</td>
                                             <td>{{$A->no_kantor}}</td>
+                                            @if($A->komponen == 0)
+                                            <td></td>
+                                            @else
                                             <td>{{$A->komponen}}</td>
+                                            @endif
                                             <td>{{$A->rasio}}</td>
-                                            @if($A->komponen == '')
+                                            @if($A->komponen == '0')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->kinerja_okt_pembilang,0,'','.')}}</td>
                                             @endif
-                                            @if($A->komponen == '')
+                                            @if($A->komponen == '0')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->kinerja_okt_penyebut,0,'','.')}}</td>
                                             @endif
                                             <td class="td1">{{$A->kinerja_persen}}</td>
-                                            @if($A->komponen == '')
+                                            @if($A->komponen == '0')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->proyeksi_des_pembilang,0,'','.')}}</td>
                                             @endif
-                                            @if($A->komponen == '')
+                                            @if($A->komponen == '0')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->proyeksi_des_penyebut,0,'','.')}}</td>
                                             @endif
                                             <td class="td1">{{$A->proyeksi_des_persen}}</td>
-                                            @if($A->komponen == '')
+                                            @if($A->komponen == '0')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->proyeksi_jun_pembilang,0,'','.')}}</td>
                                             @endif
-                                            @if($A->komponen == '')
+                                            @if($A->komponen == '0')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->proyeksi_jun_penyebut,0,'','.')}}</td>
                                             @endif
                                             <td class="td1">{{$A->proyeksi_jun_persen}}</td>
-                                            @if($A->komponen == '')
+                                            @if($A->komponen == '0')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->proyeksi_des_pembilang_1,0,'','.')}}</td>
                                             @endif
-                                            @if($A->komponen == '')
+                                            @if($A->komponen == '0')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->proyeksi_des_penyebut_1,0,'','.')}}</td>
                                             @endif
                                             <td class="td1">{{$A->proyeksi_des_persen_1}}</td>
-                                            @if($A->komponen == '')
+                                            @if($A->komponen == '0')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->proyeksi_des_pembilang_2,0,'','.')}}</td>
                                             @endif
-                                            @if($A->komponen == '')
+                                            @if($A->komponen == '0')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->proyeksi_des_penyebut_2,0,'','.')}}</td>
                                             @endif
                                             <td class="td1">{{$A->proyeksi_des_persen_2}}</td>
-                                            @if($A->komponen == '')
+                                            @if($A->komponen == '0')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->proyeksi_des_pembilang_3,0,'','.')}}</td>
                                             @endif
-                                            @if($A->komponen == '')
+                                            @if($A->komponen == '0')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->proyeksi_des_penyebut_3,0,'','.')}}</td>

@@ -77,27 +77,31 @@
                                         <tr>
                                             <td>{{$A->periode}}</td>
                                             <td>{{$A->no_kantor}}</td>
+                                            @if($A->komponen == 0)
+                                            <td></td>
+                                            @else
                                             <td>{{$A->komponen}}</td>
+                                            @endif
                                             <td>{{$A->kel}}</td>
-                                            @if($A->komponen == '')
+                                            @if($A->komponen == '0')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->kinerja_okt,0,'','.')}}</td>
                                             @endif
 
-                                            @if($A->komponen == '')
+                                            @if($A->komponen == '0')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->pro_des,0,'','.')}}</td>
                                             @endif
 
-                                            @if($A->komponen == '')
+                                            @if($A->komponen == '0')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->pro_juni,0,'','.')}}</td>
                                             @endif
 
-                                            @if($A->komponen == '')
+                                            @if($A->komponen == '0')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->pro_des1,0,'','.')}}</td>

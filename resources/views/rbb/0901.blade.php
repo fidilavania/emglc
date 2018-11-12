@@ -78,7 +78,11 @@
                                         <tr>
                                             <td>{{$A->periode}}</td>
                                             <td>{{$A->no_kantor}}</td>
+                                            @if($A->komponen == 0)
+                                            <td></td>
+                                            @else
                                             <td>{{$A->komponen}}</td>
+                                            @endif
                                             <td>{{$A->modal}}</td>
                                             <td class="td1">{{$A->kinerja_okt}}</td>
                                             <td class="td1">{{$A->pro_des}}</td>
