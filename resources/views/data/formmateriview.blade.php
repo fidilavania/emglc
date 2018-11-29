@@ -63,17 +63,31 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Peserta</label>
                                     <div class="col-sm-9">
-                                        <textarea rows="10" cols="135" name="peserta" placeholder="Isi Peserta" style="text-transform:uppercase;" readonly>{{trim($materi->peserta,' ')}}</textarea>
+                                        <textarea rows="10" cols="135" name="peserta" placeholder="Isi Peserta" style="text-transform: uppercase; margin: 0px; width: 922px; height: 189px;" readonly>{{trim($materi->peserta,' ')}}</textarea>
                                     </div>
                                 </div>
                                 <div class="summernote">
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Silabus</label>
                                     <div class="col-sm-9">
-                                        <textarea rows="20" cols="135" name="silabus" placeholder="Isi Silabus" style="text-transform:uppercase;" id="silabus" readonly>{{$materi->silabus}}</textarea>
+                                        <textarea rows="20" cols="135" name="silabus" placeholder="Isi Silabus" style="text-transform: uppercase; margin-left: 0px; margin-right: 0px; width: 922px;" id="silabus" readonly>{{$materi->silabus}}</textarea>
                                     </div>
                                 </div>
                                 </div>
+                                @if(strpos(Auth::user()->kantor, 'EMG') !== false)
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Link Materi</label>
+                                    <div class="col-sm-9">
+                                        <textarea name="materi" style="margin: 0px; width: 922px; height: 63px;" id="materi" readonly>{{$materi->materi}}</textarea>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Link Foto</label>
+                                    <div class="col-sm-9">
+                                        <textarea name="foto" style="margin: 0px; width: 922px; height: 63px;" id="foto" readonly>{{$materi->foto}}</textarea>
+                                    </div>
+                                </div>
+                                @endif
                             </div>
                             <div class="col-sm-6">
                                 <div class="row form-group">
@@ -310,6 +324,11 @@
                             </div>
                         
                         <div class="col-sm-12">
+                                @if($materi->foto != '')
+                                <a href="{{$materi->foto}}" id="clear-filter" >
+                                    <input type="button" class="btn btn-success" name="foto" value="DOWNLOAD FOTO">
+                                </a>
+                                @endif
                                 @if($materi->materi != '')
                                 <a href="{{$materi->materi}}" id="clear-filter" >
                                     <input type="button" class="btn btn-success" name="materi" value="DOWNLOAD MATERI">

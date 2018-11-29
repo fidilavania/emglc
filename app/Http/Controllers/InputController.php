@@ -57,6 +57,7 @@ class InputController extends Controller
         $materi->durasi = strtoupper($request->input('durasi'));
         $materi->biaya = DataController::formatangka($request->input('biaya'));
         $materi->materi = '';
+        $materi->foto = '';
         $materi->save();
         
        
@@ -84,7 +85,9 @@ class InputController extends Controller
         'peserta' => strtoupper($request->input('peserta')),
         'silabus' => ($request->input('silabus')),
         'durasi' => strtoupper($request->input('durasi')),
-        'biaya' => DataController::formatangka($request->input('biaya'))
+        'biaya' => DataController::formatangka($request->input('biaya')),
+        'materi' => ($request->input('materi')),
+        'foto' => ($request->input('foto'))
         ]);
         
        

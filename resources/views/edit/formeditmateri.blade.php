@@ -81,6 +81,18 @@
                                     </div>
                                 </div>
                                 </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Link Materi</label>
+                                    <div class="col-sm-9">
+                                        <textarea name="materi" style="margin: 0px; width: 966px; height: 63px;" id="materi">{{$materi->materi}}</textarea>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Link Foto</label>
+                                    <div class="col-sm-9">
+                                        <textarea name="foto" style="margin: 0px; width: 966px; height: 63px;" id="foto">{{$materi->foto}}</textarea>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="row form-group">
