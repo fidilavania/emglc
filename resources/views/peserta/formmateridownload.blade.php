@@ -61,26 +61,17 @@
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Peserta</label>
                                     <div class="col-sm-9">
-                                        <textarea rows="10" cols="135" name="peserta" placeholder="Isi Peserta" style="text-transform:uppercase;" readonly>{{trim($materi->peserta,' ')}}</textarea>
+                                        <textarea rows="10" cols="135" name="peserta" placeholder="Isi Peserta" style="text-transform: uppercase; margin: 0px; height: 211px; width: 912px;" readonly>{{trim($materi->peserta,' ')}}</textarea>
                                     </div>
                                 </div>
                                 <div class="summernote">
                                 <div class="row form-group">
                                     <label class="col-sm-3 control-label">Silabus</label>
                                     <div class="col-sm-9">
-                                        <textarea rows="20" cols="135" name="silabus" placeholder="Isi Silabus" style="text-transform:uppercase;" id="silabus" readonly>{{$materi->silabus}}</textarea>
+                                        <textarea rows="20" cols="135" name="silabus" placeholder="Isi Silabus" style="text-transform: uppercase; margin: 0px; height: 409px; width: 912px;" id="silabus" readonly>{{$materi->silabus}}</textarea>
                                     </div>
                                 </div>
                                 </div>
-                                @if($materi->materi != '')
-                                <div class="col-sm-6">
-                                    <div class="col-sm-12">
-                                        <a href="{{$materi->materi}}" id="clear-filter" >
-                                            <input type="button" class="btn btn-success" name="materi" value="DOWNLOAD MATERI">
-                                        </a>
-                                    </div>
-                                </div>
-                                @endif
                             </div>
                             <div class="col-sm-6">
                                 <div class="row form-group">
@@ -104,6 +95,18 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-sm-12">
+                            @if($materi->foto != '')
+                                <a href="{{$materi->foto}}" id="clear-filter" >
+                                    <input type="button" class="btn btn-success" name="foto" value="DOWNLOAD FOTO">
+                                </a>
+                            @endif
+                            @if($materi->materi != '')
+                                <a href="{{$materi->materi}}" id="clear-filter" >
+                                    <input type="button" class="btn btn-success" name="materi" value="DOWNLOAD MATERI">
+                                </a>
+                            @endif
                         </div>
                         <br><br>
                         <div class="row submitbtn1">

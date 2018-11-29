@@ -27,6 +27,27 @@ use Input;
 
 class PesertaController extends Controller
 {
+    public function CetakSertif ($nonsb)
+    {
+        $sdm = DB::connection('mysql')->table('sdm')->where('status','1')->orderby('jabatan','asc')->get();
+        $materi = DB::connection('mysql')->table('materi')->where('kode_modul',$nonsb)->first();
+         
+        $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('kantor',trim(Auth::user()->kantor,' '))->orderby('kantor','asc')->get();
+
+        $tanggal = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('kantor',trim(Auth::user()->kantor,' '))->orderby('kantor','asc')->first();
+
+        $all = array();
+        foreach ($peserta as $p) {
+            $sdm = sdm::select('kantor','nama','jenis_kel','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->where('status','1')->orderby('kantor','asc')->get();
+            for($i=0;$i<count($sdm);$i++){
+                $sdm[$i]->tgl_keg = $p->tgl_keg;
+                $sdm[$i]->lokasi_keg = $p->lokasi_keg;
+                array_push($all, $sdm[$i]);
+            }
+        }
+        return view('cetak.cetaksertifikat',compact('sdm','materi','peserta','all','tanggal'));   
+    }
+
     public function formPendaftaran($key=null)
     {
         $sdm = DB::connection('mysql')->table('sdm')->get();
@@ -65,9 +86,32 @@ class PesertaController extends Controller
                $arr[$data->kantor][$data->no_sdm] = $data;
             }
         }
+        
 
+        // if(isset($peserta)){
+        //     $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('kantor',trim(Auth::user()->kantor,' '))->get();
 
-        return view('daftar.formdetaildaftar',compact('sdm','materi','matdet','peserta','datasdm','arr'));   
+        //     $arr = array();
+        //     foreach ($peserta as $p) {
+
+        //         $datasdm = sdm::select('nama','jenis_kel','kantor','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->where('status','1')->orderby('jabatan','asc')->get();
+                
+        //         $temp = array();
+        //         foreach($datasdm as $data){
+        //             $data->tgl_keg = $p->tgl_keg;
+        //             $data->lokasi_keg = $p->lokasi_keg;
+        //             array_push($temp, $data);
+        //             //$arr= $data;
+        //             //$arr[$data->kantor][$data->no_sdm]= $data;
+        //         }
+        //         $arr[$p->nomor] = $temp;
+        //         $temp = array();
+        //     }
+        //     Log::info(json_encode($arr));
+        // }
+        
+
+        return view('daftar.formdetaildaftar',compact('sdm','materi','matdet','peserta','arr'));   
     }
     public function saveFormDetailDaftar(Request $request,$nonsb)
     {
