@@ -148,6 +148,7 @@
                     <li><a href="{{ url('/lapsdm') }}">Laporan Data SDM</a></li>
                     @endif
                     <li><a href="{{ url('/piagam') }}">Piagam Kerjasama</a></li> 
+                    <li><a href="{{ url('/fotologin') }}">Foto Kegiatan</a></li> 
                 </li>
                   </ul>
 

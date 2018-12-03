@@ -34,7 +34,7 @@
         /* Bottom left text */
         .bottom-left {
             position: absolute;
-            bottom: 70px;
+            bottom: 100px;
             left: 90px;
         }
 
@@ -72,6 +72,7 @@
       <div class="bottom-right">Bottom Right</div>
       <div class="centered">Centered</div> -->
       <div class="centered">
+            <br><br>
             <h3><b>Nomor : < >/EMG.LC/2018</b></h3><br>
             <h4>Diberikan Kepada :</h4>
             <h3 style="letter-spacing: 2px;" >{{$a->nama}}</h3>
@@ -212,7 +213,7 @@
                 // }
               ?>
             <br><h4>Telah Mengikuti</h4>
-            <h2 style="letter-spacing: 2px;" ><b>{{trim($materi->nama_modul,' ')}}</b></h2>
+            <h2><b>{{trim($materi->nama_modul,' ')}}</b></h2>
             <h3><b>Pada Tanggal : {{trim($tanggal->tgl_keg,' ')}}</b></h3>
             <h3><b>Di : {{trim($tanggal->lokasi_keg,' ')}}</b></h3>
             
@@ -239,7 +240,7 @@
                 <tr>
                     <th>Office</th>
                     <th>:</th>  
-                    <th>GHRAHA EMG - Jl. Raden Tumenggung Suryo No. 32-34. Telp (0341) 404433 - Malang</th> 
+                    <th>GRAHA EMG - Jl. Raden Tumenggung Suryo No. 32-34. Telp (0341) 404433 - Malang</th> 
                 </tr>
             </table>
         </strong>

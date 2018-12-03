@@ -32,7 +32,8 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/homerbb', 'RbbController@viewHomeRbb');
 
 	// foto
-	Route::get('/fotologin', 'GrahaController@formfotologin');
+	Route::match(['get', 'post'],'/fotologin/{key?}', 'GrahaController@formfotologin')->where('key', '(.*)');
+	// Route::get('/fotologin', 'GrahaController@formfotologin');
 	Route::get('/upload', 'GrahaController@formupload');
 	Route::post('/savefoto', 'GrahaController@saveFotoGalery');
 
