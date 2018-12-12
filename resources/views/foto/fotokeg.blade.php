@@ -24,7 +24,7 @@
                                                 <div class="form-group">
                                                     <input id="kegiatan" type="text"  placeholder="Cari Kegiatan" class="form-control" autocomplete="off" style="text-transform:uppercase">
                                                 </div>                                        
-                                                <a href="{{ url('/fotologin') }}" id="clear-filter" title="clear filter">[KEMBALI]</a>
+                                                <a href="{{ url('/fotokeg') }}" id="clear-filter" title="clear filter">[KEMBALI]</a>
                                             </div>
                                         </div>
                                     </div>

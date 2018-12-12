@@ -27,6 +27,51 @@ use Input;
 
 class PesertaController extends Controller
 {
+    public function NoSertif ()
+    {
+        $nomor = DB::connection('mysql')->select(DB::raw("SELECT substr(tgl_keg,-4) from peserta"));
+        $peserta = DB::connection('mysql')->table('peserta')->orderby('kode_modul','asc')->get();
+        $materi = DB::connection('mysql')->table('materi')->get();
+        // $nosertif = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where(,$nomor)->get();
+        $all = array();
+        foreach ($peserta as $p) {
+            $sdm = sdm::select('kantor','nama','jenis_kel','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->get();
+            for($i=0;$i<count($sdm);$i++){
+                $sdm[$i]->tgl_keg = $p->tgl_keg;
+                $sdm[$i]->lokasi_keg = $p->lokasi_keg;
+                $sdm[$i]->kode_modul = $p->kode_modul;
+                $sdm[$i]->kantor = $p->kantor;
+                array_push($all, $sdm[$i]);
+            }
+        }
+        $urutan = 1;
+        log::info(substr($p->tgl_keg,-4));
+
+        return view('cetak.nosertif',compact('sdm','materi','peserta','tanggal','urutan','all'));   
+    }
+
+    public function Excelcetak ()
+    {
+        $nomor = DB::connection('mysql')->select(DB::raw("SELECT substr(tgl_keg,-4) from peserta"));
+        $peserta = DB::connection('mysql')->table('peserta')->orderby('kode_modul','asc')->get();
+        // $nosertif = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where(,$nomor)->get();
+        $all = array();
+        foreach ($peserta as $p) {
+            $sdm = sdm::select('kantor','nama','jenis_kel','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->orderby('kantor','asc')->get();
+            for($i=0;$i<count($sdm);$i++){
+                $sdm[$i]->tgl_keg = $p->tgl_keg;
+                $sdm[$i]->lokasi_keg = $p->lokasi_keg;
+                $sdm[$i]->kode_modul = $p->kode_modul;
+                $sdm[$i]->kantor = $p->kantor;
+                array_push($all, $sdm[$i]);
+            }
+        }
+        $urutan = 1;
+        log::info(substr($p->tgl_keg,-4));
+
+        return view('cetak.nosertif_excel',compact('sdm','materi','peserta','tanggal','urutan','all'));   
+    }
+
     public function CetakSertif ($nonsb)
     {
         $sdm = DB::connection('mysql')->table('sdm')->where('status','1')->orderby('jabatan','asc')->get();
@@ -38,14 +83,15 @@ class PesertaController extends Controller
 
         $all = array();
         foreach ($peserta as $p) {
-            $sdm = sdm::select('kantor','nama','jenis_kel','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->where('status','1')->orderby('kantor','asc')->get();
+            $sdm = sdm::select('kantor','nama','jenis_kel','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->orderby('kantor','asc')->get();
             for($i=0;$i<count($sdm);$i++){
                 $sdm[$i]->tgl_keg = $p->tgl_keg;
                 $sdm[$i]->lokasi_keg = $p->lokasi_keg;
                 array_push($all, $sdm[$i]);
             }
         }
-        return view('cetak.cetaksertifikat',compact('sdm','materi','peserta','all','tanggal'));   
+
+        return view('cetak.cetaksertifikat',compact('sdm','materi','peserta','all','tanggal','urutan'));   
     }
 
     public function formPendaftaran($key=null)
@@ -77,7 +123,7 @@ class PesertaController extends Controller
         $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('kantor',trim(Auth::user()->kantor,' '))->first();
 
         if(isset($peserta)){
-        $datasdm = sdm::select('nama','jenis_kel','kantor','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($peserta->no_sdm,' ').')')->where('status','1')->orderby('jabatan','asc')->get();
+        $datasdm = sdm::select('nama','jenis_kel','kantor','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($peserta->no_sdm,' ').')')->orderby('jabatan','asc')->get();
         
         
             $arr = array();

@@ -32,10 +32,12 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/homerbb', 'RbbController@viewHomeRbb');
 
 	// foto
-	Route::match(['get', 'post'],'/fotologin/{key?}', 'GrahaController@formfotologin')->where('key', '(.*)');
-	// Route::get('/fotologin', 'GrahaController@formfotologin');
-	Route::get('/upload', 'GrahaController@formupload');
-	Route::post('/savefoto', 'GrahaController@saveFotoGalery');
+	Route::match(['get', 'post'],'/fotokeg/{key?}', 'GrahaController@formfotologin')->where('key', '(.*)');
+	Route::get('/uploadfoto', 'GrahaController@formUploadFoto');
+	Route::post('/saveupload/{nourut?}', 'GrahaController@saveUploadFoto');
+
+	// Route::get('/upload', 'GrahaController@formupload');
+	// Route::post('/savefoto', 'GrahaController@saveFotoGalery');
 
 	// max
 	Route::get('/mak', 'MakController@formmak');
@@ -162,6 +164,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 	// cetak sertifikat
 	Route::get('/cetaksertif/{nonsb?}', 'PesertaController@CetakSertif');
+	Route::get('/nosertif', 'PesertaController@NoSertif');
+	Route::get('/excelsertif', 'PesertaController@Excelcetak');
 
 	// tidak hadir
 	Route::get('/detailtidakhadir/{nonsb?}', 'PesertaController@viewFormDetailTidakHadir');

@@ -38,33 +38,6 @@ class GrahaController extends Controller
         return view('graha.graha');   
     }
 
-     public function formfoto()
-    {
-        $foto = DB::connection('mysql')->table('foto')->get();
-
-        foreach ($foto as $f) {
-          $galery = Storage::disk('s3')->files($f->nama);
-          // $galery = Storage::get($f->nama);
-          // $galery = Storage::disk('s3')->exists($f->nama);
-          // $galery = Storage::url($f->nama);
-          // $galery = Storage::disk('s3')->exists($f->nama);
-        }
-        log::info($galery);
-
-
-        $url = 'https://s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com/' . env('AWS_BUCKET') . '/';
-        $picture = [];
-        $files = Storage::disk('s3')->files('picture');
-           foreach ($files as $file) {
-               $picture[] = [
-                   'name' => str_replace('picture/', '', $file),
-                   'src' => $url . $file
-               ];
-           }
-
-        return view('foto.foto',compact('foto','galery','picture'));   
-    }
-
     public function formfotologin(Request $request,$key=null)
     {
         $datakredit = array();
@@ -77,7 +50,7 @@ class GrahaController extends Controller
 
         }
         
-        return view('foto.fotologin',compact('nsblist','datakredit'));   
+        return view('foto.fotokeg',compact('nsblist','datakredit'));   
     }
 
     public function formUploadFoto()
@@ -85,50 +58,77 @@ class GrahaController extends Controller
         return view('foto.uploadfoto');   
     }
 
-    public function saveUploadFoto(Request $request)
+    public function saveUploadFoto(Request $request,$nourut)
     {
-     
+        
+        $lastnourut = foto::max('id');
+        $nourut = (int) $lastnourut + 1;
+
         $foto = new foto;
-        // $foto->kode_modul = 'EMG'.str_pad($nonsb, 3, '0',STR_PAD_LEFT);
-        $foto->id = ' ';
+        $foto->id = str_pad($nourut, 7, '0',STR_PAD_LEFT);
         $foto->tgl_input = date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon')));
         $foto->opr = strtoupper($request->input('opr'));
         $foto->kegiatan = strtoupper($request->input('kegiatan'));
         $foto->foto = ($request->input('foto'));
         $foto->save();
 
-        return back()->with('success', 'Your images has been successfully');
+        return redirect('/fotokeg');
+        // return back()->with('success', 'Your images has been successfully');
     }
 
-    
-    public function formupload()
-    {
-        $foto = DB::connection('mysql')->table('foto')->get();
-        $kantor = DB::connection('mysql')->table('mst_kantor')->get();
+    // public function formupload()
+    // {
+    //     $foto = DB::connection('mysql')->table('foto')->get();
+    //     $kantor = DB::connection('mysql')->table('mst_kantor')->get();
 
-        return view('foto.upload',compact('foto','kantor'));   
-    }
+    //     return view('foto.upload',compact('foto','kantor'));   
+    // }
 
-    public function saveFotoGalery(Request $request)
-    {
+    // public function formfoto()
+    // {
+    //     $foto = DB::connection('mysql')->table('foto')->get();
+
+    //     foreach ($foto as $f) {
+    //       $galery = Storage::disk('s3')->files($f->nama);
+    //       // $galery = Storage::get($f->nama);
+    //       // $galery = Storage::disk('s3')->exists($f->nama);
+    //       // $galery = Storage::url($f->nama);
+    //       // $galery = Storage::disk('s3')->exists($f->nama);
+    //     }
+    //     log::info($galery);
+
+
+    //     $url = 'https://s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com/' . env('AWS_BUCKET') . '/';
+    //     $picture = [];
+    //     $files = Storage::disk('s3')->files('picture');
+    //        foreach ($files as $file) {
+    //            $picture[] = [
+    //                'name' => str_replace('picture/', '', $file),
+    //                'src' => $url . $file
+    //            ];
+    //        }
+
+    //     return view('foto.foto',compact('foto','galery','picture'));   
+    // }
+
+    // public function saveFotoGalery(Request $request)
+    // {
      
-        // $arrfoto = array('filenama[]');
-        // for($i=0;$i<count($arrfoto);$i++){
-          $upload = new foto;
-          $upload->id = rand(1,9999999999);
-          $upload->tgl_input = date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon')));
-          $upload->kantor = strtoupper($request->input('kantor'));
-          $upload->opr = strtoupper($request->input('opr'));
-          $upload->kegiatan = strtoupper($request->input('kegiatan'));
-          // $upload->nama = $request->input('filenama[]'.$arrfoto[$i]);
-          if ($request->hasFile('filename')) {
-              $fileContents = $request->file('filename');
-              $paths3 =  Storage::disk('s3')->put('picture', $fileContents,'public');
-              $upload->nama = $paths3;
-          }
-          $upload->save();
+    //       $upload = new foto;
+    //       $upload->id = rand(1,9999999999);
+    //       $upload->tgl_input = date('Y-m-d H:i:s',strtotime($request->input('input_tanggal_mohon')));
+    //       $upload->kantor = strtoupper($request->input('kantor'));
+    //       $upload->opr = strtoupper($request->input('opr'));
+    //       $upload->kegiatan = strtoupper($request->input('kegiatan'));
+    //       // $upload->nama = $request->input('filenama[]'.$arrfoto[$i]);
+    //       if ($request->hasFile('filename')) {
+    //           $fileContents = $request->file('filename');
+    //           $paths3 =  Storage::disk('s3')->put('picture', $fileContents,'public');
+    //           $upload->nama = $paths3;
+    //       }
+    //       $upload->save();
 
-        return back()->with('success', 'Your images has been successfully');
-    }
+    //     return back()->with('success', 'Your images has been successfully');
+    // }
 }
 

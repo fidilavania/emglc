@@ -47,8 +47,23 @@
       tr.active td{
             color: red !important;
         } 
-        td.angka{
+      
+      td.angka{
             text-align: right;
+        }
+
+      .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+      .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
         }
         
         /*#header{
@@ -148,7 +163,10 @@
                     <li><a href="{{ url('/lapsdm') }}">Laporan Data SDM</a></li>
                     @endif
                     <li><a href="{{ url('/piagam') }}">Piagam Kerjasama</a></li> 
-                    <li><a href="{{ url('/fotologin') }}">Foto Kegiatan</a></li> 
+                    <li><a href="{{ url('/fotokeg') }}">Foto Kegiatan</a></li>
+                    @if(strpos(Auth::user()->kantor, 'EMG') !== false)
+                    <li><a href="{{ url('/uploadfoto') }}">Upload Foto</a></li>
+                    @endif
                 </li>
                   </ul>
 
@@ -177,6 +195,9 @@
       @endif
                <li><a href="{{ url('/usullihat') }}">Daftar Usulan</a></li>
                <li><a href="{{ url('/usul') }}">Usulan</a></li>
+                @if(strpos(Auth::user()->username, 'vania') !== false)
+                    <li><a href="{{ url('/nosertif') }}">Buat No Sertif</a></li>
+                @endif
             </li> 
             </ul>
 

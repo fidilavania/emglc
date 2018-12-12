@@ -72,7 +72,7 @@
       <div class="bottom-right">Bottom Right</div>
       <div class="centered">Centered</div> -->
       <div class="centered">
-            <br><br>
+            <br>
             <h3><b>Nomor : < >/EMG.LC/2018</b></h3><br>
             <h4>Diberikan Kepada :</h4>
             <h3 style="letter-spacing: 2px;" >{{$a->nama}}</h3>

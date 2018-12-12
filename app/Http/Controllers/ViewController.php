@@ -24,6 +24,7 @@ use DB;
 use Auth;
 use Log;
 use Input;
+use Illuminate\Support\Facades\Storage;
 
 class ViewController extends Controller
 {
@@ -87,7 +88,7 @@ class ViewController extends Controller
 
         $all = array();
         foreach ($peserta as $p) {
-            $sdm = sdm::select('kantor','nama','jenis_kel','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->where('status','1')->orderby('kantor','asc')->get();
+            $sdm = sdm::select('kantor','nama','jenis_kel','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->orderby('kantor','asc')->get();
             for($i=0;$i<count($sdm);$i++){
                 $sdm[$i]->tgl_keg = $p->tgl_keg;
                 $sdm[$i]->lokasi_keg = $p->lokasi_keg;
