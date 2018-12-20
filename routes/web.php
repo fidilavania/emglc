@@ -97,6 +97,7 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::post('/download-jsonfile', array('as'=> 'file.download', 'uses' => 'RbbViewController@getDownload'));
 
 		// Realisasi
+
 		// RBB import
 		Route::get('/importR', 'RealController@viewImportReal');
 		// Route::get('/', 'StudentController@index')->name('index');
@@ -105,6 +106,15 @@ Route::group(['middleware' => ['auth']], function () {
 		// export
 		Route::get('/exportR', 'RealController@viewEksportReal');
 		Route::post('/download-jsonfile-real', array('as'=> 'file.download', 'uses' => 'RealController@getDownloadreal'));
+
+		Route::get('/0201R', 'RealController@view0201R');
+		Route::get('/0201R/{tanggal}', 'RealController@view0201Rtanggal');
+
+		Route::get('/0301R', 'RealController@view0301R');
+		Route::get('/0301R/{tanggal}', 'RealController@view0301Rtanggal');
+
+		Route::get('/0401R', 'RealController@view0401R');
+		Route::get('/0401R/{tanggal}', 'RealController@view0401Rtanggal');
 
 	// SDM
 	Route::match(['get', 'post'],'/datasdm/{key?}/{kol?}', 'SdmController@viewDataSdm');
