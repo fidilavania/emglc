@@ -35,15 +35,15 @@
                                             foreach ($all as $aa) {
                                                 if(substr($aa->tgl_keg, -4) == 2018){
                                                   $no++;
-                                                  echo '<td align="center">'.$no.'</td>'; 
-                                                  echo '<td>'.$aa->no_sdm.'</td>';
+                                                   echo '<td>'.'`'.sprintf("%06s", $no).'</td>';
+                                                  echo '<td>'.'`'.$aa->no_sdm.'</td>';
                                                   echo '<td>'.$aa->nama.'</td>';
                                                   echo '<td>'.$aa->jabatan.'</td>';
                                                   echo '<td>'.$aa->kantor.'</td>';
                                                   echo '<td>'.$aa->kode_modul.'</td>';
                                                   echo '<td>'.$aa->tgl_keg.'</td>';
                                                   echo '<td>'.$aa->lokasi_keg.'</td>';
-                                                  echo '<td>'.sprintf("%04s", $no).'</td>';
+                                                  echo '<td>'.'`'.sprintf("%04s", $no).'</td>';
                                                   echo '</tr>';
                                                 }
                                             }

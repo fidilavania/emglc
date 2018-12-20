@@ -324,11 +324,6 @@
                             </div>
                         
                         <div class="col-sm-12">
-                                @if($materi->foto != '')
-                                <a href="{{$materi->foto}}" id="clear-filter" >
-                                    <input type="button" class="btn btn-success" name="foto" value="DOWNLOAD FOTO">
-                                </a>
-                                @endif
                                 @if($materi->materi != '')
                                 <a href="{{$materi->materi}}" id="clear-filter" >
                                     <input type="button" class="btn btn-success" name="materi" value="DOWNLOAD MATERI">

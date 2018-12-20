@@ -154,7 +154,7 @@
                     <div class="col-sm-4">
                         <div class="row form-group">
                             <div>
-                             <button class="button button4" type="submit" name="foto" value="cafe">GALERY FOTO</button>
+                             <button class="button button4" type="submit" name="foto" value="cafe">PERPUSTAKAAN</button>
                             </div>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
         });
 
       $('[name="foto"]').click(function() {
-            window.location.href ='{{url("/fotoemg")}}';
+            window.location.href ='{{url("/info")}}';
         });
 
       // $("#loginform").submit(function(){

@@ -16,7 +16,10 @@ Route::get('/welcome', 'AuthController@viewAwal');
 Route::get('/graha', 'GrahaController@formgraha');
 
 // Foto
-Route::get('/fotoemg', 'GrahaController@formfoto');
+// Route::get('/fotoemg', 'GrahaController@formfoto');
+
+// perpus
+Route::get('/info', 'GrahaController@viewInfo');
 
 
 Route::get('auth/login', 'AuthController@login')->name('login');
@@ -92,7 +95,17 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('/export', 'RbbViewController@viewEksport');
 		// Route::post('/download-jsonfile', array('as'=> 'file.download', 'uses' => 'RbbViewController@downloadJSONFile'));
 		Route::post('/download-jsonfile', array('as'=> 'file.download', 'uses' => 'RbbViewController@getDownload'));
-	
+
+		// Realisasi
+		// RBB import
+		Route::get('/importR', 'RealController@viewImportReal');
+		// Route::get('/', 'StudentController@index')->name('index');
+		Route::post('/prosesR', 'RealController@prosesReal')->name('proses');
+
+		// export
+		Route::get('/exportR', 'RealController@viewEksportReal');
+		Route::post('/download-jsonfile-real', array('as'=> 'file.download', 'uses' => 'RealController@getDownloadreal'));
+
 	// SDM
 	Route::match(['get', 'post'],'/datasdm/{key?}/{kol?}', 'SdmController@viewDataSdm');
 	Route::get('/addsdm', 'SdmController@viewFormSDM');

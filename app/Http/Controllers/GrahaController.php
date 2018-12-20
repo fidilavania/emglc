@@ -32,6 +32,12 @@ use Illuminate\Support\Facades\Storage;
 
 class GrahaController extends Controller
 {
+    public function viewInfo()
+    {
+        
+        return view('perpus.homeperpus');   
+    }
+
     public function formgraha()
     {
         
