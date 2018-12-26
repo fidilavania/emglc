@@ -123,17 +123,20 @@
         
         @if(strpos(Auth::user()->jenis, 'RBB') !== false)
             <ul class="nav navbar-nav navbar-left"> 
-                <li class="">
+                <!-- <li class="" >
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Import/Export<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a href="/import">Import Excel</a></li>
                     <li><a href="/export">Export Txt</a></li>
-                </li>
-              </ul>
+                </li> -->
+              <!-- </ul> -->
 
               <li class="">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rencana Bisnis<span class="caret"></span></a>
                   <ul class="dropdown-menu">
+                    <li><a href="/import">Import Excel</a></li>
+                    <li><a href="/export">Export Txt</a></li>
+                    <hr size="12px">
                     <li><a href="/0102">Indikator Keuangan Utama - 0102</a></li>
                     <li><a href="/0301">Proyeksi Neraca - 0301</a></li>
                     <li><a href="/0401">Proyeksi Laba Rugi - 0401</a></li>
@@ -155,7 +158,18 @@
 
               <li class="">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Realisasi RBB<span class="caret"></span></a>
+              
+                  <ul class="dropdown-menu">
+                    <li><a href="/importR">Import Excel</a></li>
+                    <li><a href="/exportR">Export Txt</a></li>
+                    <hr size="12px">
+                    <li><a href="/0201R">Realisasi Neraca - 0201</a></li>
+                    <li><a href="/0301R">Realisasi Laba Rugi - 0301</a></li>
+                    <li><a href="/0401R">Realisasi Rasio Keuangan Pokok dan Pos-Pos Tertentu Lainnya
+                    - 0401</a></li>
               </li>
+                  </ul>
+
               <li class="">
                   <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pengawasan RBB<span class="caret"></span></a>
               </li>

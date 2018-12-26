@@ -98,10 +98,10 @@ Route::group(['middleware' => ['auth']], function () {
 
 		// Realisasi
 
-		// RBB import
+		// import
 		Route::get('/importR', 'RealController@viewImportReal');
 		// Route::get('/', 'StudentController@index')->name('index');
-		Route::post('/prosesR', 'RealController@prosesReal')->name('proses');
+		Route::post('/prosesR', 'RealController@prosesReal')->name('prosesR');
 
 		// export
 		Route::get('/exportR', 'RealController@viewEksportReal');

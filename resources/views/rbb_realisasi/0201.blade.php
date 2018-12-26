@@ -78,40 +78,40 @@
                                         <tr>
                                             <td>{{$A->periode}}</td>
                                             <td>{{$A->no_kantor}}</td>
-                                            @if($A->komponen == 0)
+                                            @if($A->basic == 'Tidak')
                                             <td></td>
                                             @else
                                             <td>{{$A->komponen}}</td>
                                             @endif
                                             <td>{{$A->pos}}</td>
-                                            @if($A->komponen == '0')
+                                            @if($A->basic == 'Tidak')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->nom,0,'','.')}}</td>
                                             @endif
 
-                                            @if($A->komponen == '0')
+                                            @if($A->basic == 'Tidak')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->nom_real,0,'','.')}}</td>
                                             @endif
 
-                                            @if($A->komponen == '0')
+                                            @if($A->basic == 'Tidak')
                                             <td></td>
                                             @else
-                                            <td class="td1">{{number_format($A->persen_real,0,'','.')}}</td>
+                                            <td class="td1">{{($A->persen_real)}}</td>
                                             @endif
 
-                                            @if($A->komponen == '0')
+                                            @if($A->basic == 'Tidak')
                                             <td></td>
                                             @else
                                             <td class="td1">{{number_format($A->nom_selisih,0,'','.')}}</td>
                                             @endif
 
-                                            @if($A->komponen == '0')
+                                            @if($A->basic == 'Tidak')
                                             <td></td>
                                             @else
-                                            <td class="td1">{{number_format($A->persen_selisih,0,'','.')}}</td>
+                                            <td class="td1">{{($A->persen_selisih)}}</td>
                                             @endif
 
                                         </tr>
