@@ -53,6 +53,20 @@ return [
             'engine'    => null,
         ],
 
+        'mysql2' => [
+            'driver'    => 'mysql',
+            'host'      => env('DB_HOST2', 'localhost'),
+            'port'      => env('DB_PORT2', '3306'),
+            'database'  => env('DB_DATABASE2', 'max'),
+            'username'  => env('DB_USERNAME2', 'root'),
+            'password'  => env('DB_PASSWORD2', ''),
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+            'strict'    => true,
+            'engine'    => null,
+        ],
+
         // masukkan data ke atm28
         // 'mysql' => [
         //     'driver'    => 'mysql',
@@ -61,6 +75,20 @@ return [
         //     'database'  => env('DB_DATABASE', 'atm28net_'),
         //     'username'  => env('DB_USERNAME', 'atm28net'),
         //     'password'  => env('DB_PASSWORD', '20180430'),
+        //     'charset'   => 'utf8',
+        //     'collation' => 'utf8_unicode_ci',
+        //     'prefix'    => '',
+        //     'strict'    => true,
+        //     'engine'    => null,
+        // ],
+
+        // 'mysql2' => [
+        //     'driver'    => 'mysql',
+        //     'host'      => env('DB_HOST2', 'localhost'),
+        //     'port'      => env('DB_PORT2', '3306'),
+        //     'database'  => env('DB_DATABASE2', 'atm28net_max'),
+        //     'username'  => env('DB_USERNAME2', 'atm28net'),
+        //     'password'  => env('DB_PASSWORD2', '20180430'),
         //     'charset'   => 'utf8',
         //     'collation' => 'utf8_unicode_ci',
         //     'prefix'    => '',

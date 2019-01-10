@@ -110,6 +110,9 @@
                                         <div class="col-sm-8">
                                             <select class="form-control" name="badan" data-toggle="tooltip" data-placement="right" title="" required>
                                                 <option value >-Pilih Nama Badan Hukum Debitur-</option>
+                                                    @foreach($badanhukum as $b)  
+                                                        <option value="{{$b->kode}}">{{$b->nama}}</option>
+                                                    @endforeach
                                             </select>
                                         </div>
                                     </div>

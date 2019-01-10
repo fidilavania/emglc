@@ -21,8 +21,9 @@ class MakController extends Controller
     public function formMenu()
     {
      	$kantor = DB::connection('mysql')->table('master_kantor')->where('kode_induk',Auth::user()->kantor)->get();
+        $badanhukum = DB::connection('mysql2')->table('master_badan_hukum')->get();
    
-        return view('mak.menu',compact('kantor'));   
+        return view('mak.menu',compact('kantor','badanhukum'));   
     }
 
     public function formAgunan()
