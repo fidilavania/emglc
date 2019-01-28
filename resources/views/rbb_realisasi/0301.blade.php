@@ -34,6 +34,12 @@
                                             <input type="button" class="btn btn-primary" name="submbutton" value="Tampilkan" />
                                     </div>
                                 </div>
+                                <div class="row form-group">
+                                    <label class="col-sm-3 control-label">Modal Inti</label>
+                                    <div class="col-sm-7">
+                                      <input type="text" class="form-control" value="{{$head->modal_inti}}" readonly>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="row form-group" hidden>

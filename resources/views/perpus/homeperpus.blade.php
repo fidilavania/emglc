@@ -61,6 +61,21 @@
       </div>
       <!-- /.row -->
       <hr>
+
+      <!-- Project One -->
+      <div class="row">
+        <div class="col-md-7">
+          <a href="">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="/perpus/2.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h3>Perkembangan Ekonomi Terkini,Prospek dan Bauran Kebijakan Bank Indonesia</h3>
+          <a class="btn btn-primary" href="/perpus/RED Januari 2019.pdf">Download</a>
+        </div>
+      </div>
+      <!-- /.row -->
+      <hr>
      
 
       <!-- Pagination -->

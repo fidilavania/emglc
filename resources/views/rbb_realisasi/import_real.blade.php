@@ -56,8 +56,8 @@
                                     <div class="col-sm-9">
                                         <select class="form-control" name="periode" required>
                                             <option value >-Pilih Periode-</option>
-                                            <!-- <option value="{{date('Y', strtotime('-1 year'))}}-12-31"> -->
-                                            <option value="{{date('Y')}}-12-31">{{date('Y')}}-12-31</option>
+                                            <option value="{{date('Y', strtotime('-1 year'))}}-12-31">{{date('Y', strtotime('-1 year'))}}-12-31</option>
+                                            <!-- <option value="{{date('Y')}}-12-31">{{date('Y')}}-12-31</option> -->
                                             <option value="{{date('Y')}}-06-30">{{date('Y')}}-06-30</option>
                                         </select>
                                         <!-- <input type="text" class="form-control" name="periode" autocomplete="off" value="{{date('Y')}}-12-31" style="text-transform:uppercase;" required /> -->

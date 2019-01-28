@@ -47,48 +47,60 @@ class RealController extends Controller
     {
         $periode = DB::connection('mysql')->table('real_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
 
+        $head = DB::connection('mysql')->table('real_header')->where('no_kantor',Auth::user()->kantor)->first();
+
         $rbbA = DB::connection('mysql')->table('real_0201')->where('no_kantor',Auth::user()->kantor)->OrderBy('id','asc')->get();
-        return view('rbb_realisasi/0201',compact('rbbA','periode')); 
+        return view('rbb_realisasi/0201',compact('rbbA','periode','head')); 
     }
 
     public function view0201Rtanggal($tanggal)
     {
         $periode = DB::connection('mysql')->table('real_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
 
+        $head = DB::connection('mysql')->table('real_header')->where('no_kantor',Auth::user()->kantor)->where('periode',$tanggal)->first();
+
         $rbbA = DB::connection('mysql')->table('real_0201')->where('no_kantor',Auth::user()->kantor)->OrderBy('id','asc')->where('periode',$tanggal)->get();
-        return view('rbb_realisasi/0201',compact('rbbA','periode'));   
+        return view('rbb_realisasi/0201',compact('rbbA','periode','head'));   
     }
 
     public function view0301R()
     {
         $periode = DB::connection('mysql')->table('real_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
 
+        $head = DB::connection('mysql')->table('real_header')->where('no_kantor',Auth::user()->kantor)->first();
+
         $rbbB = DB::connection('mysql')->table('real_0301')->where('no_kantor',Auth::user()->kantor)->OrderBy('id','asc')->get();
-        return view('rbb_realisasi/0301',compact('rbbB','periode')); 
+        return view('rbb_realisasi/0301',compact('rbbB','periode','head')); 
     }
 
     public function view0301Rtanggal($tanggal)
     {
         $periode = DB::connection('mysql')->table('real_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
 
+        $head = DB::connection('mysql')->table('real_header')->where('no_kantor',Auth::user()->kantor)->where('periode',$tanggal)->first();
+
         $rbbB = DB::connection('mysql')->table('real_0301')->where('no_kantor',Auth::user()->kantor)->OrderBy('id','asc')->where('periode',$tanggal)->get();
-        return view('rbb_realisasi/0301',compact('rbbB','periode'));   
+        return view('rbb_realisasi/0301',compact('rbbB','periode','head'));   
     }
 
     public function view0401R()
     {
         $periode = DB::connection('mysql')->table('real_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
 
+        $head = DB::connection('mysql')->table('real_header')->where('no_kantor',Auth::user()->kantor)->first();
+
         $rbbC = DB::connection('mysql')->table('real_0401')->where('no_kantor',Auth::user()->kantor)->OrderBy('id','asc')->get();
-        return view('rbb_realisasi/0401',compact('rbbC','periode')); 
+        return view('rbb_realisasi/0401',compact('rbbC','periode','head')); 
     }
 
     public function view0401Rtanggal($tanggal)
     {
         $periode = DB::connection('mysql')->table('real_header')->where('no_kantor',Auth::user()->kantor)->OrderBy('periode','asc')->get();
 
+        $head = DB::connection('mysql')->table('real_header')->where('no_kantor',Auth::user()->kantor)->where('periode',$tanggal)->first();
+
         $rbbC = DB::connection('mysql')->table('real_0401')->where('no_kantor',Auth::user()->kantor)->OrderBy('id','asc')->where('periode',$tanggal)->get();
-        return view('rbb_realisasi/0401',compact('rbbC','periode'));   
+        return view('rbb_realisasi/0401',compact('rbbC','periode','head'));   
     }
 
     public function prosesReal(Request $request){
