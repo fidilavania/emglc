@@ -20,6 +20,7 @@ use App\sdm_photo;
 use App\jabatan_mst;
 use App\kantor_mst;
 use App\master_kantor; 
+use App\sertifikat; 
 use DB;
 use Auth;
 use Log;
@@ -40,7 +41,8 @@ class PesertaController extends Controller
                 $sdm[$i]->tgl_keg = $p->tgl_keg;
                 $sdm[$i]->lokasi_keg = $p->lokasi_keg;
                 $sdm[$i]->kode_modul = $p->kode_modul;
-                $sdm[$i]->kantor = $p->kantor;
+                // $sdm[$i]->kantor = $p->kantor;
+                // $sdm[$i]->induk_kantor = $p->induk_kantor;
                 array_push($all, $sdm[$i]);
             }
         }
@@ -62,7 +64,7 @@ class PesertaController extends Controller
                 $sdm[$i]->tgl_keg = $p->tgl_keg;
                 $sdm[$i]->lokasi_keg = $p->lokasi_keg;
                 $sdm[$i]->kode_modul = $p->kode_modul;
-                $sdm[$i]->kantor = $p->kantor;
+                // $sdm[$i]->kantor = $p->kantor;
                 array_push($all, $sdm[$i]);
             }
         }
@@ -75,23 +77,50 @@ class PesertaController extends Controller
     public function CetakSertif ($nonsb)
     {
         $sdm = DB::connection('mysql')->table('sdm')->where('status','1')->orderby('jabatan','asc')->get();
+
         $materi = DB::connection('mysql')->table('materi')->where('kode_modul',$nonsb)->first();
          
         $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('kantor',trim(Auth::user()->kantor,' '))->orderby('kantor','asc')->get();
 
         $tanggal = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('kantor',trim(Auth::user()->kantor,' '))->orderby('kantor','asc')->first();
 
+        $sertifikat = DB::connection('mysql')->table('sertifikat')->where('kode_pelatihan',$nonsb)->where('kantor',trim(Auth::user()->kantor,' '))->get();
+
+
         $all = array();
+        $akk = array();
         foreach ($peserta as $p) {
             $sdm = sdm::select('kantor','nama','jenis_kel','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->orderby('kantor','asc')->get();
             for($i=0;$i<count($sdm);$i++){
                 $sdm[$i]->tgl_keg = $p->tgl_keg;
                 $sdm[$i]->lokasi_keg = $p->lokasi_keg;
                 array_push($all, $sdm[$i]);
+
+                // log::info($sdm[$i]->no_sdm);
+
+                // $no_ser = array();
+                // $sertif ="SELECT s.no_sdm, s.nama, t.no_sertif from sdm s RIGHT JOIN sertifikat t on s.no_sdm=t.no_sdm where t.tahun= '".substr($tanggal->tgl_keg,-4)."' AND t.kode_pelatihan= '".$nonsb."' AND t.kantor= '".trim(Auth::user()->kantor,' ')."' AND t.no_sdm= '".$sdm[$i]->no_sdm."' ";
+                // for($i=0;$i<count($sertif);$i++){
+                // $no_ser = DB::connection('mysql')->select(DB::raw($sertif)); 
+                // }
+
+                $sertif = DB::connection('mysql')->table('sertifikat')->where('tahun',substr($tanggal->tgl_keg,-4))->where('kode_pelatihan',$nonsb)->where('no_sdm',$sdm[$i]->no_sdm)->where('kantor',trim(Auth::user()->kantor,' '))->orderby('kantor','asc')->get();
+                // for($i=0;$i<count($sertif);$i++)
+                // $sertif[$i]->no_sertif = $p->no_sertif;
+                // array_push($akk, $sertif[$i]);
+
+                log::info($sertif);
+
             }
         }
 
-        return view('cetak.cetaksertifikat',compact('sdm','materi','peserta','all','tanggal','urutan'));   
+
+
+        // $no_ser = DB::connection('mysql')->select(DB::raw("SELECT s.no_sdm, s.nama, t.no_sertif from sdm s RIGHT JOIN sertifikat t on s.no_sdm=t.no_sdm where t.tahun='2018' AND t.kode_pelatihan= '".$nonsb."' "));
+        // @foreach ($sertif as $n) {{$n->no_sertif}} @endforeach
+       
+
+        return view('cetak.cetaksertifikat',compact('sdm','materi','peserta','all','tanggal','urutan','ser','sertif','sertifikat'));   
     }
 
     public function formPendaftaran($key=null)
@@ -133,7 +162,6 @@ class PesertaController extends Controller
             }
         }
         
-
         // if(isset($peserta)){
         //     $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('kantor',trim(Auth::user()->kantor,' '))->get();
 
@@ -148,7 +176,7 @@ class PesertaController extends Controller
         //             $data->lokasi_keg = $p->lokasi_keg;
         //             array_push($temp, $data);
         //             //$arr= $data;
-        //             //$arr[$data->kantor][$data->no_sdm]= $data;
+        //             $arr[$data->kantor][$data->no_sdm]= $data;
         //         }
         //         $arr[$p->nomor] = $temp;
         //         $temp = array();
@@ -232,6 +260,28 @@ class PesertaController extends Controller
         {
            $arr[$data->kantor][$data->no_sdm] = $data;
         }
+
+        // if(isset($peserta)){
+        //     $peserta = DB::connection('mysql')->table('peserta')->where('kode_modul',$nonsb)->where('kantor',trim(Auth::user()->kantor,' '))->get();
+
+        //     $arr = array();
+        //     foreach ($peserta as $p) {
+
+        //         $datasdm = sdm::select('nama','jenis_kel','kantor','jabatan','no_sdm','alamat_tinggal','notlp','nohp','induk_kantor')->whereRaw('no_sdm IN ('.trim($p->no_sdm,' ').')')->where('status','1')->orderby('jabatan','asc')->get();
+                
+        //         $temp = array();
+        //         foreach($datasdm as $data){
+        //             $data->tgl_keg = $p->tgl_keg;
+        //             $data->lokasi_keg = $p->lokasi_keg;
+        //             array_push($temp, $data);
+        //             //$arr= $data;
+        //             $arr[$data->kantor][$data->no_sdm]= $data;
+        //         }
+        //         $arr[$p->nomor] = $temp;
+        //         $temp = array();
+        //     }
+        //     Log::info(json_encode($arr));
+        // }
 
         $sql1 ="SELECT master_kantor.nama,master_kantor.kode_kantor from master_kantor
             where master_kantor.kode_kantor='".$kantor."'";

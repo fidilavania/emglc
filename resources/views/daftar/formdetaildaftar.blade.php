@@ -161,7 +161,9 @@
                                     <br><br>
                                 @endforeach
                                 @endif
-                                
+                                    <?php
+                                        echo '<button type="button" class="btn btn-primary" name="cetak_sertif" value="">Cetak Sertifikat</button>';
+                                    ?>
                             </div>
 
                             <div class="col-sm-12">
@@ -487,6 +489,10 @@ $('#sKecamatan').on('change', function(){
 
         $('[name="cetak"]').click(function() {
             window.location.href = '{{url("/cetak")}}'+'/'+'{{trim($materi->kode_modul,' ')}}'+'/'+$(this).val();
+        });
+
+        $('[name="cetak_sertif"]').click(function() {
+            window.location.href = '{{url("/cetaksertif")}}'+'/'+'{{trim($materi->kode_modul,' ')}}';
         });
         
 

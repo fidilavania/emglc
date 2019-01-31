@@ -16,6 +16,7 @@
                                         <th>No SDM</th>
                                         <th>Nama</th>
                                         <th>Jabatan</th>
+                                        <th>Kantor Induk</th>
                                         <th>Kantor</th>
                                         <th>Kode Pelatihan</th>
                                         <th>Tanggal Kegiatan</th>
@@ -33,6 +34,7 @@
                                                   echo '<td>'.$aa->no_sdm.'</td>';
                                                   echo '<td>'.$aa->nama.'</td>';
                                                   echo '<td>'.$aa->jabatan.'</td>';
+                                                  echo '<td>'.$aa->induk_kantor.'</td>';
                                                   echo '<td>'.$aa->kantor.'</td>';
                                                   echo '<td>'.$aa->kode_modul.'</td>';
                                                   echo '<td>'.$aa->tgl_keg.'</td>';
