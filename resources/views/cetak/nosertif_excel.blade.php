@@ -34,7 +34,7 @@
                                         <?php
                                             $no = 0;
                                             foreach ($all as $aa) {
-                                                if(substr($aa->tgl_keg, -4) == 2018){
+                                                if(substr($aa->tgl_keg, -4) == 2019){
                                                   $no++;
                                                    echo '<td>'.'`'.sprintf("%06s", $no).'</td>';
                                                   echo '<td>'.'`'.$aa->no_sdm.'</td>';
