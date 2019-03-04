@@ -49,6 +49,9 @@
                                                     @if(strpos(Auth::user()->fungsi, '2222') !== false)
                                                     <input id="kantor" type="text"  placeholder="Cari Kantor" class="form-control" autocomplete="off" style="text-transform:uppercase">
                                                     @endif
+                                                    @if(strpos(Auth::user()->fungsi, '3') !== false)
+                                                    <input id="ultah" type="text"  placeholder="Ulang Tahun" class="form-control" autocomplete="off" style="text-transform:uppercase">
+                                                    @endif
                                                 </div>                                        
                                                 <a href="{{ url('/datasdm') }}" id="clear-filter" title="clear filter">[KEMBALI]</a>
                                             </div>
@@ -165,6 +168,16 @@
             }
         });
 
+         $('[name="viewbuttonmut"]').click(function() {
+            console.log($(this).parent().parent().find('td:nth-child(2)').text());
+            console.log($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'Mutasi');
+            if($(this).parent().parent().find('td:nth-child(2)').text().trim() == 'View'){
+                window.location.href = '{{url("/mutasi")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+            } else {
+                window.location.href = '{{url("/mutasi")}}'+'/'+$(this).parent().parent().find('td:first').attr('data-id');
+            }
+        });
+
        
         $("#nama").on('keyup',function(e){
             //Search saat tekan Enter
@@ -222,6 +235,20 @@
                 e.preventDefault();
               }
           });     
+        $("#ultah").on('keyup',function(e){
+            //Search saat tekan Enter
+              if(e.keyCode==13){
+                if($("#ultah").val() != ""){
+                    var searchword = $("#ultah").val().replace('/', '\/');
+                    window.location = '{{url("/datasdm")}}'+'/'+searchword+'/tgl_lahir';
+                } else {
+                    return false;
+                }
+              }
+              else {
+                e.preventDefault();
+              }
+          });
     });
 </script>
 @endsection

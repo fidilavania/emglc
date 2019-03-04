@@ -27,7 +27,7 @@
                                 <div class="row form-group">
                                     <label class="col-sm-4 control-label">Tanggal</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y')}}" readonly>
+                                        <input type="text" class="form-control" name="input_tanggal_mohon" id="input_tanggal_mohon" value="{{date('d-m-Y')}}" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -47,19 +47,24 @@
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Jenis Memo Kredit</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="memo" value="" style="text-transform:uppercase;" placeholder="" data-toggle="tooltip" data-placement="right" title="" />
+                                            <select class="form-control" name="memo" data-toggle="tooltip" data-placement="right">
+                                                <option value >-Pilih Jenis Memo-</option>
+                                                    @foreach($jmemo as $jm)  
+                                                        <option value="{{$jm->kode}}">{{$jm->kode}} - {{$jm->jenis}}</option>
+                                                    @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Tanggal Memo Sekarang</label>
                                         <div class="col-sm-8">
-                                          <input type="text" class="form-control" name="input_tanggal_mohon" id="tanggalmohon" value="{{date('d-m-Y')}}" data-toggle="tooltip" data-placement="right" title="Kolom ini akan diisi secara otomatis oleh komputer" readonly>
+                                          <input type="text" class="form-control" name="tgl_now" id="tgl_now" value="{{date('d-m-Y')}}" data-toggle="tooltip" data-placement="right" title="Kolom ini akan diisi secara otomatis oleh komputer" readonly>
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Tanggal Memo Sebelum</label>
                                         <div class="col-sm-8">
-                                          <input type="text" class="form-control" name="tglmemodulu" id="tanggalmohon" value="{{date('d-m-Y')}}" data-toggle="tooltip" data-placement="right" title="Isi dengan format Tanggal dd-mm-yyyy" >
+                                          <input type="text" class="form-control" value="" name="tgl_last" id="tgl_last" placeholder="{{date('d-m-Y')}}" data-toggle="tooltip" data-placement="right" title="Isi dengan format Tanggal dd-mm-yyyy" >
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -84,7 +89,7 @@
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">No Memo</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="no_memo" value="" data-toggle="tooltip" data-placement="right" title="No MAK: Isi dengan format huruf dan angka sesuai dengan format yang berlaku di BPR masing masing" >
+                                                <input type="text" class="form-control" name="no_memo" value="" data-toggle="tooltip" data-placement="right" title="No MAK: Isi dengan format huruf dan angka sesuai dengan format yang berlaku di BPR masing masing" placeholder="NOMOR MEMO" >
                                             </div>
                                     </div>
                                 </div>
@@ -102,7 +107,7 @@
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Nama Debitur</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="nama" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="nama" value="" data-toggle="tooltip" data-placement="right" title= "Nama Debitur / Calon Debitur:  Isi dengan format 'Nama' contoh : Dwi Tjahjono" placeholder="NAMA DEBITUR" >
                                             </div>
                                     </div>
                                     <div class="row form-group">
@@ -111,7 +116,7 @@
                                             <select class="form-control" name="badan" data-toggle="tooltip" data-placement="right" title="" required>
                                                 <option value >-Pilih Nama Badan Hukum Debitur-</option>
                                                     @foreach($badanhukum as $b)  
-                                                        <option value="{{$b->kode}}">{{$b->nama}}</option>
+                                                        <option value="{{$b->kode}}">{{$b->kode}} - {{$b->nama}}</option>
                                                     @endforeach
                                             </select>
                                         </div>
@@ -119,19 +124,29 @@
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">No KTP (Deb/Calon Deb)</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="ktp" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="ktp" value="" data-toggle="tooltip" data-placement="right" title="Nomor KTP (Deb / Calon Deb): Isi dengan format 'Nomor Identitas KTP' contoh : 3509201305830001" placeholder="NOMOR KTP" >
                                             </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Jenis Usaha</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="usaha" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <select class="form-control" name="usaha" data-toggle="tooltip" data-placement="right" title="">
+                                                    <option value >-Pilih Jenis Usaha-</option>
+                                                    @foreach($jusaha as $j)  
+                                                        <option value="{{$j->kode}}">{{$j->kode}} - {{$j->Jenis_usaha}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Pekerjaan</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="pekerjaan" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <select class="form-control" name="pekerjaan" data-toggle="tooltip" data-placement="right" title="">
+                                                    <option value >-Pilih Pekerjaan-</option>
+                                                    @foreach($kerja as $p)  
+                                                        <option value="{{$p->kode}}">{{$p->kode}} - {{$p->pekerjaan}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                     </div>
                                     <div class="row form-group">
@@ -142,22 +157,22 @@
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Nama Jalan/Dusun</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="dusun_ktp" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="dusun_ktp" value="" placeholder="ISI NAMA JALAN" data-toggle="tooltip" data-placement="right" title="Nama Jalan: Isi dengan format 'Nama Jalan / Dusun' tempat tinggal debitur. contoh : Jl Raya Karawaci 99" >
                                             </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Kelurahan / Kecamatan</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="lurah_ktp" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="lurah_ktp" value="" placeholder="ISI KELURAHAN/KECAMATAN" data-toggle="tooltip" data-placement="right" title="Kelurahan / Kecamatan: Isi dengan format 'Nama Kelurahan / Kecamatan' tempat tinggal debitur. contoh : Klojen / Gresik" >
                                             </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Kota/Kode Pos</label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control" name="kota_ktp" placeholder="ISI KOTA" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="kota_ktp" placeholder="ISI KOTA" value="" data-toggle="tooltip" data-placement="right" title="Kota : Isi dengan format 'Nama Kota' tempat tinggal debitur. contoh : Gresik, Surabaya, Sidoarjo, Jember, Banyuwangi, Lumajang, Bondowoso dll  " >
                                             </div>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control" name="pos_ktp" placeholder="ISI KODEPOS" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="pos_ktp" placeholder="ISI KODEPOS" value="" data-toggle="tooltip" data-placement="right" title="Kode Pos : Isi dengan format 'Kode Pos' tempat tinggal debitur. contoh : 68135, 68121, 68121, dll  " >
                                             </div>
                                     </div>
                                     <div class="row form-group">
@@ -173,22 +188,22 @@
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Nama Jalan/Dusun</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="dusun_usaha" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="dusun_usaha" value="" placeholder="ISI NAMA JALAN" data-toggle="tooltip" data-placement="right" title="Nama Jalan: BILA ALAMAT USAHA TIDAK SAMA dengan ALAMAT RUMAH :  Isi dengan format 'Nama Jalan / Dusun' tempat tinggal debitur. contoh : Jl Diponegoro 67" >
                                             </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Kelurahan / Kecamatan</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="lurah_usaha" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="lurah_usaha" value="" placeholder="ISI KELURAHAN/KECAMATAN" data-toggle="tooltip" data-placement="right" title="Kelurahan / Kecamatan: Isi dengan format 'Nama Kelurahan / Kecamatan' tempat tinggal debitur. contoh : Klojen / Gresik" >
                                             </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Kota/Kode Pos</label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control" name="kota_usaha" placeholder="ISI KOTA" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="kota_usaha" placeholder="ISI KOTA" value="" data-toggle="tooltip" data-placement="right" title="Kota : Isi dengan format 'Nama Kota' tempat tinggal debitur. contoh : Gresik, Surabaya, Sidoarjo, Jember, Banyuwangi, Lumajang, Bondowoso dll " >
                                             </div>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control" name="pos_usaha" placeholder="ISI KODEPOS" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="pos_usaha" placeholder="ISI KODEPOS" value="" data-toggle="tooltip" data-placement="right" title="Kode Pos : Isi dengan format 'Kode Pos' tempat tinggal debitur. contoh : 68135, 68121, 68121, dll  " >
                                             </div>
                                     </div>
                                 </div>
@@ -196,36 +211,44 @@
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">No Rekening Dana BPR</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="norek" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="norek" value="" data-toggle="tooltip" placeholder="ISI NO REKENING" data-placement="right" title="No. Rekening Tab / Dep pada BPR: Untuk Debitur Baru, fill ini JANGAN diisi, untuk Debitur Lama mohon Isi dengan format 'Rekening Tab/Dep'. contoh : 02.009999.07 (Rek Tab)  ;   01.007777.01 (Rek Dep)" >
                                             </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Status Perkawinan</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="kawin" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <select class="form-control" name="kawin" data-toggle="tooltip" data-placement="right" title="">
+                                                    <option value >-Pilih Status Perkawinan-</option>
+                                                    @foreach($nikah as $n)  
+                                                        <option value="{{$n->kode}}">{{$n->kode}} - {{$n->Status}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Nama Pasangan/Orang Tua</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="pasangan" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="pasangan" value="" placeholder="ISI NAMA" data-toggle="tooltip" data-placement="right" title="Nama Pasangan / Orang Tua: Isi dengan format 'Nama Suami / Istri / Orang Tua (untuk yang belum Menikah)' debitur" >
                                             </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">No KTP Pasangan/ Orang Tua</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="ktp_pasangan" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="ktp_pasangan" value="" placeholder="ISI NO KTP" data-toggle="tooltip" data-placement="right" title="Nomor KTP Pasangan / Ortu: Isi dengan format 'Nomor Identitas KTP Pasangan / Orang Tua' debitur" >
                                             </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Menjadi Debitur Sejak</label>
                                             <div class="col-sm-4">
                                                 <select class="form-control" name="sejak" data-toggle="tooltip" data-placement="right" title="" required>
-                                                    <option value >-Pilih-</option>
+                                                    <option value >-Pilih Status Debitur-</option>
+                                                    @foreach($dep as $n)  
+                                                        <option value="{{$n->kode}}">{{$n->kode}} - {{$n->status}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control" name="tanggal_deb" placeholder="ISI TANGGAL" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="tanggal_deb" id="tanggal_deb" placeholder="dd-mm-yyyy" value="" data-toggle="tooltip" data-placement="right" title="" >
                                             </div>
                                     </div>
                                     <div class="row form-group">
@@ -233,31 +256,34 @@
                                             <div class="col-sm-8">
                                                 <select class="form-control" name="aktivitas" data-toggle="tooltip" data-placement="right" title="" required>
                                                     <option value >-Pilih Aktifitas Rekening Pinjaman-</option>
+                                                    @foreach($kolek as $n)  
+                                                        <option value="{{$n->kode}}">{{$n->kode}} - {{$n->kolektibilitas}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Nama AO</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="ao" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="ao" value="" placeholder="ISI NAMA AO" data-toggle="tooltip" data-placement="right" title="Nama AO:Isi dengan format 'Nama Lengkap AO'. contoh : Dwi Tjahjono" >
                                             </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Referensi fee Marketing</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="ref" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="ref" value="" placeholder="ISI REFRENSI" data-toggle="tooltip" data-placement="right" title="Referensi Fee Marketing: Mohon diisi dengan 'Nama Lengkap  yang mereferensikan'. contoh : Joko, Anie, Gaguk" >
                                             </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Perekomendasi</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="rekom" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="rekom" value="" data-toggle="tooltip" placeholder="ISI PEREKOMENDASI" data-placement="right" title="Perekomendasi :Isi dengan Jabatan  :  SPV, Ka Kas, KaCab, Ka Kredit" >
                                             </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Nama Perekomendasi</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="nama_rekom" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                <input type="text" class="form-control" name="nama_rekom" value="" data-toggle="tooltip" placeholder="ISI NAMA" data-placement="right" title="Nama Perekomendasi :Isi dengan :  Nama Personil SPV, Ka Kas, KaCab, Ka Kredit" >
                                             </div>
                                     </div>
                                 </div>
@@ -268,31 +294,40 @@
                                     <table class="table table-bordered" name="daftarnasabahtable">
                                         <thead>
                                             <th></th>
-                                            <th>Nama</th>
+                                            <th title=" Nama: Isi dengan format 'Nama Exposure (Anak dalam 1 KK, Anak tidak dalam 1 KK (ada keterkaitan usaha & permodalan), Diluar anak yang memiliki keterkaitan usaha & permodalan)' contoh : Sri Wahyuni">Nama</th>
                                             <th>Jenis Fasilitas</th>
-                                            <th>Baki Debet (Rp.)</th>
-                                            <th>Suku Bunga (%)</th>
-                                            <th>Jangka Waktu (Bulan)</th>
+                                            <th title="Baki Debet:Diisi dengan Sisa Baki Debet Pinjaman">Baki Debet (Rp.)</th>
+                                            <th title="Suku Bunga: (dlm bentuk persentasi) Isi dengan format 'Angka'" >Suku Bunga (%)</th>
+                                            <th title="Jangka Waktu:Isi dengan format 'Angka'">Jangka Waktu (Bulan)</th>
                                         </thead>
                                         <tbody class="tambahgroup">
-                                            <tr class="row">
-                                                <td><input type="text" class="form-control" name="nama_groub[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
-                                                <td><select class="form-control" name="jenis[]" data-toggle="tooltip" data-placement="right" title="" required>
+                                            <tr class="row" id="tambahgroup" data-op="tambahgroup" >
+                                                <td><input type="text" class="form-control" name="nama_groub[]" value="" placeholder="-" ></td>
+                                                <td><select class="form-control" name="jenis[]" required>
                                                         <option value >-Pilih-</option>
+                                                        @foreach($gjefas as $g)  
+                                                            <option value="{{$g->kode}}">{{$g->kode}} - {{$g->jenis_fasilitas}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </td>
-                                                <td><input type="text" class="form-control" name="baki[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
-                                                <td><input type="text" class="form-control" name="sb[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
-                                                <td><input type="text" class="form-control" name="jw[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
+                                                <td><input type="text" class="form-control" name="baki[]" value="" placeholder="-" ></td>
+                                                <td><input type="text" class="form-control" name="sb[]" value="" placeholder="-" ></td>
+                                                <td><input type="text" class="form-control" name="jw[]" value="" placeholder="-" ></td>
                                                 <td class="input-group-btn"> 
                                                     <button class="btn btn-success" type="button" id="add"><i class="glyphicon glyphicon-plus"></i></button>
                                                 </td>
+                                                <td class="input-group-btn"> 
+                                                    <button class="btn btn-danger" name="hapus" type="button"><i class="glyphicon glyphicon-remove"></i> </button>
+                                                </td>
                                             </tr>
-                                            <tr class="row" id="tambahgroup" data-op="tambahgroup" hidden>
+                                            <!-- <tr class="row" id="tambahgroup1" data-op="tambahgroup1" hidden>
                                                 <td><input type="text" class="form-control" name="nama_groub[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
                                                 <td>
                                                     <select class="form-control" name="jenis[]" data-toggle="tooltip" data-placement="right" title="" required>
                                                         <option value >-Pilih-</option>
+                                                        @foreach($gjefas as $g)  
+                                                            <option value="{{$g->kode}}">{{$g->kode}} - {{$g->jenis_fasilitas}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </td>
                                                 <td><input type="text" class="form-control" name="baki[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
@@ -301,11 +336,11 @@
                                                 <td class="input-group-btn"> 
                                                     <button class="btn btn-danger" name="hapus" type="button"><i class="glyphicon glyphicon-remove"></i> </button>
                                                 </td>
-                                            </tr>
+                                            </tr> -->
                                         </tbody>
                                         <tbody>
                                              <td colspan="3" align="center"><b>Total Baki Debet</b></td>
-                                             <td><input type="text" class="form-control" name="total_baki" ></td>
+                                             <td><input type="text" class="form-control" name="total_baki" placeholder="-" readonly ></td>
                                         </tbody>
                                     </table>
                                 </div>
@@ -318,41 +353,46 @@
                                             <tr>
                                                 <th rowspan="2"></th>
                                                 <th rowspan="2">Jenis Fasilitas</th>
-                                                <th rowspan="2">Limit yg ada saat ini (Rp.)</th>
+                                                <th rowspan="2" title="Jumlah Plafon Saat ini (Rupiah): Diisi dengan format 'Angka'">Limit yg ada saat ini (Rp.)</th>
                                                 <th colspan="3">Jenis Permohonan</th>
                                                 <th rowspan="2">Jumlah (Rp.)</th>
-                                                <th rowspan="2">Suku Bunga (%/Bulan)</th>
-                                                <th rowspan="2">Provisi (%)</th>
-                                                <th rowspan="2">Adm (Rp.)</th>
-                                                <th rowspan="2">Jangka Waktu (Bulan)</th>
+                                                <th rowspan="2" title="Suku Bunga: (dlm bentuk persentasi): Isi dengan format 'Angka'">Suku Bunga (%/Bulan)</th>
+                                                <th rowspan="2" title="Provisi: (dlm bentuk persentasi): Isi dengan format 'Angka'" >Provisi (%)</th>
+                                                <th rowspan="2" title="Administrasi: (dlm bentuk persentasi): Isi dengan format 'Angka'" >Adm (Rp.)</th>
+                                                <th rowspan="2" title="Jangka Waktu: Isi dengan format 'Angka', untuk Fasilitas lama yang masih Berjalan...mohon diisi dengan sisa jangka waktu kredit yang masih berlaku., contoh : misal pinjaman flat dengan jangka waktu 60 bulan, namun sudah berjalan selama 24 bulan, maka  sisa jangka waktu sama dengan 36 bulan, jadi kolom Jangka waktu mohon diisi dengan angka 36">Jangka Waktu (Bulan)</th>
                                             </tr>
                                             <tr>
                                                 <th>Baru (Rp.)</th>
                                                 <th>Perpanjangan (Rp.)</th>
-                                                <th>Penambahan/ Pengurangan (Rp.)</th>
+                                                <th title="Penambahan / Pengurangan: untuk 'Pengurangan' mohon diisikan dengan ditambahi tanda minus (-), contoh : -50000000">Penambahan/ Pengurangan (Rp.)</th>
                                             </tr>
                                         </thead>
                                         <tbody class="tambahgroup_rinci">
-                                            <tr class="row">
+                                            <tr class="row" id="tambahgroup_rinci" data-op="tambahgroup_rinci">
                                                 <td><select class="form-control" name="jenis_r[]" data-toggle="tooltip" data-placement="right" title="" required>
-                                                        <option value >-Pilih Jenis Fasilitas-</option>
+                                                        <option value >-Pilih-</option>
+                                                        @foreach($gjefas as $g)  
+                                                            <option value="{{$g->kode}}">{{$g->kode}} - {{$g->jenis_fasilitas}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </td>
-                                                <td><input type="text" class="form-control" name="limit[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
-                                                <td><input type="text" class="form-control" name="baru_r[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
-                                                <td><input type="text" class="form-control" name="panjang[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
-                                                <td><input type="text" class="form-control" name="penambahan[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
-                                                <td><input type="text" class="form-control" name="jumlah_r[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
-                                                <td><input type="text" class="form-control" name="bunga_r[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
-                                                <td><input type="text" class="form-control" name="prov[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
-                                                <td><input type="text" class="form-control" name="admin[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
-                                                <td><input type="text" class="form-control" name="jw_r[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
-
+                                                <td><input type="text" class="form-control" name="limit[]" value="" placeholder="-" ></td>
+                                                <td><input type="text" class="form-control" name="baru_r[]" value="" placeholder="-" ></td>
+                                                <td><input type="text" class="form-control" name="panjang[]" value="" placeholder="-" ></td>
+                                                <td><input type="text" class="form-control" name="penambahan[]" value="" placeholder="-" ></td>
+                                                <td><input type="text" class="form-control" name="jumlah_r[]" value="" placeholder="-" ></td>
+                                                <td><input type="text" class="form-control" name="bunga_r[]" value="" placeholder="-" ></td>
+                                                <td><input type="text" class="form-control" name="prov[]" value="" placeholder="-" ></td>
+                                                <td><input type="text" class="form-control" name="admin[]" value="" placeholder="-" ></td>
+                                                <td><input type="text" class="form-control" name="jw_r[]" value="" placeholder="-" ></td>
                                                 <td class="input-group-btn"> 
                                                     <button class="btn btn-success" type="button" id="add_rinci"><i class="glyphicon glyphicon-plus"></i></button>
                                                 </td>
+                                                <td class="input-group-btn"> 
+                                                    <button class="btn btn-danger" name="hapus_rinci" type="button"><i class="glyphicon glyphicon-remove"></i> </button>
+                                                </td>
                                             </tr>
-                                            <tr class="row" id="tambahgroup_rinci" data-op="tambahgroup_rinci" hidden>
+                                            <!-- <tr class="row" id="tambahgroup_rinci1" data-op="tambahgroup_rinci1" hidden>
                                                 <td><select class="form-control" name="jenis_r[]" data-toggle="tooltip" data-placement="right" title="" required>
                                                         <option value >-Pilih Jenis Fasilitas-</option>
                                                     </select>
@@ -370,15 +410,15 @@
                                                 <td class="input-group-btn"> 
                                                     <button class="btn btn-danger" name="hapus_rinci" type="button"><i class="glyphicon glyphicon-remove"></i> </button>
                                                 </td>
-                                            </tr>
+                                            </tr> -->
                                         </tbody>
                                         <tbody>
                                              <td colspan="2" align="center"><b>Total</b></td>
-                                             <td><input type="text" class="form-control" name="total_limit" ></td>
-                                             <td><input type="text" class="form-control total_baru" ></td>
-                                             <td><input type="text" class="form-control total_panjang" ></td>
-                                             <td><input type="text" class="form-control total_tambah" ></td>
-                                             <td><input type="text" class="form-control total_jumlah" ></td>
+                                             <td><input type="text" class="form-control" name="total_limit" placeholder="-" readonly ></td>
+                                             <td><input type="text" class="form-control" name="total_baru" placeholder="-" readonly ></td>
+                                             <td><input type="text" class="form-control" name="total_panjang" placeholder="-" readonly ></td>
+                                             <td><input type="text" class="form-control" name="total_tambah" placeholder="-" readonly ></td>
+                                             <td><input type="text" class="form-control" name="total_jumlah" placeholder="-" readonly ></td>
                                         </tbody>
                                     </table>
                                 </div>
@@ -389,46 +429,60 @@
                                     <table class="table table-bordered" name="daftarnasabahtable">
                                         <thead>
                                             <th></th>
-                                            <th>Nama LJK</th>
+                                            <th title="Nama Bank:Diisi dengan format 'Huruf dan/atau Angka',  max.  35 karakter, termasuk nama suami  / istri">Nama LJK</th>
                                             <th>Jenis Fasilitas</th>
-                                            <th>Plafon (Rp.)</th>
-                                            <th>Baki Debet (Rp.)</th>
+                                            <th title="Plafon: (dlm bentuk persentasi): Isi dengan format 'Angka'">Plafon (Rp.)</th>
+                                            <th title="Baki Debet: (dlm bentuk persentasi): Isi dengan format 'Angka'">Baki Debet (Rp.)</th>
                                             <th>Agunan</th>
                                             <th>Jatuh Tempo</th>
                                             <th>BPR Take-Over</th>
-                                            <th>SLIK</th>
-                                            <th>Angs/Bln (Rp.)</th>
+                                            <th title="ISI SESUAI HASIL i-DEP">SLIK</th>
+                                            <th title="Angsuran/Bulan: (dlm bentuk persentasi): Isi dengan format 'Angka'">Angs/Bln (Rp.)</th>
                                         </thead>
                                         <tbody class="tambahgroup_ljk">
-                                            <tr class="row">
-                                                <td><input type="text" class="form-control" name="nama_ljk[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
-                                                <td><select class="form-control" name="jenis_ljk[]" data-toggle="tooltip" data-placement="right" title="" required>
-                                                        <option value >-Pilih Jenis Fasilitas-</option>
+                                            <tr class="row" id="tambahgroup_ljk" data-op="tambahgroup_ljk">
+                                                <td><input type="text" class="form-control" name="nama_ljk[]" value="" placeholder="-" ></td>
+                                                <td><select class="form-control" name="jenis_ljk[]" placeholder="-" required>
+                                                        <option value >-Pilih-</option>
+                                                        @foreach($mjefas as $m)  
+                                                            <option value="{{$m->kode}}">{{$m->kode}} - {{$m->jenis_fasilitas}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </td>
-                                                <td><input type="text" class="form-control" name="plafon_ljk[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
-                                                <td><input type="text" class="form-control" name="baki_ljk[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
-                                                <td><select class="form-control" name="agunan_ljk[]" data-toggle="tooltip" data-placement="right" title="" required>
+                                                <td><input type="text" class="form-control" name="plafon_ljk[]" value="" placeholder="-" ></td>
+                                                <td><input type="text" class="form-control" name="baki_ljk[]" value="" placeholder="-" ></td>
+                                                <td><select class="form-control" name="agunan_ljk[]" placeholder="-" required>
                                                         <option value >-Pilih Agunan-</option>
+                                                        @foreach($ragun as $r)  
+                                                            <option value="{{$r->kode}}">{{$r->kode}} - {{$r->nama}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </td>
-                                                <td><input type="text" class="form-control" name="tempo_ljk[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
-                                                <td><select class="form-control" name="bprto_ljk[]" data-toggle="tooltip" data-placement="right" title="" required>
+                                                <td><input type="text" class="form-control" name="tempo_ljk[]" id="tempo_ljk[]" value="" placeholder="-" ></td>
+                                                <td><select class="form-control" name="bprto_ljk[]" placeholder="-" required>
                                                         <option value >-Pilih BPR Take-Over-</option>
+                                                        @foreach($yatidak as $m)  
+                                                            <option value="{{$m->kode}}">{{$m->kode}} - {{$m->Keterangan}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </td>
-                                                <td><select class="form-control" name="slik_ljk[]" data-toggle="tooltip" data-placement="right" title="" required>
+                                                <td><select class="form-control" name="slik_ljk[]" placeholder="-" required>
                                                         <option value >-Pilih SLIK-</option>
+                                                        @foreach($slik as $m)  
+                                                            <option value="{{$m->kode}}">{{$m->kode}} - {{$m->nama}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </td>
-                                                <td><input type="text" class="form-control" name="angsbulan[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
-                                                
+                                                <td><input type="text" class="form-control" name="angsbulan[]" value="" placeholder="-" ></td>
                                                 <td class="input-group-btn"> 
                                                     <button class="btn btn-success" type="button" id="add_ljk"><i class="glyphicon glyphicon-plus"></i></button>
                                                 </td>
+                                                <td class="input-group-btn"> 
+                                                    <button class="btn btn-danger" name="hapus_ljk" type="button"><i class="glyphicon glyphicon-remove"></i> </button>
+                                                </td>
                                             </tr>
-                                            <tr class="row" id="tambahgroup_ljk" data-op="tambahgroup_ljk" hidden>
-                                                <td><input type="text" class="form-control" name="nama_ljk[]" value="" data-toggle="tooltip" data-placement="right" title="" ></td>
+                                            <!-- <tr class="row" id="tambahgroup_ljk1" data-op="tambahgroup_ljk1" hidden>
+                                                <td><input type="text" class="form-control" name="nama_ljk[]" value="" placeholder="-" ></td>
                                                 <td><select class="form-control" name="jenis_ljk[]" data-toggle="tooltip" data-placement="right" title="" required>
                                                         <option value >-Pilih Jenis Fasilitas-</option>
                                                     </select>
@@ -453,8 +507,7 @@
                                                 <td class="input-group-btn"> 
                                                     <button class="btn btn-danger" name="hapus_ljk" type="button"><i class="glyphicon glyphicon-remove"></i> </button>
                                                 </td>
-                                            </tr>
-                                            
+                                            </tr> -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -466,6 +519,9 @@
                                             <div class="col-sm-8">
                                                 <select class="form-control" name="slik_pilih" data-toggle="tooltip" data-placement="right" title="" required>
                                                     <option value >-Pilih SLIK-</option>
+                                                    @foreach($s_slik as $s)  
+                                                        <option value="{{$s->kode}}">{{$s->kode}} - {{$s->Keterangan}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                     </div>
@@ -660,6 +716,32 @@
 @section('js')
 <script type="text/javascript">
     $(document).ready(function() {
+       $('#tgl_last').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
+       $('#tanggal_deb').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
+       
+
+            $('[name="total_baki[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="baki[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+
+            $('[name="limit[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="baru_r[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="panjang[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="penambahan[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="jumlah_r[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="admin[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="total_limit[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="total_baru[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="total_panjang[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="total_tambah[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="total_jumlah[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+
+            $('[name="plafon_ljk[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="baki_ljk[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="angsbulan[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+
+           $('[name="tempo_ljk[]"]').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
+
+       
 
        $('#add').click(function(){
             var $template = $('#tambahgroup'),
@@ -668,7 +750,11 @@
                                 .removeAttr('hidden')
                                 .removeAttr('id')
                                 .appendTo('.tambahgroup');
-             $('[name="hapus"]').on('click',function(){
+
+            $('[name="total_baki[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="baki[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+
+            $('[name="hapus"]').on('click',function(){
                 $(this).closest("tr.row").remove();
                     e.preventDefault();;
             });
@@ -681,6 +767,20 @@
                                 .removeAttr('hidden')
                                 .removeAttr('id')
                                 .appendTo('.tambahgroup_rinci');
+
+            $('[name="limit[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="baru_r[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="panjang[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="penambahan[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="jumlah_r[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="admin[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="total_limit[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="total_baru[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="total_panjang[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="total_tambah[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="total_jumlah[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+
+
              $('[name="hapus_rinci"]').on('click',function(){
                 $(this).closest("tr.row").remove();
                     e.preventDefault();;
@@ -694,6 +794,12 @@
                                 .removeAttr('hidden')
                                 .removeAttr('id')
                                 .appendTo('.tambahgroup_ljk');
+
+            $('[name="plafon_ljk[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="baki_ljk[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="angsbulan[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="tempo_ljk[]"]').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
+
              $('[name="hapus_ljk"]').on('click',function(){
                 $(this).closest("tr.row").remove();
                     e.preventDefault();;

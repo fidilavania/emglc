@@ -498,7 +498,7 @@
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
               <li data-filter=".filter-app">Price List</li>
-              <li data-filter=".filter-card">Opsional Service</li>
+              <li data-filter=".filter-card">Optional Service</li>
               <!-- <li data-filter=".filter-web">Web</li> -->
             </ul>
           </div>
@@ -876,8 +876,9 @@
           <div class="col-md-4">
             <div class="contact-email">
               <i class="ion-ios-email-outline"></i>
-              <h3>What Up</h3>
+              <h3>Whatsapp</h3>
               <p>081 136 7554 ( Ngurah Juru )</p>
+              <p>0341 491669 ( Angelica Nilamtari )</p>
             </div>
           </div>
 
@@ -949,7 +950,8 @@
               No.32-34<br>
               Kota Malang<br>
               <strong>Telp/Fax: </strong> (0341) 404433<br>
-              <strong>What Up: </strong>081 136 7554 ( Ngurah Juru )<br>
+              <strong>Whatsapp: </strong> <br>081 136 7554 ( Ngurah Juru )<br>
+              0341 491669 ( Angelica Nilamtari )
             </p>
 
             <div class="social-links">
