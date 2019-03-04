@@ -21,7 +21,6 @@ class MakController extends Controller
     public function formMenu()
     {
      	$kantor = DB::connection('mysql')->table('master_kantor')->where('kode_induk',Auth::user()->kantor)->get();
-        $place = DB::connection('mysql2')->table('master_placeholder')->first();
         $badanhukum = DB::connection('mysql2')->table('master_badan_hukum')->get();
         $jmemo = DB::connection('mysql2')->table('master_jenis_memo')->get();
         $jusaha = DB::connection('mysql2')->table('master_jenis_usaha')->get();
