@@ -539,19 +539,28 @@
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Kebutuhan Rumah Tangga</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="keb_rumah" value="" style="text-transform:uppercase;" placeholder="" data-toggle="tooltip" data-placement="right" title="" />
+                                            <div class="input-group">
+                                            <span class="input-group-addon">Rp.</span>
+                                                <input type="text" class="form-control" name="keb_rumah" value="" style="text-transform:uppercase;" placeholder="-" id="keb"   />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Listrik dan Air (PDAM)</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="listrik_air" value="" style="text-transform:uppercase;" placeholder="" data-toggle="tooltip" data-placement="right" title="" />
+                                            <div class="input-group">
+                                            <span class="input-group-addon">Rp.</span>
+                                                <input type="text" class="form-control" name="listrik_air" value="" style="text-transform:uppercase;" placeholder="-" id="lis" />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Biaya Pendidikan</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="pendidikkan" value="" style="text-transform:uppercase;" placeholder="" data-toggle="tooltip" data-placement="right" title="" />
+                                            <div class="input-group">
+                                            <span class="input-group-addon">Rp.</span>
+                                                <input type="text" class="form-control" name="pendidikkan" value="" style="text-transform:uppercase;" placeholder="-" id="didik"  />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -562,25 +571,40 @@
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Arisan</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="arisan" value="" style="text-transform:uppercase;" placeholder="" data-toggle="tooltip" data-placement="right" title="" />
+                                            <div class="input-group">
+                                            <span class="input-group-addon">Rp.</span>
+                                                <input type="text" class="form-control" name="arisan" value="" style="text-transform:uppercase;" placeholder="-" id="aris"  />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Sumbangan + Lainnya</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="sumbang" value="" style="text-transform:uppercase;" placeholder="" data-toggle="tooltip" data-placement="right" title="" />
+                                            <div class="input-group">
+                                            <span class="input-group-addon">Rp.</span>
+                                                <input type="text" class="form-control" name="sumbang" value="" style="text-transform:uppercase;" placeholder="-" id="sum"  />
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Total :</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" name="total" value="" style="text-transform:uppercase;" placeholder="" data-toggle="tooltip" data-placement="right" title="" />
+                                            <div class="input-group">
+                                            <span class="input-group-addon">Rp.</span>
+                                                <input type="text" class="form-control" name="total" value="" style="text-transform:uppercase;" placeholder="-" id="tot" readonly />
+                                            </div>
                                         </div>
                                     </div>
-                                    
+                                    <div class="form-group pull-right">
+                                        <div class="row">
+                                             <div class="col-sm-3">
+                                                <button type="button" id="generateTable" class="btn btn-primary" onclick="jumlah()">JUMLAHKAN</button>
+                                            </div>
+                                          </div>
+                                    </div> 
                                 </div>
                                 <div class="col-sm-6">
-                                   
+                                    
                                 </div>
                             </div>
                         </fieldset>
@@ -594,6 +618,9 @@
                                                     <div class="col-sm-9">
                                                         <select class="form-control" name="pendalaman" data-toggle="tooltip" data-placement="right" title="" required>
                                                             <option value >-Pilih Pendalaman Usaha-</option>
+                                                            @foreach($p_usaha as $p)  
+                                                                <option value="{{$p->kode}}">{{$p->kode}} - {{$p->keterangan}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                             </div>
@@ -608,6 +635,9 @@
                                                     <div class="col-sm-9">
                                                         <select class="form-control" name="reputasi" data-toggle="tooltip" data-placement="right" title="" required>
                                                             <option value >-Pilih Reputasi Lokal-</option>
+                                                            @foreach($r_lokal as $p)  
+                                                                <option value="{{$p->kode}}">{{$p->kode}} - {{$p->keterangan}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                             </div>
@@ -622,6 +652,9 @@
                                                     <div class="col-sm-9">
                                                         <select class="form-control" name="pendalaman" data-toggle="tooltip" data-placement="right" title="" required>
                                                             <option value >-Pilih Hubungan Dengan LJK-</option>
+                                                             @foreach($hub_bank as $p)  
+                                                                <option value="{{$p->kode}}">{{$p->kode}} - {{$p->keterangan}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                             </div>
@@ -645,6 +678,9 @@
                                                     <div class="col-sm-9">
                                                         <select class="form-control" name="prospek" data-toggle="tooltip" data-placement="right" title="" required>
                                                             <option value >-Pilih Prospek Bisnis Masa Datang-</option>
+                                                            @foreach($prospek as $p)  
+                                                                <option value="{{$p->kode}}">{{$p->kode}} - {{$p->keterangan}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                             </div>
@@ -659,6 +695,9 @@
                                                     <div class="col-sm-9">
                                                         <select class="form-control" name="kemampuan" data-toggle="tooltip" data-placement="right" title="" required>
                                                             <option value >-Pilih Kemampuan Mengelola Usaha-</option>
+                                                            @foreach($usaha as $p)  
+                                                                <option value="{{$p->kode}}">{{$p->kode}} - {{$p->keterangan}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                             </div>
@@ -673,6 +712,9 @@
                                                     <div class="col-sm-9">
                                                         <select class="form-control" name="modal" data-toggle="tooltip" data-placement="right" title="" required>
                                                             <option value >-Pilih Permodalan-</option>
+                                                            @foreach($modal as $p)  
+                                                                <option value="{{$p->kode}}">{{$p->kode}} - {{$p->keterangan}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                             </div>
@@ -687,6 +729,9 @@
                                                     <div class="col-sm-9">
                                                         <select class="form-control" name="info" data-toggle="tooltip" data-placement="right" title="" required>
                                                             <option value >-Pilih Trada Cheking dan Info Lainnya-</option>
+                                                            @foreach($trade as $p)  
+                                                                <option value="{{$p->kode}}">{{$p->kode}} - {{$p->keterangan}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                             </div>
@@ -715,35 +760,57 @@
 
 @section('js')
 <script type="text/javascript">
+    // Data Keuangan
+        $('[name="keb_rumah"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="listrik_air"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="pendidikkan"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="arisan"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="sumbang"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="total"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+
+        function jumlah(){
+            var keb  = parseInt($('[name="keb_rumah"]').val().split('.').join(""));
+            var lis  = parseInt($('[name="listrik_air"]').val().split('.').join(""));
+            var didik  = parseInt($('[name="pendidikkan"]').val().split('.').join(""));
+            var aris  = parseInt($('[name="arisan"]').val().split('.').join(""));
+            var sum  = parseInt($('[name="sumbang"]').val().split('.').join(""));
+            var tot  = parseInt($('[name="total"]').val().split('.').join(""));
+
+            var tot = Math.ceil(keb+lis+didik+aris+sum);
+
+            $('[name="total"]').val(tot);
+
+        }
+
     $(document).ready(function() {
-       $('#tgl_last').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
-       $('#tanggal_deb').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
-       
 
-            $('[name="total_baki[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-            $('[name="baki[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+    // memo
+        $('#tgl_last').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
+        $('#tanggal_deb').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
 
-            $('[name="limit[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-            $('[name="baru_r[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-            $('[name="panjang[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-            $('[name="penambahan[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-            $('[name="jumlah_r[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-            $('[name="admin[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-            $('[name="total_limit[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-            $('[name="total_baru[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-            $('[name="total_panjang[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-            $('[name="total_tambah[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-            $('[name="total_jumlah[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+    // debitur
+        $('[name="total_baki[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="baki[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
 
-            $('[name="plafon_ljk[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-            $('[name="baki_ljk[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
-            $('[name="angsbulan[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="limit[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="baru_r[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="panjang[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="penambahan[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="jumlah_r[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="admin[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="total_limit[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="total_baru[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="total_panjang[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="total_tambah[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="total_jumlah[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
 
-           $('[name="tempo_ljk[]"]').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
+        $('[name="plafon_ljk[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="baki_ljk[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="angsbulan[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+        $('[name="tempo_ljk[]"]').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
 
-       
-
-       $('#add').click(function(){
+    // Debitur
+        $('#add').click(function(){
             var $template = $('#tambahgroup'),
                 $clone    = $template
                                 .clone()
@@ -760,7 +827,7 @@
             });
         });
 
-       $('#add_rinci').click(function(){
+        $('#add_rinci').click(function(){
             var $template = $('#tambahgroup_rinci'),
                 $clone    = $template
                                 .clone()
@@ -787,7 +854,7 @@
             });
         });
 
-       $('#add_ljk').click(function(){
+        $('#add_ljk').click(function(){
             var $template = $('#tambahgroup_ljk'),
                 $clone    = $template
                                 .clone()
@@ -805,7 +872,6 @@
                     e.preventDefault();;
             });
         });
-
 
     });
 </script>

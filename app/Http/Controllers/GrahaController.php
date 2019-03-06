@@ -38,6 +38,12 @@ class GrahaController extends Controller
         return view('perpus.homeperpus');   
     }
 
+    public function viewKarir()
+    {
+        
+        return view('perpus.homekarir');   
+    }
+
     public function formgraha()
     {
         

@@ -128,6 +128,8 @@
                   <ul class="dropdown-menu">
                   @if(strpos(Auth::user()->fungsi, '0000') !== false)
                     <li><a href="/menuutama">Menu Utama</a></li>
+                    <li><a href="/agunan">Tampilan agunan</a></li>
+                    <li><a href="/analisa">Tampilan analisa</a></li>
                   @endif
                 </li>
               </ul>

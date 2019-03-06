@@ -97,6 +97,7 @@
     .button2 {background-color: #4B0082;color: white;}
     .button3 {background-color: #228B22;color: white;} 
     .button4 {background-color: #FF7F50; color: white; } 
+    .button5 {background-color: #FFD700; color: black; } 
   
 </style>
 </head>
@@ -149,12 +150,17 @@
                 </div>
                 <div class="row">
                   <div class="col-sm-12">
-                    <div class="col-sm-3">
-                    </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="row form-group">
                             <div>
-                             <button class="button button4" type="submit" name="foto" value="cafe">PERPUSTAKAAN</button>
+                             <button class="button button4" type="submit" name="foto" value="foto">PERPUSTAKAAN</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="row form-group">
+                            <div>
+                             <button class="button button5" type="submit" name="job" value="job"><b>CAREER</b></button>
                             </div>
                         </div>
                     </div>
@@ -194,6 +200,10 @@
 
       $('[name="foto"]').click(function() {
             window.location.href ='{{url("/info")}}';
+        });
+
+       $('[name="job"]').click(function() {
+            window.location.href ='{{url("/karir")}}';
         });
 
       // $("#loginform").submit(function(){

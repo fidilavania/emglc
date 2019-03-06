@@ -34,8 +34,16 @@ class MakController extends Controller
         $yatidak = DB::connection('mysql2')->table('diasuransikan')->get();
         $slik = DB::connection('mysql2')->table('master_slik')->get();
         $s_slik = DB::connection('mysql2')->table('status_slik')->get();
+        $p_usaha = DB::connection('mysql2')->table('pengalaman_usaha')->get();
+        $r_lokal = DB::connection('mysql2')->table('reputasi_lokal')->get();
+        $hub_bank = DB::connection('mysql2')->table('hubungan_bank')->get();
+
+        $prospek = DB::connection('mysql2')->table('prospek_bisnis')->get();
+        $usaha = DB::connection('mysql2')->table('kemampuan_usaha')->get();
+        $modal = DB::connection('mysql2')->table('permodalan')->get();
+        $trade = DB::connection('mysql2')->table('trade_checking')->get();
    
-        return view('mak.menu',compact('kantor','badanhukum','jmemo','jusaha','place','kerja','nikah','dep','kolek','gjefas','mjefas','ragun','yatidak','slik','s_slik'));   
+        return view('mak.menu',compact('kantor','badanhukum','jmemo','jusaha','place','kerja','nikah','dep','kolek','gjefas','mjefas','ragun','yatidak','slik','s_slik','p_usaha','r_lokal','hub_bank','prospek','usaha','modal','trade'));   
     }
 
     public function formAgunan()

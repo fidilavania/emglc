@@ -21,6 +21,10 @@ Route::get('/graha', 'GrahaController@formgraha');
 // perpus
 Route::get('/info', 'GrahaController@viewInfo');
 
+// lowongan
+Route::get('/karir', 'GrahaController@viewKarir');
+
+
 
 Route::get('auth/login', 'AuthController@login')->name('login');
 Route::post('auth/postlogin','AuthController@authenticate');
@@ -189,6 +193,8 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/cetaksertif/{nonsb?}', 'PesertaController@CetakSertif');
 	Route::get('/nosertif', 'PesertaController@NoSertif');
 	Route::get('/excelsertif', 'PesertaController@Excelcetak');
+	// Route::get('pdfview',array('as'=>'pdfview','uses'=>'ItemController@pdfview'));
+	// Route::get('/cetaksertif/{nonsb?}',array('as'=>'pdfview','uses'=>'PesertaController@CetakSertif'));
 
 	// tidak hadir
 	Route::get('/detailtidakhadir/{nonsb?}', 'PesertaController@viewFormDetailTidakHadir');
