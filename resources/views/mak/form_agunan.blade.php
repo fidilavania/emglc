@@ -80,6 +80,7 @@
                                                         <div class="col-sm-8">
                                                             <select class="form-control" name="cover" data-toggle="tooltip" data-placement="right" title="" required>
                                                                 <option value >-Pilih-</option>
+                                                                <option value="100">100% Covered</option>
                                                             </select>
                                                         </div>
                                                 </div>
@@ -97,7 +98,7 @@
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nama Pemilik</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="nama_tab[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="nama_tab[]" placeholder="NAMA" value="" data-toggle="tooltip" data-placement="right" title="Nama Debitur / Calon Debitur:  Isi dengan format 'Nama' contoh : Dwi Tjahjono" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
@@ -105,13 +106,16 @@
                                                                     <div class="col-sm-8">
                                                                         <select class="form-control" name="jenis_tab[]" data-toggle="tooltip" data-placement="right" title="" required>
                                                                             <option value >-Pilih Jenis Rekening-</option>
+                                                                            @foreach($jenisrek as $b)  
+                                                                                <option value="{{$b->kode}}">{{$b->kode}} - {{$b->nama}}</option>
+                                                                            @endforeach
                                                                         </select>
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nomor Rekening</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="no_rek[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="no_rek[]" placeholder="0" value="" data-toggle="tooltip" data-placement="right" title="Disi dengan format angka" >
                                                                     </div>
                                                             </div>
                                                         </div>
@@ -119,13 +123,13 @@
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nomor Bilyet</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="bilyet[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="bilyet[]" value="" placeholder="0" data-toggle="tooltip" data-placement="right" title="Disi dengan format angka" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Saldo (Rp)</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="saldo[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="saldo[]" value="" maxlength="35" placeholder="0" data-toggle="tooltip" data-placement="right" title="Disi dengan format angka maksimal 35 karakter" >
                                                                     </div>
                                                             </div>
                                                         </div>
@@ -161,6 +165,9 @@
                                                                     <div class="col-sm-8">
                                                                         <select class="form-control" name="jenis[]" data-toggle="tooltip" data-placement="right" title="" required>
                                                                             <option value >-Pilih Jenis Properti-</option>
+                                                                            @foreach($jenispro as $b)  
+                                                                                <option value="{{$b->kode}}">{{$b->kode}} - {{$b->nama}}</option>
+                                                                            @endforeach
                                                                         </select>
                                                                     </div>
                                                             </div>
@@ -169,59 +176,62 @@
                                                                     <div class="col-sm-3">
                                                                         <select class="form-control" name="milik[]" data-toggle="tooltip" data-placement="right" title="" required>
                                                                             <option value >-Pilih-</option>
+                                                                            @foreach($jenismilik as $b)  
+                                                                                <option value="{{$b->kode}}">{{$b->kode}} - {{$b->nama}}</option>
+                                                                            @endforeach
                                                                         </select>
                                                                     </div>
                                                                     <label class="col-sm-2 control-label">No</label>
                                                                     <div class="col-sm-3">
-                                                                        <input type="text" class="form-control" name="no_milik[]" placeholder="ISI NO" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="no_milik[]" placeholder="NOMOR" value="" data-toggle="tooltip" data-placement="right" title="No. Bukti Kepemilikan" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Lokasi (Dusun/Jalan)</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="lokasi[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="lokasi[]" value="" data-toggle="tooltip" data-placement="right" title="" placeholder="LOKASI" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Kel/Kec/Kabupaten</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="dati[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="dati[]" value="" data-toggle="tooltip" data-placement="right" title="" placeholder="KEL/KEC/KAB" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Luas Tanah (m2)</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="luas_tanah[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="luas_tanah[]" value="" data-toggle="tooltip" data-placement="right" title="" placeholder="0" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Harga Tanah/m2 (Rp)</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="hargatanah[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="hargatanah[]" value="" placeholder="0" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Luas Bangunan (m2)</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="luas_bangun[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="luas_bangun[]" value="" placeholder="0" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Harga Bangunan/m2 (Rp)</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="hargabangunan[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="hargabangunan[]" value="" placeholder="0" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nama Pemilik</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="nama_pemilik[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="nama_pemilik[]" value="" placeholder="NAMA PEMILIK" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Tanggal Penilaian/Penilai</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="tgl_nilai[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="tgl_nilai[]" value="" placeholder="dd-mm-yyyy" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                         </div>
@@ -229,19 +239,19 @@
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nilai Pasar (Rp)</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="nilpasar[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="nilpasar[]" value="" placeholder="0" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nilai Likuiditas (Rp)</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="nilliki[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="nilliki[]" value="" placeholder="0" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nilai Pengikatan (Rp)</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="nilikat[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="nilikat[]" value="" placeholder="0" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
@@ -249,6 +259,9 @@
                                                                     <div class="col-sm-8">
                                                                         <select class="form-control" name="asu[]" data-toggle="tooltip" data-placement="right" title="" required>
                                                                             <option value >-Pilih Asuransi-</option>
+                                                                            @foreach($yatidak as $m)  
+                                                                                <option value="{{$m->kode}}">{{$m->kode}} - {{$m->Keterangan}}</option>
+                                                                            @endforeach
                                                                         </select>
                                                                     </div>
                                                             </div>
@@ -257,6 +270,9 @@
                                                                     <div class="col-sm-8">
                                                                         <select class="form-control" name="konjln[]" data-toggle="tooltip" data-placement="right" title="" required>
                                                                             <option value >-Pilih Kondisi Jalan-</option>
+                                                                            @foreach($jalan as $m)  
+                                                                                <option value="{{$m->kode}}">{{$m->kode}} - {{$m->keterangan}}</option>
+                                                                            @endforeach
                                                                         </select>
                                                                     </div>
                                                             </div>
@@ -265,6 +281,9 @@
                                                                     <div class="col-sm-8">
                                                                         <select class="form-control" name="kualitas[]" data-toggle="tooltip" data-placement="right" title="" required>
                                                                             <option value >-Pilih Kualitas Agunan-</option>
+                                                                            @foreach($agunan as $m)  
+                                                                                <option value="{{$m->kode}}">{{$m->kode}} - {{$m->keterangan}}</option>
+                                                                            @endforeach
                                                                         </select>
                                                                     </div>
                                                             </div>
@@ -390,64 +409,64 @@
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nama STNK</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="nama_stnk" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="nama_stnk[]" value="" placeholder="STNK" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nomor Polisi</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="nopol" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="nopol[]" value="" placeholder="NOPOL" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Daerah/ Wilayah</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="wilayah" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="wilayah[]" value="" placeholder="DAERAH/WILAYAH" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nomor Rangka</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="rangka" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="rangka[]" value="" placeholder="NOMOR RANGKA" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nomor Mesin</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="mesin" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="mesin[]" value="" placeholder="NOMOR MESIN" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nomor STNK</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="stnk" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="stnk[]" value="" placeholder="NOMOR STNK" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nomor BPKB</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="bpkb" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="bpkb[]" value="" placeholder="NOMOR BPKB" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Tahun/Warna</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" name="tahun" placeholder="ISI TAHUN" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="tahun[]" placeholder="TAHUN" value="" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" name="warna" placeholder="ISI WARNA" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="warna[]" placeholder="WARNA" value="" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Jenis/Merk/Type</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="jenis_kend" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="jenis_kend[]" value="" placeholder="JENIS/MERK/TYPE" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Tanggal Penilaian/Penilai</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="tgl_nilai_kend" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="tgl_nilai_kend[]" value="" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                         </div>
@@ -456,40 +475,46 @@
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nilai Pasar (Rp)</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="nilpasar_kend" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="nilpasar_kend[]" value=""  placeholder ="0" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nilai Likuiditas (Rp)</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="nilliki_kend" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="nilliki_kend[]" value="" placeholder="0" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nilai Pengikatan (Rp)</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="nilikat_kend" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="nilikat_kend[]" value="" placeholder="0" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Data Pembanding</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="banding" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="banding[]" value="" placeholder="DATA PEMBANDING" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Asuransi</label>
                                                                     <div class="col-sm-8">
-                                                                        <select class="form-control" name="asu" data-toggle="tooltip" data-placement="right" title="" required>
+                                                                        <select class="form-control" name="asu_kend[]" data-toggle="tooltip" data-placement="right" title="" required>
                                                                             <option value >-Pilih Asuransi-</option>
+                                                                            @foreach($yatidak as $m)  
+                                                                                <option value="{{$m->kode}}">{{$m->kode}} - {{$m->Keterangan}}</option>
+                                                                            @endforeach
                                                                         </select>
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Kualitas Agunan</label>
                                                                     <div class="col-sm-8">
-                                                                        <select class="form-control" name="konjln" data-toggle="tooltip" data-placement="right" title="" required>
+                                                                        <select class="form-control" name="agunan_kend[]" data-toggle="tooltip" data-placement="right" title="" required>
                                                                             <option value >-Pilih Kualitas Agunan-</option>
+                                                                            @foreach($agunan as $m)  
+                                                                                <option value="{{$m->kode}}">{{$m->kode}} - {{$m->keterangan}}</option>
+                                                                            @endforeach
                                                                         </select>
                                                                     </div>
                                                             </div>
@@ -498,7 +523,7 @@
                                                                 <div class="col-sm-8">
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon">Tampak Depan</span>
-                                                                        <input type="file" class="form-control-file" name="depan">
+                                                                        <input type="file" class="form-control-file" name="depan_kend[]">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -507,7 +532,7 @@
                                                                 <div class="col-sm-8">
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon">Tampak Belakang</span>
-                                                                        <input type="file" class="form-control-file" name="belakang">
+                                                                        <input type="file" class="form-control-file" name="belakang_kend[]">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -516,7 +541,7 @@
                                                                 <div class="col-sm-8">
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon">Tampak Samping Kanan</span>
-                                                                        <input type="file" class="form-control-file" name="kanan">
+                                                                        <input type="file" class="form-control-file" name="kanan_kend[]">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -525,7 +550,7 @@
                                                                 <div class="col-sm-8">
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon">Tampak Samping Kiri</span>
-                                                                        <input type="file" class="form-control-file" name="kiri">
+                                                                        <input type="file" class="form-control-file" name="kiri_kend[]">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -534,7 +559,7 @@
                                                                 <div class="col-sm-8">
                                                                     <div class="input-group">
                                                                         <span class="input-group-addon">Agunan dan Nasabah</span>
-                                                                        <input type="file" class="form-control-file" name="agundeb_kend">
+                                                                        <input type="file" class="form-control-file" name="agundeb_kend[]">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -620,21 +645,22 @@
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Jenis Agunan</label>
                                                                     <div class="col-sm-8">
-                                                                        <select class="form-control" name="jenis_logam[]" data-toggle="tooltip" data-placement="right" title="" required>
+                                                                        <!-- <select class="form-control" name="jenis_logam[]" data-toggle="tooltip" data-placement="right" title="" required>
                                                                             <option value >-Pilih Jenis Agunan-</option>
-                                                                        </select>
+                                                                        </select> -->
+                                                                        <input type="text" class="form-control" name="jenis_logam[]" placeholder="JENIS" value="" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nama Pemilik</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="nama_logam[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="nama_logam[]" placeholder="NAMA PEMILIK" value="" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Bukti Kepimilikan</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="bukti_logam[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="bukti_logam[]" placeholder="BUKTI KEPEMILIKAN" value="" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                         </div>
@@ -642,25 +668,25 @@
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Berat</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="berat[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="berat[]" placeholder="0" value="" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Kadar</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="kadar[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="kadar[]" placeholder="0" value="" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nilai Pasar (Rp)</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="nilpasar_logam[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="nilpasar_logam[]" placeholder="0" value="" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                             <div class="row form-group">
                                                                 <label class="col-sm-4 control-label">Nilai Likuiditas (Rp)</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" name="nilliki_logam[]" value="" data-toggle="tooltip" data-placement="right" title="" >
+                                                                        <input type="text" class="form-control" name="nilliki_logam[]" placeholder="0" value="" data-toggle="tooltip" data-placement="right" title="" >
                                                                     </div>
                                                             </div>
                                                         </div>
@@ -741,6 +767,19 @@
                                 .removeAttr('hidden')
                                 .removeAttr('id')
                                 .appendTo('.tambah');
+
+             $('[name="hargatanah[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+             $('[name="hargabangunan[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+             $('[name="nilpasar[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+             $('[name="nilliki[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+             $('[name="nilikat[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+
+             $('[name="tgl_nilai[]"]').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
+
+             $('[name="total_pasar_tanah"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+             $('[name="total_likuiditasi_tanah"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+             $('[name="total_pengikatan_tanah"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+
              $('[name="hapus"]').on('click',function(){
                 $(this).closest("div.row").remove();
                     e.preventDefault();
@@ -754,6 +793,16 @@
                                 .removeAttr('hidden')
                                 .removeAttr('id')
                                 .appendTo('.tambah_kendaraan');
+
+            $('[name="tgl_nilai_kend[]"]').mask('99-99-9999',{placeholder:"dd-mm-yyyy"});
+
+            $('[name="nilpasar_kend[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="nilliki_kend[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="nilikat_kend[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="total_pasar_motor"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="total_likuiditasi_motor"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="total_pengikatan_motor"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+                                
              $('[name="hapus_kendaraan"]').on('click',function(){
                 $(this).closest("div.row").remove();
                     e.preventDefault();
@@ -767,6 +816,12 @@
                                 .removeAttr('hidden')
                                 .removeAttr('id')
                                 .appendTo('.tambah_logam');
+
+            $('[name="nilpasar_logam[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="nilliki_logam[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="total_pasar_logam"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+            $('[name="total_likuiditasi_logam"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+
              $('[name="hapus_logam"]').on('click',function(){
                 $(this).closest("div.row").remove();
                     e.preventDefault();
@@ -780,6 +835,9 @@
                                 .removeAttr('hidden')
                                 .removeAttr('id')
                                 .appendTo('.tambah_tab');
+
+            $('[name="saldo[]"]').mask('000.000.000.000.000', {reverse: true,selectOnFocus: true});
+
              $('[name="hapus_tab"]').on('click',function(){
                 $(this).closest("div.row").remove();
                     e.preventDefault();

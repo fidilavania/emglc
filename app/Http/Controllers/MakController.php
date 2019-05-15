@@ -49,8 +49,15 @@ class MakController extends Controller
     public function formAgunan()
     {
      	$kantor = DB::connection('mysql')->table('master_kantor')->where('kode_induk',Auth::user()->kantor)->get();
+        $jenisrek = DB::connection('mysql2')->table('master_jenisrek')->get();
+        $jenispro = DB::connection('mysql2')->table('master_jenis_properti')->get();
+        $jenismilik = DB::connection('mysql2')->table('master_jenis_kepemilikan')->get();
+        $yatidak = DB::connection('mysql2')->table('diasuransikan')->get();
+        $jalan = DB::connection('mysql2')->table('kondisi_jalan')->get();
+        $agunan = DB::connection('mysql2')->table('kualitas_agunan')->get();
+        
    
-        return view('mak.form_agunan',compact('kantor'));   
+        return view('mak.form_agunan',compact('kantor','jenisrek','jenispro','jenismilik','yatidak','jalan','agunan'));   
     }
 
     public function formAnalisa()

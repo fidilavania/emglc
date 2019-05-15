@@ -523,13 +523,13 @@
 
           <div class="col-lg-6 col-md-6 portfolio-item filter-card wow fadeInUp">
             <div class="portfolio-wrap">
-              <figure>
+              <figure hidden>
                 <img src="/BizPage/img/portfolio/opsional.jpg" class="img-fluid" alt="">
                 <a href="/BizPage/img/portfolio/opsional.jpg" class="link-preview" data-lightbox="portfolio" data-title="Opsional Service" title="Preview"><i class="ion ion-eye"></i></a>
                 <!-- <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a> -->
               </figure>
 
-              <div class="portfolio-info">
+              <div class="portfolio-info" hidden>
                 <h4><a href="#">Opsional Service</a></h4>
                 <p>Opsional Service</p>
               </div>
